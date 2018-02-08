@@ -8,11 +8,13 @@ import { MatSidenavModule, MatToolbarModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
+import { ShelvesComponent } from './shelves/shelves.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShelvesComponent
   ],
   imports: [
     BrowserModule,
