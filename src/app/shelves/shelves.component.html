@@ -1,7 +1,7 @@
 <mat-sidenav-container class="shelves-container">
   <mat-sidenav mode="side" opened>
     <ul>
-      <li *ngFor="let shelf of shelves">Shelf #{{shelf.id}} - {{shelf.name}}</li>
+      <mat-card *ngFor="let shelf of shelves">Shelf #{{shelf.id}} - {{shelf.name}}</mat-card>
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>Main content</mat-sidenav-content>
