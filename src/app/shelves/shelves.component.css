@@ -24,3 +24,7 @@ mat-sidenav-content {
 .shelf-card {
   margin-bottom: 10px;
 }
+
+.num-tracks {
+  font-size: 12px;
+}

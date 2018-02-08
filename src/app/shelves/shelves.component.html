@@ -1,7 +1,10 @@
 <mat-sidenav-container class="shelves-container">
   <mat-sidenav mode="side" opened>
     <ul>
-      <mat-card class="shelf-card" *ngFor="let shelf of shelves">Shelf #{{shelf.id}} - {{shelf.name}}</mat-card>
+      <mat-card class="shelf-card" *ngFor="let shelf of shelves">
+        <mat-card-title>{{shelf.name}} <span class="num-tracks">{{shelf.tracklist.length}} tracks</span></mat-card-title>
+        <mat-card-subtitle>{{shelf.ownerName}}</mat-card-subtitle>
+      </mat-card>
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>Main content</mat-sidenav-content>
