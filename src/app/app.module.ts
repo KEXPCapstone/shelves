@@ -15,12 +15,14 @@ import { MatSidenavModule, MatToolbarModule, MatListModule, MatCardModule} from 
 import { AppComponent } from './app.component';
 import { ShelvesComponent } from './shelves/shelves.component';
 import { ShelfService } from './shelf.service';
+import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShelvesComponent
+    ShelvesComponent,
+    ShelfDetailComponent
   ],
   imports: [
     BrowserModule,
