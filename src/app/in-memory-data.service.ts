@@ -8,6 +8,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'International Clash Day',
         ownerName: 'John Richards',
         ownerId: 1,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID',
@@ -22,6 +23,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Morning Show 2/16/18',
         ownerName: 'John Richards',
         ownerId: 1,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID',
@@ -33,6 +35,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Audioasis 2/17/18',
         ownerName: 'Sharlese',
         ownerId: 2,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID',
@@ -44,6 +47,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'El Sonido 2/12/18',
         ownerName: 'DJ Chilly',
         ownerId: 3,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID',
@@ -55,6 +59,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Upstream Day 1',
         ownerName: 'Kevin Cole',
         ownerId: 4,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID',
@@ -66,6 +71,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Upstream Day 2',
         ownerName: 'Cheryl Waters',
         ownerId: 5,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID',
@@ -77,6 +83,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Afternoon Show 2/16/18',
         ownerName: 'Kevin Cole',
         ownerId: 4,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID',
@@ -97,6 +104,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'RIP Mark E. Smith',
         ownerName: 'Owen',
         ownerId: 6,
+        create_date: '02/16/2018',
         tracklist: [
           'moreMBID'
         ]
@@ -106,6 +114,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Songs in the Key of E',
         ownerName: 'John',
         ownerId: 7,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID'
@@ -116,6 +125,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Protest Songs',
         ownerName: 'DJ Morgan',
         ownerId: 8,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID',
@@ -127,6 +137,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Under A Minute',
         ownerName: 'Larry Rose',
         ownerId: 9,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID',
@@ -138,6 +149,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Upstream Day 3',
         ownerName: 'Troy Nelson',
         ownerId: 10,
+        create_date: '02/16/2018',
         tracklist: [
           'someMBID',
           'anotherMBID',

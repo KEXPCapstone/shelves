@@ -38,6 +38,7 @@ export class ShelfService {
   }
 
   // Put: update a shelf
+  // api/shelves/{id}
   updateShelf(shelf: Shelf): Observable<any> {
     return this.http.put(this.shelvesUrl, shelf, httpOptions).pipe(
       tap(_ => this.log(`updated shelf id=${shelf.id}`)),
@@ -46,6 +47,7 @@ export class ShelfService {
   }
 
   // Post: add a new shelf to the server
+  // api/shelves
   addShelf(shelf: Shelf): Observable<Shelf> {
     return this.http.post<Shelf>(this.shelvesUrl, shelf, httpOptions).pipe(
       tap((shelf: Shelf) => this.log(`added shelf w/ id=${shelf.id}`)),
@@ -54,6 +56,7 @@ export class ShelfService {
   }
 
   // Delete: delete a shelf
+  // api/shelves/{id}
   deleteShelf(shelf: Shelf | number): Observable<Shelf> {
     const id = typeof shelf === 'number' ? shelf : shelf.id;
     const url = `${this.shelvesUrl}/$id`;
