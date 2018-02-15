@@ -1,11 +1,28 @@
-<mat-sidenav-container class="shelves-container">
-  <mat-sidenav mode="side" opened>
-    <ul>
+<mat-drawer-container class="shelves-container">
+  <mat-drawer mode="side" opened="true">
+<!--     <mat-card class="shelf-card" >
+        <mat-card-title>Name<span class="num-tracks">10 tracks</span></mat-card-title>
+        <mat-card-subtitle>Bob</mat-card-subtitle>
+      </mat-card> -->
+<!--       <div class="card-container">
+      <ul><li *ngFor="let shelf of shelves">Hello i'm a shelf</li></ul>
+    </div> -->
       <mat-card class="shelf-card" *ngFor="let shelf of shelves">
         <mat-card-title>{{shelf.name}} <span class="num-tracks">{{shelf.tracklist.length}} tracks</span></mat-card-title>
         <mat-card-subtitle>{{shelf.ownerName}}</mat-card-subtitle>
       </mat-card>
-    </ul>
-  </mat-sidenav>
-  <mat-sidenav-content>Main content</mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-drawer>
+  <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>
+
+
+<!-- <mat-drawer-container class="shelves-container">
+  <mat-drawer mode="side" opened="true" position="start">
+      <mat-card class="shelf-card" *ngFor="let shelf of shelves">
+        <mat-card-title>{{shelf.name}} <span class="num-tracks">{{shelf.tracklist.length}} tracks</span></mat-card-title>
+        <mat-card-subtitle>{{shelf.ownerName}}</mat-card-subtitle>
+      </mat-card>
+  </mat-drawer>
+  <mat-drawer-content>Main content (library/album components)</mat-drawer-content>
+</mat-drawer-container>
+ -->

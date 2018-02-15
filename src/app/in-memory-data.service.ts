@@ -155,7 +155,7 @@ export class InMemoryDataService implements InMemoryDbService {
           'anotherMBID',
           'moreMBID'
         ]
-      },
+      }
     ];
     return {shelves};
   }
