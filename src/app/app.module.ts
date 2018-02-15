@@ -8,7 +8,15 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 // import material components to be used
 // TODO: material components can be imported in a separate module, to be imported in app module
-import { MatSidenavModule, MatToolbarModule, MatListModule, MatCardModule} from '@angular/material';
+import {
+  MatSidenavModule,
+  MatToolbarModule,
+  MatListModule,
+  MatCardModule,
+  MatButtonModule,
+  MatTabsModule
+
+} from '@angular/material';
 
 
 
@@ -34,6 +42,8 @@ import { ShelfEditorComponent } from './shelf-editor/shelf-editor.component';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
+    MatButtonModule,
+    MatTabsModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}),
   ],
