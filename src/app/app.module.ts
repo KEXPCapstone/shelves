@@ -25,6 +25,8 @@ import { ShelvesComponent } from './shelves/shelves.component';
 import { ShelfService } from './shelf.service';
 import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
 import { ShelfEditorComponent } from './shelf-editor/shelf-editor.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { LibraryComponent } from './library/library.component';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { ShelfEditorComponent } from './shelf-editor/shelf-editor.component';
     AppComponent,
     ShelvesComponent,
     ShelfDetailComponent,
-    ShelfEditorComponent
+    ShelfEditorComponent,
+    LibraryComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { ShelfEditorComponent } from './shelf-editor/shelf-editor.component';
     MatTabsModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}),
+    AppRoutingModule,
   ],
   providers: [ShelfService],
   bootstrap: [AppComponent]
