@@ -12,11 +12,16 @@
 
 .shelf-card {
   margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+mat-card-title {
+  font-size: 1em;
 }
 
 mat-sidenav {
   padding: 20px;
-  width: 350px;
+  width: 400px;
 }
 
 mat-sidenav-content {

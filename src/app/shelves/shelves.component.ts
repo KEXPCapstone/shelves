@@ -10,16 +10,23 @@ import { ShelfService } from '../shelf.service';
 })
 export class ShelvesComponent implements OnInit {
   shelves: Shelf[];
+  myShelves: Shelf[]; // https://angular.io/guide/pipes#appendix-no-filterpipe-or-orderbypipe
 
   constructor(private shelfService: ShelfService) { }
 
   ngOnInit() {
     this.getShelves();
+    this.getMyShelves();
   }
 
   getShelves(): void {
     this.shelfService.getShelves()
       .subscribe(shelves => this.shelves = shelves);
+  }
+
+  getMyShelves(): void {
+    this.shelfService.getShelves()
+      .subscribe(shelves => this.myShelves = shelves.filter(s => s.ownerId === 1)); // TODO: hardcoded; ownerID will be from auth'd user
   }
 
   add(name: string): void {
@@ -32,7 +39,9 @@ export class ShelvesComponent implements OnInit {
   }
 
   delete(shelf: Shelf): void {
-    this.shelves = this.shelves.filter(h => h !== shelf);
+    // remove the shelf from the model
+    this.shelves = this.shelves.filter(s => s !== shelf);
+    // make the call to the backend
     this.shelfService.deleteShelf(shelf).subscribe();
   }
 
