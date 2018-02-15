@@ -2,6 +2,7 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LibraryComponent } from './library/library.component';
+import { CategoryComponent } from './category/category.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/library', pathMatch: 'full'}, // default route
