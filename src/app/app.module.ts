@@ -27,6 +27,7 @@ import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
 import { ShelfEditorComponent } from './shelf-editor/shelf-editor.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LibraryComponent } from './library/library.component';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LibraryComponent } from './library/library.component';
     ShelvesComponent,
     ShelfDetailComponent,
     ShelfEditorComponent,
-    LibraryComponent
+    LibraryComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
