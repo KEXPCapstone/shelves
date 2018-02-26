@@ -1,17 +1,22 @@
 <mat-sidenav-container class="shelves-container">
   <mat-sidenav mode="side" opened="true">
-<!--     <button mat-fab>New</button> -->
     <mat-tab-group>
       <mat-tab label="My Shelves">
         <mat-card class="shelf-card" *ngFor="let shelf of myShelves">
           <mat-card-title>{{shelf.name}} <span class="num-tracks">{{shelf.tracklist.length}} tracks</span></mat-card-title>
           <mat-card-subtitle>{{shelf.ownerName}}</mat-card-subtitle>
+          <mat-card-actions align="end">
+            <button mat-button>OPEN</button>
+          </mat-card-actions>          
         </mat-card>
       </mat-tab>
       <mat-tab label="Other shelves">
         <mat-card class="shelf-card" *ngFor="let shelf of shelves">
           <mat-card-title>{{shelf.name}} <span class="num-tracks">{{shelf.tracklist.length}} tracks</span></mat-card-title>
           <mat-card-subtitle>{{shelf.ownerName}}</mat-card-subtitle>
+          <mat-card-actions align="end">
+            <button mat-button>OPEN</button>
+          </mat-card-actions>
         </mat-card>
       </mat-tab>
     </mat-tab-group>
