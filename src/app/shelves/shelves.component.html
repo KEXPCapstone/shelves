@@ -1,27 +1,29 @@
 <mat-sidenav-container class="shelves-container">
-  <mat-sidenav mode="side" opened="true">
+  <mat-sidenav #sidenav mode="over" opened="true" class="shelves-sidenav" fixedInViewport="true">
     <mat-tab-group>
       <mat-tab label="My Shelves">
-        <mat-card class="shelf-card" *ngFor="let shelf of myShelves">
+        <mat-card class="shelf-card" *ngFor="let shelf of myShelves" [class.open]="shelf === openShelf">
           <mat-card-title>{{shelf.name}} <span class="num-tracks">{{shelf.tracklist.length}} tracks</span></mat-card-title>
           <mat-card-subtitle>{{shelf.ownerName}}</mat-card-subtitle>
           <mat-card-actions align="end">
-            <button mat-button>OPEN</button>
-          </mat-card-actions>          
+            <button mat-button (click)="onShelfOpen(shelf)">OPEN</button>
+          </mat-card-actions>
         </mat-card>
       </mat-tab>
       <mat-tab label="Other shelves">
-        <mat-card class="shelf-card" *ngFor="let shelf of shelves">
+        <mat-card class="shelf-card" *ngFor="let shelf of shelves" [class.open]="shelf === openShelf">
           <mat-card-title>{{shelf.name}} <span class="num-tracks">{{shelf.tracklist.length}} tracks</span></mat-card-title>
           <mat-card-subtitle>{{shelf.ownerName}}</mat-card-subtitle>
           <mat-card-actions align="end">
-            <button mat-button>OPEN</button>
+            <button mat-button (click)="onShelfOpen(shelf)">OPEN</button>
           </mat-card-actions>
         </mat-card>
       </mat-tab>
     </mat-tab-group>
   </mat-sidenav>
   <mat-sidenav-content>
+    <button mat-button (click)="sidenav.toggle()">Open shelves</button>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<app-shelf-editor [shelf]="openShelf"></app-shelf-editor>
