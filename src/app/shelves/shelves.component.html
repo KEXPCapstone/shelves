@@ -2,7 +2,7 @@
   <span>KEXP Shelves</span>
 </mat-toolbar>
 <mat-sidenav-container class="shelves-container">
-  <mat-sidenav #sidenav mode="over" opened="false" class="shelves-sidenav" fixedInViewport="true">
+  <mat-sidenav #sidenav mode="over" opened="false" class="shelves-sidenav" fixedInViewport="false">
     <mat-tab-group>
       <mat-tab label="My Shelves">
         <mat-card class="shelf-card" *ngFor="let shelf of myShelves" [class.open]="shelf === openShelf">
