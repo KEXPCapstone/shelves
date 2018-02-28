@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Shelf } from '../shelf';
 
 @Component({
   selector: 'app-shelf-editor',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shelf-editor.component.css']
 })
 export class ShelfEditorComponent implements OnInit {
+
+  @Input() shelf: Shelf;
 
   constructor() { }
 

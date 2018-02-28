@@ -11,6 +11,7 @@ import { ShelfService } from '../shelf.service';
 export class ShelvesComponent implements OnInit {
   shelves: Shelf[];
   myShelves: Shelf[]; // https://angular.io/guide/pipes#appendix-no-filterpipe-or-orderbypipe
+  openShelf: Shelf;
 
   constructor(private shelfService: ShelfService) { }
 
@@ -43,6 +44,12 @@ export class ShelvesComponent implements OnInit {
     this.shelves = this.shelves.filter(s => s !== shelf);
     // make the call to the backend
     this.shelfService.deleteShelf(shelf).subscribe();
+  }
+
+  // handler to open shelf into editor from collection
+  onShelfOpen(shelf: Shelf): void {
+    console.log("open: " + shelf.id);
+    this.openShelf = shelf;
   }
 
 }
