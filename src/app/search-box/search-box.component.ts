@@ -12,4 +12,8 @@ export class SearchBoxComponent implements OnInit {
   ngOnInit() {
   }
 
+  doSearch() {
+    console.log("doing search");
+  }
+
 }
