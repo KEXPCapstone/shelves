@@ -12,8 +12,9 @@ export class SearchBoxComponent implements OnInit {
   ngOnInit() {
   }
 
-  doSearch() {
-    console.log("doing search");
+  // pass the query along to the search service
+  doSearch(query: string) {
+    console.log("search query: " + query);
   }
 
 }

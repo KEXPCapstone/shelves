@@ -1,1 +1,1 @@
-<input #searchbox type="search" aria-label="search" placeholder="Search" name="" (input)="doSearch()" (click)="doSearch()">
+<input #searchbox type="search" aria-label="search" placeholder="Search the KEXP library" name="" (keyup.enter)="doSearch(searchbox.value)">
