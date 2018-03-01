@@ -28,6 +28,8 @@ import { ShelfEditorComponent } from './shelf-editor/shelf-editor.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LibraryComponent } from './library/library.component';
 import { CategoryComponent } from './category/category.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { CategoryComponent } from './category/category.component';
     ShelfDetailComponent,
     ShelfEditorComponent,
     LibraryComponent,
-    CategoryComponent
+    CategoryComponent,
+    SearchResultsComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,
