@@ -18,6 +18,30 @@ export class LibraryService {
 
   constructor(private http: HttpClient) { }
 
+  /** GET shelf by id. Will 404 if id not found */
+  getReleaseById(id: number): Observable<Release> {
+    const url = `${this.libraryUrl}/${id}`;
+    return this.http.get<Release>(url).pipe(
+      tap(_ => this.log(`fetched release id=${id}`)),
+      catchError(this.handleError<Release>(`getRelease id=${id}`))
+    );
+  }
+
+  // GET Releases matching the supplied KEXP category
+  getReleasesByCategory(category: string): Observable<Release[]> {
+    const url = `${this.libraryUrl}/releases/categories/${category}`;
+    return this.http.get<Release[]>(url)
+      .pipe(
+        tap(releases => this.log(`fetched releases`)),
+        catchError(this.handleError('getReleases', []))
+      );
+  }
+
+  // fetch releases related to a given release by some criteria
+  getRelatedReleases(releaseId: number, matchCriteria: string): Observable<Release[]> {
+    return null;
+  }
+
   private log(message: string) {
     // TODO: better logging, don't log to console
     console.log(message);

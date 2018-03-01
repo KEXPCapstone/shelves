@@ -27,6 +27,7 @@ export class ShelfService {
         catchError(this.handleError('getShelves', []))
       );
   }
+
   /** GET shelf by id. Will 404 if id not found */
   getShelf(id: number): Observable<Shelf> {
     const url = `${this.shelvesUrl}/${id}`;
