@@ -3,22 +3,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MaterialModule } from './material/material.module';
+
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
-
-// import material components to be used
-// TODO: material components can be imported in a separate module, to be imported in app module
-import {
-  MatSidenavModule,
-  MatToolbarModule,
-  MatListModule,
-  MatCardModule,
-  MatButtonModule,
-  MatTabsModule
-
-} from '@angular/material';
-
-
 
 import { AppComponent } from './app.component';
 import { ShelvesComponent } from './shelves/shelves.component';
@@ -30,7 +18,6 @@ import { LibraryComponent } from './library/library.component';
 import { CategoryComponent } from './category/category.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
-
 
 @NgModule({
   declarations: [
@@ -47,15 +34,10 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatCardModule,
-    MatButtonModule,
-    MatTabsModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}),
     AppRoutingModule,
+    MaterialModule
   ],
   providers: [ShelfService],
   bootstrap: [AppComponent]
