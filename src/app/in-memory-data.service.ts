@@ -2,6 +2,43 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+    let library = [
+      {
+        id: 3243252,
+        title: 'American Dream',
+        artistName: 'LCD Soundsystem',
+        labelName: 'DFA Records',
+        kexpCategory: 'Rock/Pop'
+      },
+      {
+        id: 720343,
+        title: 'Magnolia Electric Co.',
+        artistName: 'Songs:Ohia',
+        labelName: 'Secretly Canadian',
+        kexpCategory: 'Rock/Pop'
+      },
+      {
+        id: 6899852,
+        title: 'Lese Majesty',
+        artistName: 'Shabazz Palaces',
+        labelName: 'Sub Pop',
+        kexpCategory: 'Local'
+      },
+      {
+        id: 1099082,
+        title: 'Station to Station',
+        artistName: 'David Bowie',
+        labelName: 'RCA Records',
+        kexpCategory: 'Rock/Pop'
+      },
+      {
+        id: 289922,
+        title: 'Run the Jewels 2',
+        artistName: 'Run the Jewels',
+        labelName: 'Mass Appeal Records',
+        kexpCategory: 'Hip Hop'
+      }
+    ];
     let shelves = [
       {
         id: 1,
@@ -157,6 +194,6 @@ export class InMemoryDataService implements InMemoryDbService {
         ]
       }
     ];
-    return {shelves};
+    return {shelves, library};
   }
 }
