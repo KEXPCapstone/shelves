@@ -17,6 +17,8 @@ export class ShelfService {
 
   private shelvesUrl = 'api/shelves'; // URL to web api
 
+  constructor(private http: HttpClient) { }
+
   // GET shelves from the server
   getShelves (): Observable<Shelf[]> {
     return this.http.get<Shelf[]>(this.shelvesUrl)
@@ -25,8 +27,6 @@ export class ShelfService {
         catchError(this.handleError('getShelves', []))
       );
   }
-
-  constructor(private http: HttpClient) { }
 
   /** GET shelf by id. Will 404 if id not found */
   getShelf(id: number): Observable<Shelf> {

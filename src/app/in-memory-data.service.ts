@@ -2,6 +2,43 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+    let library = [
+      {
+        id: 3243252,
+        title: 'American Dream',
+        artistName: 'LCD Soundsystem',
+        labelName: 'DFA Records',
+        kexpCategory: 'Rock/Pop'
+      },
+      {
+        id: 720343,
+        title: 'Magnolia Electric Co.',
+        artistName: 'Songs:Ohia',
+        labelName: 'Secretly Canadian',
+        kexpCategory: 'Rock/Pop'
+      },
+      {
+        id: 6899852,
+        title: 'Lese Majesty',
+        artistName: 'Shabazz Palaces',
+        labelName: 'Sub Pop',
+        kexpCategory: 'Local'
+      },
+      {
+        id: 1099082,
+        title: 'Station to Station',
+        artistName: 'David Bowie',
+        labelName: 'RCA Records',
+        kexpCategory: 'Rock/Pop'
+      },
+      {
+        id: 289922,
+        title: 'Run the Jewels 2',
+        artistName: 'Run the Jewels',
+        labelName: 'Mass Appeal Records',
+        kexpCategory: 'Hip Hop'
+      }
+    ];
     let shelves = [
       {
         id: 1,
@@ -9,7 +46,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'John Richards',
         ownerId: 1,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID',
           'moreMBID',
@@ -24,7 +61,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'John Richards',
         ownerId: 1,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID',
           'moreMBID'
@@ -36,7 +73,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'Sharlese',
         ownerId: 2,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID',
           'moreMBID'
@@ -48,7 +85,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'DJ Chilly',
         ownerId: 3,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID',
           'moreMBID'
@@ -60,7 +97,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'Kevin Cole',
         ownerId: 4,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID',
           'moreMBID'
@@ -72,7 +109,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'Cheryl Waters',
         ownerId: 5,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID',
           'moreMBID'
@@ -84,7 +121,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'Kevin Cole',
         ownerId: 4,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID',
           'moreMBID',
@@ -105,7 +142,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'Owen',
         ownerId: 6,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'moreMBID'
         ]
       },
@@ -115,7 +152,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'John',
         ownerId: 7,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID'
         ]
@@ -126,7 +163,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'DJ Morgan',
         ownerId: 8,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID',
           'moreMBID'
@@ -138,7 +175,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'Larry Rose',
         ownerId: 9,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID',
           'moreMBID'
@@ -150,13 +187,13 @@ export class InMemoryDataService implements InMemoryDbService {
         ownerName: 'Troy Nelson',
         ownerId: 10,
         create_date: '02/16/2018',
-        tracklist: [
+        releases: [
           'someMBID',
           'anotherMBID',
           'moreMBID'
         ]
       }
     ];
-    return {shelves};
+    return {shelves, library};
   }
 }
