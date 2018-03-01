@@ -5,8 +5,8 @@
   <mat-sidenav #sidenav mode="side" opened="false" class="shelves-sidenav" fixedInViewport="false">
     <mat-tab-group>
       <mat-tab label="My Shelves">
-        <mat-card class="shelf-card" *ngFor="let shelf of myShelves" [class.open]="shelf === openShelf">
-          <mat-card-title>{{shelf.name}} <span class="num-tracks">{{shelf.tracklist.length}} tracks</span></mat-card-title>
+        <mat-card class="shelf-card" *ngFor="let shelf of myShelves">
+          <mat-card-title>{{shelf.name}}</mat-card-title>
           <mat-card-subtitle>{{shelf.ownerName}}</mat-card-subtitle>
           <mat-card-actions align="end">
             <button mat-button (click)="onShelfOpen(shelf)">OPEN</button>
@@ -14,8 +14,8 @@
         </mat-card>
       </mat-tab>
       <mat-tab label="Other shelves">
-        <mat-card class="shelf-card" *ngFor="let shelf of shelves" [class.open]="shelf === openShelf">
-          <mat-card-title>{{shelf.name}} <span class="num-tracks">{{shelf.tracklist.length}} tracks</span></mat-card-title>
+        <mat-card class="shelf-card" *ngFor="let shelf of shelves">
+          <mat-card-title>{{shelf.name}}</mat-card-title>
           <mat-card-subtitle>{{shelf.ownerName}}</mat-card-subtitle>
           <mat-card-actions align="end">
             <button mat-button (click)="onShelfOpen(shelf)">OPEN</button>
