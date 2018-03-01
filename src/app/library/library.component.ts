@@ -7,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibraryComponent implements OnInit {
 
+  categories = [
+    'rock/pop',
+    'hip hop',
+    'local',
+    'world',
+    'roots',
+    'reggae',
+    'beats/electronic'
+  ];
+
   constructor() { }
 
   ngOnInit() {
