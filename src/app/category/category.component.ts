@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { LibraryService } from '../library.service';
 
 @Component({
   selector: 'app-category',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor() { }
+  categoryName: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private libraryService: LibraryService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
+    this.categoryName = this.route.snapshot.paramMap.get('category');
   }
 
 }
