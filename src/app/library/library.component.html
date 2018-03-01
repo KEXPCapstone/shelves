@@ -1,6 +1,8 @@
 <h1>Explore the KEXP Music Library</h1>
 <mat-grid-list cols="4" rowHeight="2:1">
-    <mat-grid-tile class="category-tile" *ngFor="let category of categories">
+  <mat-grid-tile class="category-tile" *ngFor="let category of categories">
+    <a routerLink="/library/{{category}}">
       {{category}}
-    </mat-grid-tile>
+    </a>
+  </mat-grid-tile>
 </mat-grid-list>
