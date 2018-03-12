@@ -21,6 +21,9 @@ top_albums = []
 for line in reader:
     top_albums.append(line)
 
+# second list of vinyl not yet in MB
+reader = csv.DictReader(open("MoreVinyl.csv"))
+
 # get list of KEXP_VINYL collection ids
 params = dict(
     fmt='json',
