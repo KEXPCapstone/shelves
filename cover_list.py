@@ -10,8 +10,8 @@ import math
 
 import math
 
-def roundup(x):
-    return int(math.ceil(x / 100.0)) * 100
+def compare_fields(a, b):
+    return str(a.lower().encode('utf8')) == str(b.lower())
 
 musicbrainz_api = 'https://musicbrainz.org/ws/2/'
 
@@ -20,9 +20,6 @@ reader = csv.DictReader(open("KEXPTop1000.csv"))
 top_albums = []
 for line in reader:
     top_albums.append(line)
-for album in top_albums:
-    if album['Album'] == 'Nevermind':
-        print(album['Album'])
 
 # get list of KEXP_VINYL collection ids
 params = dict(
@@ -56,6 +53,10 @@ for collection in data['collections']:
     print('fetched ' + str(len(releases)) + ' in this collection')
     for release in releases:
         for album in top_albums:
-            if str(release['title'].lower().encode('utf8')) == str(album['Album'].lower()):
-                albums_to_photograph.append(release['title'])
+            mb_artist_name = release['artist-credit'][0]['artist']['name'] # lol
+            if compare_fields(release['title'], album['Album']) and compare_fields(mb_artist_name, album['Artist']):
+                albums_to_photograph.append(release)
+
 print("{0} albums to photograph".format(len(albums_to_photograph)))
+with open('photos_list.json', 'w') as outfile:
+    json.dump(albums_to_photograph, outfile)
