@@ -2,11 +2,11 @@ from suds.client import Client
 from suds.wsse import Security, UsernameToken
 from suds.plugin import MessagePlugin
 
-SOAP_SERVER = 'dalet-test-1.kexp.org' # does the dalet-test-2 server work for this?
+SOAP_SERVER = 'dalet-mig-1.kexp.org' # does the dalet-test-2 server work for this?
 SOAP_PORT = 8081
 
 security = Security()
-token = UsernameToken('user', 'password')
+token = UsernameToken('', '')
 security.tokens.append(token)
 
 
@@ -51,12 +51,21 @@ objectTypeEnum = services_dict['MetadataService'].factory.create('ns2:ObjectType
 
 # make a test request to the CategoryService, returning the MusicLibrary 'category'
 # Note: a category is a set of references to 'assets'
-response = services_dict['CategoryService'].service.getCategory(9768)
+# response = services_dict['CategoryService'].service.getCategory(9768)
 
-print response
+# print response
 
-user = services_dict['UserService'].service.getGroupsByUser(96)
-print user
+# user = services_dict['UserService'].service.getGroupsByUser(96)
+# print user
+
+example_release = 64941 # Cobra Juicy - Black Moth Super Rainbow (Category ID)
+
+release_from_category = services_dict['CategoryService'].service.getCategory(example_release)
+# print release_from_category
+
+category_metadata = services_dict['MetadataService'].service.getObjectMetadata(objectId=123182, objectType=objectTypeEnum.GLOSSARY_VALUE, firstIndex=0, maxResults=1000)
+print category_metadata
+# goal: pull all metadata from Dalet for a given release
 
 # last_label = ''
 # live_performance_glossaries = []
