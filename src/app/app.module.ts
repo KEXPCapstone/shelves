@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from './material/material.module';
 
@@ -40,7 +41,8 @@ import { ReleaseDetailComponent } from './release-detail/release-detail.componen
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}),
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [ShelfService, LibraryService],
   bootstrap: [AppComponent]
