@@ -1,3 +1,7 @@
-<p>
-  release-detail works!
-</p>
+<div *ngIf="release">
+    <h2>{{ release.title | uppercase }}</h2>
+    <h3>{{ release.artistName }}</h3>
+    <p>{{ release.label }}</p>
+    <div><span>id: </span>{{release.id}}</div>
+    <button (click)="goBack()">go back</button>
+</div>

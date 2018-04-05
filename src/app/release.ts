@@ -5,5 +5,11 @@ export class Release {
   artistName: string;
   labelName: string;
   kexpCategory: string;
-  // releaseDate, tracklist, imageUrl, ...
+  trackList: string[]; // what do we need to store tracks as?
+  releaseDate: Date;
+  imageUrl: string;
+  releaseMBID: string;
+  daletLibraryCategoryID: string; // the 'id' of the primary category under which this release is filed in dalet
+  releaseLength: Date; // hh:mm:ss
+  // more fields ...
 }

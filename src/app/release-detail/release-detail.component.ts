@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { LibraryService } from '../library.service';
+import { Release } from '../release';
 
 @Component({
   selector: 'app-release-detail',
@@ -6,10 +11,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./release-detail.component.css']
 })
 export class ReleaseDetailComponent implements OnInit {
+  @Input() release: Release;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private libraryService: LibraryService,
+    private location: Location
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getRelease();
   }
 
+  getRelease(): void {
+    const id = +this.route.snapshot.paramMap.get('releaseId'); // + operator does number conversion string to id
+    this.libraryService.getReleaseById(id)
+      .subscribe(release => this.release = release);
+  }
+
+  // useful to implement 'back' button
+  goBack(): void {
+    this.location.back();
+  }
 }

@@ -2,7 +2,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    let library = [
+    const library = [
       {
         id: 3243252,
         title: 'American Dream',
@@ -39,7 +39,7 @@ export class InMemoryDataService implements InMemoryDbService {
         kexpCategory: 'Hip Hop'
       }
     ];
-    let shelves = [
+    const shelves = [
       {
         id: 1,
         name: 'International Clash Day',
