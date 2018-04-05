@@ -50,7 +50,7 @@ export class ShelfService {
   // api/shelves
   addShelf(shelf: Shelf): Observable<Shelf> {
     return this.http.post<Shelf>(this.shelvesUrl, shelf, httpOptions).pipe(
-      tap((shelf: Shelf) => this.log(`added shelf w/ id=${shelf.id}`)),
+      tap((returnedShelf: Shelf) => this.log(`added shelf w/ id=${returnedShelf.id}`)),
       catchError(this.handleError<Shelf>('addShelf'))
     );
   }
@@ -74,7 +74,7 @@ export class ShelfService {
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      //TODO: send the error to remote logging infrastructure
+      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
