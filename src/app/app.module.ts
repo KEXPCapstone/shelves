@@ -19,6 +19,7 @@ import { LibraryComponent } from './library/library.component';
 import { CategoryComponent } from './category/category.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import { ReleaseDetailComponent } from './release-detail/release-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     LibraryComponent,
     CategoryComponent,
     SearchResultsComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    ReleaseDetailComponent
   ],
   imports: [
     BrowserModule,
