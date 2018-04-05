@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 
 import { LibraryService } from '../library.service';
 
+import { Release } from '../release';
+
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -12,6 +14,7 @@ import { LibraryService } from '../library.service';
 export class CategoryComponent implements OnInit {
 
   categoryName: string;
+  releases: Release[];
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +24,14 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.categoryName = this.route.snapshot.paramMap.get('category');
+    // load releases in this category
+    this.getReleasesInCategory();
+  }
+
+  // fetch the releases in this category from the library service
+  getReleasesInCategory(): void {
+    this.libraryService.getReleasesByCategory(this.categoryName)
+      .subscribe(releases => this.releases = releases);
   }
 
 }

@@ -13,7 +13,6 @@ import { Release } from '../release';
 export class ReleaseDetailComponent implements OnInit {
   @Input() release: Release;
 
-
   constructor(
     private route: ActivatedRoute,
     private libraryService: LibraryService,

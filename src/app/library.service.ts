@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable()
 export class LibraryService {
 
-  private libraryUrl = 'api/library'; // URL to web api
+  private libraryUrl = 'api/library'; // replace with URL to web api
 
   constructor(private http: HttpClient) { }
 
