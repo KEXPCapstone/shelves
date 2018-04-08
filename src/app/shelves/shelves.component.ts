@@ -48,7 +48,7 @@ export class ShelvesComponent implements OnInit {
 
   // handler to open shelf into editor from collection
   onShelfOpen(shelf: Shelf): void {
-    console.log("open: " + shelf.id);
+    console.log('open: ' + shelf.id);
     this.openShelf = shelf;
   }
 

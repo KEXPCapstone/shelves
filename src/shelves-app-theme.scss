@@ -1,10 +1,10 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$shelves-app-primary: mat-palette($mat-grey);
-$shelves-app-accent: mat-palette($mat-amber, 500, 900, A100);
-$shelves-app-warn:    mat-palette($mat-red);
+$shelves-app-primary: mat-palette($mat-grey, 900, 400);
+$shelves-app-accent: mat-palette($mat-amber, 500, 900);
+$shelves-app-warn: mat-palette($mat-red);
 
-$shelves-app-theme: mat-light-theme($shelves-app-primary, $shelves-app-accent, $shelves-app-warn);
+$shelves-app-theme: mat-dark-theme($shelves-app-primary, $shelves-app-accent, $shelves-app-warn);
 
 @include angular-material-theme($shelves-app-theme)

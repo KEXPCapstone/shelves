@@ -1,8 +1,22 @@
-<h1>Explore the KEXP Music Library</h1>
-<mat-grid-list cols="4" rowHeight="2:1">
-  <mat-grid-tile class="category-tile" *ngFor="let category of categories">
-    <a routerLink="/library/{{category}}">
-      {{category}}
-    </a>
-  </mat-grid-tile>
-</mat-grid-list>
+<section class="banner">
+  <h2>Explore the Music Library</h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Aenean vehicula scelerisque ante, scelerisque vestibulum tellus iaculis vel.
+    Phasellus vel augue ac lacus faucibus sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Aenean vehicula scelerisque ante, scelerisque vestibulum tellus iaculis vel. Phasellus vel augue ac lacus faucibus sodales.
+    Sed semper eros sed arcu placerat dignissim in a diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Integer posuere mauris ac sapien dictum, sed consectetur risus tempus.
+    Proin vulputate lectus in fermentum gravida. Nunc nec pharetra quam, vitae luctus tortor.
+  </p>
+</section>
+<section class="library-categories">
+  <mat-grid-list cols="4" rowHeight="250px" gutterSize="2px">
+    <mat-grid-tile class="category-tile" *ngFor="let category of categories">
+      <mat-grid-tile-footer class="category-tile-footer">
+        <h3><a class="category-link" routerLink="/library/{{category}}">
+          {{category}}</a></h3>
+      </mat-grid-tile-footer>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>
