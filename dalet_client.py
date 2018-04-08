@@ -173,14 +173,15 @@ while True:
 print(len(release_glossaries))
 
 count = 0
+
 # for each release
 release_dicts = []
 for release_glossary in release_glossaries:
-    try:
-        print('GlossaryID: ' + str(release_glossary['id']))
-    except:
-        print(release_glossary)
-        raise
+    # try:
+    #     print('GlossaryID: ' + str(release_glossary['id']))
+    # except:
+    #     print(release_glossary)
+    #     raise
 
     # get metadata on the release
     glossary_metadata = services_dict['MetadataService'].service.getObjectMetadata(
@@ -190,29 +191,36 @@ for release_glossary in release_glossaries:
         maxResults=1000
     )
 
+
     # create a new dict for metadata
     glossary_metadata_dict = {}
 
     count += 1
-    # print(count) # keeping track of how many we've processed ( for fun i guess )
 
     # iterate through the nasty data tags
     for data_tag in glossary_metadata[1]:
         try:
             # filter for the ones we want to save
             # extend this to extract more fields if needed
-            if data_tag['dataFieldTagName'] in ['KEXPMBID', 'KEXPTitle', 'KEXPReleaseArtistCredit', 'KEXPLabel']:
-                glossary_metadata_dict[data_tag['dataFieldTagName']] = data_tag['value']
+            if data_tag['dataFieldTagName'] in ['KEXPPrimaryGenre', 'KEXPMBID', 'KEXPDateReleased', 'KEXPFirstReleaseDate', 'KEXPLength', 'KEXPReleaseCatalogNumber', 'KEXPReleaseGroupMBID', 'KEXPTitle', 'KEXPUniqueTitle', 'KEXPReleaseArtistCredit', 'KEXPArtist', 'KEXPLabel', 'KEXPReleasePackaging', 'KEXPReleasePrimaryType', 'KEXPReleaseSecondaryType', 'KEXPReleaseStatus', 'KEXPArtist_KEXPAlias', 'KEXPArtist_KEXPArtistType', 'KEXPArtist_KEXPDisambiguation', 'KEXPArtist_KEXPLink', 'KEXPArtist_KEXPMBID', 'KEXPArtist_KEXPName', 'KEXPArtist_KEXPSortName', 'KEXPLabel_KEXPMBID', 'KEXPLabel_KEXPName', 'KEXPLabel_KEXPSortName', 'KEXPArea', 'KEXPAreaMBID', 'KEXPCountryCode']:
+                glossary_metadata_dict[data_tag['dataFieldTagName']] = data_tag['value'].encode('utf-8')
         except AttributeError:
             pass
         except TypeError:
             print('type_error: ' + data_tag)
 
-    # print('Resulting Dict: ' + str(glossary_metadata_dict).encode('utf-8'))
-    release_dicts.append(glossary_metadata_dict)
+    # only add items with and MBID (which might be everything)
+    if 'KEXPMBID' in glossary_metadata_dict:
+        release_dicts.append(glossary_metadata_dict)
+
+    # do a little checkpoint write in case the script fails
+    if count % 100 == 0:
+        with open('dalet_releases_{0}.json'.format(count), 'w') as f:
+            json.dump(release_dicts, f)
+
 
 print('Recovered {0} releases'.format(len(release_dicts)))
 
-# write it to a file
-with open('dalet_releases.json', 'w') as f:
-    json.dump(release_dicts)
+# # if we finish, write the full thing it to a file
+with open('dalet_releases_full.json', 'w') as f:
+    json.dump(release_dicts, f)
