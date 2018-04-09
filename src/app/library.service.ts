@@ -31,8 +31,7 @@ export class LibraryService {
   // GET Releases matching the supplied KEXP category
   getReleasesByCategory(category: string): Observable<Release[]> {
     const url = `${this.libraryUrl}/releases/categories/${category}`;
-    return this.http.get<Release[]>(url)
-      .pipe(
+    return this.http.get<Release[]>(url).pipe(
         tap(releases => this.log(`fetched releases`)),
         catchError(this.handleError('getReleases', []))
       );

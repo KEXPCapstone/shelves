@@ -9,12 +9,16 @@ export class LibraryComponent implements OnInit {
 
   categories = [
     'rock-pop',
-    'hiphop',
+    'hip-hop',
     'local',
     'world',
     'roots',
     'reggae',
-    'beats-electronic'
+    'electronic',
+    'jazz',
+    'experimental',
+    'soundtrack',
+    'holiday'
   ];
 
   constructor() { }
