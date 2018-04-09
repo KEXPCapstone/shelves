@@ -19,7 +19,8 @@ export class LibraryService {
   constructor(private http: HttpClient) { }
 
   /** GET release by id. Will 404 if id not found */
-  getReleaseById(id: number): Observable<Release> {
+  getReleaseById(id: string): Observable<Release> {
+    console.log('id: ' + id);
     const url = `${this.libraryUrl}/${id}`;
     return this.http.get<Release>(url).pipe(
       tap(_ => this.log(`fetched release id=${id}`)),

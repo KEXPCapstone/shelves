@@ -1,44 +1,9 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import * as release_data from './dalet_releases_200.json';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const library = [
-      {
-        id: 3243252,
-        title: 'American Dream',
-        artistName: 'LCD Soundsystem',
-        labelName: 'DFA Records',
-        kexpCategory: 'Rock/Pop'
-      },
-      {
-        id: 720343,
-        title: 'Magnolia Electric Co.',
-        artistName: 'Songs:Ohia',
-        labelName: 'Secretly Canadian',
-        kexpCategory: 'Rock/Pop'
-      },
-      {
-        id: 6899852,
-        title: 'Lese Majesty',
-        artistName: 'Shabazz Palaces',
-        labelName: 'Sub Pop',
-        kexpCategory: 'Local'
-      },
-      {
-        id: 1099082,
-        title: 'Station to Station',
-        artistName: 'David Bowie',
-        labelName: 'RCA Records',
-        kexpCategory: 'Rock/Pop'
-      },
-      {
-        id: 289922,
-        title: 'Run the Jewels 2',
-        artistName: 'Run the Jewels',
-        labelName: 'Mass Appeal Records',
-        kexpCategory: 'Hip Hop'
-      }
-    ];
+    const library = release_data;
     const shelves = [
       {
         id: 1,

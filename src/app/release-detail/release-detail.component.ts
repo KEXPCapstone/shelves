@@ -24,7 +24,7 @@ export class ReleaseDetailComponent implements OnInit {
   }
 
   getRelease(): void {
-    const id = +this.route.snapshot.paramMap.get('releaseId'); // + operator does number conversion string to id
+    const id = this.route.snapshot.paramMap.get('releaseId');
     this.libraryService.getReleaseById(id)
       .subscribe(release => this.release = release);
   }

@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/library', pathMatch: 'full'}, // default route
   {path: 'library', component: LibraryComponent}, // top-level library browse view
   {path: 'library/:category', component: CategoryComponent},  // component for KEXP 'category' sections
-  {path: 'library/detail/:releaseId', component: ReleaseDetailComponent} // release detail route (category is implied)
+  {path: 'library/releases/:releaseId', component: ReleaseDetailComponent} // release detail route (category is implied)
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

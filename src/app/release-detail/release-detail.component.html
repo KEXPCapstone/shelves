@@ -1,7 +1,16 @@
 <div *ngIf="release">
-    <h2>{{ release.title | uppercase }}</h2>
-    <h3>{{ release.artistName }}</h3>
-    <p>{{ release.label }}</p>
-    <div><span>id: </span>{{release.id}}</div>
+    <ul>
+        <li>
+            {{release.id}}        
+        </li>
+        <li>{{release.KEXPReleaseGroupMBID}}</li>
+        <li>{{release.KEXPPrimaryGenre}}</li>
+        <li>{{release.KEXPCountryCode}}</li>
+        <li>{{release.KEXPDateReleased}}</li>
+        <li>{{release.KEXPReleaseArtistCredit}}</li>
+        <li>{{release.KEXPArtist_KEXPSortName}}</li>
+        <li>{{release.KEXPFirstReleaseDate}}</li>
+        <li>{{release.KEXPTitle}}</li>
+    </ul>
     <button (click)="goBack()">go back</button>
 </div>
