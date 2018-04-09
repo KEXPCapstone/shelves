@@ -1,9 +1,9 @@
 <header class="category-header">
     <h2>
-      {{categoryName}} ({{releases.length}} releases)
+      {{categoryName}}
     </h2>
 </header>
-<section class="category-content">
+<section *ngIf="releases" class="category-content">
     <mat-grid-list cols="4" rowHeight="250px" gutterSize="2px">
         <mat-grid-tile class="release-preview-tile" *ngFor="let release of releases">
           <mat-grid-tile-footer class="category-tile-footer">

@@ -41,7 +41,7 @@ export class InMemoryDataService implements InMemoryDbService {
     // console.log(parsedUrl.id);
     if (url.startsWith('api/library/releases/categories')) {
       const category = url.split('/')[4];
-      console.log('category: ' + category);
+      // console.log('category: ' + category);
       return this.getCategoryReleases(reqInfo, category);
     }
     return undefined; // let the default GET handle all others
@@ -51,7 +51,6 @@ export class InMemoryDataService implements InMemoryDbService {
       return reqInfo.utils.createResponse$(() => {
         console.log('HTTP GET override');
         const data = this.release_json.filter(release => release.KEXPPrimaryGenre === fieldMap[category]);
-        console.log(data);
         const dataEncapsulation = reqInfo.utils.getConfig().dataEncapsulation;
         const options: ResponseOptions = {
           body: dataEncapsulation ? { data } : data,
