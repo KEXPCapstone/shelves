@@ -15,7 +15,7 @@
     <mat-grid-tile class="category-tile" *ngFor="let category of categories">
       <mat-grid-tile-footer class="category-tile-footer">
         <h3><a class="category-link" routerLink="/library/{{category}}">
-          {{category}}</a></h3>
+          {{category | titlecase}}</a></h3>
       </mat-grid-tile-footer>
     </mat-grid-tile>
   </mat-grid-list>
