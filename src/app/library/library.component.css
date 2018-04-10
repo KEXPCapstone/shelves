@@ -1,11 +1,11 @@
 /* library "section" */
-.library-categories {
+/* .library-categories {
   padding: 0px 50px;
-}
+} */
 
 .library-header {
   text-align: center;
-  padding: 0px 250px;
+  /* padding: 0px 250px; */
 }
 
 /* individual category tiles */
