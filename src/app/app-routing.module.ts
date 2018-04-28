@@ -6,10 +6,11 @@ import { CategoryComponent } from './category/category.component';
 import { ReleaseDetailComponent } from './release-detail/release-detail.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/library', pathMatch: 'full'}, // default route
-  {path: 'library', component: LibraryComponent}, // top-level library browse view
-  {path: 'library/:category', component: CategoryComponent},  // component for KEXP 'category' sections
-  {path: 'library/releases/:releaseId', component: ReleaseDetailComponent} // release detail route (category is implied)
+  {path: '', redirectTo: '/library', pathMatch: 'full'}, // default route redirect
+  {path: 'library', component: LibraryComponent}, // home page
+  {path: 'library/browse', component: LibraryComponent}, // browsing feature module
+  {path: 'shelves', component: LibraryComponent}, // shelves feature module
+  {path: 'library/releases/:releaseId', component: ReleaseDetailComponent} // release detail route
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
