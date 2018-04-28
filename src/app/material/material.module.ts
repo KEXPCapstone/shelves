@@ -19,7 +19,6 @@ import {
     MatListModule,
     MatCardModule,
     MatButtonModule,
-    MatTabsModule,
     MatGridListModule
   ],
   exports: [
@@ -28,7 +27,6 @@ import {
     MatListModule,
     MatCardModule,
     MatButtonModule,
-    MatTabsModule,
     MatGridListModule
   ]
 })
