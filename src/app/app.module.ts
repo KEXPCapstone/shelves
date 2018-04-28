@@ -14,6 +14,7 @@ import { LibraryComponent } from './library/library.component';
 import { CategoryComponent } from './category/category.component';
 import { ReleaseDetailComponent } from './release-detail/release-detail.component';
 import { HeaderComponent } from './header/header.component';
+import { BrowseModule } from './browse/browse.module';
 
 @NgModule({
   declarations: [
@@ -24,12 +25,13 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, // NOTE: this is angular's core browser module, not the shelves feature
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowseModule
   ],
   providers: [ShelfService, LibraryService],
   bootstrap: [AppComponent]
