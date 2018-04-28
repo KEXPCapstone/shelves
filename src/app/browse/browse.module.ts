@@ -1,10 +1,10 @@
 import { NgModule} from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { BrowseListComponent } from './browse-list/browse-list.component';
 import { BrowseGroupComponent } from './browse-group/browse-group.component';
 import { BrowseComponent } from './browse.component';
 import { BrowseRoutingModule } from './browse-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -13,8 +13,8 @@ import { BrowseRoutingModule } from './browse-routing.module';
         BrowseGroupComponent, BrowseComponent // a supgroup in the browse list (ie. artist group 'A')
     ],
     imports: [
-        CommonModule,
-        BrowseRoutingModule
+        SharedModule,
+        BrowseRoutingModule,
     ]
 })
 export class BrowseModule {}

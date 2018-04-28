@@ -2,9 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FlexLayoutModule } from '@angular/flex-layout';
-
-import { MaterialModule } from './material/material.module';
 
 import { AppComponent } from './app.component';
 import { ShelfService } from './shelf.service';
@@ -15,6 +12,7 @@ import { CategoryComponent } from './category/category.component';
 import { ReleaseDetailComponent } from './release-detail/release-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowseModule } from './browse/browse.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -29,8 +27,7 @@ import { BrowseModule } from './browse/browse.module';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    MaterialModule,
-    FlexLayoutModule,
+    SharedModule,
     BrowseModule
   ],
   providers: [ShelfService, LibraryService],
