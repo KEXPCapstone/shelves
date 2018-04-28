@@ -1,17 +1,26 @@
-<div *ngIf="release">
-    <ul>
-        <li>
-            id: {{release.id}}
-        </li>
-        <li>{{release.KEXPReleaseGroupMBID}}</li>
-        <li>{{release.KEXPPrimaryGenre}}</li>
-        <li>{{release.KEXPCountryCode}}</li>
-        <li>{{release.KEXPDateReleased}}</li>
-        <li>{{release.KEXPReleaseArtistCredit}}</li>
-        <li>{{release.KEXPArtist_KEXPSortName}}</li>
-        <li>{{release.KEXPFirstReleaseDate}}</li>
-        <li>{{release.KEXPTitle}}</li>
-    </ul>
-    {{release}}
-    <button (click)="goBack()">go back</button>
-</div>
+<section *ngIf="release"
+    class="release-info"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutGap="10px">
+    <div class="album-cover">
+        <img src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-250.jpg">
+    </div>
+    <h1>{{release.title}}</h1>
+    <h3>{{release.KEXPReleaseArtistCredit}}</h3>
+    <div class="tracklisting">
+        <mat-list>
+            <!-- handles multiple discs/sides -->
+            <div class="track-group" *ngFor="let disc of release.media">
+
+            </div>
+            <h3 matSubheader></h3>
+            <mat-list-item *ngFor="let track of release.media[0].tracks">
+                {{track.title}} - {{track.length | date:'mm:ss'}}
+            </mat-list-item>
+        </mat-list>
+    </div>
+</section>
+<section class="related-section">
+    <app-related-releases></app-related-releases>
+</section>

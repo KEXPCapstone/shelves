@@ -29,6 +29,10 @@ export class ReleaseDetailComponent implements OnInit {
       .subscribe(release => this.release = release);
   }
 
+  getArtForRelease(): void {
+
+  }
+
   // useful to implement 'back' button
   goBack(): void {
     this.location.back();

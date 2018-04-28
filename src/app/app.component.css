@@ -2,6 +2,14 @@
   flex: 1 1 auto;
 }
 
+.main-content {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 app-search-box.search-container {
   display: flex;
   justify-content: flex-end;
