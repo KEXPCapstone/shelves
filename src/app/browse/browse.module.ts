@@ -9,8 +9,9 @@ import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     declarations: [
+        BrowseComponent, // the root of browse feature
         BrowseListComponent, // the overall list, toggles grouping and sorting
-        BrowseGroupComponent, BrowseComponent // a supgroup in the browse list (ie. artist group 'A')
+        BrowseGroupComponent
     ],
     imports: [
         SharedModule,
