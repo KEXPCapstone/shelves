@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { BrowseModule } from './browse/browse.module';
 import { SharedModule } from './shared/shared.module';
 import { ReleaseModule } from './release/release.module';
+import { ShelvesModule } from './shelves/shelves.module';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,14 @@ import { ReleaseModule } from './release/release.module';
     HeaderComponent
   ],
   imports: [
-    BrowserModule, // NOTE: this is angular's core browser module, not the shelves feature
+    BrowserModule, // NOTE: this is angular's core browser module, not library browse
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
     BrowseModule,
-    ReleaseModule
+    ReleaseModule,
+    ShelvesModule
   ],
   providers: [ShelfService, LibraryService],
   bootstrap: [AppComponent]

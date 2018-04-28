@@ -1,3 +1,16 @@
-<p>
-  browse works!
-</p>
+<header class="category-header">
+  <h2>
+    {{categoryName | titlecase}}
+  </h2>
+</header>
+<section *ngIf="releases" class="category-content">
+  <mat-grid-list cols="4" rowHeight="250px" gutterSize="2px">
+      <mat-grid-tile class="release-preview-tile" *ngFor="let release of releases">
+        <mat-grid-tile-footer class="category-tile-footer">
+          <h3><a class="release-link" routerLink="/library/releases/{{release.id}}">
+            {{release.KEXPTitle}} - {{release.KEXPReleaseArtistCredit}} ({{release.KEXPPrimaryGenre}})</a></h3>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+</section>
+<p>hello</p>
