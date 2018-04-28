@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { LibraryService } from '../library.service';
-import { Release } from '../release';
+import { LibraryService } from '../../library.service';
+import { Release } from '../../release';
 
 @Component({
   selector: 'app-release-detail',

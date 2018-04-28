@@ -9,17 +9,16 @@ import { LibraryService } from './library.service';
 import { AppRoutingModule } from './app-routing.module';
 import { LibraryComponent } from './library/library.component';
 import { CategoryComponent } from './category/category.component';
-import { ReleaseDetailComponent } from './release-detail/release-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowseModule } from './browse/browse.module';
 import { SharedModule } from './shared/shared.module';
+import { ReleaseModule } from './release/release.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LibraryComponent,
     CategoryComponent,
-    ReleaseDetailComponent,
     HeaderComponent
   ],
   imports: [
@@ -28,7 +27,8 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
-    BrowseModule
+    BrowseModule,
+    ReleaseModule
   ],
   providers: [ShelfService, LibraryService],
   bootstrap: [AppComponent]
