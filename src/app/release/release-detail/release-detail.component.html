@@ -1,26 +1,27 @@
-<section *ngIf="release"
-    class="release-info"
-    fxLayout
-    fxLayout.xs="column"
-    fxLayoutGap="10px">
-    <div class="album-cover">
-        <img src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-250.jpg">
-    </div>
+<section *ngIf="release">
     <h1>{{release.title}}</h1>
     <h3>{{release.KEXPReleaseArtistCredit}}</h3>
-    <div class="tracklisting">
-        <mat-list>
+</section>
+<section *ngIf="release" class="release-info"
+    fxLayout
+    fxLayoutGap="24px"
+    fxLayoutGap.xs="16px">
+    <div class="album-cover">
+        <img src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
+    </div>
+    <div>
+        <h3 matSubheader>Tracklist</h3>
+        <mat-list class="tracklist">
             <!-- handles multiple discs/sides -->
-            <div class="track-group" *ngFor="let disc of release.media">
-
+            <div class="track-group" *ngFor="let disc of release.media; let i = index">
+                <h3 *ngIf="release.media.length > 1" matSubheader>{{release.media[i].title}} - {{release.media[i].format}}</h3>
+                <mat-list-item *ngFor="let track of release.media[i].tracks; let j = index">
+                    {{track.number}} {{track.title}} - {{track.length | date:'mm:ss'}}
+                </mat-list-item>
             </div>
-            <h3 matSubheader></h3>
-            <mat-list-item *ngFor="let track of release.media[0].tracks">
-                {{track.title}} - {{track.length | date:'mm:ss'}}
-            </mat-list-item>
         </mat-list>
     </div>
 </section>
-<section class="related-section">
-    <app-related-releases></app-related-releases>
+<section *ngIf="release" class="related-section">
+    <app-related-releases [release]="release"></app-related-releases>
 </section>

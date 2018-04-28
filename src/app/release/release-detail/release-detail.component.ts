@@ -11,7 +11,7 @@ import { Release } from '../../release';
   styleUrls: ['./release-detail.component.css']
 })
 export class ReleaseDetailComponent implements OnInit {
-  release: Release;
+  @Input() release: Release;
 
   constructor(
     private route: ActivatedRoute,

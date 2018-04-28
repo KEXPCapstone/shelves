@@ -1,3 +1,14 @@
-<p>
-  related-releases works!
-</p>
+<div class="related-container"
+  fxLayout *ngIf="relateds">
+  <mat-form-field class="related-selector">
+    <mat-select [(value)]="selected" placeholder="Related by" (selectionChange)="onSelectChange(selected)">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-card *ngFor="let release of relateds">
+    <mat-card-title>{{release.title}}</mat-card-title>
+    <img src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-250.jpg" mat-card-image>
+  </mat-card>
+</div>

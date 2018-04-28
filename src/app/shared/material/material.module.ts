@@ -8,26 +8,34 @@ import {
   MatCardModule,
   MatButtonModule,
   MatTabsModule,
-  MatGridListModule
+  MatGridListModule,
+  MatFormFieldModule,
+  MatSelectModule
 } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatToolbarModule,
     MatSidenavModule,
+    MatToolbarModule,
     MatListModule,
     MatCardModule,
     MatButtonModule,
-    MatGridListModule
+    MatTabsModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   exports: [
-    MatToolbarModule,
     MatSidenavModule,
+    MatToolbarModule,
     MatListModule,
     MatCardModule,
     MatButtonModule,
-    MatGridListModule
+    MatTabsModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
+import { Release } from '../../release';
+import { LibraryService } from '../../library.service';
+
 
 @Component({
   selector: 'app-related-releases',
@@ -6,10 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./related-releases.component.css']
 })
 export class RelatedReleasesComponent implements OnInit {
+  @Input() release: Release;
+  value: string;
+  relateds: Release[];
+  options = [
+    'packaging',
+    'country',
+    'KEXPReleaseArtistCredit'
+  ];
 
-  constructor() { }
+  constructor(private library: LibraryService) { }
 
   ngOnInit() {
+    this.getRelatedReleases('KEXPReleaseArtistCredit', this.release.KEXPReleaseArtistCredit);
+  }
+
+  onSelectChange(selected: string): void {
+    this.getRelatedReleases(selected, this.release[selected]);
+  }
+
+  getRelatedReleases(field: string, value: string): void {
+    this.library.getRelatedReleases(field, value)
+      .subscribe(releases => this.relateds = releases);
   }
 
 }
