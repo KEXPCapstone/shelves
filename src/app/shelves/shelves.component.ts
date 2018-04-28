@@ -16,8 +16,8 @@ export class ShelvesComponent implements OnInit {
   constructor(private shelfService: ShelfService) { }
 
   ngOnInit() {
-    this.getShelves();
-    this.getMyShelves();
+    // this.getShelves();
+    // this.getMyShelves();
   }
 
   getShelves(): void {
