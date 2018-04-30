@@ -1,28 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~@angular/material/theming';
+@import 'src/shelves-app-theme.scss';
+
 body {
   margin: 0;
-  font-family: proxima-nova, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1em;
 }
 
-h2 {
-  font-family: proxima-nova, Helvetica, Arial, sans-serif;
+/* headers and text */
+h1, h2, h3 {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   font-weight: 300;
+}
+
+h1 {
   font-size: 2.5em;
 }
 
-section, header {
-  margin: 40px 50px;
-  padding: 0px 250px;
+/* custom color helper classes */
+.kexp-orange {
+  color: mat-color($shelves-app-accent, 500)
 }
 
+/* links */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* tracklist item spacing of title/length */
 .mat-list-item-content {
   justify-content: space-between;
+}
+
+/* rules for main content layout */
+main {
+  padding: 20px 70px 0
+}
+
+// mobile
+@media (max-width: 599px)
+{
+  main {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+section {
+  margin: 40px 50px;
+  // padding: 0px 250px;
 }
