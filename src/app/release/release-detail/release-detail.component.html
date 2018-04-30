@@ -14,8 +14,20 @@
             <img class="album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
         </div>
         <div fxFlex="60%" class="release-info">
-            <h1>{{release.title}}</h1>
-            <h3>by <span class="kexp-orange">{{release.KEXPReleaseArtistCredit}}</span></h3>
+            <div class="release-title">
+                <h1>{{release.title}}</h1>
+                <h3>by
+                    <span class="kexp-orange">{{release.KEXPReleaseArtistCredit}}</span>
+                    released <span class="kexp-orange">{{release.date | date:'yyyy'}}</span>
+                </h3>
+                <!-- <mat-chip-list>
+                    <mat-chip color="accent">{{release.KEXPPrimaryGenre}}</mat-chip>
+                </mat-chip-list> -->
+            </div>
+            <mat-divider></mat-divider>
+            <div>
+
+            </div>
         </div>
     </section>
     <section *ngIf="release" class="tracklist-container">

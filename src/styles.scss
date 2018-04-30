@@ -5,14 +5,14 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 400;
   font-size: 1em;
 }
 
 /* headers and text */
 h1, h2, h3 {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 300;
 }
 
@@ -20,6 +20,10 @@ h1 {
   font-size: 2.5em;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+h3 {
+  font-size: 16px;
 }
 
 /* custom color helper classes */
@@ -43,12 +47,20 @@ main {
   padding: 20px 70px 0
 }
 
-// mobile
+// mobile specific
 @media (max-width: 599px)
 {
   main {
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  h1 {
+    font-size: 1.25em;
+  }
+
+  h3 {
+    font-size: 1em;
   }
 }
 
