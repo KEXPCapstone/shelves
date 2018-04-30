@@ -8,7 +8,7 @@ import { Release } from '../../release';
 @Component({
   selector: 'app-release-detail',
   templateUrl: './release-detail.component.html',
-  styleUrls: ['./release-detail.component.css']
+  styleUrls: ['./release-detail.component.scss']
 })
 export class ReleaseDetailComponent implements OnInit {
   @Input() release: Release;

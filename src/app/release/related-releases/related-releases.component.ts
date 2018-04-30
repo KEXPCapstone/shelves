@@ -6,7 +6,7 @@ import { LibraryService } from '../../library.service';
 @Component({
   selector: 'app-related-releases',
   templateUrl: './related-releases.component.html',
-  styleUrls: ['./related-releases.component.css']
+  styleUrls: ['./related-releases.component.scss']
 })
 export class RelatedReleasesComponent implements OnInit {
   @Input() release: Release;
