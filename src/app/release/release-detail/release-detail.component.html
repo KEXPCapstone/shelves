@@ -11,7 +11,7 @@
         fxLayoutGap="24px"
         fxLayoutGap.xs="16px">
         <div class="album-cover" fxFlex="40%">
-            <img class="album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
+            <img class="album-image" [src]="getArtForRelease()">
         </div>
         <div fxFlex="60%" class="release-info">
             <div class="release-title">
@@ -46,7 +46,4 @@
             </mat-list>
         </div>
     </section>
-    <!-- <section *ngIf="release" class="related-section">
-        <app-related-releases [release]="release"></app-related-releases>
-    </section> -->
 </main>
