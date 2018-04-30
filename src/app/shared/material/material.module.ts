@@ -12,7 +12,8 @@ import {
   MatFormFieldModule,
   MatSelectModule,
   MatDividerModule,
-  MatDialogModule
+  MatDialogModule,
+  MatChipsModule
 } from '@angular/material';
 import { ReleaseNotesComponent } from '../../release/release-notes/release-notes.component';
 
@@ -28,7 +29,8 @@ import { ReleaseNotesComponent } from '../../release/release-notes/release-notes
     MatGridListModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    MatChipsModule
   ],
   exports: [
     MatSidenavModule,
@@ -40,7 +42,8 @@ import { ReleaseNotesComponent } from '../../release/release-notes/release-notes
     MatGridListModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    MatChipsModule
   ],
   entryComponents: [ReleaseNotesComponent] // Tells Angular to provide a factory for the notes modal component
 })
