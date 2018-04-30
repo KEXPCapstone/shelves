@@ -32,8 +32,18 @@ export class ReleaseDetailComponent implements OnInit {
       .subscribe(release => this.release = release);
   }
 
-  getArtForRelease(): void {
+  // fetches album art for a release
+  // first priority: release-specific image
+  // second priority: release-group
+  // fallback: placeholder image
+  getArtForRelease(): string {
+    if (this.release.coverArtArchive.front) {
+      return `//coverartarchive.org/release/${this.release.id}/front-500.jpg`;
+    } else {
+      return `//coverartarchive.org/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
+    }
 
+ // coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg
   }
 
   // useful to implement 'back' button

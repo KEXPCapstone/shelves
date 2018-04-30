@@ -2,6 +2,7 @@
 export class Release {
   id: string;
   artistCredit: any[];
+  coverArtArchive: any;
   releaseEvents: any[];
   KEXPReleaseGroupMBID: string;
   KEXPReleaseArtistCredit: string;
