@@ -56,6 +56,14 @@ export class ShelfService {
     );
   }
 
+  getUserShelves(userId : string) : Observable<Shelf[]> {
+    const url = `${environment.apiUrl}/shelves/users/${userId}`
+    return this.http.get<Shelf[]>(url).pipe(
+      tap(shelves => this.log(`fetched user's shelves`)),
+      catchError(this.handleError('getUserShelves', []))
+    );
+  }
+
   // Put: update a shelf
   // api/shelves/{id}
   updateShelf(shelf: Shelf) {
