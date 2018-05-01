@@ -22,13 +22,14 @@ const textHttpOptions = {
 @Injectable()
 export class ShelfService {
 
-  private shelvesUrl = 'api/shelves'; // URL to web api
+  // private shelvesUrl = 'api/shelves'; // URL to web api
 
   constructor(private http: HttpClient) { }
 
   // GET shelves from the server
   getShelves (): Observable<Shelf[]> {
-    return this.http.get<Shelf[]>(this.shelvesUrl)
+    const url = `${environment.apiUrl}/shelves`;
+    return this.http.get<Shelf[]>(url)
       .pipe(
         tap(shelves => this.log(`fetched shelves`)),
         catchError(this.handleError('getShelves', []))
@@ -48,7 +49,7 @@ export class ShelfService {
 
   /** GET shelf by id. Will 404 if id not found */
   getShelf(id: number): Observable<Shelf> {
-    const url = `${this.shelvesUrl}/${id}`;
+    const url = `${environment.apiUrl}/shelves/${id}`;
     return this.http.get<Shelf>(url).pipe(
       tap(_ => this.log(`fetched shelf id=${id}`)),
       catchError(this.handleError<Shelf>(`getShelf id=${id}`))
@@ -79,7 +80,7 @@ export class ShelfService {
   // api/shelves/{id}
   deleteShelf(shelf: Shelf | number): Observable<Shelf> {
     const id = typeof shelf === 'number' ? shelf : shelf.id;
-    const url = `${this.shelvesUrl}/$id`;
+    const url = `${environment.apiUrl}/shelves/${id}`;
 
     return this.http.delete<Shelf>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted shelf id=${id}`)),
