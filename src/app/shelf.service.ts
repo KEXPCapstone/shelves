@@ -48,7 +48,7 @@ export class ShelfService {
   }
 
   /** GET shelf by id. Will 404 if id not found */
-  getShelf(id: number): Observable<Shelf> {
+  getShelf(id: string): Observable<Shelf> {
     const url = `${environment.apiUrl}/shelves/${id}`;
     return this.http.get<Shelf>(url).pipe(
       tap(_ => this.log(`fetched shelf id=${id}`)),
@@ -56,8 +56,9 @@ export class ShelfService {
     );
   }
 
-  getUserShelves(userId : string) : Observable<Shelf[]> {
-    const url = `${environment.apiUrl}/shelves/users/${userId}`
+  // GET a specified user's shelves
+  getUserShelves(userId: string): Observable<Shelf[]> {
+    const url = `${environment.apiUrl}/shelves/users/${userId}`;
     return this.http.get<Shelf[]>(url).pipe(
       tap(shelves => this.log(`fetched user's shelves`)),
       catchError(this.handleError('getUserShelves', []))
@@ -86,8 +87,8 @@ export class ShelfService {
 
   // Delete: delete a shelf
   // api/shelves/{id}
-  deleteShelf(shelf: Shelf | number): Observable<Shelf> {
-    const id = typeof shelf === 'number' ? shelf : shelf.id;
+  deleteShelf(shelf: Shelf | string): Observable<Shelf> {
+    const id = typeof shelf === 'string' ? shelf : shelf.id;
     const url = `${environment.apiUrl}/shelves/${id}`;
 
     return this.http.delete<Shelf>(url, httpOptions).pipe(
