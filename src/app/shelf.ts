@@ -15,4 +15,3 @@ export class NewShelf {
   description: string;
   featured: boolean;
 }
-
