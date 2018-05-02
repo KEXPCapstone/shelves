@@ -37,12 +37,14 @@ export class AuthService {
     // setting localStorage's token key via AuthService.setToken().  JSON response 
     // body is accessible via resp.body
     // See: https://angular.io/guide/http
+
+    // this.log(`logged in user`)
     public login(email: string, password: string): Observable<HttpResponse<User>> {
         let creds : Credentials = {email: email, password: password}
         const url = `${environment.apiUrl}/sessions`
         console.log(url)
         return this.http.post<HttpResponse<User>>(url, creds, {observe: 'response'}).pipe(
-            tap(_ => this.log(`logged in user`)),
+            tap(resp => this.setToken(resp.headers.get('Authorization'))),
             catchError(this.handleError)
         );
     }

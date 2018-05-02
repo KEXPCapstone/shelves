@@ -20,15 +20,11 @@ export class SigninComponent implements OnInit {
     console.log(form.value.password)
     // this.authService.login()
     this.authService.login(form.value.email, form.value.password)
-      .subscribe((resp) => {
-        if (!resp.ok) {
-          console.log("Invalid!!!!")
-        }
-        
-        console.log(resp)
+      .subscribe((resp) => {        
+        // console.log(resp)
         // console.log(resp.headers.get('Authorization'))
         // localStorage.setItem("authToken", resp.headers.get('Authorization'))
-        this.authService.setToken(resp.headers.get('Authorization'))
+        // this.authService.setToken(resp.headers.get('Authorization'))
         console.log(localStorage.getItem("authToken"))
       }, (error) => {
         // console.log("INVALID")
