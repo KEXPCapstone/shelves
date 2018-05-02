@@ -13,4 +13,8 @@ export class SigninComponent implements OnInit {
   ngOnInit() {
   }
 
+  login() {
+    console.log("Hooked up to form!")
+  }
+
 }
