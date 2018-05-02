@@ -16,6 +16,7 @@ import { ReleaseModule } from './release/release.module';
 import { ShelvesModule } from './shelves/shelves.module';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     ReleaseModule,
     ShelvesModule
   ],
-  providers: [ShelfService, LibraryService],
+  providers: [ShelfService, LibraryService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
