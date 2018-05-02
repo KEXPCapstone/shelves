@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { User } from './user';
+import { User } from '../user';
 import { Observable } from 'rxjs/Observable';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { Credentials } from 'crypto';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
