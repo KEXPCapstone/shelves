@@ -21,13 +21,12 @@ export class SigninComponent implements OnInit {
     // this.authService.login()
     this.authService.login(form.value.email, form.value.password)
       .subscribe((resp) => {        
-        // console.log(resp)
-        // console.log(resp.headers.get('Authorization'))
-        // localStorage.setItem("authToken", resp.headers.get('Authorization'))
-        // this.authService.setToken(resp.headers.get('Authorization'))
+        if (resp.ok) { // double checking
+          // redirect user to the library
+        }
         console.log(localStorage.getItem("authToken"))
       }, (error) => {
-        // console.log("INVALID")
+        // This is temporary, you will need to update the UI accordingly.
         console.log(error)
         if (error.status == 401) {
           window.alert("Invalid Credentials")
