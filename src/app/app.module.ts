@@ -14,13 +14,17 @@ import { BrowseModule } from './browse/browse.module';
 import { SharedModule } from './shared/shared.module';
 import { ReleaseModule } from './release/release.module';
 import { ShelvesModule } from './shelves/shelves.module';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LibraryComponent,
     CategoryComponent,
-    HeaderComponent
+    HeaderComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule, // NOTE: this is angular's core browser module, not library browse
