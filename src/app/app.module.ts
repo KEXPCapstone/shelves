@@ -17,6 +17,7 @@ import { ShelvesModule } from './shelves/shelves.module';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthService } from './auth/auth.service';
     SharedModule,
     BrowseModule,
     ReleaseModule,
-    ShelvesModule
+    ShelvesModule,
+    FormsModule
   ],
   providers: [ShelfService, LibraryService, AuthService],
   bootstrap: [AppComponent]
