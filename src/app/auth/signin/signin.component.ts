@@ -21,12 +21,24 @@ export class SigninComponent implements OnInit {
     // this.authService.login()
     this.authService.login(form.value.email, form.value.password)
       .subscribe((resp) => {
-        // console.log(resp)
+        if (!resp.ok) {
+          console.log("Invalid!!!!")
+        }
+        
+        console.log(resp)
         // console.log(resp.headers.get('Authorization'))
-        localStorage.setItem("authToken", resp.headers.get('Authorization'))
-        // console.log(localStorage.getItem("authToken"))
+        // localStorage.setItem("authToken", resp.headers.get('Authorization'))
+        this.authService.setToken(resp.headers.get('Authorization'))
+        console.log(localStorage.getItem("authToken"))
+      }, (error) => {
+        // console.log("INVALID")
+        console.log(error)
+        if (error.status == 401) {
+          window.alert("Invalid Credentials")
+        } else {
+          window.alert("Server error")
+        }
       }
-    );
+    );  
   }
-
 }

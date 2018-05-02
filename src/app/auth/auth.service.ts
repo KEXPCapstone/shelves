@@ -22,11 +22,15 @@ export class AuthService {
     constructor(private http: HttpClient) { }
 
     public getToken(): string {
-        return localStorage.getItem('token');
+        return localStorage.getItem('authToken');
     }
 
     public setToken(token : string){
-        localStorage.setItem('token', token)
+        localStorage.setItem('authToken', token)
+    }
+
+    public isAuthenticated() : boolean {
+        return localStorage.getItem('authToken') != null;
     }
 
     // Returns the entire HTTP Response. Component must then be responsible for
@@ -68,13 +72,13 @@ export class AuthService {
         } else {
           // The backend returned an unsuccessful response code.
           // The response body may contain clues as to what went wrong,
-          console.error(
-            `Backend returned code ${error.status}, ` +
-            `body was: ${error.error}`);
+        //   console.error(
+        //     `Backend returned code ${error.status}, ` +
+        //     `body was: ${error.error}`);
         }
         // return an ErrorObservable with a user-facing error message
-        return new ErrorObservable(
-            `Backend returned code ${error.status}, ` +
-            `body was: ${error.error}`);
+        return new ErrorObservable(error)
+            // `Backend returned code ${error.status}, ` +
+            // `body was: ${error.error}`);
       };
 }
