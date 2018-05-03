@@ -1,3 +1,25 @@
-<p>
-  signup works!
-</p>
+<section>
+    <div *ngIf="invalidLoginAttempt" class="help-block error small">Email or password is incorrect.</div>
+    <div *ngIf="serverError" class="help-block error small">Something went wrong. Please try again.</div>
+    <form class="example-form" (ngSubmit)="signup(f)" #f="ngForm" >
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="First Name" ngModel name = "firstName">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Last Name" ngModel name = "lastName">
+      </mat-form-field>
+     <mat-form-field class="example-full-width">
+        <input matInput placeholder="Username" ngModel name = "userName">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" ngModel name="email">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" type="password" ngModel name = "password">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Confirm Password" type="password" ngModel name = "password">
+      </mat-form-field>
+      <button type="submit" mat-button >Sign up</button>
+  </form>
+</section>

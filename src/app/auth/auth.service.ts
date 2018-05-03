@@ -47,8 +47,7 @@ export class AuthService {
         console.log(url)
         return this.http.post<HttpResponse<User>>(url, creds, {observe: 'response'}).pipe(
             tap((resp) => {
-                this.setToken(resp.headers.get('Authorization'))
-                this.router.navigate(['/library'])
+                this.successfulSignIn(resp)
             }),
             catchError(this.handleError)
         );
@@ -67,6 +66,24 @@ export class AuthService {
             }),
             catchError(this.handleError)
         )
+    }
+
+    public newUser() : Observable<HttpResponse<User>> {
+        const url = `${environment.apiUrl}/users`
+        let usr : User = {}
+        return this.http.post<HttpResponse<User>>(url, usr, {observe: 'response'})
+        .pipe(
+            tap((resp) => {
+                this.successfulSignIn(resp)
+            }),
+            catchError(this.handleError)
+        );
+    }
+
+
+    private successfulSignIn(resp) {
+        this.setToken(resp.headers.get('Authorization'))
+        this.router.navigate(['/library'])
     }
 
     private log(message: string) {
