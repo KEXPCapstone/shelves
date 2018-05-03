@@ -30,12 +30,12 @@ export class AuthService {
         localStorage.setItem('auth-token', token)
     }
 
-    public isAuthenticated() : boolean { 
-        return localStorage.getItem('auth-token') != null;
-    }
-
     public removeToken() {
         localStorage.removeItem('auth-token');
+    }
+
+    public isAuthenticated() : boolean { 
+        return localStorage.getItem('auth-token') != null;
     }
 
     // Returns the entire HTTP Response. JSON response 
