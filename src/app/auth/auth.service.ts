@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angul
 import { tap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { Router } from '@angular/router';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +20,7 @@ const fullHttpOptions = {
 @Injectable()
 export class AuthService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
     public getToken(): string {
         return localStorage.getItem('authToken');
@@ -29,7 +30,7 @@ export class AuthService {
         localStorage.setItem('authToken', token)
     }
 
-    public isAuthenticated() : boolean {
+    public isAuthenticated() : boolean { 
         return localStorage.getItem('authToken') != null;
     }
 
@@ -44,7 +45,11 @@ export class AuthService {
         const url = `${environment.apiUrl}/sessions`
         console.log(url)
         return this.http.post<HttpResponse<User>>(url, creds, {observe: 'response'}).pipe(
-            tap(resp => this.setToken(resp.headers.get('Authorization'))),
+            tap((resp) => {
+                this.setToken(resp.headers.get('Authorization'))
+                this.router.navigate(['/library'])
+            }
+            ),
             catchError(this.handleError)
         );
     }
