@@ -80,7 +80,6 @@ export class AuthService {
         );
     }
 
-
     private successfulSignIn(resp) {
         this.setToken(resp.headers.get('Authorization'))
         this.router.navigate(['/library'])
