@@ -41,6 +41,7 @@ export class AuthService {
     // Returns the entire HTTP Response. JSON response 
     // body is accessible via resp.body
     public login(email: string, password: string): Observable<HttpResponse<User>> {
+        this.removeToken()
         let creds : Credentials = {email: email, password: password}
         const url = `${environment.apiUrl}/sessions`
         console.log(url)
@@ -56,11 +57,13 @@ export class AuthService {
     public logout() {
         // will pass authorization header in http interceptor
         const url = `${environment.apiUrl}/sessions/mine`
+        console.log(url)
         return this.http.delete(url, {})
         .pipe(
             tap(_ => {
                 this.removeToken();
                 this.router.navigate(['/login'])
+                console.log("signed out!")
             }),
             catchError(this.handleError)
         )

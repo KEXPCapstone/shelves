@@ -25,7 +25,7 @@ export class SigninComponent implements OnInit {
     // this.authService.login()
     this.authService.login(form.value.email, form.value.password)
       .subscribe((resp) => {        
-        console.log(localStorage.getItem("authToken"))
+        console.log(localStorage.getItem("auth-token"))
       }, (error) => {
         // This is temporary, you will need to update the UI accordingly.
         console.log(error)
