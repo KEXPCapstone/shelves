@@ -58,7 +58,7 @@ export class AuthService {
         // will pass authorization header in http interceptor
         const url = `${environment.apiUrl}/sessions/mine`
         console.log(url)
-        return this.http.delete(url, {})
+        return this.http.delete(url, {responseType: 'text'})
         .pipe(
             tap(_ => {
                 this.removeToken();
