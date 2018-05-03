@@ -34,12 +34,8 @@ export class AuthService {
         return localStorage.getItem('authToken') != null;
     }
 
-    // Returns the entire HTTP Response. Component must then be responsible for
-    // setting localStorage's token key via AuthService.setToken().  JSON response 
+    // Returns the entire HTTP Response. JSON response 
     // body is accessible via resp.body
-    // See: https://angular.io/guide/http
-
-    // this.log(`logged in user`)
     public login(email: string, password: string): Observable<HttpResponse<User>> {
         let creds : Credentials = {email: email, password: password}
         const url = `${environment.apiUrl}/sessions`
@@ -51,6 +47,16 @@ export class AuthService {
             }),
             catchError(this.handleError)
         );
+    }
+
+    public logout() {
+        // will pass authorization header in http interceptor
+        const url = `${environment.apiUrl}/sessions/mine`
+        return this.http.delete(url, {})
+        .pipe(
+            tap(_ => this.router.navigate(['/login'])),
+            catchError(this.handleError)
+        )
     }
 
     private log(message: string) {
