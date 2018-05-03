@@ -68,9 +68,9 @@ export class AuthService {
         )
     }
 
-    public newUser() : Observable<HttpResponse<User>> {
+    public newUser(email: string, password: string, passwordConf: string, userName: string, firstName: string, lastName: string) : Observable<HttpResponse<User>> {
         const url = `${environment.apiUrl}/users`
-        let usr : User = {}
+        const usr : User = {email: email, password: password, passwordConf: passwordConf, userName: userName, firstName: firstName, lastName: lastName};
         return this.http.post<HttpResponse<User>>(url, usr, {observe: 'response'})
         .pipe(
             tap((resp) => {
