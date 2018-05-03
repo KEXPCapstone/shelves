@@ -23,15 +23,19 @@ export class AuthService {
     constructor(private http: HttpClient, private router: Router) { }
 
     public getToken(): string {
-        return localStorage.getItem('authToken');
+        return localStorage.getItem('auth-token');
     }
 
     public setToken(token : string){
-        localStorage.setItem('authToken', token)
+        localStorage.setItem('auth-token', token)
     }
 
     public isAuthenticated() : boolean { 
-        return localStorage.getItem('authToken') != null;
+        return localStorage.getItem('auth-token') != null;
+    }
+
+    public removeToken() {
+        localStorage.removeItem('auth-token');
     }
 
     // Returns the entire HTTP Response. JSON response 
@@ -54,7 +58,10 @@ export class AuthService {
         const url = `${environment.apiUrl}/sessions/mine`
         return this.http.delete(url, {})
         .pipe(
-            tap(_ => this.router.navigate(['/login'])),
+            tap(_ => {
+                this.removeToken();
+                this.router.navigate(['/login'])
+            }),
             catchError(this.handleError)
         )
     }
