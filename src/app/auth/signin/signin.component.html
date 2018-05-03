@@ -1,4 +1,6 @@
 <section>
+  <div *ngIf="invalidLoginAttempt" class="help-block error small">Email or password is incorrect.</div>
+  <div *ngIf="serverError" class="help-block error small">Something went wrong. Please try again.</div>
   <form class="example-form" (ngSubmit)="login(f)" #f="ngForm" >
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Email" ngModel name="email">

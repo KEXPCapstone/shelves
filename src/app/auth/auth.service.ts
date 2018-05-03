@@ -48,8 +48,7 @@ export class AuthService {
             tap((resp) => {
                 this.setToken(resp.headers.get('Authorization'))
                 this.router.navigate(['/library'])
-            }
-            ),
+            }),
             catchError(this.handleError)
         );
     }
