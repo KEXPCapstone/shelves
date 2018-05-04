@@ -21,5 +21,6 @@ export class Release {
   KEXPArtist_KEXPSortName: string;
   KEXPFirstReleaseDate: string;
   KEXPTitle: string;
+  notes: string[];
 }
 

@@ -11,8 +11,10 @@ import {
   MatGridListModule,
   MatFormFieldModule,
   MatSelectModule,
-  MatDividerModule
+  MatDividerModule,
+  MatDialogModule
 } from '@angular/material';
+import { ReleaseNotesComponent } from '../../release/release-notes/release-notes.component';
 
 @NgModule({
   imports: [
@@ -39,6 +41,7 @@ import {
     MatFormFieldModule,
     MatSelectModule,
     MatDividerModule
-  ]
+  ],
+  entryComponents: [ReleaseNotesComponent] // Tells Angular to provide a factory for the notes modal component
 })
 export class MaterialModule { }

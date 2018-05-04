@@ -1,6 +1,7 @@
 <section *ngIf="release" class="release-header">
     <h1>{{release.title}}</h1>
     <h3>{{release.KEXPReleaseArtistCredit}}</h3>
+    <button mat-button (click)="openNotesDialog()">Show Notes</button>
 </section>
 <section *ngIf="release" class="release-layout"
     fxLayout

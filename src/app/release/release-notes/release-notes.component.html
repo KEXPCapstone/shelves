@@ -1,3 +1,49 @@
-<p>
-  release-notes works!
-</p>
+<div class="row dialog-header">
+    <div class="album-cover image-column">
+        <img class="album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
+    </div>
+    <div class="column">
+        <h1 mat-dialog-title class="release-title">{{release.title}}</h1>
+        <h5 class="release-artist">{{release.KEXPReleaseArtistCredit}}</h5>
+        <h5 class="release-genre">{{release.KEXPPrimaryGenre}}</h5>
+    </div>
+</div>
+<mat-divider></mat-divider>
+  <div class="row note-stats-container">
+    <div class="num-notes">
+        {{numNotes}} Notes
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div class="num-users" *ngIf="numPosters != 1">
+        {{numPosters}} Users
+    </div>
+    <div class="num-users" *ngIf="numPosters == 1">
+        {{numPosters}} User
+    </div>
+  </div>
+<mat-divider></mat-divider>
+<mat-dialog-content>
+  <div>
+    <mat-list>
+      <mat-list-item *ngFor="let note of notes;" class="note-list-item-container">
+        <div class="note-container">
+          
+          <div class="row"><div class="note-author note-header-container">{{note.authorName}}</div><div class="note-header-container date">{{note.dateCreated | date}}</div></div>
+          <div class="note-comment">{{note.comment}}</div>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <form (ngSubmit)="postNote(f)" #f="ngForm">
+      <mat-form-field class="post-note-text-box">
+        <textarea matInput name="note" ngModel placeholder="Add a note"></textarea>
+      </mat-form-field>
+      <button type="submit" class="mat-raised-button"(click)="postNote()">Post</button>
+  </form>
+
+</mat-dialog-content>
+
+<!-- <mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+</mat-dialog-actions> -->
