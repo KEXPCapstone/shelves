@@ -26,9 +26,12 @@
   <div>
     <mat-list>
       <mat-list-item *ngFor="let note of notes;" class="note-list-item-container">
-        <div class="note-container">
-          
-          <div class="row"><div class="note-author note-header-container">{{note.authorName}}</div><div class="note-header-container date">{{note.dateCreated | date}}</div></div>
+        <div class="orange-bar"></div>
+        <div class="note-container">  
+          <div class="row">
+            <div class="note-author note-header-container">{{note.authorName}}</div>
+            <div class="note-header-container date">{{note.dateCreated | date}}</div>
+          </div>
           <div class="note-comment">{{note.comment}}</div>
         </div>
         <mat-divider></mat-divider>

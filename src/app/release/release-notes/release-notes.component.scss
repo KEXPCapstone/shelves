@@ -75,3 +75,22 @@ h5 {
     font-weight: 100;
     font-size: 0.7rem;
 }
+
+.orange-bar {
+    width: 1px;
+    height: 85%;
+    background: #F7B221;
+    margin-right: 8px;
+}
+
+.note-column {
+    flex: 90%;
+}
+
+mat-list-item .orange-bar {
+    visibility: hidden;
+}
+
+mat-list-item:hover .orange-bar {
+    visibility: visible;
+}
