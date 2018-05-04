@@ -46,6 +46,7 @@ export class ReleaseNotesComponent implements OnInit {
       .subscribe((resp) => {
         console.log(resp)
         this.notes.push(resp.body)
+        form.value.note = "";
       }, (error) => {
         console.log(error);
       }

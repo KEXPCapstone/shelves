@@ -7,30 +7,38 @@
         <h5>{{release.KEXPReleaseArtistCredit}}</h5>
         <h5>{{release.KEXPPrimaryGenre}}</h5>
     </div>
-    <div class="column">
+    <!-- <div class="column">
       <form (ngSubmit)="postNote(f)" #f="ngForm">
           <mat-form-field class="post-note-text-box">
             <textarea matInput name="note" ngModel placeholder="Add a note"></textarea>
           </mat-form-field>
           <button type="submit" class="mat-raised-button"(click)="postNote()">Post</button>
         </form>
-    </div>
+    </div> -->
 </div>
-<hr>
+<mat-divider></mat-divider>
 <mat-dialog-content>
   <div>
 
-    <!-- <hr> -->
     <mat-list>
-      <mat-list-item *ngFor="let note of notes;">
-        <div>{{note.authorName}}</div>
-        <div>{{note.comment}}</div>
+      <mat-list-item *ngFor="let note of notes;" class="note-container">
+        <div>
+          <div class="note-author">{{note.authorName}}</div>
+          <div class="note-comment">{{note.comment}}</div>
+        </div>
+        <mat-divider></mat-divider>
       </mat-list-item>
     </mat-list>
   </div>
+  <form (ngSubmit)="postNote(f)" #f="ngForm">
+      <mat-form-field class="post-note-text-box">
+        <textarea matInput name="note" ngModel placeholder="Add a note"></textarea>
+      </mat-form-field>
+      <button type="submit" class="mat-raised-button"(click)="postNote()">Post</button>
+  </form>
 
 </mat-dialog-content>
 
-<mat-dialog-actions>
+<!-- <mat-dialog-actions>
     <button class="mat-raised-button"(click)="close()">Close</button>
-</mat-dialog-actions>
+</mat-dialog-actions> -->

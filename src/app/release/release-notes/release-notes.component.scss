@@ -1,3 +1,7 @@
+form, .image-column, .column, .note-container {
+    margin: 10px;
+}
+
 .album-image {
     width: 100%;
     max-width: 100%;
@@ -13,9 +17,21 @@
 
 .column {
     flex: 37.5%;
-    margin: 10px;
 }
 
 .post-note-text-box {
     width: 100%;
 }
+
+
+.note-author {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.note-comment {
+    font-size: 0.8rem;
+    font-weight: 100;
+}
+
+
