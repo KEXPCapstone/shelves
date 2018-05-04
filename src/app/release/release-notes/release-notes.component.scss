@@ -1,0 +1,77 @@
+form, .image-column, .column, .note-list-item-container, .note-stats-container {
+    margin: 10px;
+}
+
+h5 {
+    margin: 0px;
+}
+
+.album-image {
+    width: 100%;
+    max-width: 100%;
+}
+
+.release-title {
+    font-size: 2rem;
+}
+
+.release-artist {
+    font-weight: 200;
+    font-size: 1.1rem;
+}
+
+.release-genre {
+    font-weight: 100;
+}
+
+.row {
+    display: flex;
+}
+
+.image-column {
+    flex: 25%;
+}
+
+.column {
+    flex: 37.5%;
+}
+
+.num-notes, .num-users {
+    font-size: 0.7rem;
+    flex: 25%;
+    margin-left: 15px;
+}
+
+
+.post-note-text-box {
+    width: 100%;
+}
+
+.note-author {
+    font-size: 0.9rem;
+    font-weight: 400;
+    width: 100%;
+}
+
+.note-comment {
+    font-size: 0.8rem;
+    font-weight: 100;
+}
+
+.dialog-header {
+    height: 10%;
+}
+
+.note-container {
+    width: 100%;
+}
+
+.note-header-container {
+    flex: 50%;
+}
+
+.date {
+    text-align: right;
+    font-weight: 100;
+    font-size: 0.7rem;
+}

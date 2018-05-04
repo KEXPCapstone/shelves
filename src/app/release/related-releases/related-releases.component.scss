@@ -1,0 +1,22 @@
+.related-container {
+    display: flex;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.related-item a {
+    font-size: 12px;
+}
+
+.related-item {
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 599px) {
+    .mat-card-title {
+        font-size: 12px;
+    }
+}

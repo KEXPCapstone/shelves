@@ -1,0 +1,26 @@
+<div class="browse-scroll"
+  infinite-scroll
+  [infiniteScrollDistance]="scrollDistance"
+  [infiniteScrollUpDistance]="scrollUpDistance"
+  [infiniteScrollThrottle]="throttle"
+  [scrollWindow]="false"
+  (scrolled)="onScrollDown()"
+  (scrolledUp)="onScrollUp()">
+  <h1 class="display-4">Artists</h1>
+  <mat-grid-list cols="5" gutterSize="6px">
+    <div class="tile-container" *ngFor="let artist of artists">
+        <mat-grid-tile>
+          <a routerLink="/library/releases/{{artist.releaseGroups[0].releases[0].id}}">
+            <img class="shelves-app-artist-preview"
+              width="100%"
+              alt="{{artist.name}}"
+              src="//coverartarchive.org/release-group/{{artist.releaseGroups[0].releaseGroupId}}/front-500.jpg"
+              onerror="this.hidden='true'">
+          <mat-grid-tile-footer>
+            {{artist.name}}
+          </mat-grid-tile-footer>
+          </a>
+        </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</div>

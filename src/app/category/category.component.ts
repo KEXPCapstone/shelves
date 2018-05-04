@@ -9,7 +9,7 @@ import { Release } from '../release';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
 
@@ -30,7 +30,7 @@ export class CategoryComponent implements OnInit {
 
   // fetch the releases in this category from the library service
   getReleasesInCategory(): void {
-    this.libraryService.getReleasesByCategory(this.categoryName)
+    this.libraryService.getRelatedReleases('KEXPPrimaryGenre', this.categoryName)
       .subscribe(releases => this.releases = releases);
   }
 
