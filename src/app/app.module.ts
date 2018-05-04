@@ -19,6 +19,8 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { MatDialogModule } from '@angular/material';
+import { ReleaseNotesComponent } from './release/release-notes/release-notes.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     BrowseModule,
     ReleaseModule,
     ShelvesModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [
     ShelfService, 
@@ -46,6 +49,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ReleaseNotesComponent] // Tells Angular to provide a factory for the notes modal component
 })
 export class AppModule { }
