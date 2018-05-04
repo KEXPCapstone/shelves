@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -10,7 +11,8 @@ import { MaterialModule } from './material/material.module';
     exports: [
         CommonModule,
         MaterialModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        MatInputModule
         // other shared components/directives etc
     ]
 })

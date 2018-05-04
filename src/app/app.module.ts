@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ShelfService } from './shelf.service';
@@ -14,13 +14,20 @@ import { BrowseModule } from './browse/browse.module';
 import { SharedModule } from './shared/shared.module';
 import { ReleaseModule } from './release/release.module';
 import { ShelvesModule } from './shelves/shelves.module';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './auth/auth.service';
+import { FormsModule } from '@angular/forms';
+import { AuthInterceptor } from './shared/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     LibraryComponent,
     CategoryComponent,
-    HeaderComponent
+    HeaderComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule, // NOTE: this is angular's core browser module, not library browse
@@ -30,9 +37,15 @@ import { ShelvesModule } from './shelves/shelves.module';
     SharedModule,
     BrowseModule,
     ReleaseModule,
-    ShelvesModule
+    ShelvesModule,
+    FormsModule
   ],
-  providers: [ShelfService, LibraryService],
+  providers: [
+    ShelfService, 
+    LibraryService, 
+    AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
