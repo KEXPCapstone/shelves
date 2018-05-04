@@ -14,10 +14,13 @@
         {{numNotes}} Notes
     </div>
     <mat-divider [vertical]="true"></mat-divider>
+    
     <div class="num-users" *ngIf="numPosters != 1">
+        <img src="../../../assets/orangebars.png" class="num-users-kexp-logo">
         {{numPosters}} Users
     </div>
     <div class="num-users" *ngIf="numPosters == 1">
+        <img src="../../../assets/orangebars.png" class="num-users-kexp-logo">
         {{numPosters}} User
     </div>
   </div>
