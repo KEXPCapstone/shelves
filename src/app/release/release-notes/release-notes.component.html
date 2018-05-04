@@ -1,13 +1,20 @@
-<h2 mat-dialog-title>{{release.title}}</h2>
-<h5>{{release.KEXPReleaseArtistCredit}}</h5>
-<h5>{{release.KEXPPrimaryGenre}}</h5>
+<div class="row">
+    <div class="album-cover image-column">
+        <img class="album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
+    </div>
+    <div class="column">
+        <h2 mat-dialog-title>{{release.title}}</h2>
+        <h5>{{release.KEXPReleaseArtistCredit}}</h5>
+        <h5>{{release.KEXPPrimaryGenre}}</h5>
+    </div>
+</div>
 <hr>
 <mat-dialog-content>
-  <p>Testing!</p>
   <div>
     <mat-list>
       <mat-list-item *ngFor="let note of notes;">
-        <div><span>{{note.comment}}</span></div>
+        <div>{{note.authorName}}</div>
+        <div>{{note.comment}}</div>
       </mat-list-item>
     </mat-list>
   </div>

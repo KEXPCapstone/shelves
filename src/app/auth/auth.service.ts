@@ -80,6 +80,11 @@ export class AuthService {
         );
     }
 
+    // public getUserInfo(userId: string): Observable<HttpResponse<User>> {
+    //     const url = `${environment.apiUrl}`
+    //     // return this.http.get<HttpResponse<User>>()
+    // }
+
     private successfulSignIn(resp) {
         this.setToken(resp.headers.get('Authorization'))
         this.router.navigate(['/library'])

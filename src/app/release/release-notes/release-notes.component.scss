@@ -1,0 +1,17 @@
+.album-image {
+    width: 100%;
+    max-width: 100%;
+}
+
+.row {
+    display: flex;
+}
+
+.image-column {
+    flex: 25%;
+}
+
+.column {
+    flex: 75%;
+    margin: 10px;
+}
