@@ -11,10 +11,10 @@
 <mat-divider></mat-divider>
   <div class="row note-stats-container">
     <div class="num-notes">
+        <img src="../../../assets/notes-icon.png" class="num-notes-icon">
         {{numNotes}} Notes
     </div>
     <mat-divider [vertical]="true"></mat-divider>
-    
     <div class="num-users" *ngIf="numPosters != 1">
         <img src="../../../assets/orangebars.png" class="num-users-kexp-logo">
         {{numPosters}} Users

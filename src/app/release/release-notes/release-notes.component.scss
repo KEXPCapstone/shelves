@@ -95,8 +95,14 @@ mat-list-item:hover .orange-bar {
     visibility: visible;
 }
 
-.num-users-kexp-logo{
-    // height: 10px;
-    // width: 5px;
+.num-users-kexp-logo {
     height: 0.7rem;
+    margin: 2px;
+    vertical-align: bottom;
+}
+
+.num-notes-icon {
+    height: 0.8rem;
+    margin: 2px;
+    vertical-align: bottom;
 }
