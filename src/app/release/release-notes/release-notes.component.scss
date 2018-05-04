@@ -1,4 +1,4 @@
-form, .image-column, .column, .note-container {
+form, .image-column, .column, .note-list-item-container {
     margin: 10px;
 }
 
@@ -27,6 +27,7 @@ form, .image-column, .column, .note-container {
 .note-author {
     font-size: 0.9rem;
     font-weight: 400;
+    width: 100%;
 }
 
 .note-comment {
@@ -36,4 +37,18 @@ form, .image-column, .column, .note-container {
 
 .dialog-header {
     height: 10%;
+}
+
+.note-container {
+    width: 100%;
+}
+
+.note-header-container {
+    flex: 50%;
+}
+
+.date {
+    text-align: right;
+    font-weight: 100;
+    font-size: 0.7rem;
 }
