@@ -8,6 +8,8 @@ body {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 400;
   font-size: 1em;
+  background-color: #303030;
+  color: white;
 }
 
 /* headers and text */
@@ -44,6 +46,8 @@ a {
 
 /* rules for main content layout */
 main {
+  position: relative;
+  top: 64px;
   padding: 20px 70px 0
 }
 

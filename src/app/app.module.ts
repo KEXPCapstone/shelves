@@ -9,7 +9,7 @@ import { LibraryService } from './library.service';
 import { AppRoutingModule } from './app-routing.module';
 import { LibraryComponent } from './library/library.component';
 import { CategoryComponent } from './category/category.component';
-import { HeaderComponent } from './header/header.component';
+import { NavBarComponent } from './navbar/navbar.component';
 import { BrowseModule } from './browse/browse.module';
 import { SharedModule } from './shared/shared.module';
 import { ReleaseModule } from './release/release.module';
@@ -28,9 +28,9 @@ import { NoteService } from './note.service';
     AppComponent,
     LibraryComponent,
     CategoryComponent,
-    HeaderComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule, // NOTE: this is angular's core browser module, not library browse
@@ -44,8 +44,8 @@ import { NoteService } from './note.service';
     FormsModule
   ],
   providers: [
-    ShelfService, 
-    LibraryService, 
+    ShelfService,
+    LibraryService,
     AuthService,
     NoteService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

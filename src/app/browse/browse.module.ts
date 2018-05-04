@@ -1,5 +1,7 @@
 import { NgModule} from '@angular/core';
 
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 import { BrowseListComponent } from './browse-list/browse-list.component';
 import { BrowseGroupComponent } from './browse-group/browse-group.component';
 import { BrowseComponent } from './browse.component';
@@ -16,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     imports: [
         SharedModule,
         BrowseRoutingModule,
+        InfiniteScrollModule
     ]
 })
 export class BrowseModule {}

@@ -1,35 +1,53 @@
-    <h1>{{release.title}}</h1>
-    <h3>{{release.KEXPReleaseArtistCredit}}</h3>
+<main>
+    <!-- <section *ngIf="release" class="release-header">
+        <h1>{{release.title}}</h1>
+        <h2>{{release.KEXPReleaseArtistCredit}}</h2>
+    </section> -->
     <button mat-button (click)="openNotesDialog()">Show Notes</button>
-</section>
-<section *ngIf="release" class="release-layout"
-    fxLayout
-    fxLayoutAlign="center"
-    fxLayout.xs="column"
-    fxLayoutGap="24px"
-    fxLayoutGap.xs="16px">
-    <div class="album-cover" fxFlex="40%">
-        <img class="album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
-    </div>
-    <div fxFlex="60%" class="release-info">
-    </div>
-</section>
-<section *ngIf="release" class="tracklist-container">
-    <h3>Tracklist</h3>
-    <div class="tracklist">
-        <mat-list class="tracklist">
-            <!-- handles multiple discs/sides -->
-            <div class="track-group" *ngFor="let disc of release.media; let i = index">
-                <h3 *ngIf="release.media.length > 1" matSubheader>{{release.media[i].title}} - {{release.media[i].format}}</h3>
-                <mat-list-item *ngFor="let track of release.media[i].tracks; last as last">
-                    <div class="track-title"><span>{{track.number}}</span> {{track.title}}</div>
-                    <div class="track-length">{{track.length | date:'mm:ss'}}</div>
-                    <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
-                </mat-list-item>
+    <section *ngIf="release" class="release-layout"
+        fxLayout
+        fxLayoutAlign="center"
+        fxLayout.xs="column"
+        fxLayoutGap="24px"
+        fxLayoutGap.xs="16px">
+        <div class="album-cover" fxFlex="40%">
+            <img class="album-image" [src]="getArtForRelease()">
+        </div>
+        <div fxFlex="60%" class="release-info">
+            <div class="release-title">
+                <h1>{{release.title}}</h1>
+                <h3>by
+                    <span class="kexp-orange">{{release.KEXPReleaseArtistCredit}}</span>
+                    <span *ngIf="release.date">released <span class="kexp-orange">{{release.date | date}}</span></span>
+                </h3>
+                <!-- <mat-chip-list>
+                    <mat-chip color="accent">{{release.KEXPPrimaryGenre}}</mat-chip>
+                </mat-chip-list> -->
             </div>
-        </mat-list>
-    </div>
-</section>
-<!-- <section *ngIf="release" class="related-section">
-    <app-related-releases [release]="release"></app-related-releases>
-</section> -->
+            <h3>Related releases</h3>
+            <mat-divider></mat-divider>
+            <app-related-releases *ngIf="release" [release]="release"></app-related-releases>
+        </div>
+    </section>
+    <!-- <section *ngIf="release">
+        <mat-divider></mat-divider>
+        <h3>Related releases</h3>
+        <app-related-releases *ngIf="release" [release]="release"></app-related-releases>
+    </section> -->
+    <section *ngIf="release" class="tracklist-container">
+        <h3>Tracklist</h3>
+        <div class="tracklist">
+            <mat-list class="tracklist">
+                <!-- handles multiple discs/sides -->
+                <div class="track-group" *ngFor="let disc of release.media; let i = index">
+                    <h3 *ngIf="release.media.length > 1" matSubheader>{{release.media[i].title}} - {{release.media[i].format}}</h3>
+                    <mat-list-item *ngFor="let track of release.media[i].tracks; last as last">
+                        <div class="track-title"><span>{{track.number}}</span> {{track.title}}</div>
+                        <div class="track-length">{{track.length | date:'mm:ss'}}</div>
+                        <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+                    </mat-list-item>
+                </div>
+            </mat-list>
+        </div>
+    </section>
+</main>

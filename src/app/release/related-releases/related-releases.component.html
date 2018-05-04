@@ -1,14 +1,20 @@
-<div class="related-container"
-  fxLayout *ngIf="relateds">
-  <mat-form-field class="related-selector">
+<div class="related-container" *ngIf="relateds">
+  <!-- <mat-form-field class="related-selector">
     <mat-select [(value)]="selected" placeholder="Related by" (selectionChange)="onSelectChange(selected)">
       <mat-option *ngFor="let option of options" [value]="option">
         {{option}}
       </mat-option>
     </mat-select>
-  </mat-form-field>
-  <mat-card *ngFor="let release of relateds">
-    <mat-card-title>{{release.title}}</mat-card-title>
-    <img src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-250.jpg" mat-card-image>
-  </mat-card>
+  </mat-form-field> -->
+  <div class="related-item" *ngFor="let related of relateds.slice(0,4)">
+    <img width="100%" src="//coverartarchive.org/release-group/{{related.KEXPReleaseGroupMBID}}/front-250.jpg">
+    <a>{{related.title}}</a>
+  </div>
+  <!-- <mat-card class="related-release-card" *ngFor="let related of relateds.slice(0,4)">
+    <img mat-card-image src="//coverartarchive.org/release-group/{{related.KEXPReleaseGroupMBID}}/front-250.jpg">
+    <mat-card-footer>
+        <mat-card-title>{{related.title}}</mat-card-title>
+        <mat-card-subtitle>{{related.KEXPReleaseArtistCredit}}</mat-card-subtitle>
+      </mat-card-footer>
+  </mat-card> -->
 </div>
