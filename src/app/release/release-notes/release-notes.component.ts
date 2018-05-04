@@ -17,4 +17,8 @@ export class ReleaseNotesComponent implements OnInit {
   ngOnInit() {
   }
 
+  getNotes() {
+    
+  }
+
 }
