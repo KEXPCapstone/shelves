@@ -41,8 +41,7 @@ import { NoteService } from './note.service';
     BrowseModule,
     ReleaseModule,
     ShelvesModule,
-    FormsModule,
-    MatDialogModule
+    FormsModule
   ],
   providers: [
     ShelfService, 
@@ -51,7 +50,6 @@ import { NoteService } from './note.service';
     NoteService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
-  bootstrap: [AppComponent],
-  entryComponents: [ReleaseNotesComponent] // Tells Angular to provide a factory for the notes modal component
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

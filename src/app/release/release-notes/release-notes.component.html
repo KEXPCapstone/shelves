@@ -4,6 +4,14 @@
 <hr>
 <mat-dialog-content>
   <p>Testing!</p>
+  <div>
+    <mat-list>
+      <mat-list-item *ngFor="let note of notes;">
+        <div><span>{{note.comment}}</span></div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
 </mat-dialog-content>
 
 <mat-dialog-actions>
