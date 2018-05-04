@@ -1,3 +1,5 @@
+
+
 form, .image-column, .column, .note-list-item-container, .note-stats-container {
     margin: 10px;
 }
@@ -7,7 +9,7 @@ h5 {
 }
 
 .album-image {
-    width: 100%;
+    width: 6.5rem;
     max-width: 100%;
 }
 
@@ -29,7 +31,7 @@ h5 {
 }
 
 .image-column {
-    flex: 25%;
+    flex: 0%;
 }
 
 .column {
@@ -105,4 +107,8 @@ mat-list-item:hover .orange-bar {
     height: 0.8rem;
     margin: 2px;
     vertical-align: bottom;
+}
+
+.mat-dialog-container {
+    width: 700px;
 }
