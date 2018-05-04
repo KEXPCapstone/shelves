@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { Release } from '../../release';
+import { NoteService } from '../../note.service';
 
 @Component({
   selector: 'app-release-notes',
@@ -10,7 +11,7 @@ import { Release } from '../../release';
 export class ReleaseNotesComponent implements OnInit {
   private release : Release;
 
-  constructor(@Inject(MAT_DIALOG_DATA) release) {
+  constructor(@Inject(MAT_DIALOG_DATA) release, private noteService: NoteService) {
     this.release = release;    
    }
 

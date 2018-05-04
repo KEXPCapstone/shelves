@@ -8,7 +8,7 @@ import { tap, catchError } from "rxjs/operators";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
 
 @Injectable()
-export class ShelfService {
+export class NoteService {
 
     constructor(private http: HttpClient) {}
 
