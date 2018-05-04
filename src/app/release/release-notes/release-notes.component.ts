@@ -14,6 +14,8 @@ import { FormControl, NgForm } from '@angular/forms';
 export class ReleaseNotesComponent implements OnInit {
   private release : Release;
   private notes : Note[];
+  private numNotes : number = 0;
+  private numPosters : number = 0;
 
   constructor(@Inject(MAT_DIALOG_DATA) release, private noteService: NoteService, public dialogRef: MatDialogRef<ReleaseNotesComponent>) {
     this.release = release;    
@@ -27,11 +29,25 @@ export class ReleaseNotesComponent implements OnInit {
     // something in authSerivce which gets the name back and displays it within one of the ngFor things
   }
 
+  setNumberPosters() {
+    let seen : string[] = [];
+    let count : number = 0;
+    this.notes.forEach(function(note) {
+      if (seen.indexOf(note.ownerID) == -1) {
+        count++;
+        seen.push(note.ownerID);
+      }
+    });
+    this.numPosters = count;
+  }
+
 
   getNotes() {
     this.noteService.getNotes(this.release)
       .subscribe((resp) => {
         this.notes = resp.body;
+        this.numNotes = this.notes.length;
+        this.setNumberPosters();
       }, (error) => {
         console.log("Oh shit boy subscribe method got an error from notes!")
         console.log(error)
@@ -46,6 +62,7 @@ export class ReleaseNotesComponent implements OnInit {
       .subscribe((resp) => {
         console.log(resp)
         this.notes.push(resp.body)
+        this.numNotes = this.notes.length;
         form.reset();
       }, (error) => {
         console.log(error);

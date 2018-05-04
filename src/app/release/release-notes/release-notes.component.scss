@@ -1,10 +1,27 @@
-form, .image-column, .column, .note-list-item-container {
+form, .image-column, .column, .note-list-item-container, .note-stats-container {
     margin: 10px;
+}
+
+h5 {
+    margin: 0px;
 }
 
 .album-image {
     width: 100%;
     max-width: 100%;
+}
+
+.release-title {
+    font-size: 2rem;
+}
+
+.release-artist {
+    font-weight: 200;
+    font-size: 1.1rem;
+}
+
+.release-genre {
+    font-weight: 100;
 }
 
 .row {
@@ -19,10 +36,16 @@ form, .image-column, .column, .note-list-item-container {
     flex: 37.5%;
 }
 
+.num-notes, .num-users {
+    font-size: 0.7rem;
+    flex: 25%;
+    margin-left: 15px;
+}
+
+
 .post-note-text-box {
     width: 100%;
 }
-
 
 .note-author {
     font-size: 0.9rem;
