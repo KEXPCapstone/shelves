@@ -5,6 +5,7 @@ import { ReleaseNotesComponent } from './release-notes/release-notes.component';
 import { RelatedReleasesComponent } from './related-releases/related-releases.component';
 import { ReleaseDetailComponent } from './release-detail/release-detail.component';
 import { MatDialogModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { MatDialogModule } from '@angular/material';
     ],
     imports: [
         SharedModule,
-        MatDialogModule
+        MatDialogModule,
+        FormsModule
     ]
 })
 export class ReleaseModule {}

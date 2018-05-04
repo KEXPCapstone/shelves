@@ -3,6 +3,8 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 import { Release } from '../../release';
 import { NoteService } from '../../note.service';
 import { Note } from '../../note';
+import { FormControl, NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-release-notes',
@@ -38,7 +40,15 @@ export class ReleaseNotesComponent implements OnInit {
     )
   }
 
-  postNote() {
-
+  postNote(form: NgForm) {
+    console.log(form.value.note)
+    this.noteService.postNote(form.value.note, this.release)
+      .subscribe((resp) => {
+        console.log(resp)
+        this.notes.push(resp.body)
+      }, (error) => {
+        console.log(error);
+      }
+    )
   }
 }

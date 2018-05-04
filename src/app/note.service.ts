@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Release } from "./release";
 import { environment } from "../environments/environment";
-import { Note } from "./note";
+import { Note, NewNote } from "./note";
 import { HttpClient, HttpResponse, HttpErrorResponse} from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 import { tap, catchError } from "rxjs/operators";
@@ -16,11 +16,25 @@ export class NoteService {
         const url = `${environment.apiUrl}/library/notes/releases/${release.id}`
         return this.http.get<HttpResponse<Note[]>>(url, {observe: 'response'}).pipe(
             tap((resp) => {
-                console.log("hi")
+                console.log(resp)
             }),
             catchError(this.handleError)
         );
     }
+
+    postNote(note: string, release: Release): Observable<HttpResponse<Note>> {
+        const url = `${environment.apiUrl}/library/notes/releases/${release.id}`
+        let noteObj : NewNote = {comment: note}
+        return this.http.post<HttpResponse<Note>>(url, noteObj, {observe: 'response'}).pipe(
+            tap((resp) => {
+                console.log(resp)
+            }),
+            catchError(this.handleError)
+        )
+
+    }
+
+
 
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {

@@ -11,6 +11,13 @@
 <hr>
 <mat-dialog-content>
   <div>
+    <form (ngSubmit)="postNote(f)" #f="ngForm">
+      <mat-form-field class="post-note-text-box">
+        <textarea matInput name="note" ngModel placeholder="Add a note"></textarea>
+      </mat-form-field>
+      <button type="submit" class="mat-raised-button"(click)="postNote()">Post</button>
+    </form>
+    <hr>
     <mat-list>
       <mat-list-item *ngFor="let note of notes;">
         <div>{{note.authorName}}</div>
@@ -23,5 +30,4 @@
 
 <mat-dialog-actions>
     <button class="mat-raised-button"(click)="close()">Close</button>
-    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
 </mat-dialog-actions>

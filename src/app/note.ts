@@ -5,3 +5,7 @@ export class Note {
     comment: string;
     dateCreated: Date;
 }
+
+export class NewNote {
+    comment: string;
+}
