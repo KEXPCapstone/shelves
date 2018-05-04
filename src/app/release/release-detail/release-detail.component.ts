@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 
 import { LibraryService } from '../../library.service';
 import { Release } from '../../release';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { ReleaseNotesComponent } from '../release-notes/release-notes.component';
 
 @Component({
   selector: 'app-release-detail',
@@ -16,7 +18,8 @@ export class ReleaseDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private libraryService: LibraryService,
-    private location: Location
+    private location: Location,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -36,5 +39,11 @@ export class ReleaseDetailComponent implements OnInit {
   // useful to implement 'back' button
   goBack(): void {
     this.location.back();
+  }
+
+  openNotesDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true; 
+    this.dialog.open(ReleaseNotesComponent, dialogConfig)
   }
 }
