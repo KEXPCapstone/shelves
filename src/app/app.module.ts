@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { MatDialogModule } from '@angular/material';
 import { ReleaseNotesComponent } from './release/release-notes/release-notes.component';
+import { NoteService } from './note.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ReleaseNotesComponent } from './release/release-notes/release-notes.com
     ShelfService, 
     LibraryService, 
     AuthService,
+    NoteService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],

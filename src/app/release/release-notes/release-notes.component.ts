@@ -16,10 +16,19 @@ export class ReleaseNotesComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.getNotes();
   }
 
   getNotes() {
-    
+    this.noteService.getNotes(this.release)
+      .subscribe((resp) => {
+        console.log(resp.body)
+      }, (error) => {
+        console.log("Oh shit boy subscribe method got an error from notes!")
+        console.log(error)
+
+      }
+    )
   }
 
 }
