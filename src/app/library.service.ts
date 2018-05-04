@@ -27,6 +27,20 @@ export class LibraryService {
     );
   }
 
+  // Get a list of artists with name 'greater than' start
+  // limit specifies maximum # of artists to return
+  getArtists(start: string, limit: number): Observable<any[]> {
+    const url = `${environment.apiUrl}/library/artists`;
+    const options = {
+      params: new HttpParams()
+      .append('last_id', start)
+      .append('limit', limit.toString())
+    };
+    return this.http.get<any[]>(url, options).pipe(
+      catchError(this.handleError('getArtists', []))
+    );
+  }
+
   // fetch releases matching a given field value
   getRelatedReleases(field: string, value: string): Observable<Release[]> {
     const url = `${environment.apiUrl}/library/releases/related`;

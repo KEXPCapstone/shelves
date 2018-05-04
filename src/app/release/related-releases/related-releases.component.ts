@@ -28,9 +28,12 @@ export class RelatedReleasesComponent implements OnInit {
     this.getRelatedReleases(selected, this.release[selected]);
   }
 
+  // fetch releases related to the current release based on
+  // a field:value pairing
   getRelatedReleases(field: string, value: string): void {
     this.library.getRelatedReleases(field, value)
-      .subscribe(releases => this.relateds = releases);
+      .subscribe(relateds => this.relateds = relateds.filter(
+        related => related.KEXPReleaseGroupMBID !== this.release.KEXPReleaseGroupMBID
+      ));
   }
-
 }

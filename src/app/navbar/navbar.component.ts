@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class NavBarComponent implements OnInit {
 
   constructor(public authService: AuthService) { }
 
@@ -16,10 +16,11 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.authService.logout()
       .subscribe(_ => {
-        console.log("singed out")
+        console.log('signed out');
       }, (error) => {
-        console.log(error)
+        console.log(error);
       }
-    )
+    );
   }
+
 }

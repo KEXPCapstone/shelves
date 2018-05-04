@@ -1,16 +1,26 @@
-<header class="category-header">
-  <h2>
-    {{categoryName | titlecase}}
-  </h2>
-</header>
-<section *ngIf="releases" class="category-content">
-  <mat-grid-list cols="4" rowHeight="250px" gutterSize="2px">
-      <mat-grid-tile class="release-preview-tile" *ngFor="let release of releases">
-        <mat-grid-tile-footer class="category-tile-footer">
-          <h3><a class="release-link" routerLink="/library/releases/{{release.id}}">
-            {{release.KEXPTitle}} - {{release.KEXPReleaseArtistCredit}} ({{release.KEXPPrimaryGenre}})</a></h3>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-    </mat-grid-list>
-</section>
-<p>hello</p>
+<div class="browse-scroll"
+  infinite-scroll
+  [infiniteScrollDistance]="scrollDistance"
+  [infiniteScrollUpDistance]="scrollUpDistance"
+  [infiniteScrollThrottle]="throttle"
+  [scrollWindow]="false"
+  (scrolled)="onScrollDown()"
+  (scrolledUp)="onScrollUp()">
+  <h1 class="display-4">Artists</h1>
+  <mat-grid-list cols="5" gutterSize="6px">
+    <div class="tile-container" *ngFor="let artist of artists">
+        <mat-grid-tile>
+          <a routerLink="/library/releases/{{artist.releaseGroups[0].releases[0].id}}">
+            <img class="shelves-app-artist-preview"
+              width="100%"
+              alt="{{artist.name}}"
+              src="//coverartarchive.org/release-group/{{artist.releaseGroups[0].releaseGroupId}}/front-500.jpg"
+              onerror="this.hidden='true'">
+          <mat-grid-tile-footer>
+            {{artist.name}}
+          </mat-grid-tile-footer>
+          </a>
+        </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</div>

@@ -1,4 +1,4 @@
-<main class="main-content">
+<main>
     <!-- <section *ngIf="release" class="release-header">
         <h1>{{release.title}}</h1>
         <h2>{{release.KEXPReleaseArtistCredit}}</h2>
@@ -18,18 +18,22 @@
                 <h1>{{release.title}}</h1>
                 <h3>by
                     <span class="kexp-orange">{{release.KEXPReleaseArtistCredit}}</span>
-                    released <span class="kexp-orange">{{release.date | date:'yyyy'}}</span>
+                    <span *ngIf="release.date">released <span class="kexp-orange">{{release.date | date}}</span></span>
                 </h3>
                 <!-- <mat-chip-list>
                     <mat-chip color="accent">{{release.KEXPPrimaryGenre}}</mat-chip>
                 </mat-chip-list> -->
             </div>
+            <h3>Related releases</h3>
             <mat-divider></mat-divider>
-            <div>
-
-            </div>
+            <app-related-releases *ngIf="release" [release]="release"></app-related-releases>
         </div>
     </section>
+    <!-- <section *ngIf="release">
+        <mat-divider></mat-divider>
+        <h3>Related releases</h3>
+        <app-related-releases *ngIf="release" [release]="release"></app-related-releases>
+    </section> -->
     <section *ngIf="release" class="tracklist-container">
         <h3>Tracklist</h3>
         <div class="tracklist">
