@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Release } from '../../release';
 import { NoteService } from '../../note.service';
 import { Note } from '../../note';
@@ -15,7 +15,7 @@ export class ReleaseNotesComponent implements OnInit {
   private release : Release;
   private notes : Note[];
 
-  constructor(@Inject(MAT_DIALOG_DATA) release, private noteService: NoteService) {
+  constructor(@Inject(MAT_DIALOG_DATA) release, private noteService: NoteService, public dialogRef: MatDialogRef<ReleaseNotesComponent>) {
     this.release = release;    
    }
 
@@ -50,5 +50,10 @@ export class ReleaseNotesComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+
+  close() {
+    this.dialogRef.close();
   }
 }
