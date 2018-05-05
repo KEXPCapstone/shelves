@@ -63,6 +63,7 @@ export class ReleaseNotesComponent implements OnInit {
         console.log(resp)
         this.notes.push(resp.body)
         this.numNotes = this.notes.length;
+        this.setNumberPosters();
         form.reset();
       }, (error) => {
         console.log(error);

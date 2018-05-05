@@ -1,7 +1,7 @@
 <div class="row dialog-header">
-    <div class="album-cover image-column">
+    
         <img class="album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
-    </div>
+  
     <div class="column">
         <h1 mat-dialog-title class="release-title">{{release.title}}</h1>
         <h5 class="release-artist">{{release.KEXPReleaseArtistCredit}}</h5>
@@ -11,13 +11,16 @@
 <mat-divider></mat-divider>
   <div class="row note-stats-container">
     <div class="num-notes">
+        <img src="../../../assets/notes-icon.png" class="num-notes-icon">
         {{numNotes}} Notes
     </div>
     <mat-divider [vertical]="true"></mat-divider>
     <div class="num-users" *ngIf="numPosters != 1">
+        <img src="../../../assets/orangebars.png" class="num-users-kexp-logo">
         {{numPosters}} Users
     </div>
     <div class="num-users" *ngIf="numPosters == 1">
+        <img src="../../../assets/orangebars.png" class="num-users-kexp-logo">
         {{numPosters}} User
     </div>
   </div>
@@ -25,14 +28,24 @@
 <mat-dialog-content>
   <div>
     <mat-list>
-      <mat-list-item *ngFor="let note of notes;" class="note-list-item-container">
-        <div class="note-container">
-          
-          <div class="row"><div class="note-author note-header-container">{{note.authorName}}</div><div class="note-header-container date">{{note.dateCreated | date}}</div></div>
-          <div class="note-comment">{{note.comment}}</div>
-        </div>
-        <mat-divider></mat-divider>
-      </mat-list-item>
+      <div *ngFor="let note of notes;" class="note-list-item-container">
+          <mat-list-item >
+              <div class="orange-bar"></div>
+              <div class="note-container">  
+                <div class="row">
+                  <div class="note-author note-header-container">{{note.authorName}}</div>
+                  <div class="note-header-container date">{{note.dateCreated | date}}</div>
+                </div>
+                <div class="note-comment">
+                  
+                  {{note.comment}}
+                </div>
+              </div>
+             
+            </mat-list-item>
+            <mat-divider class="note-divider"></mat-divider>
+      </div>
+      
     </mat-list>
   </div>
   <form (ngSubmit)="postNote(f)" #f="ngForm">

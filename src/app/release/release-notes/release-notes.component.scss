@@ -1,3 +1,5 @@
+
+
 form, .image-column, .column, .note-list-item-container, .note-stats-container {
     margin: 10px;
 }
@@ -7,7 +9,7 @@ h5 {
 }
 
 .album-image {
-    width: 100%;
+    width: 6.5rem;
     max-width: 100%;
 }
 
@@ -29,7 +31,7 @@ h5 {
 }
 
 .image-column {
-    flex: 25%;
+    flex: 0%;
 }
 
 .column {
@@ -42,6 +44,17 @@ h5 {
     margin-left: 15px;
 }
 
+.num-users-kexp-logo {
+    height: 0.7rem;
+    margin: 2px;
+    vertical-align: bottom;
+}
+
+.num-notes-icon {
+    height: 0.8rem;
+    margin: 2px;
+    vertical-align: bottom;
+}
 
 .post-note-text-box {
     width: 100%;
@@ -56,14 +69,17 @@ h5 {
 .note-comment {
     font-size: 0.8rem;
     font-weight: 100;
+    // margin: 5px;
 }
 
 .dialog-header {
     height: 10%;
+    margin: 10px;
 }
 
 .note-container {
     width: 100%;
+    margin: 5px;
 }
 
 .note-header-container {
@@ -74,4 +90,31 @@ h5 {
     text-align: right;
     font-weight: 100;
     font-size: 0.7rem;
+}
+
+.orange-bar {
+    width: 1px;
+    height: 85%;
+    background: #F7B221;
+    margin-right: 8px;
+}
+
+.note-column {
+    flex: 90%;
+}
+
+.mat-list-item, .mat-list-item-content, .note-list-item-container {
+    height: auto;
+}
+
+mat-list-item .orange-bar {
+    visibility: hidden;
+}
+
+mat-list-item:hover .orange-bar {
+    visibility: visible;
+}
+
+.note-divider {
+    margin: 10px;   
 }

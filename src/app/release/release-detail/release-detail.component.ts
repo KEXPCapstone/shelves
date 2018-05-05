@@ -53,8 +53,9 @@ export class ReleaseDetailComponent implements OnInit {
 
   openNotesDialog() {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = true; 
+    dialogConfig.autoFocus = false;
     dialogConfig.data = this.release;
-    this.dialog.open(ReleaseNotesComponent, dialogConfig)
+    dialogConfig.width = '60rem';
+    this.dialog.open(ReleaseNotesComponent, dialogConfig);
   }
 }
