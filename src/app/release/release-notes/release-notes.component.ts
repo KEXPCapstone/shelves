@@ -12,13 +12,17 @@ import { FormControl, NgForm } from '@angular/forms';
   styleUrls: ['./release-notes.component.scss']
 })
 export class ReleaseNotesComponent implements OnInit {
-  private release : Release;
-  private notes : Note[];
-  private numNotes : number = 0;
-  private numPosters : number = 0;
+  private release: Release;
+  private notes: Note[];
+  private numNotes = 0;
+  private numPosters = 0;
 
-  constructor(@Inject(MAT_DIALOG_DATA) release, private noteService: NoteService, public dialogRef: MatDialogRef<ReleaseNotesComponent>) {
-    this.release = release;    
+  constructor(
+    @Inject(MAT_DIALOG_DATA) release,
+    private noteService: NoteService,
+    public dialogRef: MatDialogRef<ReleaseNotesComponent>
+  ) {
+    this.release = release;
    }
 
   ngOnInit() {
@@ -30,10 +34,10 @@ export class ReleaseNotesComponent implements OnInit {
   }
 
   setNumberPosters() {
-    let seen : string[] = [];
-    let count : number = 0;
+    const seen: string[] = [];
+    let count = 0;
     this.notes.forEach(function(note) {
-      if (seen.indexOf(note.ownerID) == -1) {
+      if (seen.indexOf(note.ownerID) === -1) {
         count++;
         seen.push(note.ownerID);
       }
@@ -49,26 +53,24 @@ export class ReleaseNotesComponent implements OnInit {
         this.numNotes = this.notes.length;
         this.setNumberPosters();
       }, (error) => {
-        console.log("Oh shit boy subscribe method got an error from notes!")
-        console.log(error)
-        // TODO: Display dat error boy
+        console.log(error);
       }
-    )
+    );
   }
 
   postNote(form: NgForm) {
-    console.log(form.value.note)
+    console.log(form.value.note);
     this.noteService.postNote(form.value.note, this.release)
       .subscribe((resp) => {
-        console.log(resp)
-        this.notes.push(resp.body)
+        console.log(resp);
+        this.notes.push(resp.body);
         this.numNotes = this.notes.length;
         this.setNumberPosters();
         form.reset();
       }, (error) => {
         console.log(error);
       }
-    )
+    );
   }
 
 

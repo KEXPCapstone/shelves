@@ -8,13 +8,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  
+
   public invalidNewUser = false;
   public serverError = false;
-  private errorMessage : string = '';
+  private errorMessage = '';
 
 
-  constructor(private authService : AuthService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -24,19 +24,25 @@ export class SignupComponent implements OnInit {
   }
 
   signup(form: NgForm) {
-    this.authService.newUser(form.value.email, form.value.password, form.value.passwordConf, form.value.userName, form.value.firstName, form.value.lastName)
+    this.authService.newUser(
+      form.value.email,
+      form.value.password,
+      form.value.passwordConf,
+      form.value.userName,
+      form.value.firstName,
+      form.value.lastName)
       .subscribe((resp) => {
-        console.log("created new user")
-        console.log(resp.body)
+        console.log('created new user');
+        console.log(resp.body);
       }, (error) => {
         console.log(error);
-        if (error.status == 400) {
+        if (error.status === 400) {
           this.invalidNewUser = true;
           this.errorMessage = error.error;
         } else {
           this.serverError = true;
-          this.errorMessage = "Something went wrong, please try again.";
-        } 
+          this.errorMessage = 'Something went wrong, please try again.';
+        }
       }
     );
   }

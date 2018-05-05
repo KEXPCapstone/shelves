@@ -12,4 +12,4 @@ export class Credentials {
     password: string;
 }
 
-export class NewUser{}
+export class NewUser {}
