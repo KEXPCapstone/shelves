@@ -44,6 +44,17 @@ h5 {
     margin-left: 15px;
 }
 
+.num-users-kexp-logo {
+    height: 0.7rem;
+    margin: 2px;
+    vertical-align: bottom;
+}
+
+.num-notes-icon {
+    height: 0.8rem;
+    margin: 2px;
+    vertical-align: bottom;
+}
 
 .post-note-text-box {
     width: 100%;
@@ -58,6 +69,7 @@ h5 {
 .note-comment {
     font-size: 0.8rem;
     font-weight: 100;
+    // margin: 5px;
 }
 
 .dialog-header {
@@ -67,6 +79,7 @@ h5 {
 
 .note-container {
     width: 100%;
+    margin: 5px;
 }
 
 .note-header-container {
@@ -90,6 +103,10 @@ h5 {
     flex: 90%;
 }
 
+.mat-list-item, .mat-list-item-content, .note-list-item-container {
+    height: auto;
+}
+
 mat-list-item .orange-bar {
     visibility: hidden;
 }
@@ -98,14 +115,6 @@ mat-list-item:hover .orange-bar {
     visibility: visible;
 }
 
-.num-users-kexp-logo {
-    height: 0.7rem;
-    margin: 2px;
-    vertical-align: bottom;
-}
-
-.num-notes-icon {
-    height: 0.8rem;
-    margin: 2px;
-    vertical-align: bottom;
+.note-divider {
+    margin: 10px;   
 }
