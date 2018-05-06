@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 
 import { Shelf } from './shelf';
+import { environment } from '../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -25,6 +26,17 @@ export class ShelfService {
       .pipe(
         tap(shelves => this.log(`fetched shelves`)),
         catchError(this.handleError('getShelves', []))
+      );
+  }
+
+  // GET the current users's shelves. Returns entire HTTP response
+  getMyShelves(): Observable<HttpResponse<Shelf[]>> {
+    const url = `${environment.apiUrl}/shelves/mine`;
+    return this.http.get<HttpResponse<Shelf[]>>(url)
+      .pipe(
+        tap((shelves) => {
+          console.log('Fetched current users shelves');
+        })
       );
   }
 
