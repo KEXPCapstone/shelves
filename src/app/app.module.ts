@@ -24,6 +24,7 @@ import { NoteService } from './note.service';
 import { SHELVES_ROUTES } from './routes';
 import { RouterModule } from '@angular/router';
 import { BrowseSidenavModule } from './browse-sidenav/browse-sidenav.module';
+import { ShelfAddComponent } from './shelf-add/shelf-add.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { BrowseSidenavModule } from './browse-sidenav/browse-sidenav.module';
     CategoryComponent,
     SignupComponent,
     SigninComponent,
-    NavBarComponent
+    NavBarComponent,
+    ShelfAddComponent
   ],
   providers: [
     ShelfService,
