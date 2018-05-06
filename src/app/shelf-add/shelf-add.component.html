@@ -1,13 +1,20 @@
-<div class="row dialog-header">
+<!-- <div class="row dialog-header">
   <img class="album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
   <div class="column">
     <h1 mat-dialog-title class="release-title">{{release.title}}</h1>
     <h5 class="release-artist">{{release.KEXPReleaseArtistCredit}}</h5>
     <h5 class="release-genre">{{release.KEXPPrimaryGenre}}</h5>
   </div>
-</div>
+</div> -->
 <mat-dialog-content>
   <p>
     {{release.id}}
   </p>
+  <mat-form-field>
+    <mat-select placeholder="Pick a shelf">
+      <mat-option *ngFor="let shelf of userShelves" [value]="shelf.name">
+        {{shelf.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </mat-dialog-content>
