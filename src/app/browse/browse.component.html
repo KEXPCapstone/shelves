@@ -1,11 +1,4 @@
-<div class="browse-scroll"
-  infinite-scroll
-  [infiniteScrollDistance]="scrollDistance"
-  [infiniteScrollUpDistance]="scrollUpDistance"
-  [infiniteScrollThrottle]="throttle"
-  [scrollWindow]="false"
-  (scrolled)="onScrollDown()"
-  (scrolledUp)="onScrollUp()">
+<div class="browse-scroll">
   <h1 class="display-4">Artists</h1>
   <mat-grid-list cols="5" gutterSize="6px">
     <div class="tile-container" *ngFor="let artist of artists">

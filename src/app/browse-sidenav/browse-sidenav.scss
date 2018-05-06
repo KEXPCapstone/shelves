@@ -1,0 +1,80 @@
+@import '../../styles/constants';
+
+$sidenav-width: 240px;
+
+shelves-browse-sidenav {
+    display: flex;
+    flex-direction: column;
+}
+
+// .shelves-browse-sidenav-inner-content {
+//     display: flex;
+//     flex-direction: row;
+
+//     // router-outlet + * {
+//     //     flex-grow: 1;
+//     // }
+// }
+
+.shelves-browse-nav {
+    position: sticky;
+    top: 25px;
+
+    .shelves-browse-nav-content {
+        margin: 25px;
+        width: $sidenav-width;
+        max-height: 75vh;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            height: 4px;
+            width: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-weight: 700;
+            line-height: 16px;
+            margin: 0;
+            font-size: 13px;
+            cursor: pointer;
+            position: relative;
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+
+            &:focus {
+                outline: none;
+            }
+
+            .mat-icon {
+                position: absolute;
+                right: 5px;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.shelves-browse-sidenav-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.shelves-browse-sidenav-inner-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    router-outlet + * {
+        flex-grow: 1;
+    }
+}
+
+.shelves-browse-sidenav-body-content {
+    display: flex;
+    flex: 1;
+}

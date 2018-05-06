@@ -1,6 +1,7 @@
 @import '../node_modules/@angular/material/theming';
 
 @import './app/navbar/navbar-theme';
+@import './app/browse-sidenav/browse-sidenav-theme';
 
 @mixin shelves-app-theme($theme) {
     $primary: map-get($theme, primary);
@@ -20,4 +21,5 @@
 
     // individual component theming setup
     @include nav-bar-theme($theme);
+    @include browse-sidenav-theme($theme);
 }

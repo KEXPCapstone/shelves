@@ -16,29 +16,6 @@ app-navbar {
   z-index: 2;
 }
 
-// targets the router-outlet (last child of app-root)
-app-root > :last-child {
-  overflow-y: auto;
-}
-
-.main-content {
-  position: absolute;
-  top: 60px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-}
-
-body {
-  margin: 0;
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 400;
-  font-size: 1em;
-  background-color: #303030;
-  color: white;
-}
-
 /* headers and text */
 h1, h2, h3 {
   font-family: 'Noto Sans', sans-serif;
@@ -64,33 +41,4 @@ a {
 /* tracklist item spacing of title/length */
 .mat-list-item-content {
   justify-content: space-between;
-}
-
-/* rules for main content layout */
-main {
-  position: relative;
-  top: 64px;
-  padding: 20px 70px 0
-}
-
-// mobile specific
-@media (max-width: 599px)
-{
-  main {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  h1 {
-    font-size: 1.25em;
-  }
-
-  h3 {
-    font-size: 1em;
-  }
-}
-
-section {
-  margin: 40px 50px;
-  // padding: 0px 250px;
 }

@@ -11,9 +11,6 @@ export class BrowseComponent implements OnInit {
   artists: any[];
   artistsPerPage = 200;
   startLetter = 'A';
-  throttle = 50;
-  scrollDistance = 5;
-  scrollUpDistance = 2;
 
   constructor(
     private libraryService: LibraryService

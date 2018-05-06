@@ -6,7 +6,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ShelfService } from './shelf.service';
 import { LibraryService } from './library.service';
-import { AppRoutingModule } from './app-routing.module';
 import { LibraryComponent } from './library/library.component';
 import { CategoryComponent } from './category/category.component';
 import { NavBarComponent } from './navbar/navbar.component';
@@ -22,8 +21,23 @@ import { AuthInterceptor } from './shared/auth.interceptor';
 import { MatDialogModule } from '@angular/material';
 import { ReleaseNotesComponent } from './release/release-notes/release-notes.component';
 import { NoteService } from './note.service';
+import { SHELVES_ROUTES } from './routes';
+import { RouterModule } from '@angular/router';
+import { BrowseSidenavModule } from './browse-sidenav/browse-sidenav.module';
 
 @NgModule({
+  imports: [
+    BrowserModule, // NOTE: this is angular's core browser module, not library browse
+    BrowserAnimationsModule,
+    HttpClientModule,
+    RouterModule.forRoot(SHELVES_ROUTES),
+    SharedModule,
+    BrowseSidenavModule,
+    BrowseModule,
+    ReleaseModule,
+    ShelvesModule,
+    FormsModule
+  ],
   declarations: [
     AppComponent,
     LibraryComponent,
@@ -31,17 +45,6 @@ import { NoteService } from './note.service';
     SignupComponent,
     SigninComponent,
     NavBarComponent
-  ],
-  imports: [
-    BrowserModule, // NOTE: this is angular's core browser module, not library browse
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    SharedModule,
-    BrowseModule,
-    ReleaseModule,
-    ShelvesModule,
-    FormsModule
   ],
   providers: [
     ShelfService,
