@@ -58,6 +58,8 @@ export class ShelfAddComponent implements OnInit {
 
   getCurrShelf() {}
 
-  addToShelf() {}
+  addToShelf(form: NgForm) {
+    console.log(form.value.shelfPicker);
+  }
 
 }
