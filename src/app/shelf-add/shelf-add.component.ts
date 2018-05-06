@@ -2,7 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Release } from '../release';
 import { ShelfService } from '../shelf.service';
-import { Shelf } from '../shelf';
+import { Shelf, NewShelf } from '../shelf';
+import { FormControl, NgForm } from '@angular/forms';
 
 
 @Component({
@@ -27,8 +28,10 @@ export class ShelfAddComponent implements OnInit {
 
   getUserShelves() {
     this.shelfService.getMyShelves()
-      .subscribe((resp) => {
-        this.userShelves = resp.body;
+      .subscribe((shelves) => {
+        console.log(shelves);
+        this.userShelves = shelves;
+        console.log(this.userShelves);
       }, (error) => {
         console.log(error);
       }
@@ -39,7 +42,19 @@ export class ShelfAddComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  newShelf() {}
+  newShelf(form: NgForm) {
+    console.log(form.value.shelfName);
+    const newShelf: NewShelf = {
+      name: form.value.shelfName,
+      description: '',
+      featured: false
+    };
+    this.shelfService.addShelf(newShelf)
+      .subscribe((resp) => {
+        console.log(resp);
+        this.getUserShelves();
+      });
+  }
 
   getCurrShelf() {}
 

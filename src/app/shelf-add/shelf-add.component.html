@@ -10,6 +10,15 @@
   <p>
     {{release.id}}
   </p>
+  <form (ngSubmit)="newShelf(f)" #f="ngForm">
+    <mat-form-field>
+      <input matInput name="shelfName" ngModel placeholder="Add new shelf">
+    </mat-form-field>
+    <button type="submit" class="mat-raised-button" (click)="newShelf()">Create!</button>
+  </form>
+  
+  
+  
   <mat-form-field>
     <mat-select placeholder="Pick a shelf">
       <mat-option *ngFor="let shelf of userShelves" [value]="shelf.name">
