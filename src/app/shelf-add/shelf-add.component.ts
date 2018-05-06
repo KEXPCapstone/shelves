@@ -59,7 +59,10 @@ export class ShelfAddComponent implements OnInit {
   getCurrShelf() {}
 
   addToShelf(form: NgForm) {
-    console.log(form.value.shelfPicker);
+    console.log(form.value.shelfPicker.releaseIDs);
+    const shelf = form.value.shelfPicker;
+    shelf.releaseIDs.push(this.release.id);
+    console.log(shelf);
   }
 
 }

@@ -18,10 +18,10 @@
   </form> -->
   
   
-<form (ngSubmit)="addToShelf(f)" #f="ngForm"> 
+<form #f="ngForm"> 
   <mat-form-field>
       <mat-select placeholder="Pick a shelf" [(ngModel)]="selectedShelf" name="shelfPicker">
-        <mat-option *ngFor="let shelf of userShelves"  [value]="shelf.id">
+        <mat-option *ngFor="let shelf of userShelves"  [value]="shelf">
           {{shelf.name}}
         </mat-option>
       </mat-select>
