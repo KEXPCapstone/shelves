@@ -46,9 +46,6 @@ export class ShelfAddComponent implements OnInit {
     this.currShelfName = form.value.shelfPicker.name;
   }
 
-  close() {
-    this.dialogRef.close();
-  }
 
   newShelf(form: NgForm) {
     console.log(form.value.shelfName);
@@ -77,6 +74,10 @@ export class ShelfAddComponent implements OnInit {
         console.log(resp);
         console.log('updated!');
       });
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
 }
