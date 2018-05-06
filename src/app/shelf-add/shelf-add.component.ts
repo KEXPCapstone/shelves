@@ -14,6 +14,8 @@ import { FormControl, NgForm } from '@angular/forms';
 export class ShelfAddComponent implements OnInit {
   private release: Release;
   private userShelves: Shelf[];
+  private selectedShelfReleaseIds: string[] = [];
+  private currShelfName: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
@@ -38,6 +40,12 @@ export class ShelfAddComponent implements OnInit {
     );
   }
 
+  updateShelfPreview(form: NgForm) {
+    console.log(form.value.shelfPicker);
+    this.selectedShelfReleaseIds = form.value.shelfPicker.releaseIDs;
+    this.currShelfName = form.value.shelfPicker.name;
+  }
+
   close() {
     this.dialogRef.close();
   }
@@ -53,13 +61,13 @@ export class ShelfAddComponent implements OnInit {
       .subscribe((resp) => {
         console.log(resp);
         this.getUserShelves();
+        form.reset();
       });
   }
 
   getCurrShelf() {}
 
   addToShelf(form: NgForm) {
-    console.log(form);
     console.log(form.value.shelfPicker.releaseIDs);
     const shelf = form.value.shelfPicker;
     shelf.releaseIDs.push(this.release.id);
