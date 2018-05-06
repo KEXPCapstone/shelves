@@ -21,7 +21,7 @@
   
   <mat-form-field>
     <mat-select placeholder="Pick a shelf">
-      <mat-option *ngFor="let shelf of userShelves" [value]="shelf.name">
+      <mat-option *ngFor="let shelf of userShelves" [value]="shelf.id">
         {{shelf.name}}
       </mat-option>
     </mat-select>
