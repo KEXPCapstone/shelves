@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -10,7 +10,8 @@ import { ReleaseNotesComponent } from '../release-notes/release-notes.component'
 @Component({
   selector: 'app-release-detail',
   templateUrl: './release-detail.component.html',
-  styleUrls: ['./release-detail.component.scss']
+  styleUrls: ['./release-detail.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ReleaseDetailComponent implements OnInit {
   @Input() release: Release;

@@ -1,3 +1,12 @@
+@import '../../../styles/constants';
+
+
+app-release-detail {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px 50px 20px;
+}
+
 .album-image {
     width: 100%
 }
@@ -6,6 +15,7 @@
     margin-right: 24px;
 }
 
-.mat-list-item-content {
-    justify-content: space-between;
+// push track lengths to right
+.track-spacer {
+    flex: 1;
 }

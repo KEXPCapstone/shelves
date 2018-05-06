@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LibraryService } from '../library.service';
 import { Release } from '../release';
 
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',
-  styleUrls: ['./browse.component.scss']
+  styleUrls: ['./browse.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BrowseComponent implements OnInit {
   artists: any[];
