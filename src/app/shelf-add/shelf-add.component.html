@@ -1,22 +1,14 @@
-<!-- <div class="row dialog-header">
+<div class="dialog-header">
   <img class="album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
   <div class="column">
     <h1 mat-dialog-title class="release-title">{{release.title}}</h1>
     <h5 class="release-artist">{{release.KEXPReleaseArtistCredit}}</h5>
     <h5 class="release-genre">{{release.KEXPPrimaryGenre}}</h5>
   </div>
-</div> -->
+</div>
+<mat-divider></mat-divider>
 <mat-dialog-content>
-  <p>
-    {{release.id}}
-  </p>
-  <!-- <form (ngSubmit)="newShelf(f)" #f="ngForm">
-    <mat-form-field>
-      <input matInput name="shelfName" ngModel placeholder="Add new shelf">
-    </mat-form-field>
-    <button type="submit" class="mat-raised-button" (click)="newShelf()">Create!</button>
-  </form> -->
-  
+
   
 <form #f="ngForm"> 
   <mat-form-field>
@@ -29,6 +21,14 @@
     <button type="submit" class="mat-raised-button" (click)="addToShelf(f)">Add!</button>
 </form>
   
+<mat-divider></mat-divider>
+
+<form (ngSubmit)="newShelf(f)" #f="ngForm">
+    <mat-form-field>
+      <input matInput name="shelfName" ngModel placeholder="Add new shelf">
+    </mat-form-field>
+    <button type="submit" class="mat-raised-button" (click)="newShelf()">Create!</button>
+</form>
 
 
 </mat-dialog-content>
