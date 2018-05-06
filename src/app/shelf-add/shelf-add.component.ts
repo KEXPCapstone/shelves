@@ -39,4 +39,10 @@ export class ShelfAddComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  newShelf() {}
+
+  getCurrShelf() {}
+
+  addToShelf() {}
+
 }
