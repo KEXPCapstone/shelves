@@ -13,6 +13,12 @@ const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+const textHttpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  responseType: 'text',
+  observe: 'response'
+};
+
 @Injectable()
 export class ShelfService {
 
@@ -51,10 +57,11 @@ export class ShelfService {
 
   // Put: update a shelf
   // api/shelves/{id}
-  updateShelf(shelf: Shelf): Observable<any> {
-    return this.http.put(this.shelvesUrl, shelf, httpOptions).pipe(
-      tap(_ => this.log(`updated shelf id=${shelf.id}`)),
-      catchError(this.handleError<any>('updateShelf'))
+  updateShelf(shelf: Shelf) {
+    const url = `${environment.apiUrl}/shelves/${shelf.id}`;
+    return this.http.put(url, shelf, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text'}).pipe(
+      tap(_ => this.log(`updated shelf id=${shelf.id}`))
+      // ,catchError(this.handleError<any>('updateShelf'))
     );
   }
 

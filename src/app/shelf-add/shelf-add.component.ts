@@ -63,6 +63,11 @@ export class ShelfAddComponent implements OnInit {
     const shelf = form.value.shelfPicker;
     shelf.releaseIDs.push(this.release.id);
     console.log(shelf);
+    this.shelfService.updateShelf(shelf)
+      .subscribe((resp) => {
+        console.log(resp);
+        console.log('updated!');
+      });
   }
 
 }
