@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-shelf-add',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShelfAddComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<ShelfAddComponent>) { }
 
   ngOnInit() {
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
 }

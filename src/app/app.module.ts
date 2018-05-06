@@ -37,7 +37,8 @@ import { ShelfAddComponent } from './shelf-add/shelf-add.component';
     BrowseModule,
     ReleaseModule,
     ShelvesModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   declarations: [
     AppComponent,
