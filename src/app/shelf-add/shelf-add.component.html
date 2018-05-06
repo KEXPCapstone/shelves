@@ -9,26 +9,36 @@
 <mat-divider></mat-divider>
 <mat-dialog-content>
 
-  
-<form #f="ngForm"> 
-  <mat-form-field>
-      <mat-select placeholder="Pick a shelf" [(ngModel)]="selectedShelf" name="shelfPicker">
-        <mat-option *ngFor="let shelf of userShelves"  [value]="shelf">
-          {{shelf.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button type="submit" class="mat-raised-button" (click)="addToShelf(f)">Add!</button>
-</form>
-  
-<mat-divider></mat-divider>
+<div class="row">
 
-<form (ngSubmit)="newShelf(f)" #f="ngForm">
-    <mat-form-field>
-      <input matInput name="shelfName" ngModel placeholder="Add new shelf">
-    </mat-form-field>
-    <button type="submit" class="mat-raised-button" (click)="newShelf()">Create!</button>
-</form>
+  <div class = "column">
+      <form #pickShelf="ngForm"> 
+          <mat-form-field>
+              <mat-select placeholder="Pick a shelf" [(ngModel)]="selectedShelf" name="shelfPicker">
+                <mat-option *ngFor="let shelf of userShelves"  [value]="shelf">
+                  {{shelf.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button class="mat-raised-button" (click)="addToShelf(pickShelf)">Add!</button>
+        </form>
+  </div>
+        
+  <mat-divider [vertical]="true"></mat-divider>
+  <div class="column">
+      <form #addShelf="ngForm">
+          <mat-form-field>
+            <input matInput name="shelfName" ngModel placeholder="Add new shelf">
+          </mat-form-field>
+          <button class="mat-raised-button" (click)="newShelf(addShelf)">Create!</button>
+      </form>
+  </div>    
+    
+      
+
+</div>
+
+
 
 
 </mat-dialog-content>
