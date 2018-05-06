@@ -64,6 +64,7 @@ export class ReleaseDetailComponent implements OnInit {
   openShelfAddDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
+    dialogConfig.data = this.release;
     dialogConfig.width = '60rem';
     this.dialog.open(ShelfAddComponent, dialogConfig);
   }

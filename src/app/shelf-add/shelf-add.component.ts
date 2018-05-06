@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Release } from '../release';
 
 @Component({
   selector: 'app-shelf-add',
@@ -7,8 +8,13 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./shelf-add.component.scss']
 })
 export class ShelfAddComponent implements OnInit {
+  private release: Release;
 
-  constructor(public dialogRef: MatDialogRef<ShelfAddComponent>) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) release,
+    public dialogRef: MatDialogRef<ShelfAddComponent>) {
+      this.release = release;
+    }
 
   ngOnInit() {
   }
