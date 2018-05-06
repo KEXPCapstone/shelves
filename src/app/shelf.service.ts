@@ -6,7 +6,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
-import { Shelf } from './shelf';
+import { Shelf, NewShelf } from './shelf';
 import { environment } from '../environments/environment';
 
 const httpOptions = {
@@ -60,8 +60,9 @@ export class ShelfService {
 
   // Post: add a new shelf to the server
   // api/shelves
-  addShelf(shelf: Shelf): Observable<Shelf> {
-    return this.http.post<Shelf>(this.shelvesUrl, shelf, httpOptions).pipe(
+  addShelf(newShelf: NewShelf): Observable<Shelf> {
+    const url = `${environment.apiUrl}/shelves`;
+    return this.http.post<Shelf>(url, newShelf, httpOptions).pipe(
       tap((returnedShelf: Shelf) => this.log(`added shelf w/ id=${returnedShelf.id}`)),
       catchError(this.handleError<Shelf>('addShelf'))
     );
