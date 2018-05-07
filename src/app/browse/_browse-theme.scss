@@ -9,4 +9,8 @@
     .category-divider {
         border-top-color: mat-color($accent);
     }
+
+    .mat-grid-tile .mat-grid-tile-footer.tile-footer {
+        background: rgba(0, 0, 0, .90);
+    }
 }
