@@ -6,6 +6,7 @@ import { LibraryService } from '../../library.service';
 import { Release } from '../../release';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ReleaseNotesComponent } from '../release-notes/release-notes.component';
+import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
 
 @Component({
   selector: 'app-release-detail',
@@ -59,4 +60,13 @@ export class ReleaseDetailComponent implements OnInit {
     dialogConfig.width = '60rem';
     this.dialog.open(ReleaseNotesComponent, dialogConfig);
   }
+
+  openShelfAddDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.data = this.release;
+    dialogConfig.width = '60rem';
+    this.dialog.open(ShelfAddComponent, dialogConfig);
+  }
+
 }

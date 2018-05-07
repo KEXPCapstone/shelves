@@ -4,6 +4,7 @@ import { Release } from '../../release';
 import { NoteService } from '../../note.service';
 import { Note } from '../../note';
 import { FormControl, NgForm } from '@angular/forms';
+import { AuthService } from '../../auth/auth.service';
 
 
 @Component({
@@ -16,17 +17,31 @@ export class ReleaseNotesComponent implements OnInit {
   private notes: Note[];
   private numNotes = 0;
   private numPosters = 0;
+  private isAuthenticated = true; // Set to true until proven otherwise--avoid displaying warning if actually logged in
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
     private noteService: NoteService,
+    private authService: AuthService,
     public dialogRef: MatDialogRef<ReleaseNotesComponent>
   ) {
     this.release = release;
    }
 
   ngOnInit() {
+    this.checkAuth();
     this.getNotes();
+  }
+
+  checkAuth() {
+    this.authService.getCurrUser()
+      .subscribe((resp) => {
+        console.log(resp);
+        this.isAuthenticated = true;
+      }, (error) => {
+        this.isAuthenticated = false;
+      }
+    );
   }
 
   private getUserInfo(userId: string) {

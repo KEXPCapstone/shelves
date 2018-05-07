@@ -1,8 +1,17 @@
 // Shelf class represents a single shelf and associated fields
-// TODO: currently modeled on mock data, will alter these fields to line up with actual shelf schema
 export class Shelf {
   id: number;
-  name: string;
-  ownerName: string;
   ownerId: number;
+  name: string;
+  ReleaseIds: string[];
+  description: string;
+  dateCreated: Date;
+  dateLastEdit: Date;
+  featured: boolean;
+}
+
+export class NewShelf {
+  name: string;
+  description: string;
+  featured: boolean;
 }

@@ -1,0 +1,48 @@
+<div class="dialog-header">
+  <img class="album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
+  <div class="column">
+    <h1 mat-dialog-title class="release-title">{{release.title}}</h1>
+    <h5 class="release-artist">{{release.KEXPReleaseArtistCredit}}</h5>
+    <h5 class="release-genre">{{release.KEXPPrimaryGenre}}</h5>
+  </div>
+  <div class="column" *ngIf="!isAuthenticated">
+      <p>You must be logged in to add to a shelf!</p>
+  </div>
+
+</div>
+<mat-divider></mat-divider>
+<mat-dialog-content>
+<div *ngIf="isAuthenticated">
+  <div class="row">
+    <div class = "column">
+      <form #pickShelf="ngForm"> 
+        <mat-form-field>
+          <mat-select placeholder="Pick a shelf" [(ngModel)]="selectedShelf" name="shelfPicker" (change)="updateShelfPreview(pickShelf)">
+            <mat-option *ngFor="let shelf of userShelves"  [value]="shelf">
+              {{shelf.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div class="column">
+      <form #addShelf="ngForm">
+        <mat-form-field>
+          <input matInput name="shelfName" ngModel placeholder="Add new shelf">
+        </mat-form-field>
+          <button class="mat-raised-button" (click)="newShelf(addShelf)">Create!</button>
+      </form>
+    </div>    
+  </div>
+  <mat-divider></mat-divider>
+  <div class="shelf-preview">
+    <h3>{{currShelfName}}</h3>
+    <img *ngFor="let mbid of selectedShelfReleaseIds" class="album-image shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg"> 
+  </div>
+  <div>
+    <button class="mat-raised-button add-btn" (click)="addToShelf(pickShelf)">Add!</button>
+  </div>
+</div>
+
+</mat-dialog-content>
