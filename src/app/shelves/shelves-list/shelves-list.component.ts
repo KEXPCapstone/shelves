@@ -9,6 +9,7 @@ import { Shelf } from '../../shelf';
 })
 export class ShelvesListComponent implements OnInit {
   private myShelves: Shelf[] = [];
+  private allShelves: Shelf[] = [];
 
   constructor(private shelfService: ShelfService) { }
 
@@ -25,5 +26,13 @@ export class ShelvesListComponent implements OnInit {
     );
   }
 
-  getAllShelves() {}
+  getAllShelves() {
+    this.shelfService.getShelves()
+      .subscribe((shelves) => {
+        this.allShelves = shelves;
+      }, (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
