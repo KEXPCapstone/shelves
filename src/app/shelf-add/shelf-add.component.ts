@@ -4,6 +4,7 @@ import { Release } from '../release';
 import { ShelfService } from '../shelf.service';
 import { Shelf, NewShelf } from '../shelf';
 import { FormControl, NgForm } from '@angular/forms';
+import { AuthService } from '../auth/auth.service';
 
 
 @Component({
@@ -16,17 +17,32 @@ export class ShelfAddComponent implements OnInit {
   private userShelves: Shelf[];
   private selectedShelfReleaseIds: string[] = [];
   private currShelfName: string;
+  private isAuthenticated = true; // Set to true until proven otherwise
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
     private shelfService: ShelfService,
+    private authService: AuthService,
     public dialogRef: MatDialogRef<ShelfAddComponent>) {
       this.release = release;
     }
 
   ngOnInit() {
+    this.checkAuth();
     this.getUserShelves();
   }
+
+  checkAuth() {
+    this.authService.getCurrUser()
+      .subscribe((resp) => {
+        console.log(resp);
+        this.isAuthenticated = true;
+      }, (error) => {
+        this.isAuthenticated = false;
+      }
+    );
+  }
+
 
   getUserShelves() {
     this.shelfService.getMyShelves()
