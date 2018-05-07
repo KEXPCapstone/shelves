@@ -24,4 +24,3 @@ export class Release {
   KEXPTitle: string;
   notes: string[];
 }
-

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -6,11 +6,13 @@ import { LibraryService } from '../../library.service';
 import { Release } from '../../release';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ReleaseNotesComponent } from '../release-notes/release-notes.component';
+import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
 
 @Component({
   selector: 'app-release-detail',
   templateUrl: './release-detail.component.html',
-  styleUrls: ['./release-detail.component.scss']
+  styleUrls: ['./release-detail.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ReleaseDetailComponent implements OnInit {
   @Input() release: Release;
@@ -53,8 +55,18 @@ export class ReleaseDetailComponent implements OnInit {
 
   openNotesDialog() {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = true; 
+    dialogConfig.autoFocus = false;
     dialogConfig.data = this.release;
-    this.dialog.open(ReleaseNotesComponent, dialogConfig)
+    dialogConfig.width = '60rem';
+    this.dialog.open(ReleaseNotesComponent, dialogConfig);
   }
+
+  openShelfAddDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.data = this.release;
+    dialogConfig.width = '60rem';
+    this.dialog.open(ShelfAddComponent, dialogConfig);
+  }
+
 }

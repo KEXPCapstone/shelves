@@ -1,0 +1,10 @@
+<div class="shelves-browse-nav">
+    <div class="shelves-browse-nav-content">
+        <nav *ngFor="let category of browseCategories; let last = last;">
+            <button cdkAccordionItem (click)="panel.toggle()"
+                class="shelves-browse-nav-content-btn">
+                {{category}}
+            </button>
+        </nav>
+    </div>
+</div>

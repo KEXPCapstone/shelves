@@ -11,8 +11,7 @@ import { FormsModule } from '@angular/forms';
     declarations: [
         ReleaseDetailComponent,
         ReleaseNotesComponent,
-        RelatedReleasesComponent 
-        
+        RelatedReleasesComponent
     ],
     imports: [
         SharedModule,

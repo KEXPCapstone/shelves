@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LibraryService } from '../library.service';
 import { Release } from '../release';
 
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',
-  styleUrls: ['./browse.component.scss']
+  styleUrls: ['./browse.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BrowseComponent implements OnInit {
   artists: any[];
   artistsPerPage = 200;
   startLetter = 'A';
-  throttle = 50;
-  scrollDistance = 5;
-  scrollUpDistance = 2;
 
   constructor(
     private libraryService: LibraryService

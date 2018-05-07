@@ -1,0 +1,142 @@
+@import '../../styles/constants';
+
+$sidenav-width: 240px;
+
+// the component root
+app-browse-sidenav {
+    display: flex;
+    flex-direction: column;
+}
+
+// container for the whole sidenav and content
+.shelves-browse-sidenav-container {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.shelves-browse-sidenav {
+    overflow: auto;
+}
+
+.shelves-browse-sidenav-inner-content {
+    display: flex;
+    flex-direction: row;
+
+    // used to match element following router-outlet (ie the routed component)
+    router-outlet + * {
+        flex-grow: 1;
+    }
+}
+
+// this only affects small screens (where we display a drawer)
+.mat-drawer {
+    &::-webkit-scrollbar {
+        height: 4px;
+        width: 4px;
+    }
+}
+
+// styling the nav itself
+.shelves-browse-nav {
+    position: sticky;
+    top: 25px;
+
+    // the container of the nav accordion
+    .shelves-browse-nav-content {
+        margin: 25px;
+        width: $sidenav-width;
+        max-height: 75vh;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            height: 4px;
+            width: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-weight: 700;
+            line-height: 16px;
+            margin: 0;
+            font-size: 13px;
+            cursor: pointer;
+            position: relative;
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        hr {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0 0 5px 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            font-size: 13px;
+            line-height: 16px;
+            margin: 0;
+            padding: 5px 15px 5px 20px;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+        }
+    }
+}
+
+.shelves-browse-sidenav-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.shelves-browse-sidenav-inner-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.shelves-browse-sidenav-body-content {
+    display: flex;
+    flex: 1;
+}
+
+@media (max-width: $small-breakpoint-width) {
+    // overriding default with specific rule
+    .shelves-browse-sidenav-container .shelves-browse-sidenav {
+        // position above content
+        z-index: 4;
+    }
+
+    .shelves-browse-nav {
+        position: relative;
+        top: 0;
+
+        .shelves-browse-nav-content {
+            box-sizing: border-box;
+            margin: 0;
+            max-height: initial;
+            box-sizing: border-box;
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .shelves-browse-sidenav-container {
+        flex: 1 0 auto;
+    }
+}

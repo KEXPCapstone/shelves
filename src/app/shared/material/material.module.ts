@@ -16,6 +16,7 @@ import {
   MatChipsModule
 } from '@angular/material';
 import { ReleaseNotesComponent } from '../../release/release-notes/release-notes.component';
+import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
 
 @NgModule({
   imports: [
@@ -45,6 +46,6 @@ import { ReleaseNotesComponent } from '../../release/release-notes/release-notes
     MatDividerModule,
     MatChipsModule
   ],
-  entryComponents: [ReleaseNotesComponent] // Tells Angular to provide a factory for the notes modal component
+  entryComponents: [ReleaseNotesComponent, ShelfAddComponent] // Tells Angular to provide a factory for the notes modal component
 })
 export class MaterialModule { }

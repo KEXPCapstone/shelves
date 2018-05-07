@@ -5,8 +5,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { BrowseListComponent } from './browse-list/browse-list.component';
 import { BrowseGroupComponent } from './browse-group/browse-group.component';
 import { BrowseComponent } from './browse.component';
-import { BrowseRoutingModule } from './browse-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     ],
     imports: [
         SharedModule,
-        BrowseRoutingModule,
+        RouterModule,
         InfiniteScrollModule
     ]
 })
