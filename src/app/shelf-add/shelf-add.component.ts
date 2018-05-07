@@ -17,7 +17,7 @@ export class ShelfAddComponent implements OnInit {
   private userShelves: Shelf[];
   private selectedShelfReleaseIds: string[] = [];
   private currShelfName: string;
-  private isAuthenticated = true; // Set to true until proven otherwise
+  private isAuthenticated = true; // Set to true until proven otherwise--avoid displaying warning if actually logged in
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
