@@ -1,14 +1,19 @@
 <mat-tab-group>
   <mat-tab label="My Shelves">
-    <p>
-      shelves-list works!
-    </p>
+    <div *ngFor="let shelf of myShelves">
+      <h3>{{shelf.name}}</h3>
+      <img *ngFor="let mbid of shelf.releaseIDs" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
+    </div>
+    <div *ngIf="!isAuthenticated">
+      <p>You have no shelves because you are not logged in</p>
+    </div>
   </mat-tab>
   <mat-tab label="All Shelves">
-      <p>
-        shelves-list works!
-      </p>
-    </mat-tab>
+    <div *ngFor="let shelf of allShelves">
+      <h3>{{shelf.name}}</h3>
+      <img *ngFor="let mbid of shelf.releaseIDs" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
+    </div>
+  </mat-tab>
 </mat-tab-group>
 
 
