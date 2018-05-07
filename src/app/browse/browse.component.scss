@@ -1,6 +1,19 @@
 app-browse {
+    display: flex;
+    flex-direction: column;
     font-weight: 400;
     padding: 20px 50px 50px 20px;
+}
+
+.category-header {
+    flex: 1;
+    display: flex;
+    position: fixed;
+    z-index: 2;
+
+    .category-divider {
+        width: 100px;
+    }
 }
 
 .tile-container a {

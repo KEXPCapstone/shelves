@@ -1,6 +1,10 @@
-<div>
-  <h1 class="display-4">Artists</h1>
-  <mat-grid-list cols="5" gutterSize="6px">
+<div class="category-header">
+  <div class="category-header-title">
+    <h1 class="display-4">Artists</h1>
+    <mat-divider class="category-divider"></mat-divider>
+  </div>
+</div>
+<mat-grid-list class="browse-grid-list" cols="5" gutterSize="6px">
     <div class="tile-container" *ngFor="let artist of artists">
         <mat-grid-tile>
           <a routerLink="/library/releases/{{artist.releaseGroups[0].releases[0].id}}">
@@ -10,10 +14,9 @@
               src="//coverartarchive.org/release-group/{{artist.releaseGroups[0].releaseGroupId}}/front-500.jpg"
               onerror="this.hidden='true'">
           <mat-grid-tile-footer>
-            {{artist.name}}
+            <h4 mat-line>{{artist.name}}</h4>
           </mat-grid-tile-footer>
           </a>
         </mat-grid-tile>
     </div>
-  </mat-grid-list>
-</div>
+</mat-grid-list>
