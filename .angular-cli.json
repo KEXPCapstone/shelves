@@ -19,8 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss",
-        "shelves-app-theme.scss"
+        "main.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

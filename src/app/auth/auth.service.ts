@@ -34,8 +34,15 @@ export class AuthService {
         localStorage.removeItem('auth-token');
     }
 
-    public isAuthenticated(): boolean {
-        return localStorage.getItem('auth-token') != null;
+    public getCurrUser(): Observable<HttpResponse<User>> {
+        // return localStorage.getItem('auth-token') != null;
+        const url = `${environment.apiUrl}/users/me`;
+        return this.http.get<HttpResponse<User>>(url, {observe: 'response'}).pipe(
+            tap((resp) => {
+                console.log(resp);
+            }),
+            catchError(this.handleError)
+        );
     }
 
     // Returns the entire HTTP Response. JSON response

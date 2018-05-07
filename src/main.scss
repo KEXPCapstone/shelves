@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+@import './app-theme';
+@import './styles/general';
+
+// Include core material styles
+@include mat-core();
+
+// define dark theme
+$primary: mat-palette($mat-grey, 900, 400);
+$accent: mat-palette($mat-amber, 500, 900);
+$warn: mat-palette($mat-red);
+
+$theme: mat-dark-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+@include shelves-app-theme($theme);

@@ -1,4 +1,13 @@
-.shelves-app-toolbar {
-    position: fixed;
-    top: 0;
+.shelves-app-header {
+    padding: 0 16px;    
+}
+
+.flex-spacer {
+    flex-grow: 1;
+}
+
+.shelves-kexp-logo {
+    height: 26px;
+    margin: 0 4px 3px 0;
+    vertical-align: middle;
 }

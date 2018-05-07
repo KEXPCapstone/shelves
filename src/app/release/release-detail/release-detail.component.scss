@@ -1,7 +1,21 @@
+@import '../../../styles/constants';
+
+
+app-release-detail {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px 50px 20px;
+}
+
 .album-image {
     width: 100%
 }
 
 .track-title span {
     margin-right: 24px;
+}
+
+// push track lengths to right
+.track-spacer {
+    flex: 1;
 }

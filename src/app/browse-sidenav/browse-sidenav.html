@@ -1,0 +1,23 @@
+<mat-sidenav-container class="shelves-browse-sidenav-container">
+    <!-- on small screens, this becomes a collapsing drawer -->
+    <mat-sidenav #sidenav class="shelves-browse-sidenav"
+        *ngIf="isScreenSmall()"
+        [opened]="!isScreenSmall()"
+        [mode]="isScreenSmall() ? 'over' : 'side'"
+        [fixedInViewport]="isScreenSmall()"
+        fixedTopGap="64">
+        <app-browse-nav></app-browse-nav>
+    </mat-sidenav>
+    <div class="shelves-browse-sidenav-content">
+        <!-- 'inner' used to position router-outlet alongside app-browse-nav -->
+        <div class="shelves-browse-sidenav-inner-content">
+            <div class="shelves-browse-sidenav-body-content">
+                <!-- on large screens, menu shows up to the left of releases -->
+                <app-browse-nav
+                    *ngIf="!isScreenSmall()">
+                </app-browse-nav>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</mat-sidenav-container>
