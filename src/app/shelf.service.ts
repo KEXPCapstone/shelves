@@ -36,7 +36,7 @@ export class ShelfService {
       );
   }
 
-  // GET the current users's shelves. Returns entire HTTP response
+  // GET the current users's shelves.
   getMyShelves(): Observable<Shelf[]> {
     const url = `${environment.apiUrl}/shelves/mine`;
     return this.http.get<Shelf[]>(url)

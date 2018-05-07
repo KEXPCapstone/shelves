@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShelfService } from '../../shelf.service';
+import { Shelf } from '../../shelf';
 
 @Component({
   selector: 'app-shelves-list',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shelves-list.component.scss']
 })
 export class ShelvesListComponent implements OnInit {
+  private myShelves: Shelf[] = [];
 
-  constructor() { }
+  constructor(private shelfService: ShelfService) { }
 
   ngOnInit() {
   }
 
+  getMyShelves() {
+    this.shelfService.getMyShelves()
+      .subscribe((shelves) => {
+        this.myShelves = shelves;
+      }, (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getAllShelves() {}
 }
