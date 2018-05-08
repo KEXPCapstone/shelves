@@ -19,6 +19,7 @@ const fullHttpOptions = {
 
 @Injectable()
 export class AuthService {
+    public isAuthenticated: boolean;
 
     constructor(private http: HttpClient, private router: Router) { }
 
@@ -28,10 +29,12 @@ export class AuthService {
 
     public setToken(token: string) {
         localStorage.setItem('auth-token', token);
+        this.isAuthenticated = true;
     }
 
     public removeToken() {
         localStorage.removeItem('auth-token');
+        this.isAuthenticated = false;
     }
 
     public getCurrUser(): Observable<HttpResponse<User>> {
@@ -40,6 +43,7 @@ export class AuthService {
         return this.http.get<HttpResponse<User>>(url, {observe: 'response'}).pipe(
             tap((resp) => {
                 console.log(resp);
+                this.setToken(resp.headers.get('Authorization'));
             }),
             catchError(this.handleError)
         );
@@ -100,6 +104,7 @@ export class AuthService {
 
     private successfulSignIn(resp) {
         this.setToken(resp.headers.get('Authorization'));
+        this.isAuthenticated = true;
         this.router.navigate(['/library']);
     }
 
@@ -112,6 +117,7 @@ export class AuthService {
           // A client-side or network error occurred. Handle it accordingly.
           console.error('An error occurred:', error.error.message);
         }
+        this.removeToken();
         // return an ErrorObservable with a user-facing error message
         return new ErrorObservable(error);
     }
