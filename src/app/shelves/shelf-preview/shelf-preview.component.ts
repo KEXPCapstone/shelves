@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Release } from '../../release';
+import { Shelf } from '../../shelf';
 
 @Component({
   selector: 'app-shelf-preview',
@@ -7,7 +8,7 @@ import { Release } from '../../release';
   styleUrls: ['./shelf-preview.component.scss']
 })
 export class ShelfPreviewComponent implements OnInit {
-  @Input() releaseIds: string[];
+  @Input() shelf: Shelf;
 
   constructor() { }
 
