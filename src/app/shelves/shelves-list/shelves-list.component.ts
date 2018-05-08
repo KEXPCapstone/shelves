@@ -10,6 +10,7 @@ import { Shelf } from '../../shelf';
 export class ShelvesListComponent implements OnInit {
   private myShelves: Shelf[] = [];
   private allShelves: Shelf[] = [];
+  private featuredShelves: Shelf[] = [];
   private isAuthenticated = true; // set to true until proven otherwise
 
   constructor(private shelfService: ShelfService) { }
@@ -17,6 +18,7 @@ export class ShelvesListComponent implements OnInit {
   ngOnInit() {
     this.getMyShelves();
     this.getAllShelves();
+    this.getFeaturedShelves();
   }
 
   getMyShelves() {
@@ -34,6 +36,16 @@ export class ShelvesListComponent implements OnInit {
     this.shelfService.getShelves()
       .subscribe((shelves) => {
         this.allShelves = shelves;
+      }, (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getFeaturedShelves() {
+    this.shelfService.getFeaturedShelves()
+      .subscribe((shelves) => {
+        this.featuredShelves = shelves;
       }, (error) => {
         console.log(error);
       }
