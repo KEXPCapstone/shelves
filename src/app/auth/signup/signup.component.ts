@@ -28,7 +28,6 @@ export class SignupComponent implements OnInit {
       form.value.email,
       form.value.password,
       form.value.passwordConf,
-      form.value.userName,
       form.value.firstName,
       form.value.lastName)
       .subscribe((resp) => {

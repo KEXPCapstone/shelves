@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User, Credentials } from '../user';
+import { User, Credentials, NewUser } from '../user';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
@@ -79,15 +79,13 @@ export class AuthService {
         email: string,
         password: string,
         passwordConf: string,
-        userName: string,
         firstName: string,
         lastName: string): Observable<HttpResponse<User>> {
         const url = `${environment.apiUrl}/users`;
-        const usr: User = {
+        const usr: NewUser = {
             email: email,
             password: password,
             passwordConf: passwordConf,
-            userName: userName,
             firstName: firstName,
             lastName: lastName
         };
