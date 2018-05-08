@@ -1,4 +1,4 @@
-export class User {
+export class NewUser {
     email: string;
     password: string;
     passwordConf: string;
@@ -11,4 +11,9 @@ export class Credentials {
     password: string;
 }
 
-export class NewUser {}
+export class User {
+    id: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+}
