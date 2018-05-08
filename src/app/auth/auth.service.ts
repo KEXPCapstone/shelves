@@ -79,7 +79,6 @@ export class AuthService {
         email: string,
         password: string,
         passwordConf: string,
-        userName: string,
         firstName: string,
         lastName: string): Observable<HttpResponse<User>> {
         const url = `${environment.apiUrl}/users`;
@@ -87,7 +86,6 @@ export class AuthService {
             email: email,
             password: password,
             passwordConf: passwordConf,
-            userName: userName,
             firstName: firstName,
             lastName: lastName
         };
