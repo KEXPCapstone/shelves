@@ -7,15 +7,27 @@
     <div *ngIf="!isAuthenticated">
       <p>You have no shelves because you are not logged in</p>
     </div>
+    <div *ngIf="isAuthenticated && myShelves.length == 0">
+      <p>You have no shelves!</p>
+    </div>
   </mat-tab>
   <mat-tab label="All">
     <div *ngFor="let shelf of allShelves">
       <h3>{{shelf.name}}</h3>
       <img *ngFor="let mbid of shelf.releaseIDs" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
     </div>
+    <div *ngIf="allShelves.length == 0">
+      <p>There are no shelves!</p>
+    </div>
   </mat-tab>
   <mat-tab label="Featured">
-
+    <div *ngFor="let shelf of featuredShelves">
+      <h3>{{shelf.name}}</h3>
+      <img *ngFor="let mbid of shelf.releaseIDs" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
+    </div>
+    <div *ngIf="featuredShelves.length == 0">
+      <p>There are no featured shelves!</p>
+    </div>
   </mat-tab>
 
 </mat-tab-group>
