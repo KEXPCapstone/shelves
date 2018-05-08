@@ -2,6 +2,7 @@
 export class Shelf {
   id: number;
   ownerId: number;
+  ownerName: string;
   name: string;
   ReleaseIds: string[];
   description: string;
