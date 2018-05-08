@@ -1,8 +1,9 @@
 <mat-tab-group>
   <mat-tab label="Mine">
     <div *ngFor="let shelf of myShelves">
-      <h3>{{shelf.name}}</h3>
-      <img *ngFor="let mbid of shelf.releaseIDs" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
+      <!-- <h3>{{shelf.name}}</h3>
+      <img *ngFor="let mbid of shelf.releaseIDs" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg"> -->
+      <app-shelf-preview *ngIf="shelf" [shelf]="shelf"></app-shelf-preview>
     </div>
     <div *ngIf="!isAuthenticated">
       <p>You have no shelves because you are not logged in</p>
