@@ -47,6 +47,16 @@ export class ShelfService {
       );
   }
 
+  getFeaturedShelves(): Observable<Shelf[]> {
+    const url = `${environment.apiUrl}/shelves/featured`;
+    return this.http.get<Shelf[]>(url)
+      .pipe(
+        tap((shelves) => {
+          console.log('fetched featured shelves');
+        })
+      );
+  }
+
   /** GET shelf by id. Will 404 if id not found */
   getShelf(id: string): Observable<Shelf> {
     const url = `${environment.apiUrl}/shelves/${id}`;
