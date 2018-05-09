@@ -43,7 +43,7 @@ export class AuthService {
         return this.http.get<HttpResponse<User>>(url, {observe: 'response'}).pipe(
             tap((resp) => {
                 console.log(resp);
-                this.setToken(resp.headers.get('Authorization'));
+                // this.setToken(resp.headers.get('Authorization'));
             }),
             catchError(this.handleError)
         );
