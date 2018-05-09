@@ -28,21 +28,8 @@ export class ShelfAddComponent implements OnInit {
     }
 
   ngOnInit() {
-    // this.checkAuth();
     this.getUserShelves();
   }
-
-  checkAuth() {
-    this.authService.getCurrUser()
-      .subscribe((resp) => {
-        console.log(resp);
-        this.isAuthenticated = true;
-      }, (error) => {
-        this.isAuthenticated = false;
-      }
-    );
-  }
-
 
   getUserShelves() {
     this.shelfService.getMyShelves()
