@@ -5,14 +5,14 @@
     <h5 class="release-artist">{{release.KEXPReleaseArtistCredit}}</h5>
     <h5 class="release-genre">{{release.KEXPPrimaryGenre}}</h5>
   </div>
-  <div class="column" *ngIf="!isAuthenticated">
+  <div class="column" *ngIf="!authService.isAuthenticated">
       <p>You must be logged in to add to a shelf!</p>
   </div>
 
 </div>
 <mat-divider></mat-divider>
 <mat-dialog-content>
-<div *ngIf="isAuthenticated">
+<div *ngIf="authService.isAuthenticated">
   <div class="row">
     <div class = "column">
       <form #pickShelf="ngForm"> 
