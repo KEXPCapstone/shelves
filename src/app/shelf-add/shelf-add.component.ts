@@ -17,7 +17,7 @@ export class ShelfAddComponent implements OnInit {
   private userShelves: Shelf[];
   private selectedShelfReleaseIds: string[] = [];
   private currShelfName: string;
-  private isAuthenticated = true; // Set to true until proven otherwise--avoid displaying warning if actually logged in
+
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
@@ -28,21 +28,8 @@ export class ShelfAddComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.checkAuth();
     this.getUserShelves();
   }
-
-  checkAuth() {
-    this.authService.getCurrUser()
-      .subscribe((resp) => {
-        console.log(resp);
-        this.isAuthenticated = true;
-      }, (error) => {
-        this.isAuthenticated = false;
-      }
-    );
-  }
-
 
   getUserShelves() {
     this.shelfService.getMyShelves()
