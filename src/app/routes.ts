@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { LibraryComponent } from './library/library.component';
 import { ReleaseDetailComponent } from './release/release-detail/release-detail.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -9,7 +8,7 @@ import { ShelvesListComponent } from './shelves/shelves-list/shelves-list.compon
 
 export const SHELVES_ROUTES: Routes = [
     {path: '', redirectTo: '/library', pathMatch: 'full'}, // default route redirect
-    {path: 'library', component: LibraryComponent}, // home page
+    {path: 'library', redirectTo: '/browse', pathMatch: 'full'}, // home page
     {
         path: 'browse',
         component: BrowseSidenavComponent,

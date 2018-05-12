@@ -6,8 +6,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ShelfService } from './shelf.service';
 import { LibraryService } from './library.service';
-import { LibraryComponent } from './library/library.component';
-import { CategoryComponent } from './category/category.component';
 import { NavBarComponent } from './navbar/navbar.component';
 import { BrowseModule } from './browse/browse.module';
 import { SharedModule } from './shared/shared.module';
@@ -42,8 +40,6 @@ import { ShelfAddComponent } from './shelf-add/shelf-add.component';
   ],
   declarations: [
     AppComponent,
-    LibraryComponent,
-    CategoryComponent,
     SignupComponent,
     SigninComponent,
     NavBarComponent,
