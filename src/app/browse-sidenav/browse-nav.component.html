@@ -1,9 +1,9 @@
 <div class="shelves-browse-nav">
     <div class="shelves-browse-nav-content">
         <nav *ngFor="let category of browseCategories; let last = last;">
-            <button cdkAccordionItem (click)="panel.toggle()"
+            <button cdkAccordionItem #panel="cdkAccordionItem" (click)="panel.toggle()" expanded="true"
                 class="shelves-browse-nav-content-btn">
-                {{category}}
+                {{category.name}}
             </button>
         </nav>
     </div>
