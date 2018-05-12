@@ -4,6 +4,7 @@ import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
 import {CdkAccordionModule} from '@angular/cdk/accordion';
+import { BROWSE_NAV_ITEMS } from './browse-nav-items';
 
 const SMALL_WIDTH_BREAKPOINT = 720;
 
@@ -42,11 +43,8 @@ export class BrowseSidenavComponent implements OnInit {
     templateUrl: './browse-nav.component.html'
 })
 export class BrowseNavComponent implements OnInit {
-    browseCategories = [
-        'Artists',
-        'Decades',
-        'Genres',
-    ];
+    browseCategories = BROWSE_NAV_ITEMS;
+
     ngOnInit() {
     }
 }
