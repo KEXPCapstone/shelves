@@ -1,16 +1,11 @@
 <main>
     <button mat-button (click)="openNotesDialog()">Show Notes</button>
     <button mat-button (click)="openShelfAddDialog()">Add to Shelf</button>
-    <section *ngIf="release" class="release-layout"
-        fxLayout
-        fxLayoutAlign="center"
-        fxLayout.xs="column"
-        fxLayoutGap="24px"
-        fxLayoutGap.xs="16px">
-        <div class="album-cover" fxFlex="40%">
+    <section *ngIf="release" class="release-layout">
+        <div class="album-cover">
             <img class="album-image" [src]="getArtForRelease()">
         </div>
-        <div fxFlex="60%" class="release-info">
+        <divclass="release-info">
             <div class="release-title">
                 <h1>{{release.title}}</h1>
                 <h3>by
