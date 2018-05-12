@@ -4,6 +4,7 @@ import { ShelvesListComponent } from './shelves-list/shelves-list.component';
 import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
 import { ShelfItemComponent } from './shelf-item/shelf-item.component';
 import { ShelfPreviewComponent } from './shelf-preview/shelf-preview.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ShelfPreviewComponent } from './shelf-preview/shelf-preview.component';
     ShelfItemComponent // a single item in a shelf (a release)
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    RouterModule
   ]
 })
 export class ShelvesModule { }

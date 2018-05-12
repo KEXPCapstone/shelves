@@ -36,13 +36,23 @@ export class ShelfService {
       );
   }
 
-  // GET the current users's shelves. Returns entire HTTP response
+  // GET the current users's shelves.
   getMyShelves(): Observable<Shelf[]> {
     const url = `${environment.apiUrl}/shelves/mine`;
     return this.http.get<Shelf[]>(url)
       .pipe(
         tap((shelves) => {
           console.log('Fetched current users shelves');
+        })
+      );
+  }
+
+  getFeaturedShelves(): Observable<Shelf[]> {
+    const url = `${environment.apiUrl}/shelves/featured`;
+    return this.http.get<Shelf[]>(url)
+      .pipe(
+        tap((shelves) => {
+          console.log('fetched featured shelves');
         })
       );
   }
