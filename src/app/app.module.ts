@@ -18,7 +18,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatSnackBarModule } from '@angular/material';
 import { ReleaseNotesComponent } from './release/release-notes/release-notes.component';
 import { NoteService } from './note.service';
 import { SHELVES_ROUTES } from './routes';
