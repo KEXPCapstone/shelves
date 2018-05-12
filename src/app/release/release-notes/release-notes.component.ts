@@ -51,7 +51,7 @@ export class ReleaseNotesComponent implements OnInit {
   getNotes() {
     this.noteService.getNotes(this.release)
       .subscribe((resp) => {
-        this.notes = resp.body;
+        this.notes = resp;
         this.numNotes = this.notes.length;
         this.setNumberPosters();
       }, (error) => {
@@ -65,7 +65,7 @@ export class ReleaseNotesComponent implements OnInit {
     this.noteService.postNote(form.value.note, this.release)
       .subscribe((resp) => {
         console.log(resp);
-        this.notes.push(resp.body);
+        this.notes.push(resp);
         this.numNotes = this.notes.length;
         this.setNumberPosters();
         form.reset();
