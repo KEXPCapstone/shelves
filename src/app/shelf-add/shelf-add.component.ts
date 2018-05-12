@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { Release } from '../release';
 import { ShelfService } from '../shelf.service';
 import { Shelf, NewShelf } from '../shelf';
@@ -23,6 +23,7 @@ export class ShelfAddComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) release,
     private shelfService: ShelfService,
     private authService: AuthService,
+    private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<ShelfAddComponent>) {
       this.release = release;
     }
@@ -62,6 +63,9 @@ export class ShelfAddComponent implements OnInit {
         console.log(resp);
         this.getUserShelves();
         form.reset();
+        this.snackbar.open('Added a shelf!', '', {
+          duration: 2000
+        });
       });
   }
 
@@ -76,6 +80,9 @@ export class ShelfAddComponent implements OnInit {
       .subscribe((resp) => {
         console.log(resp);
         console.log('updated!');
+        this.snackbar.open('Added ' + this.release.title, '', {
+          duration: 2000
+        });
       });
   }
 
