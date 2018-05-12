@@ -17,7 +17,7 @@
     <div class = "column">
       <form #pickShelf="ngForm"> 
         <mat-form-field>
-          <mat-select placeholder="Pick a shelf" [(ngModel)]="selectedShelf" name="shelfPicker" (change)="updateShelfPreview(pickShelf)">
+          <mat-select placeholder="Pick a shelf" [(ngModel)]="selectedShelf" name="shelfPicker" (selectionChange)="updateShelfPreview(pickShelf)">
             <mat-option *ngFor="let shelf of userShelves"  [value]="shelf">
               {{shelf.name}}
             </mat-option>
