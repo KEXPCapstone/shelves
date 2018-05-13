@@ -1,9 +1,11 @@
 import { NgModule, Component, ViewEncapsulation, OnInit, NgZone, ViewChild } from '@angular/core';
-import { MatSidenavModule, MatSidenav } from '@angular/material';
+import { MatSidenavModule, MatSidenav, MatIconModule } from '@angular/material';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
+import {trigger, animate, state, style, transition} from '@angular/animations';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+
 import { SharedModule } from '../shared/shared.module';
 
-import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { BROWSE_NAV_ITEMS } from './browse-nav-items';
 
 const SMALL_WIDTH_BREAKPOINT = 720;
@@ -40,7 +42,14 @@ export class BrowseSidenavComponent implements OnInit {
 
 @Component({
     selector: 'app-browse-nav',
-    templateUrl: './browse-nav.component.html'
+    templateUrl: './browse-nav.component.html',
+    animations: [
+        trigger('bodyExpansion', [
+          state('collapsed', style({height: '0px', display: 'none'})),
+          state('expanded', style({height: '*', display: 'block'})),
+          transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4,0.0,0.2,1)')),
+        ]),
+    ]
 })
 export class BrowseNavComponent implements OnInit {
     browseCategories = BROWSE_NAV_ITEMS;
@@ -54,6 +63,7 @@ export class BrowseNavComponent implements OnInit {
         MatSidenavModule,
         RouterModule,
         SharedModule,
+        MatIconModule,
         CdkAccordionModule
     ],
     exports: [BrowseSidenavComponent],
