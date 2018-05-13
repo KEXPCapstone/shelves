@@ -49,16 +49,17 @@ export class AuthService {
 
     // Returns the entire HTTP Response. JSON response
     // body is accessible via resp.body
-    public login(email: string, password: string): Observable<User> {
+    public login(email: string, password: string): Observable<HttpResponse<any>> {
         this.removeToken();
         const creds: Credentials = {email: email, password: password};
         const url = `${environment.apiUrl}/sessions`;
         console.log(url);
-        return this.http.post<User>(url, creds).pipe(
+        return this.http.post<HttpResponse<User>>(url, creds, {observe: 'response'}).pipe(
             tap((resp) => {
                 this.successfulSignIn(resp);
-            }),
-            catchError(this.handleError())
+            })
+            // ,
+            // catchError(this.handleError())
         );
     }
 
