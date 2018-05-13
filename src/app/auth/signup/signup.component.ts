@@ -32,9 +32,7 @@ export class SignupComponent implements OnInit {
       form.value.lastName)
       .subscribe((resp) => {
         console.log('created new user');
-        console.log(resp);
       }, (error) => {
-        console.log(error);
         if (error.status === 400) {
           this.invalidNewUser = true;
           this.errorMessage = error.error;
