@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { SearchService } from '../search.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,8 @@ import { NgForm } from '@angular/forms';
 export class NavBarComponent implements OnInit {
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -19,6 +21,7 @@ export class NavBarComponent implements OnInit {
 
   search(form: NgForm) {
     console.log(form.value.search);
+    this.router.navigate(['/library/search/' + form.value.search]);
   }
 
   logout() {
