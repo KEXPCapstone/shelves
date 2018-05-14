@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
 export class SearchResultsComponent implements OnInit, OnDestroy {
   results: ReleaseSearchResult[];
   maxResults = 200;
+  noResults: boolean;
   private _destroyed = new Subject();
 
 
@@ -25,7 +26,6 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
       takeUntil(this._destroyed)
     ).subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {
-        // console.log(routerEvent);
         this.getResults();
       }
     });
@@ -36,11 +36,10 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   getResults() {
     const query = this._route.snapshot.paramMap.get('query');
     this.searchService.getSearchResults(query, this.maxResults)
-    .subscribe(results => this.results = results);
-    // .subscribe((results) => {
-      //   this.results = results;
-      //   console.log(this.results);
-      // });
+    .subscribe((results) => {
+      this.results = results;
+      this.noResults = (this.results.length === 0);
+    });
   }
 
   ngOnDestroy(): void {
