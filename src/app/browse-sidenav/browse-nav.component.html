@@ -4,7 +4,16 @@
             <button cdkAccordionItem #panel="cdkAccordionItem" (click)="panel.toggle()" expanded="true"
                 class="shelves-browse-nav-content-btn">
                 {{category.name}}
+                <mat-icon>{{panel.expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>
             </button>
+            <ul [@bodyExpansion]="panel.expanded ? 'expanded' : 'collapsed'" id="panel-{{category.id}}">
+                <li *ngFor="let group of category.groups">
+                    <a [routerLink]="'/browse/' + category.id + '/' + group">
+                        {{ group | uppercase }}
+                    </a>
+                </li>
+            </ul>
+            <hr *ngIf="!last" />
         </nav>
     </div>
 </div>

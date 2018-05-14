@@ -7,16 +7,24 @@ import { BrowseSidenavComponent } from './browse-sidenav/browse-sidenav.module';
 import { ShelvesListComponent } from './shelves/shelves-list/shelves-list.component';
 
 export const SHELVES_ROUTES: Routes = [
-    {path: '', redirectTo: '/library', pathMatch: 'full'}, // default route redirect
+    {path: '', redirectTo: '/browse', pathMatch: 'full'}, // default route redirect
     {path: 'library', redirectTo: '/browse', pathMatch: 'full'}, // home page
     {
         path: 'browse',
         component: BrowseSidenavComponent,
         children: [
-            {path: '', redirectTo: 'artists', pathMatch: 'full'},
+            {path: '', redirectTo: 'artists', pathMatch: 'full'}, // default to artists
             {
-                path: ':id',
-                component: BrowseComponent
+                path: ':categoryId', // artists, genres, decades, etc
+                children: [
+                    {
+                        path: '', redirectTo: 'a', pathMatch: 'full'
+                    },
+                    {
+                        path: ':groupId',
+                        component: BrowseComponent
+                    }
+                ]
             }
         ],
     },
