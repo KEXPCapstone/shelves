@@ -18,6 +18,8 @@ import { map, takeUntil } from 'rxjs/operators';
   })
   export class BrowseComponent implements OnInit, OnDestroy {
     artists: any[];
+    category: string;
+    group: string;
     maxItems = 200; // maximum number of items to pull from the API
     private _destroyed = new Subject();
 
@@ -60,6 +62,8 @@ import { map, takeUntil } from 'rxjs/operators';
           break;
         }
       }
+      this.category = category;
+      this.group = group;
     }
 
     ngOnDestroy(): void {
