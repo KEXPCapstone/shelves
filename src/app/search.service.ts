@@ -18,7 +18,7 @@ export class SearchService {
       .append('limit', limit.toString())
     };
     return this.http.get<ReleaseSearchResult[]>(url, options).pipe(
-      tap(releases => console.log(`fetched related releases`)),
+      tap(releases => console.log(`fetched search results`)),
       catchError(this.handleError('getSearchResults', []))
     );
   }

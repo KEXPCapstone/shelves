@@ -1,26 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchService } from '../search.service';
 import { ReleaseSearchResult } from '../release';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss']
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent implements OnInit, OnDestroy {
   results: ReleaseSearchResult[];
   maxResults = 200;
+  private _destroyed = new Subject();
+
 
   constructor(
     private searchService: SearchService,
     private _route: ActivatedRoute,
     private _router: Router
-  ) { }
-
-  ngOnInit() {
-    this.getResults();
+  ) {
+    this._router.events.pipe(
+      takeUntil(this._destroyed)
+    ).subscribe((routerEvent) => {
+      if (routerEvent instanceof NavigationEnd) {
+        console.log(routerEvent);
+        this.getResults();
+      }
+    });
   }
+
+  ngOnInit() { }
 
   getResults() {
     const query = this._route.snapshot.paramMap.get('query');
@@ -30,5 +41,9 @@ export class SearchResultsComponent implements OnInit {
         console.log(results);
         this.results = results;
       });
+  }
+
+  ngOnDestroy(): void {
+    this._destroyed.next();
   }
 }
