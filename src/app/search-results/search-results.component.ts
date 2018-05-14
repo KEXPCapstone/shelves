@@ -25,7 +25,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
       takeUntil(this._destroyed)
     ).subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {
-        console.log(routerEvent);
+        // console.log(routerEvent);
         this.getResults();
       }
     });
@@ -35,12 +35,12 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   getResults() {
     const query = this._route.snapshot.paramMap.get('query');
-    // .subscribe(results => this.results = results);
     this.searchService.getSearchResults(query, this.maxResults)
-      .subscribe((results) => {
-        console.log(results);
-        this.results = results;
-      });
+    .subscribe(results => this.results = results);
+    // .subscribe((results) => {
+      //   this.results = results;
+      //   console.log(this.results);
+      // });
   }
 
   ngOnDestroy(): void {
