@@ -8,8 +8,8 @@
             </button>
             <ul [@bodyExpansion]="panel.expanded ? 'expanded' : 'collapsed'" id="panel-{{category.id}}">
                 <li *ngFor="let group of category.groups">
-                    <a>
-                        {{group | uppercase }}
+                    <a [routerLink]="'/browse/' + category.id + '/' + group">
+                        {{ group | uppercase }}
                     </a>
                 </li>
             </ul>
