@@ -13,7 +13,7 @@
         background: rgba(0, 0, 0, $nav-background-opacity);
 
         &::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, .26);
+            background: rgba(231, 226, 226, 0.26);
         }
 
         .shelves-browse-nav-content-btn {
@@ -23,6 +23,20 @@
             &:focus {
                 // override default background
                 background: rgba(0, 0, 0, $nav-background-focus-opacity);
+            }
+        }
+
+        hr {
+            border: none;
+            border-top: solid 1px rgba(mat-color($foreground, secondary-text), .1);
+        }
+
+        a {
+            color: mat-color($foreground, secondary-text);
+
+            &.shelves-browse-sidenav-item-selected,
+            &:hover {
+                color: mat-color($accent);
             }
         }
     }
