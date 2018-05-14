@@ -9,6 +9,15 @@ import { Release } from '../release';
 import { combineLatest, Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 
+@Component({
+  selector: 'app-browse-subgroup',
+  templateUrl: './browse-subgroup.component.html',
+  styleUrls: ['./browse-subgroup.component.scss'],
+  encapsulation: ViewEncapsulation.None
+})
+export class BrowseSubgroupComponent {
+
+}
 
 @Component({
     selector: 'app-browse',
@@ -73,7 +82,8 @@ import { map, takeUntil } from 'rxjs/operators';
 
 @NgModule({
     declarations: [
-        BrowseComponent // the root of browse feature
+        BrowseComponent, // the root of browse feature
+        BrowseSubgroupComponent
     ],
     imports: [
         SharedModule,
