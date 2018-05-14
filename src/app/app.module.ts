@@ -23,6 +23,7 @@ import { SHELVES_ROUTES } from './routes';
 import { RouterModule } from '@angular/router';
 import { BrowseSidenavModule } from './browse-sidenav/browse-sidenav.module';
 import { ShelfAddComponent } from './shelf-add/shelf-add.component';
+import { SearchService } from './search.service';
 
 @NgModule({
   imports: [
@@ -50,6 +51,7 @@ import { ShelfAddComponent } from './shelf-add/shelf-add.component';
     LibraryService,
     AuthService,
     NoteService,
+    SearchService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
