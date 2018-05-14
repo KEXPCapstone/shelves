@@ -56,9 +56,9 @@ app-browse-sidenav {
         button {
             padding: 10px 15px;
             font-weight: 700;
-            line-height: 16px;
+            line-height: 18px;
             margin: 0;
-            font-size: 13px;
+            font-size: 16px;
             cursor: pointer;
             position: relative;
             display: block;
@@ -69,6 +69,12 @@ app-browse-sidenav {
 
             &:focus {
                 outline: none;
+            }
+
+            .mat-icon {
+                position: absolute;
+                right: 5px;
+                font-size: 18px;
             }
         }
 
@@ -85,8 +91,8 @@ app-browse-sidenav {
         }
 
         li {
-            font-size: 13px;
-            line-height: 16px;
+            font-size: 16px;
+            line-height: 18px;
             margin: 0;
             padding: 5px 15px 5px 20px;
         }
