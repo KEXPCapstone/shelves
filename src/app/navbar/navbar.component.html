@@ -16,8 +16,6 @@
       </mat-form-field>
         <button class="mat-raised-button" (click)="search(searchForm)">Search</button>
     </form>
-
-
     <a *ngIf="authService.isAuthenticated" mat-button (click)="logout()">Logout</a>
     <a *ngIf="!authService.isAuthenticated" mat-button routerLink="/login">Login</a>
     <a *ngIf="!authService.isAuthenticated" mat-button routerLink="/signup">Signup</a>
