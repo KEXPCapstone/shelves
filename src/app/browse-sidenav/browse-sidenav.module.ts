@@ -38,6 +38,7 @@ export class BrowseSidenavComponent implements OnInit {
     isScreenSmall(): boolean {
         return this.mediaMatcher.matches;
     }
+
 }
 
 @Component({
