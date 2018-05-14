@@ -1,10 +1,28 @@
 @import '../../../styles/constants';
 
-
 app-release-detail {
     display: flex;
     flex-direction: column;
     padding: 20px 50px 50px 20px;
+}
+
+.shelves-release-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.shelves-release-overview {
+    display: flex;
+}
+
+.shelves-release-album-cover {
+    flex: 1;
+}
+
+.shelves-release-info {
+    flex: 1;
+    margin-left: 24px;
 }
 
 .album-image {
