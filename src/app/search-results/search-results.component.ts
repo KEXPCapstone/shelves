@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
 import { ReleaseSearchResult } from '../release';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-results',
@@ -14,10 +14,15 @@ export class SearchResultsComponent implements OnInit {
 
   constructor(
     private searchService: SearchService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _router: Router
   ) { }
 
   ngOnInit() {
+    this.getResults();
+  }
+
+  getResults() {
     const query = this._route.snapshot.paramMap.get('query');
     // .subscribe(results => this.results = results);
     this.searchService.getSearchResults(query, this.maxResults)
