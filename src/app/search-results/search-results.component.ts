@@ -37,7 +37,14 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     const query = this._route.snapshot.paramMap.get('query');
     this.searchService.getSearchResults(query, this.maxResults)
     .subscribe((results) => {
-      this.results = results;
+      const releaseGroupIDs = new Map();
+      this.results = [];
+      results.forEach((result) => {
+        if (!releaseGroupIDs.has(result.release.KEXPReleaseGroupMBID)) {
+          this.results.push(result);
+          releaseGroupIDs.set(result.release.KEXPReleaseGroupMBID, true);
+        }
+      });
       this.noResults = (this.results.length === 0);
     });
   }
