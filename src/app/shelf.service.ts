@@ -89,8 +89,8 @@ export class ShelfService {
   addShelf(newShelf: NewShelf): Observable<Shelf> {
     const url = `${environment.apiUrl}/shelves`;
     return this.http.post<Shelf>(url, newShelf, httpOptions).pipe(
-      tap((returnedShelf: Shelf) => this.log(`added shelf w/ id=${returnedShelf.id}`)),
-      catchError(this.handleError<Shelf>('addShelf'))
+      tap((returnedShelf: Shelf) => this.log(`added shelf w/ id=${returnedShelf.id}`))
+      // , catchError(this.handleError<Shelf>('addShelf')) // commented out so the subscriber can receive and process the error
     );
   }
 
