@@ -1,1 +1,26 @@
-<h1>Subgroup!</h1>
+<div *ngIf="groupInfo">
+    <div class="shelves-browse-subgroup-header">
+            <div class="category-header-title">
+            <h1 class="display-4">{{category | titlecase}} - {{group | titlecase}} - {{groupInfo.name}}</h1>
+            <mat-divider class="category-divider"></mat-divider>
+            </div>
+        </div>
+    <div class="shelves-browse-group-content">
+        <mat-grid-list class="browse-grid-list" cols="5" gutterSize="6px">
+            <div class="tile-container" *ngFor="let releaseGroup of groupInfo.releaseGroups; let i = index;">
+                <mat-grid-tile>
+                <a routerLink="/library/releases/{{releaseGroup.releases[0].id}}">
+                    <img class="shelves-release-preview"
+                    width="100%"
+                    alt="{{releaseGroup.title}}"
+                    src="//coverartarchive.org/release-group/{{releaseGroup.releaseGroupId}}/front-500.jpg"
+                    onerror="this.hidden='true'">
+                <mat-grid-tile-footer class="tile-footer">
+                    <h4 mat-line>{{releaseGroup.title}}</h4>
+                </mat-grid-tile-footer>
+                </a>
+                </mat-grid-tile>
+            </div>
+        </mat-grid-list>
+    </div>
+</div>

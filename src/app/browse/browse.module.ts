@@ -15,7 +15,27 @@ import { map, takeUntil } from 'rxjs/operators';
   styleUrls: ['./browse-subgroup.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class BrowseSubgroupComponent {
+export class BrowseSubgroupComponent implements OnInit {
+  category: string;
+  group: string;
+  groupInfo: any;
+  constructor(private libraryService: LibraryService,
+              private _route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.category = this._route.snapshot.paramMap.get('categoryId');
+    this.group = this._route.snapshot.paramMap.get('groupId');
+    this.getGroupReleases();
+  }
+
+  // retrieve releases which belong to this group
+  // which may be an artist/label/genre etc.
+  getGroupReleases() {
+    const subgroupId = this._route.snapshot.paramMap.get('subGroupId');
+    this.libraryService.getArtistById(subgroupId).subscribe(
+      artist => this.groupInfo = artist
+    );
+  }
 
 }
 
