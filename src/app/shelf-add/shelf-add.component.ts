@@ -74,7 +74,7 @@ export class ShelfAddComponent implements OnInit {
   addToShelf(form: NgForm) {
     const shelf = form.value.shelfPicker;
     shelf.releaseIDs.push(this.release.id);
-    shelf.dateLastEdit = Date.now();
+    shelf.dateLastEdit = new Date().toJSON();
     this.shelfService.updateShelf(shelf)
       .subscribe((resp) => {
         this.snackbar.open('Added ' + this.release.title, '', {
