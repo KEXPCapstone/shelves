@@ -9,7 +9,7 @@
             <div class="release-title">
                 <h1>{{release.title}}</h1>
                 <h3 mat-line>by
-                    <span class="kexp-orange">{{release.KEXPReleaseArtistCredit}}</span>
+                    <a routerLink="/browse/artists/{{release.KEXPReleaseArtistCredit.charAt(0) | lowercase}}/{{release.artistCredit[0].artist.id}}"><span class="kexp-orange">{{release.KEXPReleaseArtistCredit}}</span></a>
                 </h3>
                 <h3 mat-line>
                     <span *ngIf="release.date">released <span class="kexp-orange">{{release.date | date}}</span></span>
