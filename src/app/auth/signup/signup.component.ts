@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-signup',
@@ -9,18 +10,13 @@ import { NgForm } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  public invalidNewUser = false;
-  public serverError = false;
-  private errorMessage = '';
 
-
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private snackbar: MatSnackBar
+  ) { }
 
   ngOnInit() {
-  }
-
-  getErrorMessage() {
-    return this.errorMessage;
   }
 
   signup(form: NgForm) {
@@ -34,11 +30,9 @@ export class SignupComponent implements OnInit {
         console.log('created new user');
       }, (error) => {
         if (error.status === 400) {
-          this.invalidNewUser = true;
-          this.errorMessage = error.error;
+          this.snackbar.open(error.error.slice(24), 'OK');
         } else {
-          this.serverError = true;
-          this.errorMessage = 'Something went wrong, please try again.';
+          this.snackbar.open('Something went wrong, please try again.', 'OK');
         }
       }
     );
