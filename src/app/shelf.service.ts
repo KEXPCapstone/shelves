@@ -80,7 +80,7 @@ export class ShelfService {
     const url = `${environment.apiUrl}/shelves/${shelf.id}`;
     return this.http.put(url, shelf, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text'}).pipe(
       tap(_ => this.log(`updated shelf id=${shelf.id}`))
-      // ,catchError(this.handleError<any>('updateShelf'))
+      // ,catchError(this.handleError<any>('updateShelf')) // commented out so the subscriber can receive and process the error
     );
   }
 

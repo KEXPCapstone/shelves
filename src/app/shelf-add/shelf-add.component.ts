@@ -40,6 +40,9 @@ export class ShelfAddComponent implements OnInit {
         console.log(this.userShelves);
       }, (error) => {
         console.log(error);
+        this.snackbar.open('Error getting your shelves; please try again later.', '', {
+          duration: 2000
+        });
       }
     );
   }
@@ -64,6 +67,10 @@ export class ShelfAddComponent implements OnInit {
         this.getUserShelves();
         form.reset();
         this.snackbar.open('Added a shelf!', '', {
+          duration: 2000
+        });
+      }, (error) => {
+        this.snackbar.open('Error adding shelf; please try again later.', '', {
           duration: 2000
         });
       });
