@@ -25,6 +25,7 @@ import { BrowseSidenavModule } from './browse-sidenav/browse-sidenav.module';
 import { ShelfAddComponent } from './shelf-add/shelf-add.component';
 import { SearchService } from './search.service';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { FallbackDirective } from './shared/fallback.directive';
 
 @NgModule({
   imports: [
