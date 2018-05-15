@@ -4,7 +4,7 @@
 <mat-grid-list class="browse-grid-list" cols="5" gutterSize="6px">
   <div class="tile-container" *ngFor="let result of results">
       <mat-grid-tile>
-        <a routerLink="/library/releases/{{result.release.id}}">
+        <a routerLink="/browse/releases/{{result.release.id}}">
           <img class="shelves-app-artist-preview"
             width="100%"
             alt="{{result.release.title}}"
