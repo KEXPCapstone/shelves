@@ -72,15 +72,17 @@ export class ShelfAddComponent implements OnInit {
   getCurrShelf() {}
 
   addToShelf(form: NgForm) {
-    console.log(form.value.shelfPicker.releaseIDs);
     const shelf = form.value.shelfPicker;
     shelf.releaseIDs.push(this.release.id);
-    console.log(shelf);
+    shelf.dateLastEdit = new Date().toJSON();
     this.shelfService.updateShelf(shelf)
       .subscribe((resp) => {
-        console.log(resp);
-        console.log('updated!');
         this.snackbar.open('Added ' + this.release.title, '', {
+          duration: 2000
+        });
+      }, (error) => {
+        shelf.releaseIDs.pop();
+        this.snackbar.open('Error adding release; please try again later.', '', {
           duration: 2000
         });
       });
