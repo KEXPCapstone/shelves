@@ -4,6 +4,7 @@
     <a *ngIf="clickable" routerLink="/browse/releases/{{mbid}}">
       <img class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
     </a>
-    <img *ngIf="!clickable" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
+    <!-- <img *ngIf="!clickable" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg"> -->
+    <img *ngIf="!clickable" class="shelf-preview-img" [src]="getArt(mbid)">
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Release } from '../../models/release';
 import { Shelf } from '../../models/shelf';
+import { LibraryService } from '../../library.service';
 
 @Component({
   selector: 'app-shelf-preview',
@@ -11,11 +12,20 @@ export class ShelfPreviewComponent implements OnInit {
   @Input() shelf: Shelf;
   @Input() clickable: boolean;
 
-  constructor() { }
+  constructor(private libraryService: LibraryService) { }
 
   ngOnInit() {
   }
 
+  getArt(mbid: string) {
+    return `//coverartarchive.org/release/${mbid}/front-500.jpg`;
+  }
 
-
+  getBackupArt(mbid: string) {
+    console.log(mbid);
+    this.libraryService.getReleaseById(mbid)
+      .subscribe((release) => {
+        return `//coverartarchive.org/release-group/${release.KEXPReleaseGroupMBID}/front-500.jpg`;
+      });
+  }
 }
