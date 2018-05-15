@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { NgForm, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-signin',
@@ -9,30 +10,24 @@ import { NgForm, FormControl } from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
 
-  public invalidLoginAttempt = false;
-  public serverError = false;
-
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private snackbar: MatSnackBar
+  ) { }
 
   ngOnInit() {
   }
 
-
   login(form: NgForm) {
-    console.log(form);
-    console.log(form.value.email);
-    console.log(form.value.password);
-    // this.authService.login()
     this.authService.login(form.value.email, form.value.password)
       .subscribe((resp) => {
         console.log(localStorage.getItem('auth-token'));
       }, (error) => {
-        // This is temporary, you will need to update the UI accordingly.
         console.log(error);
         if (error.status === 401) {
-          this.invalidLoginAttempt = true;
+          this.snackbar.open('Email or password is incorrect', 'OK');
         } else {
-          this.serverError = true;
+          this.snackbar.open('Something went wrong. Please try again.', 'OK');
         }
       }
     );
