@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { LibraryService } from '../../library.service';
@@ -7,6 +7,8 @@ import { Release } from '../../release';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ReleaseNotesComponent } from '../release-notes/release-notes.component';
 import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-release-detail',
@@ -14,15 +16,28 @@ import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
   styleUrls: ['./release-detail.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ReleaseDetailComponent implements OnInit {
+export class ReleaseDetailComponent implements OnInit, OnDestroy {
   @Input() release: Release;
+  private _destroyed = new Subject();
 
   constructor(
     private route: ActivatedRoute,
     private libraryService: LibraryService,
     private location: Location,
-    private dialog: MatDialog
-  ) {}
+    private dialog: MatDialog,
+    private _router: Router
+
+  ) {
+    this._router.events.pipe(
+      takeUntil(this._destroyed)
+    ).subscribe((routerEvent) => {
+      if (routerEvent instanceof NavigationEnd) {
+        // this.getResults();
+        this.getRelease();
+      }
+    });
+
+  }
 
   ngOnInit(): void {
     this.getRelease();
@@ -67,6 +82,10 @@ export class ReleaseDetailComponent implements OnInit {
     dialogConfig.data = this.release;
     dialogConfig.width = '60rem';
     this.dialog.open(ShelfAddComponent, dialogConfig);
+  }
+
+  ngOnDestroy(): void {
+    this._destroyed.next();
   }
 
 }

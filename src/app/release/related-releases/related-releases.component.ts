@@ -1,6 +1,9 @@
-import { Input, Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit, OnDestroy } from '@angular/core';
 import { Release } from '../../release';
 import { LibraryService } from '../../library.service';
+import { Router, NavigationEnd } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -8,7 +11,7 @@ import { LibraryService } from '../../library.service';
   templateUrl: './related-releases.component.html',
   styleUrls: ['./related-releases.component.scss']
 })
-export class RelatedReleasesComponent implements OnInit {
+export class RelatedReleasesComponent implements OnInit, OnDestroy {
   @Input() release: Release;
   value: string;
   relateds: Release[];
@@ -17,8 +20,21 @@ export class RelatedReleasesComponent implements OnInit {
     'country',
     'KEXPReleaseArtistCredit'
   ];
+  private _destroyed = new Subject();
 
-  constructor(private library: LibraryService) { }
+
+  constructor(
+    private library: LibraryService,
+    private _router: Router
+  ) {
+    this._router.events.pipe(
+      takeUntil(this._destroyed)
+    ).subscribe((routerEvent) => {
+      if (routerEvent instanceof NavigationEnd) {
+        this.getRelatedReleases('KEXPReleaseArtistCredit', this.release.KEXPReleaseArtistCredit);
+      }
+    });
+  }
 
   ngOnInit() {
     this.getRelatedReleases('KEXPReleaseArtistCredit', this.release.KEXPReleaseArtistCredit);
@@ -35,5 +51,9 @@ export class RelatedReleasesComponent implements OnInit {
       .subscribe(relateds => this.relateds = relateds.filter(
         related => related.KEXPReleaseGroupMBID !== this.release.KEXPReleaseGroupMBID
       ));
+  }
+
+  ngOnDestroy(): void {
+    this._destroyed.next();
   }
 }
