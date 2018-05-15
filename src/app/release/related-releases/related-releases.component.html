@@ -7,7 +7,7 @@
     </mat-select>
   </mat-form-field> -->
   <div class="related-item" *ngFor="let related of relateds.slice(0,4)">
-    <img width="100%" src="//coverartarchive.org/release-group/{{related.KEXPReleaseGroupMBID}}/front-250.jpg">
+    <a routerLink="/browse/releases/{{related.id}}"><img width="100%" src="//coverartarchive.org/release-group/{{related.KEXPReleaseGroupMBID}}/front-250.jpg"></a>
     <a>{{related.title}}</a>
   </div>
   <!-- <mat-card class="related-release-card" *ngFor="let related of relateds.slice(0,4)">
