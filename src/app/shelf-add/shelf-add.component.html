@@ -37,8 +37,7 @@
   </div>
   <mat-divider></mat-divider>
   <div class="shelf-preview">
-    <h3>{{currShelfName}}</h3>
-    <img *ngFor="let mbid of selectedShelfReleaseIds" class="album-image shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg"> 
+      <app-shelf-preview *ngIf="currShelf" [shelf]="currShelf" [clickable]="false"></app-shelf-preview>
   </div>
   <div>
     <button class="mat-raised-button add-btn" (click)="addToShelf(pickShelf)">Add!</button>

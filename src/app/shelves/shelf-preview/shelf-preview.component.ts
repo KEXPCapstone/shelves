@@ -9,6 +9,7 @@ import { Shelf } from '../../models/shelf';
 })
 export class ShelfPreviewComponent implements OnInit {
   @Input() shelf: Shelf;
+  @Input() clickable: boolean;
 
   constructor() { }
 

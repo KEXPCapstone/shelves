@@ -17,7 +17,7 @@ export class ShelfAddComponent implements OnInit {
   private userShelves: Shelf[];
   private selectedShelfReleaseIds: string[] = [];
   private currShelfName: string;
-
+  private currShelf: Shelf;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
@@ -50,8 +50,9 @@ export class ShelfAddComponent implements OnInit {
 
   updateShelfPreview(form: NgForm) {
     console.log(form.value.shelfPicker);
-    this.selectedShelfReleaseIds = form.value.shelfPicker.releaseIDs;
-    this.currShelfName = form.value.shelfPicker.name;
+    // this.selectedShelfReleaseIds = form.value.shelfPicker.releaseIDs;
+    // this.currShelfName = form.value.shelfPicker.name;
+    this.currShelf = form.value.shelfPicker;
   }
 
 
