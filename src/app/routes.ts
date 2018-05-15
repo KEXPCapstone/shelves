@@ -15,6 +15,7 @@ export const SHELVES_ROUTES: Routes = [
         component: BrowseSidenavComponent,
         children: [
             {path: '', redirectTo: 'artists', pathMatch: 'full'}, // default to artists
+            {path: 'releases/:releaseId', component: ReleaseDetailComponent}, // release detail route
             {
                 path: ':categoryId', // artists, genres, decades, etc
                 children: [
@@ -34,7 +35,6 @@ export const SHELVES_ROUTES: Routes = [
         ],
     },
     {path: 'shelves', component: ShelvesListComponent}, // shelves feature module
-    {path: 'library/releases/:releaseId', component: ReleaseDetailComponent}, // release detail route
     {path: 'library/search/:query', component: SearchResultsComponent},
     {path: 'login', component: SigninComponent}, // sign in page
     {path: 'signup', component: SignupComponent},
