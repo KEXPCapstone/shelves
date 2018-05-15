@@ -15,8 +15,6 @@ import { Shelf, NewShelf } from '../models/shelf';
 export class ShelfAddComponent implements OnInit {
   private release: Release;
   private userShelves: Shelf[];
-  private selectedShelfReleaseIds: string[] = [];
-  private currShelfName: string;
   private currShelf: Shelf;
 
   constructor(
@@ -49,9 +47,6 @@ export class ShelfAddComponent implements OnInit {
   }
 
   updateShelfPreview(form: NgForm) {
-    console.log(form.value.shelfPicker);
-    // this.selectedShelfReleaseIds = form.value.shelfPicker.releaseIDs;
-    // this.currShelfName = form.value.shelfPicker.name;
     this.currShelf = form.value.shelfPicker;
   }
 
@@ -78,7 +73,9 @@ export class ShelfAddComponent implements OnInit {
       });
   }
 
-  getCurrShelf() {}
+  getCurrShelf() {
+    return this.currShelf;
+  }
 
   addToShelf(form: NgForm) {
     const shelf = form.value.shelfPicker;
