@@ -17,7 +17,6 @@ export class ReleaseNotesComponent implements OnInit {
   private notes: Note[];
   private numNotes = 0;
   private numPosters = 0;
-  private isAuthenticated = true; // Set to true until proven otherwise--avoid displaying warning if actually logged in
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
@@ -29,19 +28,7 @@ export class ReleaseNotesComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.checkAuth();
     this.getNotes();
-  }
-
-  checkAuth() {
-    this.authService.getCurrUser()
-      .subscribe((resp) => {
-        console.log(resp);
-        this.isAuthenticated = true;
-      }, (error) => {
-        this.isAuthenticated = false;
-      }
-    );
   }
 
   private getUserInfo(userId: string) {
@@ -64,7 +51,7 @@ export class ReleaseNotesComponent implements OnInit {
   getNotes() {
     this.noteService.getNotes(this.release)
       .subscribe((resp) => {
-        this.notes = resp.body;
+        this.notes = resp;
         this.numNotes = this.notes.length;
         this.setNumberPosters();
       }, (error) => {
@@ -78,7 +65,7 @@ export class ReleaseNotesComponent implements OnInit {
     this.noteService.postNote(form.value.note, this.release)
       .subscribe((resp) => {
         console.log(resp);
-        this.notes.push(resp.body);
+        this.notes.push(resp);
         this.numNotes = this.notes.length;
         this.setNumberPosters();
         form.reset();

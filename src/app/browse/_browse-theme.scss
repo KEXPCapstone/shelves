@@ -10,7 +10,20 @@
         border-top-color: mat-color($accent);
     }
 
+    .shelves-browse-category-header {
+        background: mat-color($background, background);
+    }
+
     .mat-grid-tile .mat-grid-tile-footer.tile-footer {
         background: rgba(0, 0, 0, .90);
+    }
+
+    .artist-image {
+
+        &:after {
+            background: linear-gradient(mat-color($primary), mat-color($primary, darker));
+            // background: mat-color($background, card);
+            color: mat-color($foreground, text);
+        }
     }
 }

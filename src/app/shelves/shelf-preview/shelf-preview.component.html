@@ -1,3 +1,8 @@
-<p>
-  shelf-preview works!
-</p>
+<div>
+  <h3>{{shelf.name}}</h3>
+  <div *ngFor="let mbid of shelf.releaseIDs">
+    <a routerLink="/browse/releases/{{mbid}}">
+      <img class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
+    </a>
+  </div>
+</div>

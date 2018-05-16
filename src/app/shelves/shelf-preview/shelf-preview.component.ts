@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Release } from '../../release';
+import { Shelf } from '../../shelf';
 
 @Component({
   selector: 'app-shelf-preview',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shelf-preview.component.scss']
 })
 export class ShelfPreviewComponent implements OnInit {
+  @Input() shelf: Shelf;
 
   constructor() { }
 

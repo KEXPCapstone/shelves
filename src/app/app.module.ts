@@ -6,8 +6,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ShelfService } from './shelf.service';
 import { LibraryService } from './library.service';
-import { LibraryComponent } from './library/library.component';
-import { CategoryComponent } from './category/category.component';
 import { NavBarComponent } from './navbar/navbar.component';
 import { BrowseModule } from './browse/browse.module';
 import { SharedModule } from './shared/shared.module';
@@ -18,13 +16,15 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatSnackBarModule } from '@angular/material';
 import { ReleaseNotesComponent } from './release/release-notes/release-notes.component';
 import { NoteService } from './note.service';
 import { SHELVES_ROUTES } from './routes';
 import { RouterModule } from '@angular/router';
 import { BrowseSidenavModule } from './browse-sidenav/browse-sidenav.module';
 import { ShelfAddComponent } from './shelf-add/shelf-add.component';
+import { SearchService } from './search.service';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   imports: [
@@ -42,18 +42,18 @@ import { ShelfAddComponent } from './shelf-add/shelf-add.component';
   ],
   declarations: [
     AppComponent,
-    LibraryComponent,
-    CategoryComponent,
     SignupComponent,
     SigninComponent,
     NavBarComponent,
-    ShelfAddComponent
+    ShelfAddComponent,
+    SearchResultsComponent
   ],
   providers: [
     ShelfService,
     LibraryService,
     AuthService,
     NoteService,
+    SearchService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]

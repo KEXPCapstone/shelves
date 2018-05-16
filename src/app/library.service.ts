@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Release } from './release';
@@ -19,11 +18,19 @@ export class LibraryService {
 
   /** GET release by id. Will 404 if id not found */
   getReleaseById(id: string): Observable<Release> {
-    console.log('id: ' + id);
     const url = `${environment.apiUrl}/library/releases/${id}`;
     return this.http.get<Release>(url).pipe(
       tap(_ => this.log(`fetched release id=${id}`)),
       catchError(this.handleError<Release>(`getRelease id=${id}`))
+    );
+  }
+
+  // Get a single artist summary from it's 'id'
+  getArtistById(id: string): Observable<any> {
+    const url = `${environment.apiUrl}/library/artists/${id}`;
+    console.log(`called getArtistById with: ${id}`);
+    return this.http.get<any>(url).pipe(
+      catchError(this.handleError<any>(`getArtist id=${id}`))
     );
   }
 

@@ -24,3 +24,13 @@ export class Release {
   KEXPTitle: string;
   notes: string[];
 }
+
+export class IndexInfo {
+  releaseID: string;
+  fieldMatchedOn: string;
+}
+
+export class ReleaseSearchResult {
+  release: Release;
+  indexInfo: IndexInfo;
+}

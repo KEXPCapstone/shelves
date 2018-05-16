@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { Release } from '../release';
 import { ShelfService } from '../shelf.service';
 import { Shelf, NewShelf } from '../shelf';
@@ -17,32 +17,20 @@ export class ShelfAddComponent implements OnInit {
   private userShelves: Shelf[];
   private selectedShelfReleaseIds: string[] = [];
   private currShelfName: string;
-  private isAuthenticated = true; // Set to true until proven otherwise--avoid displaying warning if actually logged in
+
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
     private shelfService: ShelfService,
     private authService: AuthService,
+    private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<ShelfAddComponent>) {
       this.release = release;
     }
 
   ngOnInit() {
-    this.checkAuth();
     this.getUserShelves();
   }
-
-  checkAuth() {
-    this.authService.getCurrUser()
-      .subscribe((resp) => {
-        console.log(resp);
-        this.isAuthenticated = true;
-      }, (error) => {
-        this.isAuthenticated = false;
-      }
-    );
-  }
-
 
   getUserShelves() {
     this.shelfService.getMyShelves()
@@ -52,6 +40,9 @@ export class ShelfAddComponent implements OnInit {
         console.log(this.userShelves);
       }, (error) => {
         console.log(error);
+        this.snackbar.open('Error getting your shelves; please try again later.', '', {
+          duration: 2000
+        });
       }
     );
   }
@@ -75,20 +66,32 @@ export class ShelfAddComponent implements OnInit {
         console.log(resp);
         this.getUserShelves();
         form.reset();
+        this.snackbar.open('Added a shelf!', '', {
+          duration: 2000
+        });
+      }, (error) => {
+        this.snackbar.open('Error adding shelf; please try again later.', '', {
+          duration: 2000
+        });
       });
   }
 
   getCurrShelf() {}
 
   addToShelf(form: NgForm) {
-    console.log(form.value.shelfPicker.releaseIDs);
     const shelf = form.value.shelfPicker;
     shelf.releaseIDs.push(this.release.id);
-    console.log(shelf);
+    shelf.dateLastEdit = new Date().toJSON();
     this.shelfService.updateShelf(shelf)
       .subscribe((resp) => {
-        console.log(resp);
-        console.log('updated!');
+        this.snackbar.open('Added ' + this.release.title, '', {
+          duration: 2000
+        });
+      }, (error) => {
+        shelf.releaseIDs.pop();
+        this.snackbar.open('Error adding release; please try again later.', '', {
+          duration: 2000
+        });
       });
   }
 
