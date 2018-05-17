@@ -4,25 +4,27 @@ h1 {
   color: white;
 }
 
-.category-divider {
-  width: 25%;
+.mat-card .mat-divider {
+  width: 100px;
+  left: 25px;
 }
 
-.example-form {
+form {
+    margin-top: 10px;
     min-width: 150px;
-    max-width: 500px;
+    max-width: 100%;
     width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
+}
 
-  .container {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    position: fixed; 
-    align-items: center;
-    justify-content: center;
-  }
+.form-input {
+  width: 100%;
+}
+
+.container {
+  margin-top: 100px;
+  height: 50%;
+  width: 100%;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}

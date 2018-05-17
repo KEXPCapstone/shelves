@@ -1,15 +1,17 @@
 <section class="container">
-  <div>
-    <h1>Login</h1>
-    <mat-divider class="category-divider"></mat-divider>
-    <form class="example-form" (ngSubmit)="login(f)" #f="ngForm" >
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" ngModel name="email">
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Password" type="password" ngModel name = "password">
-      </mat-form-field>
-      <button type="submit" mat-button class="mat-raised-button">Login</button>
-    </form>
-  </div>
+    <mat-card>
+      <mat-card-content>
+        <h1>Login</h1>
+        <mat-divider class="category-divider"></mat-divider>
+        <form (ngSubmit)="login(f)" #f="ngForm" >
+          <mat-form-field class="form-input">
+            <input matInput placeholder="Email" ngModel name="email">
+          </mat-form-field>
+          <mat-form-field class="form-input">
+            <input matInput placeholder="Password" type="password" ngModel name = "password">
+          </mat-form-field>
+          <button type="submit" mat-button class="mat-raised-button">Login</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
 </section>
