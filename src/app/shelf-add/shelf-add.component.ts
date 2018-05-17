@@ -39,7 +39,6 @@ export class ShelfAddComponent implements OnInit {
         this.userShelves = shelves;
         console.log(this.userShelves);
       }, (error) => {
-        // console.log(error);
         if (this.authService.isAuthenticated) {
           this.snackbar.open('Error getting your shelves; please try again later.', '', {
             duration: 2000
