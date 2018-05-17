@@ -1,9 +1,9 @@
 import { Input, Component, OnInit, OnDestroy } from '@angular/core';
-import { Release } from '../../release';
 import { LibraryService } from '../../library.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Release } from '../../models/release';
 
 
 @Component({

@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Release } from '../../release';
 import { NoteService } from '../../note.service';
-import { Note } from '../../note';
 import { FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
+import { Release } from '../../models/release';
+import { Note } from '../../models/note';
 
 
 @Component({

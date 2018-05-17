@@ -5,7 +5,6 @@ import { SharedModule } from '../shared/shared.module';
 
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LibraryService } from '../library.service';
-import { Release } from '../release';
 import { combineLatest, Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 
