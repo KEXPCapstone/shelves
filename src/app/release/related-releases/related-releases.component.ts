@@ -47,10 +47,6 @@ export class RelatedReleasesComponent implements OnInit, OnDestroy {
   // fetch releases related to the current release based on
   // a field:value pairing
   getRelatedReleases(field: string, value: string): void {
-    // this.library.getRelatedReleases(field, value)
-    //   .subscribe(relateds => this.relateds = relateds.filter(
-    //     related => related.KEXPReleaseGroupMBID !== this.release.KEXPReleaseGroupMBID
-    //   ));
     this.relateds = [];
     this.library.getRelatedReleases(field, value)
       .subscribe((results) => {
