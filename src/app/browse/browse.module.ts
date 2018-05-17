@@ -13,35 +13,6 @@ import { Label } from '../models/label';
 const MAX_BROWSE_ITEMS = 200;
 
 @Component({
-  selector: 'app-browse-subgroup',
-  templateUrl: './browse-subgroup.component.html',
-  styleUrls: ['./browse-subgroup.component.scss'],
-  encapsulation: ViewEncapsulation.None
-})
-export class BrowseSubgroupComponent implements OnInit {
-  category: string;
-  group: string;
-  groupInfo: any;
-  constructor(private libraryService: LibraryService,
-              private _route: ActivatedRoute) {}
-
-  ngOnInit() {
-    this.category = this._route.snapshot.paramMap.get('categoryId');
-    this.group = this._route.snapshot.paramMap.get('groupId');
-    this.getGroupReleases();
-  }
-
-  // retrieve releases which belong to this group
-  // which may be an artist/label/genre etc.
-  getGroupReleases() {
-    const subgroupId = this._route.snapshot.paramMap.get('subGroupId');
-    this.libraryService.getArtistById(subgroupId).subscribe(
-      artist => this.groupInfo = artist
-    );
-  }
-}
-
-@Component({
   selector: 'app-artist-list',
   templateUrl: './artist-list.component.html',
   styleUrls: ['./browse.component.scss'],
@@ -226,12 +197,10 @@ export class LabelListComponent implements OnInit, OnDestroy {
 
 @NgModule({
     declarations: [
-        BrowseComponent, // the root of browse feature
         ArtistListComponent,
         LabelListComponent,
         ArtistComponent,
-        LabelComponent,
-        BrowseSubgroupComponent
+        LabelComponent
     ],
     imports: [
         SharedModule,

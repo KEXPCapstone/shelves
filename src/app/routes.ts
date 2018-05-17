@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { ReleaseDetailComponent } from './release/release-detail/release-detail.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { BrowseComponent, BrowseSubgroupComponent, ArtistListComponent,
+import { BrowseComponent, ArtistListComponent,
     LabelListComponent, ArtistComponent, LabelComponent } from './browse/browse.module';
 import { BrowseSidenavComponent } from './browse-sidenav/browse-sidenav.module';
 import { ShelvesListComponent } from './shelves/shelves-list/shelves-list.component';
@@ -48,23 +48,7 @@ export const SHELVES_ROUTES: Routes = [
                         component: LabelComponent
                     }
                 ]
-            },
-            // {
-            //     path: ':categoryId', // artists, genres, decades, etc
-            //     children: [
-            //         {
-            //             path: '', redirectTo: 'a', pathMatch: 'full'
-            //         },
-            //         {
-            //             path: ':groupId',
-            //             component: BrowseComponent,
-            //         },
-            //         {
-            //             path: ':groupId/:subGroupId',
-            //             component: BrowseSubgroupComponent // a browse subgroup
-            //         }
-            //     ]
-            // }
+            }
         ],
     },
     {path: 'shelves', component: ShelvesListComponent}, // shelves feature module
