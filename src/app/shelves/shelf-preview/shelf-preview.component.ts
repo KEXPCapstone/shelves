@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Release } from '../../release';
-import { Shelf } from '../../shelf';
+import { Release } from '../../models/release';
+import { Shelf } from '../../models/shelf';
 
 @Component({
   selector: 'app-shelf-preview',
@@ -14,5 +14,7 @@ export class ShelfPreviewComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
 
 }

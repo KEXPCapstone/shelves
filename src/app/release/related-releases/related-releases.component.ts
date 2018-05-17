@@ -1,9 +1,9 @@
 import { Input, Component, OnInit, OnDestroy } from '@angular/core';
-import { Release } from '../../release';
 import { LibraryService } from '../../library.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Release } from '../../models/release';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { Subject } from 'rxjs';
 export class RelatedReleasesComponent implements OnInit, OnDestroy {
   @Input() release: Release;
   value: string;
-  relateds: Release[];
+  relateds: Release[] = [];
   options = [
     'packaging',
     'country',
@@ -47,10 +47,17 @@ export class RelatedReleasesComponent implements OnInit, OnDestroy {
   // fetch releases related to the current release based on
   // a field:value pairing
   getRelatedReleases(field: string, value: string): void {
+    this.relateds = [];
     this.library.getRelatedReleases(field, value)
-      .subscribe(relateds => this.relateds = relateds.filter(
-        related => related.KEXPReleaseGroupMBID !== this.release.KEXPReleaseGroupMBID
-      ));
+      .subscribe((results) => {
+        const seen = new Map();
+        results.forEach((result) => {
+          if (result.KEXPReleaseGroupMBID !== this.release.KEXPReleaseGroupMBID && !seen.has(result.KEXPReleaseGroupMBID)) {
+            this.relateds.push(result);
+            seen.set(result.KEXPReleaseGroupMBID, true);
+          }
+        });
+      });
   }
 
   ngOnDestroy(): void {

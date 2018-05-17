@@ -5,6 +5,20 @@ app-browse {
     padding: 0px 50px 50px 20px;
 }
 
+app-artist-list {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    padding: 0px 50px 50px 20px;   
+}
+
+app-label-list {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    padding: 0px 50px 50px 20px;   
+}
+
 .shelves-browse-category-header {
     flex: 1;
     display: flex;

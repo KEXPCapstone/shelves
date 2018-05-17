@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
-import { Release } from '../release';
 import { ShelfService } from '../shelf.service';
-import { Shelf, NewShelf } from '../shelf';
 import { FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
+import { Release } from '../models/release';
+import { Shelf, NewShelf } from '../models/shelf';
 
 
 @Component({
@@ -39,10 +39,11 @@ export class ShelfAddComponent implements OnInit {
         this.userShelves = shelves;
         console.log(this.userShelves);
       }, (error) => {
-        console.log(error);
-        this.snackbar.open('Error getting your shelves; please try again later.', '', {
-          duration: 2000
-        });
+        if (this.authService.isAuthenticated) {
+          this.snackbar.open('Error getting your shelves; please try again later.', '', {
+            duration: 2000
+          });
+        }
       }
     );
   }

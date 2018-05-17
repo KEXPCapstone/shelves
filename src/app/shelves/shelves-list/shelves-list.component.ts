@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShelfService } from '../../shelf.service';
-import { Shelf } from '../../shelf';
+import { Shelf } from '../../models/shelf';
 
 @Component({
   selector: 'app-shelves-list',

@@ -3,12 +3,13 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { LibraryService } from '../../library.service';
-import { Release } from '../../release';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatIconRegistry } from '@angular/material';
 import { ReleaseNotesComponent } from '../release-notes/release-notes.component';
 import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Release } from '../../models/release';
 
 @Component({
   selector: 'app-release-detail',
@@ -25,14 +26,25 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
     private libraryService: LibraryService,
     private location: Location,
     private dialog: MatDialog,
-    private _router: Router
+    private _router: Router,
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer
 
   ) {
+    iconRegistry.addSvgIcon(
+      'notes',
+      sanitizer.bypassSecurityTrustResourceUrl('../../../assets/baseline-question_answer-24px.svg')
+    );
+
+    iconRegistry.addSvgIcon(
+      'add-to-shelf',
+      sanitizer.bypassSecurityTrustResourceUrl('../../../assets/baseline-add_circle_outline-24px.svg')
+    );
+
     this._router.events.pipe(
       takeUntil(this._destroyed)
     ).subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {
-        // this.getResults();
         this.getRelease();
       }
     });

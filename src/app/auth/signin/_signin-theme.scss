@@ -1,13 +1,10 @@
-@import '../../../../node_modules/@angular/material/theming';
-
-@mixin release-detail-theme($theme) {
+@mixin signin-theme($theme) {
     $primary: map-get($theme, primary);
     $accent: map-get($theme, accent);
     $warn: map-get($theme, warn);
     $foreground: map-get($theme, background);
 
-    app-release-detail {
+    app-signin {
         color: mat-color($primary, default-contrast);
     }
-
 }
