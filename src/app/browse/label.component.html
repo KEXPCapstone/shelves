@@ -1,0 +1,26 @@
+<div *ngIf="label">
+    <div class="shelves-browse-category-header">
+            <div class="category-header-title">
+            <h1 class="display-4">Albums released on {{label.name}}</h1>
+            <mat-divider class="category-divider"></mat-divider>
+            </div>
+        </div>
+    <div class="shelves-browse-content">
+        <mat-grid-list class="browse-grid-list" cols="5" gutterSize="6px">
+            <div class="tile-container" *ngFor="let release of label.releases; let i = index;">
+                <mat-grid-tile>
+                <a routerLink="/browse/releases/{{release.id}}">
+                    <img class="shelves-release-preview"
+                    width="100%"
+                    alt="{{release.title}}"
+                    src="//coverartarchive.org/release-group/{{release.releaseGroupId}}/front-500.jpg"
+                    onerror="this.hidden='true'">
+                <mat-grid-tile-footer class="tile-footer">
+                    <h4 mat-line>{{release.title}}</h4>
+                </mat-grid-tile-footer>
+                </a>
+                </mat-grid-tile>
+            </div>
+        </mat-grid-list>
+    </div>
+</div>

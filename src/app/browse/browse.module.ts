@@ -8,6 +8,7 @@ import { LibraryService } from '../library.service';
 import { combineLatest, Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { Artist } from '../models/artist';
+import { Label } from '../models/label';
 
 const MAX_BROWSE_ITEMS = 200;
 
@@ -55,14 +56,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   constructor(
     private libraryService: LibraryService,
     private _route: ActivatedRoute,
-    private _router: Router,
-    private _elementRef: ElementRef,
-    private _renderer2: Renderer2
+    private _router: Router
   ) {
-  // Listen to changes on the current route for the doc id (e.g. button/checkbox) and the
-  // parent route for the section (material/cdk).
   combineLatest(_route.params, _route.parent.params).pipe(
-    map((p: [Params, Params]) => ({group: p[0]['groupId'], category: p[1]['categoryId']})),
     takeUntil(this._destroyed)
     ).subscribe(p => {
       this.updateArtists();
@@ -78,6 +74,87 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.group = groupId;
     this.libraryService.getArtists(groupId, MAX_BROWSE_ITEMS).subscribe(
       artists => this.artists = artists
+    );
+  }
+
+  ngOnDestroy(): void {
+    this._destroyed.next();
+  }
+}
+
+@Component({
+  selector: 'app-artist-component',
+  templateUrl: './artist.component.html',
+  styleUrls: ['./browse-subgroup.component.scss'],
+  encapsulation: ViewEncapsulation.None
+})
+export class ArtistComponent implements OnInit {
+  artist: Artist;
+
+  constructor(private libraryService: LibraryService,
+              private _route: ActivatedRoute) {}
+
+  ngOnInit() {
+    const artistId = this._route.snapshot.paramMap.get('artistId');
+    this.libraryService.getArtistById(artistId).subscribe(
+      artist => this.artist = artist
+    );
+  }
+}
+
+@Component({
+  selector: 'app-label-component',
+  templateUrl: './label.component.html',
+  styleUrls: ['./browse-subgroup.component.scss'],
+  encapsulation: ViewEncapsulation.None
+})
+export class LabelComponent implements OnInit {
+  label: Label;
+
+  constructor(private libraryService: LibraryService,
+              private _route: ActivatedRoute) {}
+
+  ngOnInit() {
+    const labelId = this._route.snapshot.paramMap.get('labelId');
+    this.libraryService.getLabelById(labelId).subscribe(
+      label => this.label = label
+    );
+  }
+}
+
+@Component({
+  selector: 'app-label-list',
+  templateUrl: './label-list.component.html',
+  styleUrls: ['./browse.component.scss'],
+  encapsulation: ViewEncapsulation.None
+})
+export class LabelListComponent implements OnInit, OnDestroy {
+  labels: Label[]; // the artists currently displayed
+  group: string;
+  private _destroyed = new Subject();
+
+
+  constructor(
+    private libraryService: LibraryService,
+    private _route: ActivatedRoute,
+    private _router: Router
+  ) {
+  combineLatest(_route.params, _route.parent.params).pipe(
+    takeUntil(this._destroyed)
+    ).subscribe(p => {
+      this.updateLabels();
+    });
+  }
+
+  ngOnInit() {
+    this.updateLabels();
+  }
+
+  updateLabels() {
+    const groupId = this._route.snapshot.paramMap.get('groupId');
+    this.group = groupId;
+    this.libraryService.getLabels(groupId, MAX_BROWSE_ITEMS).subscribe(
+      labels => this.labels = labels
     );
   }
 
@@ -151,6 +228,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     declarations: [
         BrowseComponent, // the root of browse feature
         ArtistListComponent,
+        LabelListComponent,
+        ArtistComponent,
+        LabelComponent,
         BrowseSubgroupComponent
     ],
     imports: [

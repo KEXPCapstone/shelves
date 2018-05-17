@@ -8,7 +8,7 @@
         <mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
             <div class="tile-container" *ngFor="let artist of artists">
                 <mat-grid-tile>
-                  <a routerLink="/browse/{{category}}/{{group}}/{{artist.artistMBID}}">
+                  <a routerLink="/browse/artists/{{group}}/{{artist.id}}">
                     <img class="artist-image"
                     width="100%"
                     alt="{{artist.name}}"

@@ -48,6 +48,30 @@ export class LibraryService {
     );
   }
 
+
+  // Get a single label summary from it's 'id'
+  getLabelById(id: string): Observable<any> {
+    const url = `${environment.apiUrl}/library/labels/${id}`;
+    console.log(`called getLabelById with: ${id}`);
+    return this.http.get<any>(url).pipe(
+      catchError(this.handleError<any>(`getLabel id=${id}`))
+    );
+  }
+
+  // Get a list of labels with name 'greater than' start
+  // limit specifies maximum # of labels to return
+  getLabels(start: string, limit: number): Observable<any[]> {
+    const url = `${environment.apiUrl}/library/labels`;
+    const options = {
+      params: new HttpParams()
+      .append('last_id', start)
+      .append('limit', limit.toString())
+    };
+    return this.http.get<any[]>(url, options).pipe(
+      catchError(this.handleError('getLabels', []))
+    );
+  }
+
   // fetch releases matching a given field value
   getRelatedReleases(field: string, value: string): Observable<Release[]> {
     const url = `${environment.apiUrl}/library/releases/related`;
