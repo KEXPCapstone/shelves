@@ -1,3 +1,13 @@
+@import '../../../styles/constants';
+
+h1 {
+  color: white;
+}
+
+.category-divider {
+  width: 25%;
+}
+
 .example-form {
     min-width: 150px;
     max-width: 500px;
@@ -6,4 +16,13 @@
   
   .example-full-width {
     width: 100%;
+  }
+
+  .container {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    position: fixed; 
+    align-items: center;
+    justify-content: center;
   }
