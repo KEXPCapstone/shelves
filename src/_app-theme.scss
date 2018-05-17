@@ -4,6 +4,8 @@
 @import './app/browse-sidenav/browse-sidenav-theme';
 @import './app/browse/browse-theme';
 @import './app/release/release-detail/release-detail-theme';
+@import './app/auth/signin/signin-theme';
+@import './app/auth/signup/signup-theme';
 
 @mixin shelves-app-theme($theme) {
     $primary: map-get($theme, primary);
@@ -26,4 +28,6 @@
     @include browse-sidenav-theme($theme);
     @include browse-theme($theme);
     @include release-detail-theme($theme);
+    @include signin-theme($theme);
+    @include signup-theme($theme);
 }
