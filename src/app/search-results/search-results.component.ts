@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchService } from '../search.service';
-import { ReleaseSearchResult } from '../release';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { ReleaseSearchResult } from '../models/release';
 
 @Component({
   selector: 'app-search-results',

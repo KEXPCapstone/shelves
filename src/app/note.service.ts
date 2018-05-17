@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Release } from './release';
 import { environment } from '../environments/environment';
-import { Note, NewNote } from './note';
 import { HttpClient} from '@angular/common/http';
 import { Observable, of} from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
+import { Release } from './models/release';
+import { Note, NewNote } from './models/note';
 
 @Injectable()
 export class NoteService {

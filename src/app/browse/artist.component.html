@@ -1,13 +1,13 @@
-<div *ngIf="groupInfo">
+<div *ngIf="artist">
     <div class="shelves-browse-category-header">
             <div class="category-header-title">
-            <h1 class="display-4">Albums by {{groupInfo.name}}</h1>
+            <h1 class="display-4">Albums by {{artist.name}}</h1>
             <mat-divider class="category-divider"></mat-divider>
             </div>
         </div>
     <div class="shelves-browse-content">
         <mat-grid-list class="browse-grid-list" cols="5" gutterSize="6px">
-            <div class="tile-container" *ngFor="let releaseGroup of groupInfo.releaseGroups; let i = index;">
+            <div class="tile-container" *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">
                 <mat-grid-tile>
                 <a routerLink="/browse/releases/{{releaseGroup.releases[0].id}}">
                     <img class="shelves-release-preview"

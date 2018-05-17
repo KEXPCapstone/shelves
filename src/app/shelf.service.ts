@@ -4,9 +4,8 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-
-import { Shelf, NewShelf } from './shelf';
 import { environment } from '../environments/environment';
+import { Shelf, NewShelf } from './models/shelf';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

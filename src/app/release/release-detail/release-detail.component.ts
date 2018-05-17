@@ -3,13 +3,13 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { LibraryService } from '../../library.service';
-import { Release } from '../../release';
 import { MatDialog, MatDialogConfig, MatIconRegistry } from '@angular/material';
 import { ReleaseNotesComponent } from '../release-notes/release-notes.component';
 import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Release } from '../../models/release';
 
 @Component({
   selector: 'app-release-detail',

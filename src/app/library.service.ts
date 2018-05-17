@@ -4,8 +4,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Release } from './release';
 import { environment } from '../environments/environment';
+import { Release } from './models/release';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -45,6 +45,30 @@ export class LibraryService {
     };
     return this.http.get<any[]>(url, options).pipe(
       catchError(this.handleError('getArtists', []))
+    );
+  }
+
+
+  // Get a single label summary from it's 'id'
+  getLabelById(id: string): Observable<any> {
+    const url = `${environment.apiUrl}/library/labels/${id}`;
+    console.log(`called getLabelById with: ${id}`);
+    return this.http.get<any>(url).pipe(
+      catchError(this.handleError<any>(`getLabel id=${id}`))
+    );
+  }
+
+  // Get a list of labels with name 'greater than' start
+  // limit specifies maximum # of labels to return
+  getLabels(start: string, limit: number): Observable<any[]> {
+    const url = `${environment.apiUrl}/library/labels`;
+    const options = {
+      params: new HttpParams()
+      .append('last_id', start)
+      .append('limit', limit.toString())
+    };
+    return this.http.get<any[]>(url, options).pipe(
+      catchError(this.handleError('getLabels', []))
     );
   }
 
