@@ -2,7 +2,7 @@
     <mat-card>
       <mat-card-content>  
         <h1>Sign Up</h1>
-        <mat-divider class ="category-divider"></mat-divider>
+        <mat-divider [inset]="true" class ="category-divider"></mat-divider>
         <form (ngSubmit)="signup(f)" #f="ngForm" >
           <mat-form-field class="form-input">
               <input matInput placeholder="First Name" ngModel name = "firstName">
