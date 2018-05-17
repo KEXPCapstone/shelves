@@ -39,10 +39,11 @@ export class ShelfAddComponent implements OnInit {
         this.userShelves = shelves;
         console.log(this.userShelves);
       }, (error) => {
-        console.log(error);
-        this.snackbar.open('Error getting your shelves; please try again later.', '', {
-          duration: 2000
-        });
+        if (this.authService.isAuthenticated) {
+          this.snackbar.open('Error getting your shelves; please try again later.', '', {
+            duration: 2000
+          });
+        }
       }
     );
   }

@@ -45,7 +45,6 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
       takeUntil(this._destroyed)
     ).subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {
-        // this.getResults();
         this.getRelease();
       }
     });
