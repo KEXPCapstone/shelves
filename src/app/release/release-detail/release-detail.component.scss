@@ -22,6 +22,7 @@ app-release-detail {
 
 .album-dialog-ctrl {
     position: absolute;
+    display: flex;
     top: 85%;
     left: 0;
     width: 100%;
@@ -45,4 +46,8 @@ app-release-detail {
 // push track lengths to right
 .track-spacer {
     flex: 1;
+}
+
+.flex-spacer {
+    flex-grow: 1;
 }
