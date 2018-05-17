@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { ReleaseDetailComponent } from './release/release-detail/release-detail.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { BrowseComponent, ArtistListComponent,
+import { ArtistListComponent,
     LabelListComponent, ArtistComponent, LabelComponent } from './browse/browse.module';
 import { BrowseSidenavComponent } from './browse-sidenav/browse-sidenav.module';
 import { ShelvesListComponent } from './shelves/shelves-list/shelves-list.component';
