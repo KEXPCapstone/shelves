@@ -6,6 +6,7 @@
 @import './app/release/release-detail/release-detail-theme';
 @import './app/auth/signin/signin-theme';
 @import './app/auth/signup/signup-theme';
+@import './app/search-results/search-results-theme';
 
 @mixin shelves-app-theme($theme) {
     $primary: map-get($theme, primary);
@@ -30,4 +31,5 @@
     @include release-detail-theme($theme);
     @include signin-theme($theme);
     @include signup-theme($theme);
+    @include search-results-theme($theme);
 }
