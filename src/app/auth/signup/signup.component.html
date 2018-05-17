@@ -1,26 +1,26 @@
-<section class="container">
-    <mat-card>
-      <mat-card-content>  
-        <h1>Sign Up</h1>
-        <mat-divider [inset]="true" class ="category-divider"></mat-divider>
-        <form (ngSubmit)="signup(f)" #f="ngForm" >
-          <mat-form-field class="form-input">
-              <input matInput placeholder="First Name" ngModel name = "firstName">
-            </mat-form-field>
-            <mat-form-field class="form-input">
-              <input matInput placeholder="Last Name" ngModel name = "lastName">
-            </mat-form-field>
-            <mat-form-field class="form-input">
-              <input matInput placeholder="Email" ngModel name="email">
-            </mat-form-field>
-            <mat-form-field class="form-input">
-              <input matInput placeholder="Password" type="password" ngModel name = "password">
-            </mat-form-field>
-            <mat-form-field class="form-input">
-                <input matInput placeholder="Confirm Password" type="password" ngModel name = "passwordConf">
-            </mat-form-field>
-            <button type="submit" mat-button >Sign up</button>  
-        </form>
-      </mat-card-content>
-    </mat-card>
-</section>
+<div class="container">
+<mat-card class="auth-card">
+  <mat-card-content>  
+    <h1>Sign Up</h1>
+    <mat-divider [inset]="true" class ="category-divider"></mat-divider>
+    <form (ngSubmit)="signup(f)" #f="ngForm" >
+      <mat-form-field class="form-input">
+          <input matInput placeholder="First Name" ngModel name = "firstName">
+        </mat-form-field>
+        <mat-form-field class="form-input">
+          <input matInput placeholder="Last Name" ngModel name = "lastName">
+        </mat-form-field>
+        <mat-form-field class="form-input">
+          <input matInput placeholder="Email" ngModel name="email">
+        </mat-form-field>
+        <mat-form-field class="form-input">
+          <input matInput placeholder="Password" type="password" ngModel name = "password">
+        </mat-form-field>
+        <mat-form-field class="form-input">
+            <input matInput placeholder="Confirm Password" type="password" ngModel name = "passwordConf">
+        </mat-form-field>
+        <button type="submit" mat-button class="mat-raised-button">Sign up</button>  
+    </form>
+  </mat-card-content>
+</mat-card>
+</div>
