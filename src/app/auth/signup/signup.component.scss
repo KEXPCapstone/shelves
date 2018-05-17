@@ -1,0 +1,31 @@
+@import '../../../styles/constants';
+
+
+h1 {
+    color: white;
+  }
+  
+  .mat-card .mat-divider {
+    width: 100px;
+    left: 25px;
+  }
+  
+  form {
+      margin-top: 10px;
+      min-width: 150px;
+      max-width: 100%;
+      width: 100%;
+  }
+  
+  .form-input {
+    width: 100%;
+  }
+  
+  .container {
+    margin-top: 100px;
+    height: 50%;
+    width: 100%;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+  }
