@@ -10,7 +10,6 @@ import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-release-detail',
@@ -28,7 +27,6 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
     private location: Location,
     private dialog: MatDialog,
     private _router: Router,
-    private authService: AuthService,
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer
 
@@ -47,7 +45,6 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
       takeUntil(this._destroyed)
     ).subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {
-        // this.getResults();
         this.getRelease();
       }
     });
