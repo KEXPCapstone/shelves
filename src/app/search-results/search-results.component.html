@@ -1,7 +1,7 @@
 <div *ngIf="noResults">
   <p>No results. Try a different search!</p>
 </div>
-<mat-grid-list class="browse-grid-list" cols="5" gutterSize="6px">
+<mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
   <div class="tile-container" *ngFor="let result of results">
       <mat-grid-tile>
         <a routerLink="/browse/releases/{{result.release.id}}">
