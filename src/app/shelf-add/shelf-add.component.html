@@ -8,6 +8,10 @@
   <div class="column" *ngIf="!authService.isAuthenticated">
       <p>You must be logged in to add to a shelf!</p>
   </div>
+  <div class="column" *ngIf="currShelf && currShelf.releaseIDs.indexOf(release.id) != -1">
+      <p>This shelf already has that release.</p>
+  </div>
+
 
 </div>
 <mat-divider></mat-divider>
