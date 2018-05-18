@@ -5,8 +5,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { ArtistListComponent,
     LabelListComponent, ArtistComponent, LabelComponent } from './browse/browse.module';
 import { BrowseSidenavComponent } from './browse-sidenav/browse-sidenav.module';
-import { ShelvesListComponent } from './shelves/shelves-list/shelves-list.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { ShelvesListComponent } from './shelves/shelves.module';
 
 export const SHELVES_ROUTES: Routes = [
     {path: '', redirectTo: '/browse/artists/a', pathMatch: 'full'}, // default route redirect
