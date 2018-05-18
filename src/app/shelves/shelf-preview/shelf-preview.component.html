@@ -5,7 +5,7 @@
       <a *ngIf="clickable" routerLink="/browse/releases/{{mbid}}">
         <img class="shelf-preview-img" src="{{imgUrls.get(mbid)}}" (error)="getBackupArt(mbid)">
       </a>
-      <img *ngIf="!clickable" class="shelf-preview-img" src="{{imgUrls.get(mbid)}}" (error)="img.src = getBackupArt(mbid)">
+      <img *ngIf="!clickable" class="shelf-preview-img" src="{{imgUrls.get(mbid)}}" (error)="getBackupArt(mbid)">
     </div>
   </div>
 </div>
