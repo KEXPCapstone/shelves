@@ -1,5 +1,5 @@
 .shelf-preview-img {
-    width: 6.5rem;
+    width: 8rem;
     max-width: 100%;
     margin: 5px;
 }
@@ -10,4 +10,20 @@
 
 h3 {
     color: white;
+}
+
+img.shelf-preview-img:after {
+    content: attr(alt);
+    font-size: 16px;
+    
+    display: block;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 6.5rem;
 }

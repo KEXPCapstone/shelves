@@ -1,0 +1,22 @@
+@import '../../../../node_modules/@angular/material/theming';
+
+@mixin shelf-preview-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+
+
+    .mat-grid-tile .mat-grid-tile-footer.tile-footer {
+        background: rgba(0, 0, 0, .90);
+    }
+
+    .shelf-preview-img {
+
+        &:after {
+            background: linear-gradient(mat-color($primary), mat-color($primary, darker));
+            // background: mat-color($background, card);
+            color: mat-color($foreground, text);
+        }
+    }
+}
