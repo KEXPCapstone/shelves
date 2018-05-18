@@ -17,7 +17,7 @@ const fullHttpOptions = {
 
 @Injectable()
 export class AuthService {
-    public isAuthenticated: boolean;
+    public isAuthenticated: boolean = this.getToken() ? true : false;
 
     constructor(private http: HttpClient, private router: Router) { }
 
