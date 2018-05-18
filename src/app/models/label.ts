@@ -11,4 +11,6 @@ export class LabelRelease {
     releaseGroupId: string;
     releaseId: string;
     title: string;
+    artistId: string;
+    artistName: string;
 }
