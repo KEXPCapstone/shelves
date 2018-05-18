@@ -9,7 +9,7 @@ import { ShelvesListComponent } from './shelves/shelves-list/shelves-list.compon
 import { SearchResultsComponent } from './search-results/search-results.component';
 
 export const SHELVES_ROUTES: Routes = [
-    {path: '', redirectTo: '/browse', pathMatch: 'full'}, // default route redirect
+    {path: '', redirectTo: '/browse/artists/a', pathMatch: 'full'}, // default route redirect
     {path: 'library', redirectTo: '/browse', pathMatch: 'full'}, // home page
     {
         path: 'browse',
