@@ -25,5 +25,5 @@ export const BROWSE_NAV_ITEMS: BrowseCategory[] = [
 
 function getAlphabeticalGroups(): string[] {
     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    return alphabet.split('').slice();
+    return alphabet.split('').slice().concat(['misc']);
 }
