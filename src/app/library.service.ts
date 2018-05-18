@@ -11,6 +11,9 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+// catchall regex
+const MISC_REGEX = '[^a-z]';
+
 @Injectable()
 export class LibraryService {
 
@@ -34,13 +37,19 @@ export class LibraryService {
     );
   }
 
-  // Get a list of artists with name 'greater than' start
+  // Get a list of artists whose name begins with 'group' letter
+  // and is alphabetically greater than 'start'
   // limit specifies maximum # of artists to return
-  getArtists(start: string, limit: number): Observable<any[]> {
+  getArtists(group: string, start: string, limit: number): Observable<any[]> {
     const url = `${environment.apiUrl}/library/artists`;
+    if (group === 'misc') {
+      group = MISC_REGEX;
+      start = '';
+    }
     const options = {
       params: new HttpParams()
-      .append('last_id', start)
+      .append('group', group)
+      .append('start', start)
       .append('limit', limit.toString())
     };
     return this.http.get<any[]>(url, options).pipe(
@@ -60,11 +69,16 @@ export class LibraryService {
 
   // Get a list of labels with name 'greater than' start
   // limit specifies maximum # of labels to return
-  getLabels(start: string, limit: number): Observable<any[]> {
+  getLabels(group: string, start: string, limit: number): Observable<any[]> {
     const url = `${environment.apiUrl}/library/labels`;
+    if (group === 'misc') {
+      group = MISC_REGEX;
+      start = '';
+    }
     const options = {
       params: new HttpParams()
-      .append('last_id', start)
+      .append('group', group)
+      .append('start', start)
       .append('limit', limit.toString())
     };
     return this.http.get<any[]>(url, options).pipe(
