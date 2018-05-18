@@ -1,10 +1,12 @@
 <div>
   <h3>{{shelf.name}}</h3>
-  <div *ngFor="let mbid of shelf.releaseIDs">
-    <a *ngIf="clickable" routerLink="/browse/releases/{{mbid}}">
-      <img class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
-    </a>
-    <!-- <img *ngIf="!clickable" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg"> -->
-    <img *ngIf="!clickable" class="shelf-preview-img" [src]="getArt(mbid) || getBackupArt(mbid)">
+  <div class="container">
+    <div *ngFor="let mbid of shelf.releaseIDs">
+      <a *ngIf="clickable" routerLink="/browse/releases/{{mbid}}">
+        <img class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
+      </a>
+      <!-- <img *ngIf="!clickable" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg"> -->
+      <img *ngIf="!clickable" class="shelf-preview-img" [src]="getArt(mbid) || getBackupArt(mbid)">
+    </div>
   </div>
 </div>
