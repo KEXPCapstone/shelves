@@ -1,5 +1,5 @@
 <div class="dialog-header">
-  <img class="album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
+  <img class="shelf-add-album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
   <div class="column">
     <h1 mat-dialog-title class="release-title">{{release.title}}</h1>
     <h5 class="release-artist">{{release.KEXPReleaseArtistCredit}}</h5>
@@ -37,8 +37,7 @@
   </div>
   <mat-divider></mat-divider>
   <div class="shelf-preview">
-    <h3>{{currShelfName}}</h3>
-    <img *ngFor="let mbid of selectedShelfReleaseIds" class="album-image shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg"> 
+      <app-shelf-preview *ngIf="currShelf" [shelf]="currShelf" [clickable]="false"></app-shelf-preview>
   </div>
   <div>
     <button class="mat-raised-button add-btn" (click)="addToShelf(pickShelf)">Add!</button>
