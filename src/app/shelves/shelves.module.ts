@@ -5,17 +5,19 @@ import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
 import { ShelfItemComponent } from './shelf-item/shelf-item.component';
 import { ShelfPreviewComponent } from './shelf-preview/shelf-preview.component';
 import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
     ShelvesListComponent, // list of all shelves
-    ShelfPreviewComponent, // an item in the list of shelves
+    // ShelfPreviewComponent, // an item in the list of shelves
     ShelfDetailComponent, // a collection view of a shelf
     ShelfItemComponent // a single item in a shelf (a release)
   ],
   imports: [
     SharedModule,
-    RouterModule
+    RouterModule,
+    BrowserModule
   ]
 })
 export class ShelvesModule { }

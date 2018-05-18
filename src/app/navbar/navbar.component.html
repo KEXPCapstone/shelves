@@ -14,7 +14,7 @@
       <mat-form-field>
         <input matInput name="search" ngModel placeholder="Search the library">
       </mat-form-field>
-        <button class="mat-raised-button" (click)="search(searchForm)">Search</button>
+        <button mat-button class="mat-raised-button" (click)="search(searchForm)"><mat-icon svgIcon="search"></mat-icon></button>
     </form>
     <a *ngIf="authService.isAuthenticated" mat-button (click)="logout()">Logout</a>
     <a *ngIf="!authService.isAuthenticated" mat-button routerLink="/login">Login</a>

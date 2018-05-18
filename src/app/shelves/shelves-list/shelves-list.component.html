@@ -1,7 +1,7 @@
 <mat-tab-group>
   <mat-tab label="Mine">
     <div *ngFor="let shelf of myShelves">
-      <app-shelf-preview *ngIf="shelf" [shelf]="shelf"></app-shelf-preview>
+      <app-shelf-preview *ngIf="shelf" [shelf]="shelf" [clickable]="true"></app-shelf-preview>
     </div>
     <div *ngIf="!isAuthenticated">
       <p>You have no shelves because you are not logged in</p>
@@ -12,7 +12,7 @@
   </mat-tab>
   <mat-tab label="All">
     <div *ngFor="let shelf of allShelves">
-      <app-shelf-preview *ngIf="shelf" [shelf]="shelf"></app-shelf-preview>
+      <app-shelf-preview *ngIf="shelf" [shelf]="shelf" [clickable]="true"></app-shelf-preview>
     </div>
     <div *ngIf="allShelves.length == 0">
       <p>There are no shelves!</p>
@@ -20,7 +20,7 @@
   </mat-tab>
   <mat-tab label="Featured">
     <div *ngFor="let shelf of featuredShelves">
-      <app-shelf-preview *ngIf="shelf" [shelf]="shelf"></app-shelf-preview>
+      <app-shelf-preview *ngIf="shelf" [shelf]="shelf" [clickable]="true"></app-shelf-preview>
     </div>
     <div *ngIf="featuredShelves.length == 0">
       <p>There are no featured shelves!</p>

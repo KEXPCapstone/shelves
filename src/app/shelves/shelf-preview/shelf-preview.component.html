@@ -1,8 +1,11 @@
 <div>
   <h3>{{shelf.name}}</h3>
-  <div *ngFor="let mbid of shelf.releaseIDs">
-    <a routerLink="/browse/releases/{{mbid}}">
-      <img class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
-    </a>
+  <div class="container">
+    <div *ngFor="let mbid of shelf.releaseIDs">
+      <a *ngIf="clickable" routerLink="/browse/releases/{{mbid}}">
+        <img class="shelf-preview-img" src="{{imgUrls.get(mbid)}}" (error)="getBackupArt(mbid)">
+      </a>
+      <img *ngIf="!clickable" class="shelf-preview-img" src="{{imgUrls.get(mbid)}}" (error)="getBackupArt(mbid)">
+    </div>
   </div>
 </div>

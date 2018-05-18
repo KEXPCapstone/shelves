@@ -32,18 +32,18 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   combineLatest(_route.params, _route.parent.params).pipe(
     takeUntil(this._destroyed)
     ).subscribe(p => {
-      this.updateArtists();
+      this.newArtists();
     });
   }
 
   ngOnInit() {
-    this.updateArtists();
+    this.newArtists();
   }
 
-  updateArtists() {
+  newArtists() {
     const groupId = this._route.snapshot.paramMap.get('groupId');
     this.group = groupId;
-    this.libraryService.getArtists(groupId, MAX_BROWSE_ITEMS).subscribe(
+    this.libraryService.getArtists(groupId, groupId, MAX_BROWSE_ITEMS).subscribe(
       artists => this.artists = artists
     );
   }
@@ -100,7 +100,7 @@ export class LabelComponent implements OnInit {
   encapsulation: ViewEncapsulation.None
 })
 export class LabelListComponent implements OnInit, OnDestroy {
-  labels: Label[]; // the artists currently displayed
+  labels: Label[]; // the labels currently displayed
   group: string;
   private _destroyed = new Subject();
 
@@ -113,18 +113,18 @@ export class LabelListComponent implements OnInit, OnDestroy {
   combineLatest(_route.params, _route.parent.params).pipe(
     takeUntil(this._destroyed)
     ).subscribe(p => {
-      this.updateLabels();
+      this.newLabels();
     });
   }
 
   ngOnInit() {
-    this.updateLabels();
+    this.newLabels();
   }
 
-  updateLabels() {
+  newLabels() {
     const groupId = this._route.snapshot.paramMap.get('groupId');
     this.group = groupId;
-    this.libraryService.getLabels(groupId, MAX_BROWSE_ITEMS).subscribe(
+    this.libraryService.getLabels(groupId, groupId, MAX_BROWSE_ITEMS).subscribe(
       labels => this.labels = labels
     );
   }

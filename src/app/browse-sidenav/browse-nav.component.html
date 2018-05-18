@@ -10,7 +10,8 @@
                 <li class="shelves-browse-nav-list-item" *ngFor="let group of category.groups">
                     <a [routerLink]="'/browse/' + category.id + '/' + group"
                         routerLinkActive="shelves-browse-sidenav-item-selected">
-                        {{ group | uppercase }}
+                        {{ group | titlecase }}
+                        <span *ngIf="group === 'misc'">(0-9 etc)</span>
                     </a>
                 </li>
             </ul>
