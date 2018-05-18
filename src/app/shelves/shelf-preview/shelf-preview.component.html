@@ -1,7 +1,7 @@
 <div>
   <h3>{{shelf.name}}</h3>
   <div class="container">
-    <div *ngFor="let mbid of shelf.releaseIDs">
+    <div *ngFor="let mbid of shelf.releaseIDs | slice:0:6">
       <a *ngIf="clickable" routerLink="/browse/releases/{{mbid}}">
         <img class="shelf-preview-img" src="{{imgUrls.get(mbid)}}" (error)="getBackupArt(mbid)">
       </a>
