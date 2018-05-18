@@ -1,18 +1,65 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component, OnInit } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { ShelvesListComponent } from './shelves-list/shelves-list.component';
-import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
-import { ShelfItemComponent } from './shelf-item/shelf-item.component';
-import { ShelfPreviewComponent } from './shelf-preview/shelf-preview.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { Shelf } from '../models/shelf';
+import { ShelfService } from '../shelf.service';
+
+
+@Component({
+  selector: 'app-shelves-list',
+  templateUrl: './shelves-list.component.html',
+  styleUrls: ['./shelves-list.component.scss']
+})
+export class ShelvesListComponent implements OnInit {
+  private myShelves: Shelf[] = [];
+  private allShelves: Shelf[] = [];
+  private featuredShelves: Shelf[] = [];
+  private isAuthenticated = true; // set to true until proven otherwise
+
+  constructor(private shelfService: ShelfService) { }
+
+  ngOnInit() {
+    this.getMyShelves();
+    this.getAllShelves();
+    this.getFeaturedShelves();
+  }
+
+  getMyShelves() {
+    this.shelfService.getMyShelves()
+      .subscribe((shelves) => {
+        this.myShelves = shelves;
+      }, (error) => {
+        this.isAuthenticated = false;
+        console.log(error);
+      }
+    );
+  }
+
+  getAllShelves() {
+    this.shelfService.getShelves()
+      .subscribe((shelves) => {
+        this.allShelves = shelves;
+      }, (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getFeaturedShelves() {
+    this.shelfService.getFeaturedShelves()
+      .subscribe((shelves) => {
+        this.featuredShelves = shelves;
+      }, (error) => {
+        console.log(error);
+      }
+    );
+  }
+}
 
 @NgModule({
   declarations: [
-    ShelvesListComponent, // list of all shelves
-    // ShelfPreviewComponent, // an item in the list of shelves
-    ShelfDetailComponent, // a collection view of a shelf
-    ShelfItemComponent // a single item in a shelf (a release)
+    ShelvesListComponent
   ],
   imports: [
     SharedModule,
