@@ -3,7 +3,7 @@
   <div class="container">
     <div *ngFor="let mbid of shelf.releaseIDs">
       <a *ngIf="clickable" routerLink="/browse/releases/{{mbid}}">
-        <img class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg">
+        <img class="shelf-preview-img" src="{{imgUrls.get(mbid)}}" (error)="img.src=getBackupArt(mbid)">
       </a>
       <!-- <img *ngIf="!clickable" class="shelf-preview-img" src="//coverartarchive.org/release/{{mbid}}/front-500.jpg"> -->
       <img *ngIf="!clickable" class="shelf-preview-img" [src]="getArt(mbid) || getBackupArt(mbid)">
