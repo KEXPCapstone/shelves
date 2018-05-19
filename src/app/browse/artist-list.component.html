@@ -1,7 +1,9 @@
 <div class="shelves-browse-category-header">
         <div class="category-header-title">
-          <h1 class="display-4">Artists - {{group | titlecase}}</h1>
-          <mat-divider class="category-divider"></mat-divider>
+          <div>
+            <h1 class="mat-display-2">Artists - {{group | titlecase}}</h1>
+            <mat-divider class="category-divider"></mat-divider>
+          </div>
         </div>
       </div>
       <div class="shelves-browse-content">
@@ -15,8 +17,8 @@
                     src="//coverartarchive.org/release-group/{{artist.releaseGroups[0].releaseGroupId}}/front-500.jpg"
                     >
                   <mat-grid-tile-footer class="tile-footer">
-                    <h4 mat-line>{{artist.name}}</h4>
-                    <h4 mat-line><span *ngIf="artist.disambiguation">({{artist.disambiguation}})</span></h4>
+                    <h4 class="mat-caption" mat-line>{{artist.name}}</h4>
+                    <h4 class="mat-caption" mat-line><span *ngIf="artist.disambiguation">({{artist.disambiguation}})</span></h4>
                   </mat-grid-tile-footer>
                   </a>
                 </mat-grid-tile>

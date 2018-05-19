@@ -1,6 +1,6 @@
 <div class="shelves-browse-category-header">
   <div class="category-header-title">
-    <h1 class="mat-display-1">{{group == 'mine' ? 'My' : group | titlecase}} shelves</h1>
+    <h1 class="mat-display-2">{{group == 'mine' ? 'My' : group | titlecase}} shelves</h1>
     <mat-divider class="category-divider"></mat-divider>
   </div>
 </div>
@@ -21,10 +21,10 @@
       <h3 *ngSwitchDefault>There are no shelves yet</h3>
     </div>
   </div>
-  <div *ngFor="let shelf of shelves" class="shelf-content">
+  <div *ngFor="let shelf of shelves; let lastShelf = last" class="shelf-container">
     <h2 class="mat-headline">{{shelf.name}}</h2>
     <mat-grid-list cols="5" gutterSize="16px">
-      <div *ngFor="let release of shelf.releases | slice: 0:4; let last = last" class="tile-container">
+      <div *ngFor="let release of shelf.releases | slice: 0:4; let lastRelease = last" class="tile-container">
         <mat-grid-tile class="browse-grid-list">
           <a routerLink="/browse/releases/{{release.id}}">
             <img class="artist-image"
@@ -45,5 +45,6 @@
           </mat-grid-tile-footer>
         </mat-grid-tile>
     </mat-grid-list>
+    <mat-divider class="shelf-divider" *ngIf="!lastShelf"></mat-divider>
   </div>
 </div>

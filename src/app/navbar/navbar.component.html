@@ -13,7 +13,7 @@
 
     <form #searchForm="ngForm">
       <mat-form-field class="search-bar">
-        <input matInput type="search" name="search" ngModel placeholder="Library Search">
+        <input class="mat-input" matInput type="search" name="search" ngModel placeholder="Search the library">
         <button mat-button matSuffix mat-icon-button (click)="search(searchForm)"><mat-icon aria-label="Search" svgIcon="search"></mat-icon></button>
       </mat-form-field>
     </form>

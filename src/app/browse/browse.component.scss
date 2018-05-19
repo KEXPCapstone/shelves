@@ -25,10 +25,14 @@ app-label-list {
     position: fixed;
     z-index: 4;
     width: 100%;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0px 20px 0px;
+
+    h1 {
+        margin: 16px 0;
+    }
 
     .category-divider {
-        width: 100px;
+        width: 100%;
     }
 }
 

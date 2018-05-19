@@ -1,4 +1,4 @@
-import { NgModule, Component, OnInit, OnDestroy } from '@angular/core';
+import { NgModule, Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +11,8 @@ import { BROWSE_NAV_ITEMS } from '../browse-sidenav/browse-nav-items';
 @Component({
   selector: 'app-shelves-list',
   templateUrl: './shelves-list.component.html',
-  styleUrls: ['./shelves-list.component.scss']
+  styleUrls: ['./shelves-list.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ShelvesListComponent implements OnInit, OnDestroy {
   shelves: Shelf[] = [];
