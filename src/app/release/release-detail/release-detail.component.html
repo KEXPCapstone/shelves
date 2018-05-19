@@ -15,7 +15,8 @@
                     <a routerLink="/browse/artists/{{release.KEXPReleaseArtistCredit.charAt(0) | lowercase}}/{{release.artistCredit[0].artist.id}}"><span class="kexp-orange">{{release.KEXPReleaseArtistCredit}}</span></a>
                 </h3>
                 <h3 mat-line>
-                    <span *ngIf="release.date">released <span class="kexp-orange">{{release.date | date}}</span></span>
+                    <span *ngIf="release.date.length == 4">released in <span class="kexp-orange">{{release.date}}</span></span>
+                    <span *ngIf="release.date.length > 4">released <span class="kexp-orange">{{release.date | date:'longDate'}}</span></span>
                 </h3>
             </div>
             <h3>Related releases</h3>
