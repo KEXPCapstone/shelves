@@ -18,6 +18,13 @@
         background: rgba(0, 0, 0, .90);
     }
 
+    .mat-grid-tile:hover {
+        -webkit-box-shadow: 0 0 0.1px rgba(247, 179, 33, 0.87);
+        -moz-box-shadow: 0 0 0.1px rgba(247, 179, 33, 0.87);
+        box-shadow: 0 0 0.1px rgba(247, 179, 33, 0.87);
+    }
+
+
     .artist-image {
 
         &:after {
