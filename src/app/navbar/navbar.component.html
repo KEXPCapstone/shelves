@@ -7,17 +7,23 @@
       >
       <span>KEXP</span>
     </a>
-    <a mat-button routerLink="/browse">Browse</a>
-    <a mat-button routerLink="/shelves">Shelves</a>
+    <!-- <a mat-button routerLink="/browse">Browse</a>
+    <a mat-button routerLink="/shelves">Shelves</a> -->
     <div class="flex-spacer"></div>
+
     <form #searchForm="ngForm">
-      <mat-form-field>
-        <input matInput name="search" ngModel placeholder="Search the library">
+      <mat-form-field class="search-bar">
+        <input matInput type="search" name="search" ngModel placeholder="Library Search">
+        <button mat-button matSuffix mat-icon-button (click)="search(searchForm)"><mat-icon aria-label="Search" svgIcon="search"></mat-icon></button>
       </mat-form-field>
-        <button mat-button class="mat-raised-button" (click)="search(searchForm)"><mat-icon svgIcon="search"></mat-icon></button>
     </form>
+    
+    <div class="flex-spacer"></div>
+
+  
     <a *ngIf="authService.isAuthenticated" mat-button (click)="logout()">Logout</a>
     <a *ngIf="!authService.isAuthenticated" mat-button routerLink="/login">Login</a>
     <a *ngIf="!authService.isAuthenticated" mat-button routerLink="/signup">Signup</a>
   </mat-toolbar-row>
+
 </mat-toolbar>
