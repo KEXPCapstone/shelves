@@ -85,6 +85,9 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
     );
   }
 
+  createShelf() {
+  }
+
   ngOnDestroy(): void {
     this._destroyed.next();
   }

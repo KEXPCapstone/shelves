@@ -1,6 +1,6 @@
 <div class="shelves-browse-category-header">
   <div class="category-header-title">
-    <h1 class="display-4">{{group == 'mine' ? 'My' : group | titlecase}} shelves</h1>
+    <h1 class="mat-display-1">{{group == 'mine' ? 'My' : group | titlecase}} shelves</h1>
     <mat-divider class="category-divider"></mat-divider>
   </div>
 </div>
@@ -9,7 +9,7 @@
     <div [ngSwitch]="group" class="empty-shelves-message">
       <div *ngSwitchCase="'mine'">
         <!-- <mat-icon class="empty-icon">view_module</mat-icon> -->
-        <h2 class="mat-title">You have not created any shelves</h2>
+        <h2 class="mat-headline">You have not created any shelves</h2>
         <h3 class="mat-subheading-2">Create a new shelf and it will show up here</h3>
         <div>
           <button (click)="createShelf()" mat-raised-button color="accent" class="new-shelf-button">
