@@ -1,11 +1,18 @@
 <div>
   <h3>{{shelf.name}}</h3>
   <div class="container">
-    <div *ngFor="let mbid of shelf.releaseIDs | slice:0:6">
-      <a *ngIf="clickable" routerLink="/browse/releases/{{mbid}}">
-        <img class="shelf-preview-img" src="{{imgUrls.get(mbid)}}" (error)="getBackupArt(mbid)">
+    <div *ngFor="let release of shelf.releases | slice:0:5">
+      <a *ngIf="clickable" routerLink="/browse/releases/{{release.id}}">
+        <img class="shelf-preview-img" src="{{imgUrls.get(release.id)}}" (error)="getBackupArt(release.id)" alt="{{release.title}}"> 
       </a>
-      <img *ngIf="!clickable" class="shelf-preview-img" src="{{imgUrls.get(mbid)}}" (error)="getBackupArt(mbid)">
+      <img *ngIf="!clickable" class="shelf-preview-img" src="{{imgUrls.get(release.id)}}" (error)="getBackupArt(release.id)" alt="{{release.title}}">
+    </div>
+    <div *ngIf="shelf.releases.length > 5">
+        <div class="more-releases">
+            <div class="album-dialog-ctrl">
+              +{{shelf.releases.length - 5}} more
+            </div>
+        </div>
     </div>
   </div>
 </div>

@@ -12,7 +12,7 @@ h3 {
     color: white;
 }
 
-img.shelf-preview-img:after {
+img.shelf-preview-img:after, .more-releases {
     content: attr(alt);
     font-size: 16px;
     
@@ -27,3 +27,4 @@ img.shelf-preview-img:after {
     width: 128px;
     height: 128px;
 }
+
