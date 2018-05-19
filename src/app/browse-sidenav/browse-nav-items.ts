@@ -26,12 +26,12 @@ export const BROWSE_NAV_ITEMS: BrowseCategory[] = [
     {
         id: 'artists',
         name: 'Artists',
-        groups: getAlphabeticalGroups()
+        groups: setAlphabeticalGroups()
     },
     {
         id: 'labels',
         name: 'Labels',
-        groups: getAlphabeticalGroups()
+        groups: setAlphabeticalGroups()
     },
     {
         id: 'decades',
@@ -41,7 +41,7 @@ export const BROWSE_NAV_ITEMS: BrowseCategory[] = [
     }
 ];
 
-function getAlphabeticalGroups(): any[] {
+function setAlphabeticalGroups(): any[] {
     const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('').slice();
     const groups = [];
     alphabet.forEach(element => {
