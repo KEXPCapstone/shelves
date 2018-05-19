@@ -11,3 +11,25 @@
     margin: 0 10px 3px 0;
     vertical-align: middle;
 }
+
+.search-bar {
+    width: 8em;;
+}
+
+@media screen and (min-width: 520px) {
+    .search-bar {
+        width: 15em;;
+    }
+}
+
+@media screen and (min-width: 875px) {
+    .search-bar {
+        width: 30em;;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .search-bar {
+        width: 40em;;
+    }
+}
