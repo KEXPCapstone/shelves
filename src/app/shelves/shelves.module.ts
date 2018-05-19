@@ -14,7 +14,7 @@ import { BROWSE_NAV_ITEMS } from '../browse-sidenav/browse-nav-items';
   styleUrls: ['./shelves-list.component.scss']
 })
 export class ShelvesListComponent implements OnInit, OnDestroy {
-  shelves: Shelf[] = [];
+  shelves: Shelf[];
   group: string;
   isAuthenticated = true; // set to true until proven otherwise
   private _destroyed = new Subject();
