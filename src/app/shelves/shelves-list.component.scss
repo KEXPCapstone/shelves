@@ -16,6 +16,10 @@ app-shelves-list {
     .category-divider {
         width: 100px;
     }
+
+    .mat-display-1 {
+        margin: 14px 0;
+    }
 }
 
 img.artist-image:after {
@@ -46,4 +50,17 @@ img.artist-image:after {
     width: 100%;
     height: 100%;
     z-index: 2;
+}
+
+.empty-shelves-message > div {
+    display: flex;
+    flex-direction: column;
+
+    h2, h3 {
+        text-align: left;
+    }
+
+    div {
+        text-align: left;
+    }
 }
