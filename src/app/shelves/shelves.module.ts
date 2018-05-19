@@ -61,6 +61,8 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
         this.shelves = shelves;
       }, (error) => {
         this.isAuthenticated = false;
+        // reset to empty shelves (you don't have any if you aren't authed)
+        this.shelves = [];
         console.log(error);
       }
     );
