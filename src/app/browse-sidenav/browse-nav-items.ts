@@ -6,22 +6,6 @@
 
 export const BROWSE_NAV_ITEMS: BrowseCategory[] = [
     {
-        id: 'artists',
-        name: 'Artists',
-        groups: getAlphabeticalGroups()
-    },
-    {
-        id: 'labels',
-        name: 'Labels',
-        groups: getAlphabeticalGroups()
-    },
-    {
-        id: 'decades',
-        name: 'Decades',
-        groups: [
-        ]
-    },
-    {
         id: 'shelves',
         name: 'Shelves',
         groups: [
@@ -37,6 +21,22 @@ export const BROWSE_NAV_ITEMS: BrowseCategory[] = [
                 id: 'featured',
                 name: 'Featured'
             }
+        ]
+    },
+    {
+        id: 'artists',
+        name: 'Artists',
+        groups: getAlphabeticalGroups()
+    },
+    {
+        id: 'labels',
+        name: 'Labels',
+        groups: getAlphabeticalGroups()
+    },
+    {
+        id: 'decades',
+        name: 'Decades',
+        groups: [
         ]
     }
 ];
