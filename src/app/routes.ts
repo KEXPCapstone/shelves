@@ -48,10 +48,26 @@ export const SHELVES_ROUTES: Routes = [
                         component: LabelComponent
                     }
                 ]
+            },
+            {
+                path: 'shelves',
+                children: [
+                    {
+                        path: '', redirectTo: 'all', pathMatch: 'full'
+                    },
+                    {
+                        path: ':groupId',
+                        component: ShelvesListComponent
+                    },
+                    // {
+                    //     path: ':groupId/:shelfId',
+                    //     component: Shelf
+                    // }
+                ]
             }
         ],
     },
-    {path: 'shelves', component: ShelvesListComponent}, // shelves feature module
+    // {path: 'shelves', component: ShelvesListComponent}, // shelves feature module
     {path: 'library/search/:query', component: SearchResultsComponent},
     {path: 'login', component: SigninComponent}, // sign in page
     {path: 'signup', component: SignupComponent},
