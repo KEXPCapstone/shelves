@@ -12,9 +12,10 @@
     <div class="flex-spacer"></div>
     <form #searchForm="ngForm">
       <mat-form-field>
-        <input matInput name="search" ngModel placeholder="Search the library">
+        <input matInput type="search" name="search" ngModel placeholder="Search the library">
+        <button mat-button matSuffix mat-icon-button (click)="search(searchForm)"><mat-icon svgIcon="search"></mat-icon></button>
       </mat-form-field>
-        <button mat-button class="mat-raised-button" (click)="search(searchForm)"><mat-icon svgIcon="search"></mat-icon></button>
+        
     </form>
     <a *ngIf="authService.isAuthenticated" mat-button (click)="logout()">Logout</a>
     <a *ngIf="!authService.isAuthenticated" mat-button routerLink="/login">Login</a>
