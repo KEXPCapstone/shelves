@@ -79,7 +79,7 @@ export class ShelfAddComponent implements OnInit {
 
   addToShelf(form: NgForm) {
     const shelf = form.value.shelfPicker;
-    shelf.releaseIDs.push(this.release.id);
+    shelf.releases.push(this.release);
     shelf.dateLastEdit = new Date().toJSON();
     this.shelfService.updateShelf(shelf)
       .subscribe((resp) => {
@@ -87,7 +87,7 @@ export class ShelfAddComponent implements OnInit {
           duration: 2000
         });
       }, (error) => {
-        shelf.releaseIDs.pop();
+        shelf.releases.pop();
         this.snackbar.open('Error adding release; please try again later.', '', {
           duration: 2000
         });

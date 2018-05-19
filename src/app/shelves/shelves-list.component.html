@@ -5,20 +5,29 @@
   </div>
 </div>
 <div class="shelves-browse-content">
-  <mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
-      <div class="tile-container" *ngFor="let shelf of shelves">
-          <mat-grid-tile>
-            <!-- <a routerLink="/browse/artists/{{group}}/{{artist.id}}">
-              <img class="artist-image"
-              width="100%"
-              alt="{{artist.name}}"
-              src="//coverartarchive.org/release-group/{{artist.releaseGroups[0].releaseGroupId}}/front-500.jpg"
-              > -->
+  <div *ngFor="let shelf of shelves" class="shelf-content">
+    <h2 class="mat-headline">{{shelf.name}}</h2>
+    <mat-grid-list cols="5" gutterSize="16px">
+      <div *ngFor="let release of shelf.releases | slice: 0:4; let last = last" class="tile-container">
+        <mat-grid-tile class="browse-grid-list">
+          <a routerLink="/browse/releases/{{release.id}}">
+            <img class="artist-image"
+            width="100%"
+            alt="{{release.title}}"
+            src="//coverartarchive.org/release/{{release.id}}/front-500.jpg"
+            >
             <mat-grid-tile-footer class="tile-footer">
-              <h4 mat-line>{{shelf.name}}</h4>
+              <h4 mat-line>{{release.title}}</h4>
+              <h4 mat-line>{{release.KEXPReleaseArtistCredit}}</h4>
             </mat-grid-tile-footer>
-            <!-- </a> -->
-          </mat-grid-tile>
+          </a>
+        </mat-grid-tile>
       </div>
-</mat-grid-list>
+      <mat-grid-tile *ngIf="shelf.releases.length > 4" class="more-tile">
+          <mat-grid-tile-footer>
+            +{{shelf.releases.length}} more
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>
