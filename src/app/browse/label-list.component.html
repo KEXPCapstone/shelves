@@ -1,6 +1,6 @@
 <div class="shelves-browse-category-header">
     <div class="category-header-title">
-      <h1 class="display-4">Labels - {{group | titlecase}}</h1>
+      <h1 class="mat-display-2">Labels - {{group | titlecase}}</h1>
       <mat-divider class="category-divider"></mat-divider>
     </div>
   </div>
@@ -15,8 +15,8 @@
                 src="//coverartarchive.org/release-group/{{label.releases[0].releaseGroupId}}/front-500.jpg"
                 > -->
               <mat-grid-tile-footer class="tile-footer">
-                <h4 mat-line>{{label.name}}</h4>
-                <h4 mat-line><span *ngIf="label.disambiguation">({{label.disambiguation}})</span></h4>
+                <h4 class="mat-caption" mat-line>{{label.name}}</h4>
+                <h4 class="mat-caption" mat-line><span *ngIf="label.disambiguation">({{label.disambiguation}})</span></h4>
               </mat-grid-tile-footer>
               </a>
             </mat-grid-tile>
