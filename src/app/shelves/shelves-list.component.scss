@@ -64,3 +64,11 @@ img.artist-image:after {
         text-align: left;
     }
 }
+
+.shelf-container {
+    padding: 0 0 24px 0;
+
+    mat-grid-list {
+        margin-bottom: 24px;
+    }
+}
