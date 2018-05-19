@@ -5,6 +5,19 @@
   </div>
 </div>
 <div class="shelves-browse-content">
+  <div *ngIf="shelves.length === 0">
+    <div [ngSwitch]="group" class="empty-shelves-message">
+      <div *ngSwitchCase="'mine'">
+        <h3>You have not created any shelves yet</h3>
+        <h4>Create a new shelf and it will show up here</h4>
+        <button mat-raised-button color="accent" class="new-shelf-button">
+          Create a shelf
+        </button>
+      </div>
+      <h3 *ngSwitchCase="'featured'">There are no featured shelves</h3>
+      <h3 *ngSwitchDefault>There are no shelves yet</h3>
+    </div>
+  </div>
   <div *ngFor="let shelf of shelves" class="shelf-content">
     <h2 class="mat-headline">{{shelf.name}}</h2>
     <mat-grid-list cols="5" gutterSize="16px">
