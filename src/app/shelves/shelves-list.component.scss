@@ -47,3 +47,16 @@ img.artist-image:after {
     height: 100%;
     z-index: 2;
 }
+
+.empty-shelves-message > div {
+    display: flex;
+    flex-direction: column;
+
+    h2, h3 {
+        text-align: left;
+    }
+
+    div {
+        text-align: left;
+    }
+}
