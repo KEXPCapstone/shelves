@@ -36,24 +36,6 @@ app-label-list {
     }
 }
 
-img.artist-image:after {
-    content: attr(alt);
-        
-    font-size: 16px;
-    
-    display: block;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 .shelves-browse-content {
     position: relative;
     top: 116px;
@@ -66,21 +48,59 @@ img.artist-image:after {
     z-index: 2;
 }
 
+@media (min-height: 1000px) {
+    virtual-scroll {
+        height: 1000px;
+    }
+}
+
+@media (max-height: 1000px){
+    virtual-scroll {
+        height: 720px;
+    }
+}
+
+@media (max-height: 720px) {
+    virtual-scroll {
+        height: 600px;
+    }
+}
+
 virtual-scroll {
     display: flex;
     width: 100%;
-    height: 800px; // height must be specified explicitly for virtualscroll to work
 }
 
 .scrollable-content {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 
     app-list-item {
-        flex: 1 0 25%;
+        height: 250px;
+        width: 250px;
         box-sizing: border-box;
-        border: solid white 1px;
+        border: 1px solid white;
         color: white;
-        padding: 10px;
+        margin-bottom: 24px;
+
+        // .artist-image-container {
+        //     width: 100%;
+        //     height: 100%;
+        //     overflow: hidden; // for odd shaped releases
+
+        //     img {
+        //         width: 100%;
+        //     }
+        // }
     }
+}
+
+.mat-grid-tile.tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
 }

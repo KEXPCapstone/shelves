@@ -7,10 +7,9 @@
         </div>
       </div>
       <div class="shelves-browse-content">
-        <mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
+      <mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
           <virtual-scroll [items]="artists" (update)="viewPortItems = $event">
-            <!-- <div *ngFor="let item of viewPortItems">{{item?.name}}</div> -->
-            <app-list-item *ngFor="let item of viewPortItems" [artist]="item">
+            <app-list-item *ngFor="let item of viewPortItems" [artist]="item" [group]="group">
             </app-list-item>
           </virtual-scroll>
       </mat-grid-list>

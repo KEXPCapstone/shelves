@@ -190,6 +190,7 @@ export class GenreReleaseListComponent implements OnInit, OnDestroy {
 })
 export class ListItemComponent {
   @Input() artist: Artist;
+  @Input() group: string;
 }
 
 @NgModule({
