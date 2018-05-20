@@ -8,6 +8,8 @@ import { combineLatest, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BROWSE_NAV_ITEMS } from '../browse-sidenav/browse-nav-items';
 import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
+import { MatDialog, MatDialogConfig, MatDialogRef, MatSnackBar } from '@angular/material';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-shelves-list',
@@ -24,6 +26,7 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
   constructor(
     private shelfService: ShelfService,
     private _route: ActivatedRoute,
+    private _dialog: MatDialog,
     private _router: Router
   ) {
   combineLatest(_route.params, _route.parent.params).pipe(
@@ -89,22 +92,56 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
   }
 
   createShelf() {
+    this.openCreateShelfDialog();
   }
 
   ngOnDestroy(): void {
     this._destroyed.next();
   }
+
+  openCreateShelfDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '60rem';
+    this._dialog.open(CreateShelfComponent, dialogConfig);
+  }
+}
+
+@Component({
+  selector: 'app-create-shelf',
+  templateUrl: './create-shelf.component.html',
+  styleUrls: ['./create-shelf.component.scss']
+})
+export class CreateShelfComponent implements OnInit {
+  constructor(
+    private shelfService: ShelfService,
+    private authService: AuthService,
+    private snackbar: MatSnackBar,
+    public dialogRef: MatDialogRef<CreateShelfComponent>
+  ) {}
+
+  ngOnInit() {
+  }
+
+  close() {
+    this.dialogRef.close();
+  }
+
 }
 
 @NgModule({
   declarations: [
     ShelvesListComponent,
-    ShelfDetailComponent
+    ShelfDetailComponent,
+    CreateShelfComponent
   ],
   imports: [
     SharedModule,
     RouterModule,
     BrowserModule
-  ]
+  ],
+  entryComponents: [
+    CreateShelfComponent
+  ],
 })
 export class ShelvesModule { }

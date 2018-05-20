@@ -71,8 +71,6 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
     } else {
       return `//coverartarchive.org/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
     }
-
- // coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg
   }
 
   // useful to implement 'back' button
