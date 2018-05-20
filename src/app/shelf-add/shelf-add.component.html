@@ -6,7 +6,7 @@
     <h5 class="release-genre">{{release.KEXPPrimaryGenre}}</h5>
   </div>
   <div class="column" *ngIf="!authService.isAuthenticated">
-      <p>You must be logged in to add to a shelf!</p>
+      <p>You must be logged in to add to a shelf</p>
   </div>
 </div>
 <mat-divider></mat-divider>
@@ -30,7 +30,7 @@
         <mat-form-field>
           <input matInput name="shelfName" ngModel placeholder="Add new shelf">
         </mat-form-field>
-          <button class="mat-raised-button" (click)="newShelf(addShelf)">Create!</button>
+          <button class="mat-raised-button" (click)="newShelf(addShelf)">Create</button>
       </form>
     </div>    
   </div>
@@ -39,7 +39,7 @@
       <app-shelf-preview *ngIf="currShelf" [shelf]="currShelf" [clickable]="false"></app-shelf-preview>
   </div>
   <div>
-    <button class="mat-raised-button add-btn" (click)="addToShelf(pickShelf)">Add!</button>
+    <button class="mat-raised-button add-btn" (click)="addToShelf(pickShelf)">Add</button>
   </div>
 </div>
 

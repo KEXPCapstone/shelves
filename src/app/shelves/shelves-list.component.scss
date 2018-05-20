@@ -10,6 +10,7 @@ app-shelves-list {
     display: flex;
     position: fixed;
     z-index: 4;
+    align-items: center;
     width: 100%;
     padding: 10px 0px 20px 0px;
 
@@ -19,6 +20,10 @@ app-shelves-list {
 
     h1 {
         margin: 16px 0;
+    }
+
+    .new-shelf-button {
+        margin: 0 0 0 24px; 
     }
 }
 
