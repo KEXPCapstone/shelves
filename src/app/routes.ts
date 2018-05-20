@@ -7,6 +7,7 @@ import { ArtistListComponent,
 import { BrowseSidenavComponent } from './browse-sidenav/browse-sidenav.module';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { ShelvesListComponent } from './shelves/shelves.module';
+import { ShelfDetailComponent } from './shelves/shelf-detail/shelf-detail.component';
 
 export const SHELVES_ROUTES: Routes = [
     {path: '', redirectTo: '/browse/artists/a', pathMatch: 'full'}, // default route redirect
@@ -64,7 +65,8 @@ export const SHELVES_ROUTES: Routes = [
                     //     component: Shelf
                     // }
                 ]
-            }
+            },
+            {path: 'shelf/:shelfId', component: ShelfDetailComponent}
         ],
     },
     // {path: 'shelves', component: ShelvesListComponent}, // shelves feature module
