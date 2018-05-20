@@ -82,7 +82,7 @@ export const SHELVES_ROUTES: Routes = [
         ],
     },
     // {path: 'shelves', component: ShelvesListComponent}, // shelves feature module
-    {path: 'library/search/:query', component: SearchResultsComponent},
+    {path: 'library/search', component: SearchResultsComponent},
     {path: 'login', component: SigninComponent}, // sign in page
     {path: 'signup', component: SignupComponent},
     {path: '**', redirectTo: ''}
