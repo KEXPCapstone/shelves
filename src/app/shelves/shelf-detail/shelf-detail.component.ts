@@ -17,6 +17,7 @@ export class ShelfDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getShelf();
   }
 
   getShelf() {
