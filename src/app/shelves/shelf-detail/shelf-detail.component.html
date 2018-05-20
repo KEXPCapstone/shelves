@@ -1,3 +1,18 @@
-<p>
-  shelf-detail works!
-</p>
+<h2 class="mat-headline">{{shelf.name}}</h2>
+<mat-grid-list cols="5" gutterSize="16px">
+  <div *ngFor="let release of shelf.releases" class="tile-container">
+    <mat-grid-tile class="browse-grid-list">
+      <a routerLink="/browse/releases/{{release.id}}">
+        <img class="artist-image"
+          width="100%"
+          alt="{{release.title}}"
+          src="//coverartarchive.org/release/{{release.id}}/front-500.jpg"
+        >
+        <mat-grid-tile-footer class="tile-footer">
+          <h4 mat-line>{{release.title}}</h4>
+          <h4 mat-line>{{release.KEXPReleaseArtistCredit}}</h4>
+        </mat-grid-tile-footer>
+      </a>
+    </mat-grid-tile>
+  </div>
+</mat-grid-list>
