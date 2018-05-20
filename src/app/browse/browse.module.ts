@@ -9,6 +9,7 @@ import { combineLatest, Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { Artist } from '../models/artist';
 import { Label } from '../models/label';
+import { Release } from '../models/release';
 
 const MAX_BROWSE_ITEMS = 200;
 
@@ -140,23 +141,45 @@ export class LabelListComponent implements OnInit, OnDestroy {
   styleUrls: ['./browse.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class GenreReleaseListComponent implements OnInit, OnDestroy {
+  group: string;
+  releases: Release[];
+  private _destroyed = new Subject();
+
   constructor(
     private libraryService: LibraryService,
     private _route: ActivatedRoute
-  ) {}
+  ) {
+    combineLatest(_route.params, _route.parent.params).pipe(
+      takeUntil(this._destroyed)
+      ).subscribe(p => {
+        this.newGenre();
+      });
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.newGenre();
+  }
 
-  ngOnDestroy() {}
+  newGenre() {
+    let groupId = this._route.snapshot.paramMap.get('groupId');
+    if (groupId === 'rock-pop') {
+      groupId = 'Rock/Pop';
+    } else if (groupId === 'hip-hop') {
+      groupId = 'Hip Hop';
+    }
+    this.group = groupId;
+    this.libraryService.getRelatedReleases('KEXPPrimaryGenre', groupId, 'a', MAX_BROWSE_ITEMS).subscribe(
+      releases => this.releases = releases
+    );
+  }
+
+  ngOnDestroy() {
+    this._destroyed.next();
+  }
 
 }
-
-
-
-
-
-
 
 
 @NgModule({
