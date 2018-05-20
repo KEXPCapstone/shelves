@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ShelfService } from '../../shelf.service';
+import { Shelf } from '../../models/shelf';
 
 @Component({
   selector: 'app-shelf-detail',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shelf-detail.component.scss']
 })
 export class ShelfDetailComponent implements OnInit {
+  shelf: Shelf;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private shelfService: ShelfService
+  ) { }
 
   ngOnInit() {
+  }
+
+  getShelf() {
+    const id = this.route.snapshot.paramMap.get('shelfId');
+    this.shelfService.getShelf(id)
+      .subscribe(shelf => this.shelf = shelf);
   }
 
 }
