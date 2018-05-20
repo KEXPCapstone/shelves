@@ -34,7 +34,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   ngOnInit() { }
 
   getResults() {
-    const query = this._route.snapshot.paramMap.get('query');
+    const query = this._route.snapshot.queryParamMap.get('q');
     this.searchService.getSearchResults(query, this.maxResults)
     .subscribe((results) => {
       const releaseGroupIDs = new Map();

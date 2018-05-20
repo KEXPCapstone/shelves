@@ -29,7 +29,7 @@ export class NavBarComponent implements OnInit {
   }
 
   search(form: NgForm) {
-    this.router.navigate(['/library/search/' + form.value.search]);
+    this.router.navigate(['/library/search'], { queryParams: { q: form.value.search } });
     form.reset();
   }
 
