@@ -164,7 +164,8 @@ export class GenreReleaseListComponent implements OnInit, OnDestroy {
         ArtistListComponent,
         LabelListComponent,
         ArtistComponent,
-        LabelComponent
+        LabelComponent,
+        GenreReleaseListComponent
     ],
     imports: [
         SharedModule,
