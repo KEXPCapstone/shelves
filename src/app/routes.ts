@@ -3,7 +3,7 @@ import { ReleaseDetailComponent } from './release/release-detail/release-detail.
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import {
-    ArtistComponent, LabelComponent, GenreReleaseListComponent, BrowseListComponent } from './browse/browse.module';
+    ArtistComponent, LabelComponent, BrowseListComponent } from './browse/browse.module';
 import { BrowseSidenavComponent } from './browse-sidenav/browse-sidenav.module';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { ShelvesListComponent } from './shelves/shelves.module';
@@ -58,7 +58,7 @@ export const SHELVES_ROUTES: Routes = [
                     },
                     {
                         path: ':groupId',
-                        component: GenreReleaseListComponent
+                        component: BrowseListComponent
                     }
                 ]
             },

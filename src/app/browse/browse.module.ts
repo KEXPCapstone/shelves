@@ -121,53 +121,6 @@ export class LabelComponent implements OnInit {
 }
 
 @Component({
-  selector: 'app-genre-release-list',
-  templateUrl: './genre-release-list.component.html',
-  styleUrls: ['./browse-list.component.scss'],
-  encapsulation: ViewEncapsulation.None
-})
-
-export class GenreReleaseListComponent implements OnInit, OnDestroy {
-  group: string;
-  releases: Release[];
-  private _destroyed = new Subject();
-
-  constructor(
-    private libraryService: LibraryService,
-    private _route: ActivatedRoute
-  ) {
-    combineLatest(_route.params, _route.parent.params).pipe(
-      takeUntil(this._destroyed)
-      ).subscribe(p => {
-        this.newGenre();
-      });
-  }
-
-  ngOnInit() {
-    this.newGenre();
-  }
-
-  newGenre() {
-    let groupId = this._route.snapshot.paramMap.get('groupId');
-    if (groupId === 'rock-pop') {
-      groupId = 'Rock/Pop';
-    } else if (groupId === 'hip-hop') {
-      groupId = 'Hip Hop';
-    }
-    this.group = groupId;
-    this.libraryService.getRelatedReleases('KEXPPrimaryGenre', groupId, 'a', MAX_BROWSE_ITEMS).subscribe(
-      releases => this.releases = releases
-    );
-  }
-
-  ngOnDestroy() {
-    this._destroyed.next();
-  }
-
-}
-
-
-@Component({
   selector: 'app-list-item', // do not change to app-list-item
   templateUrl: './list-item.component.html',
   styleUrls: ['./list-item.component.scss']
@@ -213,7 +166,6 @@ export class LabelItemComponent {
         BrowseListComponent,
         ArtistComponent,
         LabelComponent,
-        GenreReleaseListComponent,
         ListItemComponent,
         ArtistItemComponent,
         ReleaseItemComponent,
