@@ -37,7 +37,6 @@ export const BROWSE_NAV_ITEMS: BrowseCategory[] = [
             {id: 'holiday', name: 'Holiday'},
             {id: 'jazz', name: 'Jazz'},
             {id: 'local', name: 'Local'},
-            {id: 'none', name: 'None'},
             {id: 'rock-pop', name: 'Rock/Pop'},
             {id: 'roots', name: 'Roots'},
             {id: 'world', name: 'World'}
