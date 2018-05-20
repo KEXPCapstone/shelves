@@ -65,11 +65,11 @@ export const SHELVES_ROUTES: Routes = [
                     //     component: Shelf
                     // }
                 ]
-            },
-            {path: 'shelf/:shelfId', component: ShelfDetailComponent}
+            }
         ],
     },
     // {path: 'shelves', component: ShelvesListComponent}, // shelves feature module
+    {path: 'shelf/:shelfId', component: ShelfDetailComponent},
     {path: 'library/search/:query', component: SearchResultsComponent},
     {path: 'login', component: SigninComponent}, // sign in page
     {path: 'signup', component: SignupComponent},

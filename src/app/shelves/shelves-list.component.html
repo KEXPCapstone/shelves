@@ -39,12 +39,15 @@
           </a>
         </mat-grid-tile>
       </div>
+      
       <mat-grid-tile *ngIf="shelf.releases.length > 4" class="more-tile">
+          <a routerLink="/shelf/{{shelf.id}}">
           <mat-grid-tile-footer>
             +{{shelf.releases.length - 4}} more
           </mat-grid-tile-footer>
+        </a>
         </mat-grid-tile>
-    </mat-grid-list>
+      </mat-grid-list>
     <mat-divider class="shelf-divider" *ngIf="!lastShelf"></mat-divider>
   </div>
 </div>
