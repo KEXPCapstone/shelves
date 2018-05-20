@@ -1,16 +1,16 @@
 <div class="shelves-browse-category-header">
         <div class="category-header-title">
           <div>
-            <h1 class="mat-display-2">Artists - {{group | titlecase}}</h1>
+            <h1 class="mat-display-2">{{section | titlecase}} - {{group | titlecase}}</h1>
             <mat-divider class="category-divider"></mat-divider>
           </div>
         </div>
       </div>
       <div class="shelves-browse-content">
       <mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
-          <virtual-scroll [items]="artists" (update)="viewPortItems = $event">
-            <app-list-item *ngFor="let item of viewPortItems" [artist]="item" [group]="group">
-            </app-list-item>
+          <virtual-scroll [items]="browseItems" (update)="viewPortItems = $event" scrollAnimationTime="3000">
+              <app-list-item *ngFor="let item of viewPortItems" [item]="item" [group]="group" [section]="section">
+              </app-list-item>
           </virtual-scroll>
       </mat-grid-list>
 </div>

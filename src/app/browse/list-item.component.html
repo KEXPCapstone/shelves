@@ -1,31 +1,6 @@
-<!-- <mat-grid-tile>
-        <a routerLink="/browse/artists/{{group}}/{{artist.id}}">
-          <img class="artist-image"
-          width="100%"
-          alt="{{artist.name}}"
-          src="//coverartarchive.org/release-group/{{artist.releaseGroups[0].releaseGroupId}}/front-500.jpg"
-          >
-        <mat-grid-tile-footer class="tile-footer">
-          <h4 class="mat-caption" mat-line>{{artist.name}}</h4>
-          <h4 class="mat-caption" mat-line><span *ngIf="artist.disambiguation">({{artist.disambiguation}})</span></h4>
-        </mat-grid-tile-footer>
-        </a>
-</mat-grid-tile> -->
-<div class="mat-grid-tile tile">
-  <a routerLink="/browse/artists/{{group}}/{{artist.id}}">
-  <div class="artist-image-container">
-    <img class="artist-image"
-    width="100%"
-    alt="{{artist.name}}"
-    src="//coverartarchive.org/release-group/{{artist.releaseGroups[0].releaseGroupId}}/front-500.jpg"
-    onerror="this.hidden='true'"
-    >
-    <div class="mat-grid-tile-footer mat-2-line tile-footer">
-      <div class="mat-grid-list-text">
-        <h4 class="mat-caption" mat-line>{{artist.name}}</h4>
-        <h4 class="mat-caption" mat-line><span *ngIf="artist.disambiguation">({{artist.disambiguation}})</span></h4>
-      </div>
-    </div>
-  </div>
-  </a>
+<div [ngSwitch]="section" class="list-item-content">
+  <app-artist-item  *ngSwitchCase="'artists'" [artist]="item" [group]="group"></app-artist-item>
+  <app-label-item *ngSwitchCase="'labels'" [label]="item" [group]="group"></app-label-item>
+  <app-release-item *ngSwitchCase="'genres'" [release]="item" [group]="group"></app-release-item>
+  <div *ngSwitchDefault>Uh oh</div>
 </div>

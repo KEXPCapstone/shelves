@@ -15,13 +15,14 @@ import { VirtualScrollModule } from 'angular2-virtual-scroll';
 const MAX_BROWSE_ITEMS = 200000;
 
 @Component({
-  selector: 'app-artist-list',
-  templateUrl: './artist-list.component.html',
-  styleUrls: ['./browse.component.scss'],
+  selector: 'app-browse-list',
+  templateUrl: './browse-list.component.html',
+  styleUrls: ['./browse-list.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ArtistListComponent implements OnInit, OnDestroy {
-  artists: Artist[]; // the artists currently displayed
+export class BrowseListComponent implements OnInit, OnDestroy {
+  browseItems: any[]; // the full set items currently displayed
+  section: string;
   group: string;
   private _destroyed = new Subject();
 
@@ -34,20 +35,44 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   combineLatest(_route.params, _route.parent.params).pipe(
     takeUntil(this._destroyed)
     ).subscribe(p => {
-      this.newArtists();
+      this.newBrowseItems();
     });
   }
 
   ngOnInit() {
-    this.newArtists();
+    this.newBrowseItems();
   }
 
-  newArtists() {
-    const groupId = this._route.snapshot.paramMap.get('groupId');
-    this.group = groupId;
-    this.libraryService.getArtists(groupId, groupId, MAX_BROWSE_ITEMS).subscribe(
-      artists => this.artists = artists
-    );
+  newBrowseItems() {
+    // fetch the parent route (ie section (artists, labels...))
+    this.section = this._route.snapshot.parent.url[0].path;
+    // the subgroup id
+    this.group = this._route.snapshot.paramMap.get('groupId');
+    switch (this.section) {
+      case 'artists': {
+        this.libraryService.getArtists(this.group, this.group, MAX_BROWSE_ITEMS).subscribe(
+          artists => this.browseItems = artists
+        );
+        break;
+      }
+      case 'labels': {
+        this.libraryService.getLabels(this.group, this.group, MAX_BROWSE_ITEMS).subscribe(
+          labels => this.browseItems = labels
+        );
+        break;
+      }
+      case 'genres': {
+        if (this.group === 'rock-pop') {
+          this.group = 'Rock/Pop';
+        } else if (this.group === 'hip-hop') {
+          this.group = 'Hip Hop';
+        }
+        this.libraryService.getRelatedReleases('KEXPPrimaryGenre', this.group, 'a', MAX_BROWSE_ITEMS).subscribe(
+          releases => this.browseItems = releases
+        );
+        break;
+      }
+    }
   }
 
   ngOnDestroy(): void {
@@ -96,50 +121,9 @@ export class LabelComponent implements OnInit {
 }
 
 @Component({
-  selector: 'app-label-list',
-  templateUrl: './label-list.component.html',
-  styleUrls: ['./browse.component.scss'],
-  encapsulation: ViewEncapsulation.None
-})
-export class LabelListComponent implements OnInit, OnDestroy {
-  labels: Label[]; // the labels currently displayed
-  group: string;
-  private _destroyed = new Subject();
-
-
-  constructor(
-    private libraryService: LibraryService,
-    private _route: ActivatedRoute,
-    private _router: Router
-  ) {
-  combineLatest(_route.params, _route.parent.params).pipe(
-    takeUntil(this._destroyed)
-    ).subscribe(p => {
-      this.newLabels();
-    });
-  }
-
-  ngOnInit() {
-    this.newLabels();
-  }
-
-  newLabels() {
-    const groupId = this._route.snapshot.paramMap.get('groupId');
-    this.group = groupId;
-    this.libraryService.getLabels(groupId, groupId, MAX_BROWSE_ITEMS).subscribe(
-      labels => this.labels = labels
-    );
-  }
-
-  ngOnDestroy(): void {
-    this._destroyed.next();
-  }
-}
-
-@Component({
   selector: 'app-genre-release-list',
   templateUrl: './genre-release-list.component.html',
-  styleUrls: ['./browse.component.scss'],
+  styleUrls: ['./browse-list.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 
@@ -189,18 +173,51 @@ export class GenreReleaseListComponent implements OnInit, OnDestroy {
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent {
+  @Input() item: any;
+  @Input() section: string;
+  @Input() group: string;
+}
+
+@Component({
+  selector: 'app-artist-item',
+  templateUrl: './artist-item.component.html',
+  styleUrls: ['./artist-item.component.scss']
+})
+export class ArtistItemComponent {
   @Input() artist: Artist;
+  @Input() group: string;
+}
+
+@Component({
+  selector: 'app-release-item',
+  templateUrl: './release-item.component.html',
+  styleUrls: ['./release-item.component.scss']
+})
+export class ReleaseItemComponent {
+  @Input() release: Release;
+  @Input() group: string;
+}
+
+@Component({
+  selector: 'app-label-item',
+  templateUrl: './label-item.component.html',
+  styleUrls: ['./label-item.component.scss']
+})
+export class LabelItemComponent {
+  @Input() label: Label;
   @Input() group: string;
 }
 
 @NgModule({
     declarations: [
-        ArtistListComponent,
-        LabelListComponent,
+        BrowseListComponent,
         ArtistComponent,
         LabelComponent,
         GenreReleaseListComponent,
-        ListItemComponent
+        ListItemComponent,
+        ArtistItemComponent,
+        ReleaseItemComponent,
+        LabelItemComponent
     ],
     imports: [
         SharedModule,
