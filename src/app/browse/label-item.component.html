@@ -1,0 +1,18 @@
+<div class="mat-grid-tile tile">
+        <a routerLink="/browse/labels/{{group}}/{{label.id}}">
+        <div class="artist-image-container">
+          <img class="artist-image"
+          width="100%"
+          alt="{{label.name}}"
+          src=""
+          onerror="this.hidden='true'"
+          >
+          <div class="mat-grid-tile-footer mat-2-line tile-footer">
+            <div class="mat-grid-list-text">
+              <h4 class="mat-caption" mat-line>{{label.name}}</h4>
+              <h4 class="mat-caption" mat-line><span *ngIf="label.disambiguation">({{label.disambiguation}})</span></h4>
+            </div>
+          </div>
+        </div>
+        </a>
+</div>

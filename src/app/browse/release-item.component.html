@@ -1,0 +1,18 @@
+<div class="mat-grid-tile tile">
+        <a routerLink="/browse/releases/{{release.id}}">
+        <div class="artist-image-container">
+          <img class="artist-image"
+          width="100%"
+          alt="{{release.title}}"
+          src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg"
+          onerror="this.hidden='true'"
+          >
+          <div class="mat-grid-tile-footer mat-2-line tile-footer">
+            <div class="mat-grid-list-text">
+              <h4 class="mat-caption" mat-line>{{release.title}}</h4>
+              <!-- <h4 class="mat-caption" mat-line><span *ngIf="label.disambiguation">({{release.}})</span></h4> -->
+            </div>
+          </div>
+        </div>
+        </a>
+</div>

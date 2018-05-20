@@ -23,7 +23,7 @@ export class AppComponent {
 
 function resetScrollPosition() {
   if (typeof document === 'object' && document) {
-    const sidenavContent = document.querySelector('.mat-drawer-content');
+    const sidenavContent = document.querySelector('virtual-scroll');
     if (sidenavContent) {
       sidenavContent.scrollTop = 0;
     }

@@ -2,8 +2,8 @@ import { Routes } from '@angular/router';
 import { ReleaseDetailComponent } from './release/release-detail/release-detail.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { ArtistListComponent,
-    LabelListComponent, ArtistComponent, LabelComponent, GenreReleaseListComponent } from './browse/browse.module';
+import {
+    LabelListComponent, ArtistComponent, LabelComponent, GenreReleaseListComponent, BrowseListComponent } from './browse/browse.module';
 import { BrowseSidenavComponent } from './browse-sidenav/browse-sidenav.module';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { ShelvesListComponent } from './shelves/shelves.module';
@@ -26,7 +26,7 @@ export const SHELVES_ROUTES: Routes = [
                     },
                     {
                         path: ':groupId',
-                        component: ArtistListComponent,
+                        component: BrowseListComponent,
                     },
                     {
                         path: ':groupId/:artistId',
@@ -42,7 +42,7 @@ export const SHELVES_ROUTES: Routes = [
                     },
                     {
                         path: ':groupId',
-                        component: LabelListComponent,
+                        component: BrowseListComponent,
                     },
                     {
                         path: ':groupId/:labelId',
@@ -85,5 +85,5 @@ export const SHELVES_ROUTES: Routes = [
     {path: 'library/search', component: SearchResultsComponent},
     {path: 'login', component: SigninComponent}, // sign in page
     {path: 'signup', component: SignupComponent},
-    {path: '**', redirectTo: ''}
+    {path: '**', redirectTo: 'browse/artists/a'} // invalid route catchall (probably should go to 'homepage')
 ];
