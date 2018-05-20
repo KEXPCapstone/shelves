@@ -8,8 +8,16 @@
       </div>
       <div class="shelves-browse-content">
       <mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
-          <virtual-scroll [items]="browseItems" (update)="viewPortItems = $event" scrollAnimationTime="3000">
-              <app-list-item *ngFor="let item of viewPortItems" [item]="item" [group]="group" [section]="section">
+          <virtual-scroll
+          [items]="browseItems"
+          (update)="viewPortItems = $event"
+          (end)="fetchMore($event)"
+          scrollAnimationTime="3000">
+              <app-list-item
+              *ngFor="let item of viewPortItems"
+              [item]="item"
+              [group]="group"
+              [section]="section">
               </app-list-item>
           </virtual-scroll>
       </mat-grid-list>

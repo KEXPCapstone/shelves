@@ -10,9 +10,9 @@ import { map, takeUntil } from 'rxjs/operators';
 import { Artist } from '../models/artist';
 import { Label } from '../models/label';
 import { Release } from '../models/release';
-import { VirtualScrollModule } from 'angular2-virtual-scroll';
+import { VirtualScrollModule, ChangeEvent } from 'angular2-virtual-scroll';
 
-const MAX_BROWSE_ITEMS = 200000;
+const MAX_BROWSE_ITEMS = 200;
 
 @Component({
   selector: 'app-browse-list',
@@ -35,15 +35,55 @@ export class BrowseListComponent implements OnInit, OnDestroy {
   combineLatest(_route.params, _route.parent.params).pipe(
     takeUntil(this._destroyed)
     ).subscribe(p => {
-      this.newBrowseItems();
+      this.firstBrowseItems();
     });
   }
 
   ngOnInit() {
-    this.newBrowseItems();
+    this.firstBrowseItems();
   }
 
-  newBrowseItems() {
+  fetchMore(event: ChangeEvent) {
+    if (event.end !== this.browseItems.length) { return; }
+    let start;
+    if (this.section === 'genres') {
+      start = this.browseItems[this.browseItems.length - 1].title;
+    } else {
+      start = this.browseItems[this.browseItems.length - 1].name;
+    }
+    this.fetchNextChunk(start);
+  }
+
+  fetchNextChunk(start: string) {
+    console.log('Fetching next chunk');
+    switch (this.section) {
+      case 'artists': {
+        this.libraryService.getArtists(this.group, start, MAX_BROWSE_ITEMS).subscribe(
+          artists => this.browseItems = this.browseItems.concat(artists)
+        );
+        break;
+      }
+      case 'labels': {
+        this.libraryService.getLabels(this.group, start, MAX_BROWSE_ITEMS).subscribe(
+          labels => this.browseItems = this.browseItems.concat(labels)
+        );
+        break;
+      }
+      case 'genres': {
+        if (this.group === 'rock-pop') {
+          this.group = 'Rock/Pop';
+        } else if (this.group === 'hip-hop') {
+          this.group = 'Hip Hop';
+        }
+        this.libraryService.getRelatedReleases('KEXPPrimaryGenre', this.group, start, MAX_BROWSE_ITEMS).subscribe(
+          releases => this.browseItems = this.browseItems.concat(releases)
+        );
+        break;
+      }
+    }
+  }
+
+  firstBrowseItems() {
     // fetch the parent route (ie section (artists, labels...))
     this.section = this._route.snapshot.parent.url[0].path;
     // the subgroup id
