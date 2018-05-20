@@ -2,12 +2,14 @@ import { NgModule, Component, OnInit, OnDestroy, ViewEncapsulation } from '@angu
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { Shelf } from '../models/shelf';
+import { Shelf, NewShelf } from '../models/shelf';
 import { ShelfService } from '../shelf.service';
 import { combineLatest, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BROWSE_NAV_ITEMS } from '../browse-sidenav/browse-nav-items';
 import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
+import { MatDialog, MatDialogConfig, MatDialogRef, MatSnackBar, MatDialogModule } from '@angular/material';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-shelves-list',
@@ -24,6 +26,7 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
   constructor(
     private shelfService: ShelfService,
     private _route: ActivatedRoute,
+    private _dialog: MatDialog,
     private _router: Router
   ) {
   combineLatest(_route.params, _route.parent.params).pipe(
@@ -94,17 +97,65 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this._destroyed.next();
   }
+
+  openCreateShelf() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '60rem';
+    this._dialog.open(CreateShelfComponent, dialogConfig);
+  }
+}
+
+@Component({
+  selector: 'app-create-shelf',
+  templateUrl: './create-shelf.component.html',
+  styleUrls: ['./create-shelf.component.scss']
+})
+export class CreateShelfComponent implements OnInit {
+  newShelf = new NewShelf('', '', false);
+
+  constructor(
+    private shelfService: ShelfService,
+    private authService: AuthService,
+    private snackbar: MatSnackBar,
+    public dialogRef: MatDialogRef<CreateShelfComponent>
+  ) {}
+
+  ngOnInit() {
+  }
+
+  onSubmit() {
+    console.log('New shelf submitted');
+    this.shelfService.addShelf(this.newShelf).subscribe(
+      (resp) => {
+        this.snackbar.open(
+          '"' + this.newShelf.name + '"' + ' created', '', {
+          duration: 2000
+        });
+        this.close();
+      }
+    );
+  }
+
+  close() {
+    this.dialogRef.close();
+  }
 }
 
 @NgModule({
   declarations: [
     ShelvesListComponent,
-    ShelfDetailComponent
+    ShelfDetailComponent,
+    CreateShelfComponent
   ],
   imports: [
     SharedModule,
     RouterModule,
-    BrowserModule
-  ]
+    BrowserModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    CreateShelfComponent
+  ],
 })
 export class ShelvesModule { }

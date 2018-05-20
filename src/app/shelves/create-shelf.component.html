@@ -1,0 +1,30 @@
+<div class="create-shelf-container">
+    <div class="create-shelf-header">
+        <h1 class="create-shelf-title" mat-dialog-title>
+            Create a new shelf
+        </h1>
+    </div>
+    <div class="no-auth-message" *ngIf="!authService.isAuthenticated">
+    </div>
+    <form (ngSubmit)="onSubmit()" #createShelfForm="ngForm" class="create-shelf-form">
+        <mat-dialog-content class="create-shelf-content">
+            <mat-form-field>
+                <input matInput
+                required
+                name="shelfName"
+                placeholder="Shelf name (eg 'Canadian #1 hits')"
+                [(ngModel)]="newShelf.name">
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="A short description of this shelf (optional)"></textarea>
+            </mat-form-field>
+        </mat-dialog-content>
+        <mat-dialog-actions class="create-shelf-actions">
+            <button
+            mat-raised-button
+            [disabled]="!createShelfForm.form.valid"
+            color="accent"
+            type="submit">Submit</button>
+        </mat-dialog-actions>
+    </form>
+</div>
