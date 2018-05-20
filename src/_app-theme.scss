@@ -9,6 +9,7 @@
 @import './app/release/release-detail/release-detail-theme';
 @import './app/shelves/shelf-preview/shelf-preview-theme';
 @import './app/shelves/shelves-theme';
+@import './app/shelves/shelf-detail/shelf-detail-theme';
 
 @mixin shelves-app-theme($theme) {
     $primary: map-get($theme, primary);
@@ -36,4 +37,5 @@
     @include release-detail-theme($theme);
     @include shelves-theme($theme);
     @include shelf-preview-theme($theme);
+    @include shelf-detail-theme($theme);
 }

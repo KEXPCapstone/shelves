@@ -1,0 +1,29 @@
+<div *ngIf=shelf class="shelf-detail-component">
+  <div class="shelves-browse-category-header">
+    <div class="category-header-title">
+      <h1  class="mat-display-2">{{shelf.name}}</h1>
+      <mat-divider class="category-divider"></mat-divider>
+    </div>
+  </div>
+
+  <div class="shelves-browse-content">
+  <mat-grid-list cols="5" gutterSize="16px">
+    
+      <div *ngFor="let release of shelf.releases" class="tile-container">
+        <mat-grid-tile class="browse-grid-list">
+          <a routerLink="/browse/releases/{{release.id}}">
+            <img class="artist-image"
+              width="100%"
+              alt="{{release.title}}"
+              src="//coverartarchive.org/release/{{release.id}}/front-500.jpg"
+            >
+            <mat-grid-tile-footer class="tile-footer">
+              <h4 mat-line>{{release.title}}</h4>
+              <h4 mat-line>{{release.KEXPReleaseArtistCredit}}</h4>
+            </mat-grid-tile-footer>
+          </a>
+        </mat-grid-tile>
+      </div>
+  </mat-grid-list>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import { ShelfService } from '../shelf.service';
 import { combineLatest, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BROWSE_NAV_ITEMS } from '../browse-sidenav/browse-nav-items';
+import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
 
 @Component({
   selector: 'app-shelves-list',
@@ -97,7 +98,8 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
 
 @NgModule({
   declarations: [
-    ShelvesListComponent
+    ShelvesListComponent,
+    ShelfDetailComponent
   ],
   imports: [
     SharedModule,
