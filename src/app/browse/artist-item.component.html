@@ -1,0 +1,19 @@
+<div class="mat-grid-tile tile">
+        <a routerLink="/browse/artists/{{group}}/{{artist.id}}">
+        <div class="artist-image-container">
+          <img class="artist-image"
+          width="100%"
+          alt="{{artist.name}}"
+          src="//coverartarchive.org/release-group/{{artist.releaseGroups[0].releaseGroupId}}/front-500.jpg"
+          onerror="this.hidden='true'"
+          >
+          <div class="mat-grid-tile-footer mat-2-line tile-footer">
+            <div class="mat-grid-list-text">
+              <h4 class="mat-caption" mat-line>{{artist.name}}</h4>
+              <h4 class="mat-caption" mat-line><span *ngIf="artist.disambiguation">({{artist.disambiguation}})</span></h4>
+            </div>
+          </div>
+        </div>
+        </a>
+</div>
+<!-- <div>{{artist.name}}</div> -->

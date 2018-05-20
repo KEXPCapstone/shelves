@@ -1,22 +1,8 @@
-app-browse {
+app-browse-list {
     display: flex;
     flex-direction: column;
     font-weight: 400;
     padding: 0px 50px 50px 20px;
-}
-
-app-artist-list {
-    display: flex;
-    flex-direction: column;
-    font-weight: 400;
-    padding: 0px 50px 50px 20px;   
-}
-
-app-label-list {
-    display: flex;
-    flex-direction: column;
-    font-weight: 400;
-    padding: 0px 50px 50px 20px;   
 }
 
 .shelves-browse-category-header {
@@ -83,15 +69,10 @@ virtual-scroll {
         color: white;
         margin-bottom: 24px;
 
-        // .artist-image-container {
-        //     width: 100%;
-        //     height: 100%;
-        //     overflow: hidden; // for odd shaped releases
-
-        //     img {
-        //         width: 100%;
-        //     }
-        // }
+        .list-item-content {
+            height: 100%;
+            width: 100%;
+        }
     }
 }
 
