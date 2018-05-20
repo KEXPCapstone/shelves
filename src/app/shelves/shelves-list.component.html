@@ -3,6 +3,12 @@
     <h1 class="mat-display-2">{{group == 'mine' ? 'My' : group | titlecase}} shelves</h1>
     <mat-divider class="category-divider"></mat-divider>
   </div>
+  <div class="flex-spacer"></div>
+  <div class="create-shelf-button">
+      <button (click)="openCreateShelf()" mat-raised-button color="primary" class="new-shelf-button">
+        Create a new shelf
+      </button>
+  </div>
 </div>
 <div class="shelves-browse-content">
   <div *ngIf="shelves.length === 0">
@@ -12,8 +18,8 @@
         <h2 class="mat-headline">You have not created any shelves</h2>
         <h3 class="mat-subheading-2">Create a new shelf and it will show up here</h3>
         <div>
-          <button (click)="createShelf()" mat-raised-button color="accent" class="new-shelf-button">
-            Create a shelf
+          <button (click)="openCreateShelf()" mat-raised-button color="accent" class="new-shelf-button">
+            Create a new shelf
           </button>
         </div>
       </div>
@@ -39,12 +45,15 @@
           </a>
         </mat-grid-tile>
       </div>
+      
       <mat-grid-tile *ngIf="shelf.releases.length > 4" class="more-tile">
+          <a routerLink="/browse/shelf/{{shelf.id}}">
           <mat-grid-tile-footer>
             +{{shelf.releases.length - 4}} more
           </mat-grid-tile-footer>
+        </a>
         </mat-grid-tile>
-    </mat-grid-list>
+      </mat-grid-list>
     <mat-divider class="shelf-divider" *ngIf="!lastShelf"></mat-divider>
   </div>
 </div>

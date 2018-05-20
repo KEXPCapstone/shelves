@@ -14,7 +14,9 @@ export class Shelf {
 }
 
 export class NewShelf {
-  name: string;
-  description: string;
-  featured: boolean;
+  constructor(
+    public name: string,
+    public description: string,
+    public featured: boolean
+  ) {  }
 }

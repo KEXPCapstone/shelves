@@ -3,10 +3,11 @@ import { ReleaseDetailComponent } from './release/release-detail/release-detail.
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ArtistListComponent,
-    LabelListComponent, ArtistComponent, LabelComponent } from './browse/browse.module';
+    LabelListComponent, ArtistComponent, LabelComponent, GenreReleaseListComponent } from './browse/browse.module';
 import { BrowseSidenavComponent } from './browse-sidenav/browse-sidenav.module';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { ShelvesListComponent } from './shelves/shelves.module';
+import { ShelfDetailComponent } from './shelves/shelf-detail/shelf-detail.component';
 
 export const SHELVES_ROUTES: Routes = [
     {path: '', redirectTo: '/browse/artists/a', pathMatch: 'full'}, // default route redirect
@@ -50,6 +51,18 @@ export const SHELVES_ROUTES: Routes = [
                 ]
             },
             {
+                path: 'genres',
+                children: [
+                    {
+                        path: '', redirectTo: 'rock-pop', pathMatch: 'full'
+                    },
+                    {
+                        path: ':groupId',
+                        component: GenreReleaseListComponent
+                    }
+                ]
+            },
+            {
                 path: 'shelves',
                 children: [
                     {
@@ -64,11 +77,12 @@ export const SHELVES_ROUTES: Routes = [
                     //     component: Shelf
                     // }
                 ]
-            }
+            },
+            { path: 'shelf/:shelfId', component: ShelfDetailComponent }
         ],
     },
     // {path: 'shelves', component: ShelvesListComponent}, // shelves feature module
-    {path: 'library/search/:query', component: SearchResultsComponent},
+    {path: 'library/search', component: SearchResultsComponent},
     {path: 'login', component: SigninComponent}, // sign in page
     {path: 'signup', component: SignupComponent},
     {path: '**', redirectTo: ''}
