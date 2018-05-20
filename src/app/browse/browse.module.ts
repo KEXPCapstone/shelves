@@ -134,6 +134,31 @@ export class LabelListComponent implements OnInit, OnDestroy {
   }
 }
 
+@Component({
+  selector: 'app-genre-release-list',
+  templateUrl: './genre-release-list.component.html',
+  styleUrls: ['./browse.component.scss'],
+  encapsulation: ViewEncapsulation.None
+})
+export class GenreReleaseListComponent implements OnInit, OnDestroy {
+  constructor(
+    private libraryService: LibraryService,
+    private _route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {}
+
+  ngOnDestroy() {}
+
+}
+
+
+
+
+
+
+
+
 @NgModule({
     declarations: [
         ArtistListComponent,
