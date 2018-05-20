@@ -87,12 +87,14 @@ export class LibraryService {
   }
 
   // fetch releases matching a given field value
-  getRelatedReleases(field: string, value: string): Observable<Release[]> {
+  getRelatedReleases(field: string, value: string, start: string, limit: number): Observable<Release[]> {
     const url = `${environment.apiUrl}/library/releases/related`;
     const options = {
       params: new HttpParams()
       .append('field', field)
       .append('value', value)
+      .append('start', start)
+      .append('limit', limit.toString())
     };
     console.log(url);
     return this.http.get<Release[]>(url, options).pipe(

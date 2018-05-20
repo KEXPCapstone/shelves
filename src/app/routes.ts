@@ -3,7 +3,7 @@ import { ReleaseDetailComponent } from './release/release-detail/release-detail.
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ArtistListComponent,
-    LabelListComponent, ArtistComponent, LabelComponent } from './browse/browse.module';
+    LabelListComponent, ArtistComponent, LabelComponent, GenreReleaseListComponent } from './browse/browse.module';
 import { BrowseSidenavComponent } from './browse-sidenav/browse-sidenav.module';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { ShelvesListComponent } from './shelves/shelves.module';
@@ -47,6 +47,18 @@ export const SHELVES_ROUTES: Routes = [
                     {
                         path: ':groupId/:labelId',
                         component: LabelComponent
+                    }
+                ]
+            },
+            {
+                path: 'genres',
+                children: [
+                    {
+                        path: '', redirectTo: 'rock-pop', pathMatch: 'full'
+                    },
+                    {
+                        path: ':groupId',
+                        component: GenreReleaseListComponent
                     }
                 ]
             },
