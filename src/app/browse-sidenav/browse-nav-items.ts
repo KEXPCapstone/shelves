@@ -29,6 +29,21 @@ export const BROWSE_NAV_ITEMS: BrowseCategory[] = [
         groups: setAlphabeticalGroups()
     },
     {
+        id: 'genres',
+        name: 'Genres',
+        groups: [
+            {id: 'electronic', name: 'Electronic'},
+            {id: 'hip-hop', name: 'Hip Hop'},
+            {id: 'holiday', name: 'Holiday'},
+            {id: 'jazz', name: 'Jazz'},
+            {id: 'local', name: 'Local'},
+            {id: 'none', name: 'None'},
+            {id: 'rock-pop', name: 'Rock/Pop'},
+            {id: 'roots', name: 'Roots'},
+            {id: 'world', name: 'World'}
+        ]
+    },
+    {
         id: 'labels',
         name: 'Labels',
         groups: setAlphabeticalGroups()
