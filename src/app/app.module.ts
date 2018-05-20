@@ -25,6 +25,7 @@ import { BrowseSidenavModule } from './browse-sidenav/browse-sidenav.module';
 import { ShelfAddComponent } from './shelf-add/shelf-add.component';
 import { SearchService } from './search.service';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { VirtualScrollModule } from 'angular2-virtual-scroll';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     ShelvesModule,
     FormsModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    VirtualScrollModule
   ],
   declarations: [
     AppComponent,

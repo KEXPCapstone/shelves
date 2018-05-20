@@ -65,3 +65,22 @@ img.artist-image:after {
     height: 100%;
     z-index: 2;
 }
+
+virtual-scroll {
+    display: flex;
+    width: 100%;
+    height: 800px; // height must be specified explicitly for virtualscroll to work
+}
+
+.scrollable-content {
+    display: flex;
+    flex-wrap: wrap;
+
+    app-list-item {
+        flex: 1 0 25%;
+        box-sizing: border-box;
+        border: solid white 1px;
+        color: white;
+        padding: 10px;
+    }
+}
