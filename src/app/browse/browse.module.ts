@@ -1,4 +1,4 @@
-import { NgModule, OnDestroy, ElementRef, Renderer2, ViewChild, AfterViewInit} from '@angular/core';
+import { NgModule, OnDestroy, ElementRef, Renderer2, ViewChild, AfterViewInit, Input} from '@angular/core';
 import { RouterModule, ActivatedRoute, Router, Params } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
@@ -10,8 +10,9 @@ import { map, takeUntil } from 'rxjs/operators';
 import { Artist } from '../models/artist';
 import { Label } from '../models/label';
 import { Release } from '../models/release';
+import { VirtualScrollModule } from 'angular2-virtual-scroll';
 
-const MAX_BROWSE_ITEMS = 200;
+const MAX_BROWSE_ITEMS = 200000;
 
 @Component({
   selector: 'app-artist-list',
@@ -182,17 +183,29 @@ export class GenreReleaseListComponent implements OnInit, OnDestroy {
 }
 
 
+@Component({
+  selector: 'app-list-item', // do not change to app-list-item
+  templateUrl: './list-item.component.html',
+  styleUrls: ['./list-item.component.scss']
+})
+export class ListItemComponent {
+  @Input() artist: Artist;
+  @Input() group: string;
+}
+
 @NgModule({
     declarations: [
         ArtistListComponent,
         LabelListComponent,
         ArtistComponent,
         LabelComponent,
-        GenreReleaseListComponent
+        GenreReleaseListComponent,
+        ListItemComponent
     ],
     imports: [
         SharedModule,
-        RouterModule,
+        VirtualScrollModule,
+        RouterModule
     ]
 })
 export class BrowseModule {}
