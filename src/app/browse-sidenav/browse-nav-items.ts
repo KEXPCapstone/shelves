@@ -47,12 +47,6 @@ export const BROWSE_NAV_ITEMS: BrowseCategory[] = [
         id: 'labels',
         name: 'Labels',
         groups: setAlphabeticalGroups()
-    },
-    {
-        id: 'decades',
-        name: 'Decades',
-        groups: [
-        ]
     }
 ];
 
