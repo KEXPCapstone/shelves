@@ -48,16 +48,16 @@ export class RelatedReleasesComponent implements OnInit, OnDestroy {
   // a field:value pairing
   getRelatedReleases(field: string, value: string): void {
     this.relateds = [];
-    this.library.getRelatedReleases(field, value)
-      .subscribe((results) => {
-        const seen = new Map();
-        results.forEach((result) => {
-          if (result.KEXPReleaseGroupMBID !== this.release.KEXPReleaseGroupMBID && !seen.has(result.KEXPReleaseGroupMBID)) {
-            this.relateds.push(result);
-            seen.set(result.KEXPReleaseGroupMBID, true);
-          }
-        });
-      });
+    // this.library.getRelatedReleases(field, value)
+    //   .subscribe((results) => {
+    //     const seen = new Map();
+    //     results.forEach((result) => {
+    //       if (result.KEXPReleaseGroupMBID !== this.release.KEXPReleaseGroupMBID && !seen.has(result.KEXPReleaseGroupMBID)) {
+    //         this.relateds.push(result);
+    //         seen.set(result.KEXPReleaseGroupMBID, true);
+    //       }
+    //     });
+    //   });
   }
 
   ngOnDestroy(): void {
