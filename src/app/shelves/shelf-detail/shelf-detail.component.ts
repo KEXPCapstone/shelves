@@ -25,5 +25,4 @@ export class ShelfDetailComponent implements OnInit {
     this.shelfService.getShelf(id)
       .subscribe(shelf => this.shelf = shelf);
   }
-
 }
