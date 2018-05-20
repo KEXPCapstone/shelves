@@ -10,9 +10,9 @@ import { map, takeUntil } from 'rxjs/operators';
 import { Artist } from '../models/artist';
 import { Label } from '../models/label';
 import { Release } from '../models/release';
-import { VirtualScrollModule } from 'angular2-virtual-scroll';
+import { VirtualScrollModule, ChangeEvent } from 'angular2-virtual-scroll';
 
-const MAX_BROWSE_ITEMS = 200000;
+const MAX_BROWSE_ITEMS = 200;
 
 @Component({
   selector: 'app-browse-list',
@@ -35,15 +35,55 @@ export class BrowseListComponent implements OnInit, OnDestroy {
   combineLatest(_route.params, _route.parent.params).pipe(
     takeUntil(this._destroyed)
     ).subscribe(p => {
-      this.newBrowseItems();
+      this.firstBrowseItems();
     });
   }
 
   ngOnInit() {
-    this.newBrowseItems();
+    this.firstBrowseItems();
   }
 
-  newBrowseItems() {
+  fetchMore(event: ChangeEvent) {
+    if (event.end !== this.browseItems.length) { return; }
+    let start;
+    if (this.section === 'genres') {
+      start = this.browseItems[this.browseItems.length - 1].title;
+    } else {
+      start = this.browseItems[this.browseItems.length - 1].name;
+    }
+    this.fetchNextChunk(start);
+  }
+
+  fetchNextChunk(start: string) {
+    console.log('Fetching next chunk');
+    switch (this.section) {
+      case 'artists': {
+        this.libraryService.getArtists(this.group, start, MAX_BROWSE_ITEMS).subscribe(
+          artists => this.browseItems = this.browseItems.concat(artists)
+        );
+        break;
+      }
+      case 'labels': {
+        this.libraryService.getLabels(this.group, start, MAX_BROWSE_ITEMS).subscribe(
+          labels => this.browseItems = this.browseItems.concat(labels)
+        );
+        break;
+      }
+      case 'genres': {
+        if (this.group === 'rock-pop') {
+          this.group = 'Rock/Pop';
+        } else if (this.group === 'hip-hop') {
+          this.group = 'Hip Hop';
+        }
+        this.libraryService.getRelatedReleases('KEXPPrimaryGenre', this.group, start, MAX_BROWSE_ITEMS).subscribe(
+          releases => this.browseItems = this.browseItems.concat(releases)
+        );
+        break;
+      }
+    }
+  }
+
+  firstBrowseItems() {
     // fetch the parent route (ie section (artists, labels...))
     this.section = this._route.snapshot.parent.url[0].path;
     // the subgroup id
@@ -121,53 +161,6 @@ export class LabelComponent implements OnInit {
 }
 
 @Component({
-  selector: 'app-genre-release-list',
-  templateUrl: './genre-release-list.component.html',
-  styleUrls: ['./browse-list.component.scss'],
-  encapsulation: ViewEncapsulation.None
-})
-
-export class GenreReleaseListComponent implements OnInit, OnDestroy {
-  group: string;
-  releases: Release[];
-  private _destroyed = new Subject();
-
-  constructor(
-    private libraryService: LibraryService,
-    private _route: ActivatedRoute
-  ) {
-    combineLatest(_route.params, _route.parent.params).pipe(
-      takeUntil(this._destroyed)
-      ).subscribe(p => {
-        this.newGenre();
-      });
-  }
-
-  ngOnInit() {
-    this.newGenre();
-  }
-
-  newGenre() {
-    let groupId = this._route.snapshot.paramMap.get('groupId');
-    if (groupId === 'rock-pop') {
-      groupId = 'Rock/Pop';
-    } else if (groupId === 'hip-hop') {
-      groupId = 'Hip Hop';
-    }
-    this.group = groupId;
-    this.libraryService.getRelatedReleases('KEXPPrimaryGenre', groupId, 'a', MAX_BROWSE_ITEMS).subscribe(
-      releases => this.releases = releases
-    );
-  }
-
-  ngOnDestroy() {
-    this._destroyed.next();
-  }
-
-}
-
-
-@Component({
   selector: 'app-list-item', // do not change to app-list-item
   templateUrl: './list-item.component.html',
   styleUrls: ['./list-item.component.scss']
@@ -213,7 +206,6 @@ export class LabelItemComponent {
         BrowseListComponent,
         ArtistComponent,
         LabelComponent,
-        GenreReleaseListComponent,
         ListItemComponent,
         ArtistItemComponent,
         ReleaseItemComponent,
