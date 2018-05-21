@@ -133,7 +133,17 @@ export class ArtistComponent implements OnInit {
   constructor(private libraryService: LibraryService,
               private _route: ActivatedRoute) {}
 
-  ngOnInit() {
+    getArt(release: Release) {
+      if (release.coverArtArchive.artwork) {
+        return `${environment.coverArtUrl}/release/${release.id}/front-500.jpg`;
+      } else if (release.asin !== '') {
+        return `http://images-eu.amazon.com/images/P/${release.asin}`;
+      } else {
+        return `${environment.coverArtUrl}/release-group/${release.KEXPReleaseGroupMBID}/front-500.jpg`;
+      }
+    }
+
+    ngOnInit() {
     const artistId = this._route.snapshot.paramMap.get('artistId');
     this.libraryService.getArtistById(artistId).subscribe(
       artist => this.artist = artist
