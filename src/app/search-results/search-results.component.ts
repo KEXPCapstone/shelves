@@ -15,6 +15,11 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   maxResults = 200;
   noResults: boolean;
   query: string;
+
+  trackMatches: ReleaseSearchResult[];
+  titleMatches: ReleaseSearchResult[];
+  artistMatches: ReleaseSearchResult[];
+
   private _destroyed = new Subject();
 
 
@@ -40,10 +45,27 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     .subscribe((results) => {
       const releaseGroupIDs = new Map();
       this.results = [];
+      this.trackMatches = [];
+      this.titleMatches = [];
+      this.artistMatches = [];
       results.forEach((result) => {
         if (!releaseGroupIDs.has(result.release.KEXPReleaseGroupMBID)) {
           this.results.push(result);
           releaseGroupIDs.set(result.release.KEXPReleaseGroupMBID, true);
+          switch (result.indexInfo.fieldMatchedOn) {
+            case 'Track Title': {
+              this.trackMatches.push(result);
+              break;
+            }
+            case 'Title': {
+              this.titleMatches.push(result);
+              break;
+            }
+            case 'KEXPReleaseArtistCredit': {
+              this.artistMatches.push(result);
+              break;
+            }
+          }
         }
       });
       this.noResults = (this.results.length === 0);
