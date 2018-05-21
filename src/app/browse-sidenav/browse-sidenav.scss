@@ -9,13 +9,13 @@ app-browse-sidenav {
 }
 
 // container for the whole sidenav and content
-.shelves-browse-sidenav-container {
+.browse-sidenav-container {
     flex: 1;
     box-sizing: border-box;
 }
 
 // this class only on small screens
-.shelves-browse-sidenav {
+.browse-sidenav {
     overflow: auto;
 }
 
@@ -28,12 +28,12 @@ app-browse-sidenav {
 }
 
 // styling the nav itself
-.shelves-browse-nav {
+.browse-nav {
     position: sticky;
     top: 25px;
 
     // the container of the nav accordion
-    .shelves-browse-nav-content {
+    .browse-nav-content {
         margin: 25px;
         width: $sidenav-width;
         max-height: 75vh;
@@ -96,7 +96,7 @@ app-browse-sidenav {
     }
 }
 
-.shelves-browse-sidenav-content {
+.browse-sidenav-content {
     display: flex;
     flex: 1;
 

@@ -1,6 +1,6 @@
-<mat-sidenav-container class="shelves-browse-sidenav-container">
+<mat-sidenav-container class="browse-sidenav-container">
     <!-- on small screens, this becomes a collapsing drawer -->
-    <mat-sidenav #sidenav class="shelves-browse-sidenav"
+    <mat-sidenav #sidenav class="browse-sidenav"
         *ngIf="isScreenSmall()"
         [opened]="!isScreenSmall()"
         [mode]="isScreenSmall() ? 'over' : 'side'"
@@ -8,7 +8,7 @@
         fixedTopGap="64">
         <app-browse-nav></app-browse-nav>
     </mat-sidenav>
-    <div class="shelves-browse-sidenav-content">
+    <div class="browse-sidenav-content">
         <!-- on large screens, menu shows up to the left of releases -->
         <app-browse-nav
             *ngIf="!isScreenSmall()">

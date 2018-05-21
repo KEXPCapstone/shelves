@@ -124,8 +124,7 @@ export class BrowseListComponent implements OnInit, OnDestroy {
 @Component({
   selector: 'app-artist-component',
   templateUrl: './artist.component.html',
-  styleUrls: ['./browse-subgroup.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./browse-subgroup.component.scss']
 })
 export class ArtistComponent implements OnInit {
   artist: Artist;
@@ -154,8 +153,7 @@ export class ArtistComponent implements OnInit {
 @Component({
   selector: 'app-label-component',
   templateUrl: './label.component.html',
-  styleUrls: ['./browse-subgroup.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./browse-subgroup.component.scss']
 })
 export class LabelComponent implements OnInit {
   label: Label;
