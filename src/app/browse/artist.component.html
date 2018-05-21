@@ -9,7 +9,7 @@
         <mat-grid-list class="browse-grid-list" cols="5" gutterSize="6px">
             <div class="tile-container" *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">
                 <mat-grid-tile>
-                <a routerLink="/browse/releases/{{releaseGroup.releases[0].id}}">
+                <a routerLink="/library/releases/{{releaseGroup.releases[0].id}}">
                     <img class="shelves-release-preview"
                     width="100%"
                     alt="{{releaseGroup.title}}"

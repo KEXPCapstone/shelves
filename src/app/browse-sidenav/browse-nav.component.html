@@ -8,7 +8,7 @@
             </button>
             <ul [@bodyExpansion]="panel.expanded ? 'expanded' : 'collapsed'" id="panel-{{category.id}}">
                 <li class="shelves-browse-nav-list-item" *ngFor="let group of category.groups">
-                    <a [routerLink]="'/browse/' + category.id + '/' + group.id"
+                    <a [routerLink]="'/library/' + category.id + '/' + group.id"
                         routerLinkActive="shelves-browse-sidenav-item-selected">
                         {{ group.name | titlecase }}
                     </a>
