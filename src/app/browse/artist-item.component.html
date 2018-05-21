@@ -4,8 +4,8 @@
           <img class="artist-image"
           width="100%"
           alt="{{artist.name}}"
-          src="//coverartarchive.org/release-group/{{artist.releaseGroups[0].releaseGroupId}}/front-500.jpg"
-          onerror="this.hidden='true'"
+          src="{{artSrc}}"
+          (error)="onImageError()"
           >
           <div class="mat-grid-tile-footer mat-2-line tile-footer">
             <div class="mat-grid-list-text">

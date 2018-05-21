@@ -177,9 +177,36 @@ export class ListItemComponent {
   templateUrl: './artist-item.component.html',
   styleUrls: ['./artist-item.component.scss']
 })
-export class ArtistItemComponent {
+export class ArtistItemComponent implements OnInit {
   @Input() artist: Artist;
   @Input() group: string;
+  artReleases = []; // ids of releases by this artist which have cover art
+  artSrc: string;
+
+  ngOnInit() {
+    this.artist.releaseGroups.forEach(rg => {
+      rg.releases.forEach(r => {
+        if (r.coverArtArchive.front) {
+          this.artReleases.push(r.id);
+        }
+      });
+    });
+    this.setArtSrc();
+  }
+
+  setArtSrc() {
+    if (this.artReleases.length > 0) {
+      const randomIndex = Math.floor(Math.random() * this.artReleases.length);
+      this.artSrc = `${environment.coverArtUrl}/release/${this.artReleases[randomIndex]}/front-500.jpg`;
+    } else {
+      this.artSrc = `${environment.coverArtUrl}/release-group/${this.artist.releaseGroups[0].releaseGroupId}/front-500.jpg`;
+    }
+  }
+
+  onImageError() {
+    console.log('angular caught the error event');
+    this.artSrc = `${environment.amazonURL}/${this.artist.releaseGroups[0].releases[0].asin}`;
+  }
 }
 
 @Component({
