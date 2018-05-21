@@ -9,7 +9,7 @@ app-browse-list {
     flex: 1;
     display: flex;
     position: fixed;
-    top: 0;
+    z-index: 5;
     right: 0;
     left: 300px;
     padding: 10px 0px 20px 0px;
