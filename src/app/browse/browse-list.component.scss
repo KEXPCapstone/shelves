@@ -39,9 +39,16 @@ virtual-scroll {
     width: 100%;
 }
 
+// TODO: target this without relying on encapsulation selector
+// which is likely to change
+.browse-grid-list .scrollable-content[_ngcontent-c14] {
+    top: 48px;
+}
+
 .scrollable-content {
     display: flex;
     flex-wrap: wrap;
+    top: 48px;
     justify-content: space-evenly;
 
     app-list-item {
