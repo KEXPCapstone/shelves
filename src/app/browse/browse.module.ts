@@ -212,7 +212,6 @@ export class ArtistItemComponent implements OnInit {
   }
 
   onImageError() {
-    console.log('angular caught the error event');
     this.artSrc = `${environment.amazonURL}/${this.artist.releaseGroups[0].releases[0].asin}`;
   }
 }
@@ -225,15 +224,15 @@ export class ArtistItemComponent implements OnInit {
 export class ReleaseItemComponent implements OnInit {
   @Input() release: Release;
   @Input() group: string;
-  artURL: string;
+  artSrc: string;
 
   ngOnInit() {
     if (this.release.coverArtArchive.artwork) {
-      this.artURL = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
+      this.artSrc = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
     } else if (this.release.asin !== '') {
-      this.artURL = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
+      this.artSrc = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
     } else {
-      this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
+      this.artSrc = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
     }
   }
 
@@ -244,9 +243,33 @@ export class ReleaseItemComponent implements OnInit {
   templateUrl: './label-item.component.html',
   styleUrls: ['./label-item.component.scss']
 })
-export class LabelItemComponent {
+export class LabelItemComponent implements OnInit {
   @Input() label: Label;
   @Input() group: string;
+  artReleases = [];
+  artSrc: string;
+
+  ngOnInit() {
+    this.label.releases.forEach(r => {
+        if (r.coverArtArchive.front) {
+          this.artReleases.push(r.releaseId);
+        }
+    });
+    this.setArtSrc();
+  }
+
+  setArtSrc() {
+    if (this.artReleases.length > 0) {
+      const randomIndex = Math.floor(Math.random() * this.artReleases.length);
+      this.artSrc = `${environment.coverArtUrl}/release/${this.artReleases[randomIndex]}/front-500.jpg`;
+    } else {
+      this.artSrc = `${environment.coverArtUrl}/release-group/${this.label.releases[0].releaseGroupId}/front-500.jpg`;
+    }
+  }
+
+  onImageError() {
+    this.artSrc = `${environment.amazonURL}/${this.label.releases[0].asin}`;
+  }
 }
 
 @NgModule({

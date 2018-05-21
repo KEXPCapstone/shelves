@@ -13,4 +13,6 @@ export class LabelRelease {
     title: string;
     artistId: string;
     artistName: string;
+    asin: string;
+    coverArtArchive: any;
 }

@@ -3,8 +3,8 @@
     <img class="label-image"
     width="100%"
     alt="{{label.name}}"
-    src=""
-    onerror="this.hidden='true'"
+    src="{{artSrc}}"
+    (error)="onImageError()"
     >
     <div class="mat-grid-tile-footer mat-2-line tile-footer">
       <div class="mat-grid-list-text">
