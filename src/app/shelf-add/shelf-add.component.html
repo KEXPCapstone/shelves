@@ -1,5 +1,5 @@
 <div class="dialog-header">
-  <img class="shelf-add-album-image" src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg">
+  <img class="shelf-add-album-image" [src]="artURL" onerror="this.hidden='true'">
   <div class="column">
     <h1 mat-dialog-title class="release-title">{{release.title}}</h1>
     <h5 class="release-artist">{{release.KEXPReleaseArtistCredit}}</h5>

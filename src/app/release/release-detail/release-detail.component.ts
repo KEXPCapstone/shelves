@@ -59,7 +59,6 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
     if (this.release.coverArtArchive.artwork) {
       this.artURL = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
     } else if (this.release.asin !== '') {
-      // this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
       this.artURL = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
     } else {
       this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;

@@ -5,6 +5,7 @@ import { FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
 import { Release } from '../models/release';
 import { Shelf, NewShelf } from '../models/shelf';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class ShelfAddComponent implements OnInit {
   private release: Release;
   private userShelves: Shelf[];
   private currShelf: Shelf;
+  artURL: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
@@ -28,6 +30,13 @@ export class ShelfAddComponent implements OnInit {
 
   ngOnInit() {
     this.getUserShelves();
+    if (this.release.coverArtArchive.artwork) {
+      this.artURL = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
+    } else if (this.release.asin !== '') {
+      this.artURL = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
+    } else {
+      this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
+    }
   }
 
   getUserShelves() {
