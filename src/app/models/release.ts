@@ -28,6 +28,7 @@ export class Release {
 export class IndexInfo {
   releaseID: string;
   fieldMatchedOn: string;
+  matchValue: string;
 }
 
 export class ReleaseSearchResult {
