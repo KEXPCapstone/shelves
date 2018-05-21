@@ -11,7 +11,6 @@ import { ShelfDetailComponent } from './shelves/shelf-detail/shelf-detail.compon
 
 export const SHELVES_ROUTES: Routes = [
     {path: '', redirectTo: '/library/artists/a', pathMatch: 'full'}, // default route redirect
-    {path: 'library', redirectTo: '/library', pathMatch: 'full'}, // home page
     {
         path: 'library',
         component: BrowseSidenavComponent,
