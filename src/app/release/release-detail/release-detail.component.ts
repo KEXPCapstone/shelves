@@ -10,6 +10,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Release } from '../../models/release';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-release-detail',
@@ -20,6 +21,7 @@ import { Release } from '../../models/release';
 export class ReleaseDetailComponent implements OnInit, OnDestroy {
   @Input() release: Release;
   private _destroyed = new Subject();
+  artURL: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -54,24 +56,18 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getRelease();
+    if (this.release.coverArtArchive.artwork) {
+      this.artURL = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
+    } else {
+      // this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
+      this.artURL = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
+    }
   }
 
   getRelease(): void {
     const id = this.route.snapshot.paramMap.get('releaseId');
     this.libraryService.getReleaseById(id)
       .subscribe(release => this.release = release);
-  }
-
-  // fetches album art for a release
-  // first priority: release-specific image
-  // second priority: release-group
-  // fallback: placeholder image
-  getArtForRelease(): string {
-    if (this.release.coverArtArchive.front) {
-      return `//coverartarchive.org/release/${this.release.id}/front-500.jpg`;
-    } else {
-      return `//coverartarchive.org/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
-    }
   }
 
   // useful to implement 'back' button

@@ -1,7 +1,7 @@
 <div class="shelves-release-detail-container">
     <div class="shelves-release-overview" *ngIf="release">
         <div class="shelves-release-album-cover">
-            <img class="album-image" [src]="getArtForRelease()" alt={{release.title}}>    
+            <img class="album-image" [src]="artURL" alt={{release.title}}>    
             <div class="album-dialog-ctrl">
                 <button class="dialog-ctrl-btn" mat-button (click)="openShelfAddDialog()"><mat-icon svgIcon="add-to-shelf"></mat-icon></button>
                 <div class="flex-spacer"></div>
