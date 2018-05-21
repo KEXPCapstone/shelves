@@ -21,7 +21,6 @@
                     <span *ngIf="release.date.length > 4">released <span class="kexp-orange">{{release.date | date:'longDate'}}</span></span>
                 </h3>
             </div>
-            <h3>Related releases</h3>
             <mat-divider></mat-divider>
             <app-related-releases *ngIf="release" [release]="release"></app-related-releases>
         </div>
