@@ -7,18 +7,18 @@
   </div>
 </div>
 <div class="browse-content">
-<mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
-<virtual-scroll
-[items]="browseItems"
-(update)="viewPortItems = $event"
-(end)="fetchMore($event)"
->
-<app-list-item
-*ngFor="let item of viewPortItems"
-[item]="item"
-[group]="group"
-[section]="section">
-</app-list-item>
-</virtual-scroll>
-</mat-grid-list>
+  <mat-grid-list class="browse-grid-list" cols="1">
+    <virtual-scroll
+    [items]="browseItems"
+    (update)="viewPortItems = $event"
+    (end)="fetchMore($event)"
+    >
+      <app-list-item
+      *ngFor="let item of viewPortItems"
+      [item]="item"
+      [group]="group"
+      [section]="section">
+      </app-list-item>
+    </virtual-scroll>
+  </mat-grid-list>
 </div>

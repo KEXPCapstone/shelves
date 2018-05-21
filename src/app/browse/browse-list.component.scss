@@ -42,7 +42,7 @@ virtual-scroll {
 .scrollable-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
     app-list-item {
         height: 300px;
