@@ -1,20 +1,6 @@
 <div class="related-container" *ngIf="relateds">
-  <!-- <mat-form-field class="related-selector">
-    <mat-select [(value)]="selected" placeholder="Related by" (selectionChange)="onSelectChange(selected)">
-      <mat-option *ngFor="let option of options" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field> -->
   <div class="related-item" *ngFor="let related of relateds.slice(0,4)">
-    <a routerLink="/browse/releases/{{related.id}}"><img width="100%" src="//coverartarchive.org/release-group/{{related.KEXPReleaseGroupMBID}}/front-250.jpg"></a>
+    <a routerLink="/library/releases/{{related.id}}"><img width="100%" src="//coverartarchive.org/release-group/{{related.KEXPReleaseGroupMBID}}/front-250.jpg"></a>
     <a>{{related.title}}</a>
   </div>
-  <!-- <mat-card class="related-release-card" *ngFor="let related of relateds.slice(0,4)">
-    <img mat-card-image src="//coverartarchive.org/release-group/{{related.KEXPReleaseGroupMBID}}/front-250.jpg">
-    <mat-card-footer>
-        <mat-card-title>{{related.title}}</mat-card-title>
-        <mat-card-subtitle>{{related.KEXPReleaseArtistCredit}}</mat-card-subtitle>
-      </mat-card-footer>
-  </mat-card> -->
 </div>
