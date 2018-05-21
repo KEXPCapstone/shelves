@@ -8,8 +8,6 @@ app-browse-list {
 .shelves-browse-category-header {
     flex: 1;
     display: flex;
-    position: fixed;
-    z-index: 4;
     width: 100%;
     padding: 10px 0px 20px 0px;
 
@@ -24,7 +22,7 @@ app-browse-list {
 
 .shelves-browse-content {
     position: relative;
-    top: 116px;
+    top: 24px;
 }
 
 .tile-container a {
