@@ -14,18 +14,9 @@ app-browse-sidenav {
     box-sizing: border-box;
 }
 
+// this class only on small screens
 .shelves-browse-sidenav {
     overflow: auto;
-}
-
-.shelves-browse-sidenav-inner-content {
-    display: flex;
-    flex-direction: row;
-
-    // used to match element following router-outlet (ie the routed component)
-    router-outlet + * {
-        flex-grow: 1;
-    }
 }
 
 // this only affects small screens (where we display a drawer)
@@ -107,43 +98,9 @@ app-browse-sidenav {
 
 .shelves-browse-sidenav-content {
     display: flex;
-    flex-direction: column;
     flex: 1;
-}
 
-.shelves-browse-sidenav-inner-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.shelves-browse-sidenav-body-content {
-    display: flex;
-    flex: 1;
-}
-
-@media (max-width: $small-breakpoint-width) {
-    // overriding default with specific rule
-    .shelves-browse-sidenav-container .shelves-browse-sidenav {
-        // position above content
-        z-index: 4;
-    }
-
-    .shelves-browse-nav {
-        position: relative;
-        top: 0;
-
-        .shelves-browse-nav-content {
-            box-sizing: border-box;
-            margin: 0;
-            max-height: initial;
-            box-sizing: border-box;
-        }
-    }
-}
-
-@media (max-width: 720px) {
-    .shelves-browse-sidenav-container {
-        flex: 1 0 auto;
+    router-outlet + * {
+        flex-grow: 1;
     }
 }
