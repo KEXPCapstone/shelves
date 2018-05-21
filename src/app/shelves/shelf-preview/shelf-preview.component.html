@@ -9,9 +9,9 @@
       </div>
     </div>
     <div *ngIf="shelf.releases.length > 5">
-        <div class="more-releases">
+        <div class="more-releases">          
             <div class="album-dialog-ctrl">
-              +{{shelf.releases.length - 5}} more
+               <a routerLink="/browse/shelf/{{shelf.id}}"> +{{shelf.releases.length - 5}} more </a>
             </div>
         </div>
     </div>

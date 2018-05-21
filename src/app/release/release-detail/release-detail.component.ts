@@ -96,6 +96,7 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.dialog.closeAll();
     this._destroyed.next();
   }
 
