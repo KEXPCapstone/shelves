@@ -13,7 +13,7 @@
                     <img class="shelves-release-preview"
                     width="100%"
                     alt="{{releaseGroup.title}}"
-                    src="//coverartarchive.org/release-group/{{releaseGroup.releaseGroupId}}/front-500.jpg"
+                    [src]="getArt(releaseGroup.releases[0])"
                     onerror="this.hidden='true'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>{{releaseGroup.title}}</h4>
