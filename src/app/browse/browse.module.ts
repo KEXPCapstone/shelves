@@ -11,6 +11,7 @@ import { Artist } from '../models/artist';
 import { Label } from '../models/label';
 import { Release } from '../models/release';
 import { VirtualScrollModule, ChangeEvent } from 'angular2-virtual-scroll';
+import { environment } from '../../environments/environment';
 
 const MAX_BROWSE_ITEMS = 200;
 
@@ -186,9 +187,19 @@ export class ArtistItemComponent {
   templateUrl: './release-item.component.html',
   styleUrls: ['./release-item.component.scss']
 })
-export class ReleaseItemComponent {
+export class ReleaseItemComponent implements OnInit {
   @Input() release: Release;
   @Input() group: string;
+  artURL: string;
+
+  ngOnInit() {
+    if (this.release.coverArtArchive.artwork) {
+      this.artURL = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
+    } else {
+      this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
+    }
+  }
+
 }
 
 @Component({
