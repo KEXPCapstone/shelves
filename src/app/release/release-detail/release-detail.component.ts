@@ -45,6 +45,7 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
       takeUntil(this._destroyed)
     ).subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {
+        this.dialog.closeAll();
         this.getRelease();
       }
     });
@@ -95,6 +96,7 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.dialog.closeAll();
     this._destroyed.next();
   }
 

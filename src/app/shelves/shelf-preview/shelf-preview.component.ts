@@ -10,7 +10,6 @@ import { LibraryService } from '../../library.service';
 })
 export class ShelfPreviewComponent implements OnInit {
   @Input() shelf: Shelf;
-  @Input() clickable: boolean;
   private imgUrls = new Map();
 
   constructor(private libraryService: LibraryService) { }
