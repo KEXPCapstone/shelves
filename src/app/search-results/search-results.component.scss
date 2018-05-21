@@ -1,3 +1,9 @@
+app-search-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 mat-grid-list{
     margin: 16px;
 }
@@ -22,3 +28,9 @@ mat-grid-list{
 //     width: 100%;
 //     height: 100%;
 // }
+.no-results {
+    text-align: center;
+    margin: 100px 0px 0px 0px;
+}
+
+

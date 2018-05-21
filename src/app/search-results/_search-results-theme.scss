@@ -18,4 +18,8 @@
         // background: mat-color($background, card);
         color: mat-color($foreground, text);
     }
+
+    .no-results {
+        color: mat-color($foreground, text)
+    }
 }

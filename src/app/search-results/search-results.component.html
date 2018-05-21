@@ -1,5 +1,5 @@
-<div *ngIf="noResults">
-  <p>No results. Try a different search!</p>
+<div *ngIf="noResults" class="no-results">
+  <h2 class="mat-headline">No releases matched '{{query}}'</h2>
 </div>
 <mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
   <div class="tile-container" *ngFor="let result of results">
