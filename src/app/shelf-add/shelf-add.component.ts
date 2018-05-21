@@ -1,11 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatIconRegistry } from '@angular/material';
 import { ShelfService } from '../shelf.service';
 import { FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
 import { Release } from '../models/release';
 import { Shelf, NewShelf } from '../models/shelf';
 import { environment } from '../../environments/environment';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -24,8 +25,15 @@ export class ShelfAddComponent implements OnInit {
     private shelfService: ShelfService,
     private authService: AuthService,
     private snackbar: MatSnackBar,
-    public dialogRef: MatDialogRef<ShelfAddComponent>) {
+    public dialogRef: MatDialogRef<ShelfAddComponent>,
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer
+  ) {
       this.release = release;
+      iconRegistry.addSvgIcon(
+        'plus-icon',
+        sanitizer.bypassSecurityTrustResourceUrl('../../assets/baseline-add-24px.svg')
+      );
     }
 
   ngOnInit() {

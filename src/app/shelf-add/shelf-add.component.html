@@ -13,7 +13,7 @@
 <mat-dialog-content>
 <div *ngIf="authService.isAuthenticated">
   <div class="row">
-    <div class = "column">
+    <div class = "shelf-ctrl-section">
       <form #pickShelf="ngForm"> 
         <mat-form-field>
           <mat-select placeholder="Pick a shelf" [(ngModel)]="selectedShelf" name="shelfPicker" (selectionChange)="updateShelfPreview(pickShelf)">
@@ -25,12 +25,12 @@
       </form>
     </div>
     <mat-divider [vertical]="true"></mat-divider>
-    <div class="column">
+    <div class="shelf-ctrl-section">
       <form #addShelf="ngForm">
         <mat-form-field>
           <input matInput name="shelfName" ngModel placeholder="Add new shelf">
         </mat-form-field>
-          <button class="mat-raised-button" (click)="newShelf(addShelf)">Create</button>
+          <button mat-button class="mat-raised-button dialog-btn" (click)="newShelf(addShelf)"><mat-icon svgIcon="plus-icon"></mat-icon></button>
       </form>
     </div>    
   </div>
