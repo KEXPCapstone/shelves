@@ -26,6 +26,7 @@ import { ShelfAddComponent } from './shelf-add/shelf-add.component';
 import { SearchService } from './search.service';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
+import { ResultGroupListComponent } from './search-results/result-group-list.component';
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { VirtualScrollModule } from 'angular2-virtual-scroll';
     SigninComponent,
     NavBarComponent,
     ShelfAddComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    ResultGroupListComponent
   ],
   providers: [
     ShelfService,
