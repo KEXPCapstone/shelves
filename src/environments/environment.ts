@@ -5,5 +5,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost/v1'
+  apiUrl: 'https://localhost/v1',
+  coverArtUrl: 'https://coverartarchive.org',
+  mbUrl: 'https://musicbrainz.org/ws/2',
+  amazonURL: 'http://images-eu.amazon.com/images/P'
 };

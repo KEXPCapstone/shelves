@@ -11,6 +11,7 @@ import { Artist } from '../models/artist';
 import { Label } from '../models/label';
 import { Release } from '../models/release';
 import { VirtualScrollModule, ChangeEvent } from 'angular2-virtual-scroll';
+import { environment } from '../../environments/environment';
 
 const MAX_BROWSE_ITEMS = 200;
 
@@ -176,9 +177,36 @@ export class ListItemComponent {
   templateUrl: './artist-item.component.html',
   styleUrls: ['./artist-item.component.scss']
 })
-export class ArtistItemComponent {
+export class ArtistItemComponent implements OnInit {
   @Input() artist: Artist;
   @Input() group: string;
+  artReleases = []; // ids of releases by this artist which have cover art
+  artSrc: string;
+
+  ngOnInit() {
+    this.artist.releaseGroups.forEach(rg => {
+      rg.releases.forEach(r => {
+        if (r.coverArtArchive.front) {
+          this.artReleases.push(r.id);
+        }
+      });
+    });
+    this.setArtSrc();
+  }
+
+  setArtSrc() {
+    if (this.artReleases.length > 0) {
+      const randomIndex = Math.floor(Math.random() * this.artReleases.length);
+      this.artSrc = `${environment.coverArtUrl}/release/${this.artReleases[randomIndex]}/front-500.jpg`;
+    } else {
+      this.artSrc = `${environment.coverArtUrl}/release-group/${this.artist.releaseGroups[0].releaseGroupId}/front-500.jpg`;
+    }
+  }
+
+  onImageError() {
+    console.log('angular caught the error event');
+    this.artSrc = `${environment.amazonURL}/${this.artist.releaseGroups[0].releases[0].asin}`;
+  }
 }
 
 @Component({
@@ -186,9 +214,20 @@ export class ArtistItemComponent {
   templateUrl: './release-item.component.html',
   styleUrls: ['./release-item.component.scss']
 })
-export class ReleaseItemComponent {
+export class ReleaseItemComponent implements OnInit {
   @Input() release: Release;
   @Input() group: string;
+  artURL: string;
+
+  ngOnInit() {
+    if (this.release.coverArtArchive.artwork) {
+      this.artURL = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
+    } else {
+      // this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
+      this.artURL = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
+    }
+  }
+
 }
 
 @Component({
