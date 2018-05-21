@@ -1,17 +1,15 @@
 <div class="mat-grid-tile tile">
   <a routerLink="/library/releases/{{release.id}}">
-    <div class="artist-image-container">
-      <img class="artist-image"
-      width="100%"
-      alt="{{release.title}}"
-      [src]="artURL"
-      onerror="this.hidden='true'"
-      >
-      <div class="mat-grid-tile-footer mat-2-line tile-footer">
-        <div class="mat-grid-list-text">
-          <h4 class="mat-caption" mat-line>{{release.title}}</h4>
-          <h4 class="mat-caption" mat-line>{{release.KEXPReleaseArtistCredit}}</h4>
-        </div>
+    <img class="release-image"
+    width="100%"
+    alt="{{release.title}}"
+    [src]="artURL"
+    onerror="this.hidden='true'"
+    >
+    <div class="mat-grid-tile-footer mat-2-line tile-footer">
+      <div class="mat-grid-list-text">
+        <h4 class="mat-caption" mat-line>{{release.title}}</h4>
+        <h4 class="mat-caption" mat-line>{{release.KEXPReleaseArtistCredit}}</h4>
       </div>
     </div>
   </a>
