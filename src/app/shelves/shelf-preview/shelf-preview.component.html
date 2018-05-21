@@ -4,7 +4,7 @@
     <div *ngFor="let release of shelf.releases | slice:0:5">
       <div class="">
         <a  routerLink="/library/releases/{{release.id}}">
-          <img class="shelf-preview-img" src="{{imgUrls.get(release.id)}}" (error)="getBackupArt(release.id)" name="{{release.title}}"> 
+          <img class="shelf-preview-img" [src]="getArt(release)" name="{{release.title}}"> 
         </a>
       </div>
     </div>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Release } from '../../models/release';
 import { Shelf } from '../../models/shelf';
 import { LibraryService } from '../../library.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-shelf-preview',
@@ -17,8 +18,12 @@ export class ShelfPreviewComponent implements OnInit {
   ngOnInit() {
   }
 
-  getArt(mbid: string) {
-    return `//coverartarchive.org/release/${mbid}/front-500.jpg`;
+  getArt(release: Release) {
+    if (release.coverArtArchive.artwork) {
+      return `${environment.coverArtUrl}/release/${release.id}/front-500.jpg`;
+    } else {
+      return `${environment.coverArtUrl}/release-group/${release.KEXPReleaseGroupMBID}/front-500.jpg`;
+    }
   }
 
   getBackupArt(mbid: string) {
