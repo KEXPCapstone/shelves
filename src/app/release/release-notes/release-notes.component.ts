@@ -37,15 +37,10 @@ export class ReleaseNotesComponent implements OnInit {
     if (this.release.coverArtArchive.artwork) {
       this.artURL = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
     } else if (this.release.asin !== '') {
-      // this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
       this.artURL = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
     } else {
       this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
     }
-  }
-
-  private getUserInfo(userId: string) {
-    // something in authSerivce which gets the name back and displays it within one of the ngFor things
   }
 
   setNumberPosters() {
