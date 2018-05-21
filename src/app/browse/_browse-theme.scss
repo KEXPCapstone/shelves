@@ -29,7 +29,6 @@
 
         &:after {
             background: linear-gradient(mat-color($primary), mat-color($primary, darker));
-            // background: mat-color($background, card);
             color: mat-color($foreground, text);
         }
     }
