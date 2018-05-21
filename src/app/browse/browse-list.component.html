@@ -12,7 +12,7 @@
           [items]="browseItems"
           (update)="viewPortItems = $event"
           (end)="fetchMore($event)"
-          scrollAnimationTime="3000">
+          >
               <app-list-item
               *ngFor="let item of viewPortItems"
               [item]="item"
