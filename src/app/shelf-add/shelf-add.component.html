@@ -36,7 +36,7 @@
   </div>
   <mat-divider></mat-divider>
   <div class="shelf-preview">
-      <app-shelf-preview *ngIf="currShelf" [shelf]="currShelf" [clickable]="false"></app-shelf-preview>
+      <app-shelf-preview *ngIf="currShelf" [shelf]="currShelf"></app-shelf-preview>
   </div>
   <div>
     <button class="mat-raised-button add-btn" (click)="addToShelf(pickShelf)">Add</button>
