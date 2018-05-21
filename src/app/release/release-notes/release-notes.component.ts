@@ -5,6 +5,9 @@ import { FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
 import { Release } from '../../models/release';
 import { Note } from '../../models/note';
+import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -17,18 +20,28 @@ export class ReleaseNotesComponent implements OnInit {
   private notes: Note[];
   private numNotes = 0;
   private numPosters = 0;
+  private artURL: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
     private noteService: NoteService,
     private authService: AuthService,
-    public dialogRef: MatDialogRef<ReleaseNotesComponent>
+    public dialogRef: MatDialogRef<ReleaseNotesComponent>,
+    public http: HttpClient
   ) {
     this.release = release;
    }
 
   ngOnInit() {
     this.getNotes();
+    if (this.release.coverArtArchive.artwork) {
+      this.artURL = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
+    } else if (this.release.asin !== '') {
+      // this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
+      this.artURL = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
+    } else {
+      this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
+    }
   }
 
   private getUserInfo(userId: string) {
