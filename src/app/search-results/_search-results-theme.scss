@@ -11,12 +11,11 @@
         background: rgba(0, 0, 0, .90);
     }
 
-    .album-image {
+    
 
-        &:after {
-            background: linear-gradient(mat-color($primary), mat-color($primary, darker));
-            // background: mat-color($background, card);
-            color: mat-color($foreground, text);
-        }
+    .release-tile {
+        background: linear-gradient(mat-color($primary), mat-color($primary, darker));
+        // background: mat-color($background, card);
+        color: mat-color($foreground, text);
     }
 }
