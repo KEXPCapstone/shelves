@@ -10,10 +10,9 @@ import { ShelvesListComponent } from './shelves/shelves.module';
 import { ShelfDetailComponent } from './shelves/shelf-detail/shelf-detail.component';
 
 export const SHELVES_ROUTES: Routes = [
-    {path: '', redirectTo: '/browse/artists/a', pathMatch: 'full'}, // default route redirect
-    {path: 'library', redirectTo: '/browse', pathMatch: 'full'}, // home page
+    {path: '', redirectTo: '/library/artists/a', pathMatch: 'full'}, // default route redirect
     {
-        path: 'browse',
+        path: 'library',
         component: BrowseSidenavComponent,
         children: [
             {path: '', redirectTo: 'artists', pathMatch: 'full'}, // default to artists
@@ -78,12 +77,11 @@ export const SHELVES_ROUTES: Routes = [
                     // }
                 ]
             },
+            { path: 'search', component: SearchResultsComponent},
             { path: 'shelf/:shelfId', component: ShelfDetailComponent }
         ],
     },
-    // {path: 'shelves', component: ShelvesListComponent}, // shelves feature module
-    {path: 'library/search', component: SearchResultsComponent},
     {path: 'login', component: SigninComponent}, // sign in page
     {path: 'signup', component: SignupComponent},
-    {path: '**', redirectTo: 'browse/artists/a'} // invalid route catchall (probably should go to 'homepage')
+    {path: '**', redirectTo: 'library/artists/a'} // invalid route catchall (probably should go to 'homepage')
 ];

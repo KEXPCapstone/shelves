@@ -32,7 +32,7 @@
     <mat-grid-list cols="5" gutterSize="16px">
       <div *ngFor="let release of shelf.releases | slice: 0:4; let lastRelease = last" class="tile-container">
         <mat-grid-tile class="browse-grid-list">
-          <a routerLink="/browse/releases/{{release.id}}">
+          <a routerLink="/library/releases/{{release.id}}">
             <img class="artist-image"
             width="100%"
             alt="{{release.title}}"
@@ -47,7 +47,7 @@
       </div>
       
       <mat-grid-tile *ngIf="shelf.releases.length > 4" class="more-tile">
-          <a routerLink="/browse/shelf/{{shelf.id}}">
+          <a routerLink="/library/shelf/{{shelf.id}}">
           <mat-grid-tile-footer>
             +{{shelf.releases.length - 4}} more
           </mat-grid-tile-footer>
