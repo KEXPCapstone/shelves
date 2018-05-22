@@ -4,7 +4,7 @@
     <mat-divider class="category-divider"></mat-divider>
   </div>
   <div class="flex-spacer"></div>
-  <div class="create-shelf-button">
+  <div class="create-shelf-button" *ngIf="authService.isAuthenticated">
       <button (click)="openCreateShelf()" mat-raised-button color="primary" class="new-shelf-button">
         Create a new shelf
       </button>
@@ -15,12 +15,21 @@
     <div [ngSwitch]="group" class="empty-shelves-message">
       <div *ngSwitchCase="'mine'">
         <!-- <mat-icon class="empty-icon">view_module</mat-icon> -->
-        <h2 class="mat-headline">You have not created any shelves</h2>
-        <h3 class="mat-subheading-2">Create a new shelf and it will show up here</h3>
-        <div>
+        <div class="create-shelf-msg" *ngIf="authService.isAuthenticated">
+          <h2 class="mat-headline" >You have not created any shelves</h2>
+          <h3 class="mat-subheading-2" >Create a new shelf and it will show up here</h3>
+        </div>    
+        <div *ngIf="authService.isAuthenticated">
           <button (click)="openCreateShelf()" mat-raised-button color="accent" class="new-shelf-button">
             Create a new shelf
           </button>
+        </div>
+        <div class="create-shelf-msg" *ngIf="!authService.isAuthenticated">
+            <h3 class="mat-headline">Login to see your Shelves</h3>
+        </div>    
+        <div class="no-auth-message" *ngIf="!authService.isAuthenticated">
+          <a routerLink="/login"><button mat-raised-button class="router-btn"> Log In</button></a>
+          <a routerLink="/signup"><button mat-raised-button class="router-btn"> Sign Up</button></a>
         </div>
       </div>
       <h3 *ngSwitchCase="'featured'">There are no featured shelves</h3>
