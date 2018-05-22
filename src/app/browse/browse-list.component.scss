@@ -75,7 +75,7 @@ app-list-item {
 
 @media screen and (min-width: $xlarge_breakpoint_width) {
     app-browse-list {
-        padding: 0px 300px 0px 20px;
+        padding: 0px 20px 0px 20px;
     }
 
     app-list-item {
@@ -84,26 +84,15 @@ app-list-item {
     }
 }
 
-@media (min-height: 1000px) {
-    virtual-scroll {
-        height: 900px;
-    }
-}
-
-@media (max-height: 1000px){
-    virtual-scroll {
-        height: 720px;
-    }
-}
-
-@media (max-height: $small_breakpoint_width) {
-    virtual-scroll {
-        height: 600px;
+@media screen and (min-width: $xxl_breakpoint_width) {
+    app-browse-list {
+        padding: 0px 300px 0px 20px;
     }
 }
 
 virtual-scroll {
     width: 100%;
+    height: 100vh;
 }
 
 // TODO: target this without relying on encapsulation selector
