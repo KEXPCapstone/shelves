@@ -102,10 +102,18 @@ virtual-scroll {
 }
 
 .mat-grid-tile.tile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     position: relative;
     height: 100%;
     width: 100%;
+
+    .initials {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
 }
