@@ -9,6 +9,7 @@ import { SearchResultsComponent } from './search-results.component';
 export class ResultGroupListComponent implements OnInit {
     @Input() results: SearchResultsComponent;
     @Input() header: string;
+    @Input() type: string;
 
     constructor() {}
     ngOnInit() {}
