@@ -1,3 +1,5 @@
+@import '../../styles/constants';
+
 .app-header {
     padding: 0 16px;    
 }
@@ -6,30 +8,30 @@
     flex-grow: 1;
 }
 
+.search-form {
+    margin: 0 16px;
+}
+
 .kexp-logo {
     height: 26px;
     margin: 0 10px 3px 0;
     vertical-align: middle;
 }
 
-.search-bar {
-    width: 8em;;
-}
-
 @media screen and (min-width: 520px) {
     .search-bar {
-        width: 15em;;
+        width: 15em;
     }
 }
 
 @media screen and (min-width: 875px) {
     .search-bar {
-        width: 30em;;
+        width: 30em;
     }
 }
 
 @media screen and (min-width: 1080px) {
     .search-bar {
-        width: 40em;;
+        width: 40em;
     }
 }
