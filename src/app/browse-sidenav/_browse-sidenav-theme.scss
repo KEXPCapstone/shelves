@@ -9,15 +9,14 @@
     $nav-background-opacity: if($is-dark-theme, 0.2, 0.03);
     $nav-background-focus-opacity: if($is-dark-theme, 0.25, 0.08);
   
-    .shelves-browse-nav-content {
+    .browse-nav-content {
         background: rgba(0, 0, 0, $nav-background-opacity);
 
         &::-webkit-scrollbar-thumb {
             background: rgba(231, 226, 226, 0.26);
         }
 
-        .shelves-browse-nav-content-btn {
-            // color: rgba(mat-color($foreground, text), .5);
+        .browse-nav-content-btn {
             color: white;
 
             &:focus {
@@ -40,7 +39,7 @@
         a {
             color: mat-color($foreground, secondary-text);
 
-            &.shelves-browse-sidenav-item-selected,
+            &.browse-sidenav-item-selected,
             &:hover {
                 color: mat-color($accent);
             }

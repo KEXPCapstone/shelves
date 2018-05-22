@@ -3,7 +3,7 @@ export const environment = {
   apiUrl: 'https://api.kexpshelves.com/v1',
   coverArtUrl: 'https://coverartarchive.org',
   mbUrl: 'https://musicbrainz.org/ws/2',
-  amazonURL: 'http://images-eu.amazon.com/images/P/',
+  amazonURL: 'https://images-eu.amazon.com/images/P',
   shelvesRoot: 'shelves',
   libraryRoot: 'library',
   releasesPath: 'releases',

@@ -1,0 +1,24 @@
+<div>
+    <div>
+        <h1 class="mat-display-2">{{header}}</h1>
+        <mat-divider class="category-divider"></mat-divider>        
+    </div>
+    <mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
+        <div class="tile-container" *ngFor="let result of results">
+            <mat-grid-tile class="release-tile">
+                <a routerLink="/library/releases/{{result.release.id}}">
+                <img class="album-image"
+                    width="100%"
+                    alt="{{result.release.title}}"
+                    src="//coverartarchive.org/release-group/{{result.release.KEXPReleaseGroupMBID}}/front-500.jpg"
+                    onerror="this.style.display='none'"
+                    >
+                <mat-grid-tile-footer class="tile-footer">
+                <h4 mat-line>{{result.release.title}}</h4>
+                <h4 mat-line><span>Matched on: {{result.indexInfo.matchValue}}</span></h4>
+                </mat-grid-tile-footer>
+                </a>
+            </mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>

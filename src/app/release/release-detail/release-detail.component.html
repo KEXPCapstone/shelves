@@ -1,14 +1,14 @@
-<div class="shelves-release-detail-container">
-    <div class="shelves-release-overview" *ngIf="release">
-        <div class="shelves-release-album-cover">
-            <img class="album-image" [src]="getArtForRelease()" alt={{release.title}}>    
+<div class="release-detail-container">
+    <div class="release-overview" *ngIf="release">
+        <div class="release-album-cover">
+            <img class="album-image" [src]="artURL" alt={{release.title}}>    
             <div class="album-dialog-ctrl">
                 <button class="dialog-ctrl-btn" mat-button (click)="openShelfAddDialog()"><mat-icon svgIcon="add-to-shelf"></mat-icon></button>
                 <div class="flex-spacer"></div>
                 <button class="dialog-ctrl-btn" mat-button (click)="openNotesDialog()"><mat-icon svgIcon="notes"></mat-icon></button>
             </div>        
         </div>
-        <div class="shelves-release-info">
+        <div class="release-info">
             <div class="release-title">
                 <h1>{{release.title}}</h1>
                 <h3 mat-line>by
@@ -21,7 +21,6 @@
                     <span *ngIf="release.date.length > 4">released <span class="kexp-orange">{{release.date | date:'longDate'}}</span></span>
                 </h3>
             </div>
-            <h3>Related releases</h3>
             <mat-divider></mat-divider>
             <app-related-releases *ngIf="release" [release]="release"></app-related-releases>
         </div>

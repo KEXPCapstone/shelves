@@ -5,24 +5,7 @@
     padding: 0px 50px 50px 20px;  
 }
 
-.shelves-browse-category-header {
-    flex: 1;
-    display: flex;
-    position: fixed;
-    z-index: 4;
-    width: 100%;
-    padding: 10px 0px 20px 0px;
-
-    .category-divider {
-        width: 100%;
-    }
-
-    h1 {
-        margin: 16px 0;
-    }
-}
-
-.shelves-browse-content {
+.browse-content {
     position: relative;
     top: 116px;
 }

@@ -1,20 +1,16 @@
-<div *ngIf="noResults">
-  <p>No results. Try a different search!</p>
+<div *ngIf="noResults" class="no-results">
+  <h2 class="mat-headline">No releases matched '{{query}}'</h2>
 </div>
-<mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
-  <div class="tile-container" *ngFor="let result of results">
-      <mat-grid-tile>
-        <a routerLink="/library/releases/{{result.release.id}}">
-          <img class="album-image"
-            width="100%"
-            alt="{{result.release.title}}"
-            src="//coverartarchive.org/release-group/{{result.release.KEXPReleaseGroupMBID}}/front-500.jpg"
-            >
-        <mat-grid-tile-footer class="tile-footer">
-          <h4 mat-line>{{result.release.title}}</h4>
-          <h4 mat-line><span>Matched on: {{result.indexInfo.fieldMatchedOn}}</span></h4>
-        </mat-grid-tile-footer>
-        </a>
-      </mat-grid-tile>
-  </div>
-</mat-grid-list>
+<div *ngIf="titleMatches && titleMatches.length > 0">
+  <app-result-group-list [results]=titleMatches header="Title Matches"></app-result-group-list>    
+</div>
+
+<div *ngIf="artistMatches && artistMatches.length > 0">
+  <app-result-group-list [results]=artistMatches header="Artist Matches"></app-result-group-list>       
+</div>  
+
+<div *ngIf="trackMatches && trackMatches.length > 0">
+  <app-result-group-list [results]=trackMatches header="Track Matches"></app-result-group-list>    
+</div>  
+
+  

@@ -10,7 +10,7 @@
         border-top-color: mat-color($accent);
     }
 
-    .shelves-browse-category-header {
+    .category-header {
         background: mat-color($background, background);
     }
 
@@ -19,9 +19,9 @@
     }
 
     .mat-grid-tile:hover {
-        -webkit-box-shadow: 0 0 0.1px rgba(247, 179, 33, 0.87);
-        -moz-box-shadow: 0 0 0.1px rgba(247, 179, 33, 0.87);
-        box-shadow: 0 0 0.1px rgba(247, 179, 33, 0.87);
+        -webkit-box-shadow: 0 0 5px rgba(mat-color($accent), 0.87);
+        -moz-box-shadow: 0 0 5px rgba(mat-color($accent), 0.87);
+        box-shadow: 0 0 5px rgba(mat-color($accent), 0.87);
     }
 
 
@@ -29,7 +29,6 @@
 
         &:after {
             background: linear-gradient(mat-color($primary), mat-color($primary, darker));
-            // background: mat-color($background, card);
             color: mat-color($foreground, text);
         }
     }

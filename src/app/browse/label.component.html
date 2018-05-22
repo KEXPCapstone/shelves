@@ -1,16 +1,16 @@
 <div *ngIf="label">
-    <div class="shelves-browse-category-header">
+    <div class="category-header">
             <div class="category-header-title">
             <h1 class="display-4">Albums released on {{label.name}}</h1>
             <mat-divider class="category-divider"></mat-divider>
             </div>
         </div>
-    <div class="shelves-browse-content">
-        <mat-grid-list class="browse-grid-list" cols="5" gutterSize="6px">
+    <div class="browse-content">
+        <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
             <div class="tile-container" *ngFor="let release of label.releases; let i = index;">
                 <mat-grid-tile>
                 <a routerLink="/library/releases/{{release.releaseID}}">
-                    <img class="shelves-release-preview"
+                    <img class="release-preview"
                     width="100%"
                     alt="{{release.title}}"
                     src="//coverartarchive.org/release-group/{{release.releaseGroupID}}/front-500.jpg"

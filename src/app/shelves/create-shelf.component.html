@@ -4,8 +4,7 @@
             Create a new shelf
         </h1>
     </div>
-    <div class="no-auth-message" *ngIf="!authService.isAuthenticated">
-    </div>
+    
     <form (ngSubmit)="onSubmit()" #createShelfForm="ngForm" class="create-shelf-form">
         <mat-dialog-content class="create-shelf-content">
             <mat-form-field>
@@ -15,8 +14,9 @@
                 placeholder="Shelf name (eg 'Canadian #1 hits')"
                 [(ngModel)]="newShelf.name">
             </mat-form-field>
+            <mat-checkbox name="shelfFeatured" [(ngModel)]="newShelf.featured">Featured?</mat-checkbox>
             <mat-form-field>
-                <textarea matInput placeholder="A short description of this shelf (optional)"></textarea>
+                <textarea matInput name="shelfDescription" [(ngModel)]="newShelf.description" placeholder="A short description of this shelf (optional)"></textarea>                
             </mat-form-field>
         </mat-dialog-content>
         <mat-dialog-actions class="create-shelf-actions">

@@ -9,23 +9,14 @@ app-browse-sidenav {
 }
 
 // container for the whole sidenav and content
-.shelves-browse-sidenav-container {
+.browse-sidenav-container {
     flex: 1;
     box-sizing: border-box;
 }
 
-.shelves-browse-sidenav {
+// this class only on small screens
+.browse-sidenav {
     overflow: auto;
-}
-
-.shelves-browse-sidenav-inner-content {
-    display: flex;
-    flex-direction: row;
-
-    // used to match element following router-outlet (ie the routed component)
-    router-outlet + * {
-        flex-grow: 1;
-    }
 }
 
 // this only affects small screens (where we display a drawer)
@@ -37,12 +28,12 @@ app-browse-sidenav {
 }
 
 // styling the nav itself
-.shelves-browse-nav {
+.browse-nav {
     position: sticky;
     top: 25px;
 
     // the container of the nav accordion
-    .shelves-browse-nav-content {
+    .browse-nav-content {
         margin: 25px;
         width: $sidenav-width;
         max-height: 75vh;
@@ -105,45 +96,11 @@ app-browse-sidenav {
     }
 }
 
-.shelves-browse-sidenav-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.shelves-browse-sidenav-inner-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.shelves-browse-sidenav-body-content {
+.browse-sidenav-content {
     display: flex;
     flex: 1;
-}
 
-@media (max-width: $small-breakpoint-width) {
-    // overriding default with specific rule
-    .shelves-browse-sidenav-container .shelves-browse-sidenav {
-        // position above content
-        z-index: 4;
-    }
-
-    .shelves-browse-nav {
-        position: relative;
-        top: 0;
-
-        .shelves-browse-nav-content {
-            box-sizing: border-box;
-            margin: 0;
-            max-height: initial;
-            box-sizing: border-box;
-        }
-    }
-}
-
-@media (max-width: 720px) {
-    .shelves-browse-sidenav-container {
-        flex: 1 0 auto;
+    router-outlet + * {
+        flex-grow: 1;
     }
 }

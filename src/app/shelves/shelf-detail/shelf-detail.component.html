@@ -1,12 +1,12 @@
 <div *ngIf=shelf class="shelf-detail-component">
-  <div class="shelves-browse-category-header">
+  <div class="category-header">
     <div class="category-header-title">
       <h1  class="mat-display-2">{{shelf.name}}</h1>
       <mat-divider class="category-divider"></mat-divider>
     </div>
   </div>
 
-  <div class="shelves-browse-content">
+  <div class="browse-content">
   <mat-grid-list cols="5" gutterSize="16px">
     
       <div *ngFor="let release of shelf.releases" class="tile-container">
@@ -15,7 +15,7 @@
             <img class="artist-image"
               width="100%"
               alt="{{release.title}}"
-              src="//coverartarchive.org/release/{{release.id}}/front-500.jpg"
+              src="//coverartarchive.org/release-group/{{release.KEXPReleaseGroupMBID}}/front-500.jpg"
             >
             <mat-grid-tile-footer class="tile-footer">
               <h4 mat-line>{{release.title}}</h4>
