@@ -228,8 +228,6 @@ export class ReleaseItemComponent implements OnInit {
   ngOnInit() {
     if (this.release.coverArtArchive.artwork) {
       this.artSrc = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
-    } else if (this.release.asin !== '') {
-      this.artSrc = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
     } else {
       this.artSrc = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
     }
