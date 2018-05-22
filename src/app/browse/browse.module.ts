@@ -23,6 +23,7 @@ const MAX_BROWSE_ITEMS = 200;
 })
 export class BrowseListComponent implements OnInit, OnDestroy {
   browseItems: any[]; // the full set items currently displayed
+  viewPortItems: any[]; // items in the virtual scroll
   section: string;
   group: string;
   private _destroyed = new Subject();

@@ -115,7 +115,7 @@ export class CreateShelfComponent implements OnInit {
 
   constructor(
     private shelfService: ShelfService,
-    private authService: AuthService,
+    public authService: AuthService,
     private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<CreateShelfComponent>
   ) {}
