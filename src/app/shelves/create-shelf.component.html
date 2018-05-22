@@ -4,8 +4,7 @@
             Create a new shelf
         </h1>
     </div>
-    <div class="no-auth-message" *ngIf="!authService.isAuthenticated">
-    </div>
+    
     <form (ngSubmit)="onSubmit()" #createShelfForm="ngForm" class="create-shelf-form">
         <mat-dialog-content class="create-shelf-content">
             <mat-form-field>

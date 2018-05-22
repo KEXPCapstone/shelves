@@ -27,7 +27,8 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
     private shelfService: ShelfService,
     private _route: ActivatedRoute,
     private _dialog: MatDialog,
-    private _router: Router
+    private _router: Router,
+    private authService: AuthService
   ) {
   combineLatest(_route.params, _route.parent.params).pipe(
     takeUntil(this._destroyed)
