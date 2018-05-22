@@ -9,6 +9,12 @@ a {
     text-decoration: none;
 }
 
+app-browse-list, app-label, app-artist {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 200px 0px 20px;
+}
+
 .category-header {
     flex: 1;
     display: flex;

@@ -6,7 +6,7 @@
             </div>
         </div>
     <div class="browse-content">
-        <mat-grid-list class="browse-grid-list" cols="5" gutterSize="6px">
+        <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
             <div class="tile-container" *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">
                 <mat-grid-tile>
                 <a routerLink="/library/releases/{{releaseGroup.releases[0].id}}">
