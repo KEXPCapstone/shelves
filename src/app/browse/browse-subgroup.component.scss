@@ -1,8 +1,9 @@
-app-browse-subgroup {
+app-label, app-artist {
     display: flex;
     flex-direction: column;
     font-weight: 400;
-    padding: 0px 50px 50px 20px;
+    overflow: hidden;
+    padding: 0px 200px 0px 20px;
 }
 
 .browse-content {
