@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ShelfService } from '../../shelf.service';
 import { Shelf } from '../../models/shelf';
+import { environment } from '../../../environments/environment';
+import { Release } from '../../models/release';
 
 @Component({
   selector: 'app-shelf-detail',
@@ -24,5 +26,13 @@ export class ShelfDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('shelfId');
     this.shelfService.getShelf(id)
       .subscribe(shelf => this.shelf = shelf);
+  }
+
+  getArt(release: Release) {
+    if (release.coverArtArchive.artwork) {
+      return `${environment.coverArtUrl}/release/${release.id}/front-500.jpg`;
+    } else {
+      return `${environment.coverArtUrl}/release-group/${release.KEXPReleaseGroupMBID}/front-500.jpg`;
+    }
   }
 }

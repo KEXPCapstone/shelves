@@ -22,5 +22,5 @@ export class ResultGroupListComponent implements OnInit {
         } else {
           return `${environment.coverArtUrl}/release-group/${release.KEXPReleaseGroupMBID}/front-500.jpg`;
         }
-      }
+    }
 }
