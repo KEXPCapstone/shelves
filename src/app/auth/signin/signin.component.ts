@@ -21,9 +21,7 @@ export class SigninComponent implements OnInit {
   login(form: NgForm) {
     this.authService.login(form.value.email, form.value.password)
       .subscribe((resp) => {
-        console.log(localStorage.getItem('auth-token'));
       }, (error) => {
-        console.log(error);
         if (error.status === 401) {
           this.snackbar.open('Email or password is incorrect', 'OK');
         } else {
