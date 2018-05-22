@@ -20,12 +20,7 @@
         box-shadow: 0 0 5px rgba(mat-color($accent), 0.87);
     }
 
-
-    .artist-image {
-
-        &:after {
-            background: linear-gradient(mat-color($primary), mat-color($primary, darker));
-            color: mat-color($foreground, text);
-        }
+    .tile-background {
+        background: radial-gradient(mat-color($primary, darker), mat-color($primary));
     }
 }

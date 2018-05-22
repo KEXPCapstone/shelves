@@ -7,8 +7,8 @@
         </div>
     <div class="browse-content">
         <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
-            <div class="tile-container" *ngFor="let release of label.releases; let i = index;">
-                <mat-grid-tile>
+            <div class="tile-background" *ngFor="let release of label.releases; let i = index;">
+                <mat-grid-tile class="tile-background">
                 <a routerLink="/library/releases/{{release.releaseID}}">
                     <img class="release-preview"
                     width="100%"

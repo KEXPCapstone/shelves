@@ -7,7 +7,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LibraryService } from '../library.service';
 import { combineLatest, Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
-import { Artist } from '../models/artist';
+import { Artist, ArtistReleaseGroup } from '../models/artist';
 import { Label } from '../models/label';
 import { Release } from '../models/release';
 import { VirtualScrollModule, ChangeEvent } from 'angular2-virtual-scroll';
@@ -133,13 +133,12 @@ export class ArtistComponent implements OnInit {
   constructor(private libraryService: LibraryService,
               private _route: ActivatedRoute) {}
 
-    getArt(release: Release) {
-      if (release.coverArtArchive.artwork) {
-        return `${environment.coverArtUrl}/release/${release.id}/front-500.jpg`;
-      } else if (release.asin !== '') {
-        return `http://images-eu.amazon.com/images/P/${release.asin}`;
+    getArt(releaseGroup: ArtistReleaseGroup) {
+      if (releaseGroup.releases[0].coverArtArchive.artwork) {
+        return `${environment.coverArtUrl}/release/${releaseGroup.releases[0].id}/front-500.jpg`;
       } else {
-        return `${environment.coverArtUrl}/release-group/${release.KEXPReleaseGroupMBID}/front-500.jpg`;
+        console.log(releaseGroup);
+        return `${environment.coverArtUrl}/release-group/${releaseGroup.releaseGroupId}/front-500.jpg`;
       }
     }
 
@@ -228,8 +227,6 @@ export class ReleaseItemComponent implements OnInit {
   ngOnInit() {
     if (this.release.coverArtArchive.artwork) {
       this.artSrc = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
-    } else if (this.release.asin !== '') {
-      this.artSrc = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
     } else {
       this.artSrc = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
     }

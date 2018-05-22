@@ -1,4 +1,4 @@
-<div class="mat-grid-tile tile">
+<div class="mat-grid-tile tile tile-background">
   <a class="tile-link" routerLink="/library/artists/{{group}}/{{artist.id}}">
     <img class="artist-image"
     width="100%"
@@ -6,6 +6,7 @@
     src="{{artSrc}}"
     (error)="onImageError()"
     >
+    <!-- <div class="initials">{{artist.name}}</div> -->
     <div class="mat-grid-tile-footer mat-2-line tile-footer">
       <div class="mat-grid-list-text">
         <h4 class="mat-caption" mat-line>{{artist.name}}</h4>

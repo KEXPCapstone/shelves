@@ -35,12 +35,13 @@ export class ReleaseNotesComponent implements OnInit {
 
   ngOnInit() {
     this.getNotes();
+  }
+
+  getArt() {
     if (this.release.coverArtArchive.artwork) {
-      this.artURL = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
-    } else if (this.release.asin !== '') {
-      this.artURL = `http://images-eu.amazon.com/images/P/${this.release.asin}`;
+      return `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
     } else {
-      this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
+      return `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
     }
   }
 

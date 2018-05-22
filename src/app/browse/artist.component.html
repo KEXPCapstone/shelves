@@ -7,13 +7,13 @@
         </div>
     <div class="browse-content">
         <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
-            <div class="tile-container" *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">
-                <mat-grid-tile>
+            <div class="tile-background" *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">
+                <mat-grid-tile class="tile-background">
                 <a routerLink="/library/releases/{{releaseGroup.releases[0].id}}">
                     <img class="release-preview"
                     width="100%"
                     alt="{{releaseGroup.title}}"
-                    [src]="getArt(releaseGroup.releases[0])"
+                    [src]="getArt(releaseGroup)"
                     onerror="this.hidden='true'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>{{releaseGroup.title}}</h4>
