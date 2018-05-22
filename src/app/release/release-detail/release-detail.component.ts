@@ -15,8 +15,7 @@ import { environment } from '../../../environments/environment.prod';
 @Component({
   selector: 'app-release-detail',
   templateUrl: './release-detail.component.html',
-  styleUrls: ['./release-detail.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./release-detail.component.scss']
 })
 export class ReleaseDetailComponent implements OnInit, OnDestroy {
   @Input() release: Release;

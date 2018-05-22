@@ -16,16 +16,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./release-notes.component.scss']
 })
 export class ReleaseNotesComponent implements OnInit {
-  private release: Release;
-  private notes: Note[];
-  private numNotes = 0;
-  private numPosters = 0;
-  private artURL: string;
+  release: Release;
+  notes: Note[];
+  numNotes = 0;
+  numPosters = 0;
+  artURL: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
     private noteService: NoteService,
-    private authService: AuthService,
+    public authService: AuthService,
     public dialogRef: MatDialogRef<ReleaseNotesComponent>,
     public http: HttpClient
   ) {

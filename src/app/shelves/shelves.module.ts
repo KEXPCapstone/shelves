@@ -14,8 +14,7 @@ import { AuthService } from '../auth/auth.service';
 @Component({
   selector: 'app-shelves-list',
   templateUrl: './shelves-list.component.html',
-  styleUrls: ['./shelves-list.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./shelves-list.component.scss']
 })
 export class ShelvesListComponent implements OnInit, OnDestroy {
   shelves: Shelf[] = [];
@@ -117,7 +116,7 @@ export class CreateShelfComponent implements OnInit {
 
   constructor(
     private shelfService: ShelfService,
-    private authService: AuthService,
+    public authService: AuthService,
     private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<CreateShelfComponent>
   ) {}

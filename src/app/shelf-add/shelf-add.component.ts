@@ -15,15 +15,15 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./shelf-add.component.scss']
 })
 export class ShelfAddComponent implements OnInit {
-  private release: Release;
-  private userShelves: Shelf[];
-  private currShelf: Shelf;
+  release: Release;
+  userShelves: Shelf[];
+  currShelf: Shelf;
   artURL: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) release,
     private shelfService: ShelfService,
-    private authService: AuthService,
+    public authService: AuthService,
     private snackbar: MatSnackBar,
     public dialogRef: MatDialogRef<ShelfAddComponent>,
     iconRegistry: MatIconRegistry,

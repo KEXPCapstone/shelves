@@ -1,3 +1,3 @@
 # build the docker container for nginx
-docker build -t johnlawsharrison/shelves .
-docker push johnlawsharrison/shelves
+docker build -t kexpcapstone/shelves-app .
+docker push kexpcapstone/shelves-app

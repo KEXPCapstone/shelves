@@ -1,15 +1,15 @@
-<div class="shelves-browse-nav">
-    <div class="shelves-browse-nav-content">
+<div class="browse-nav">
+    <div class="browse-nav-content">
         <nav *ngFor="let category of browseCategories; let last = last;">
             <button cdkAccordionItem #panel="cdkAccordionItem" (click)="panel.toggle()" expanded="false"
-                class="shelves-browse-nav-content-btn">
+                class="browse-nav-content-btn">
                 {{category.name}}
                 <mat-icon>{{panel.expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>
             </button>
             <ul [@bodyExpansion]="panel.expanded ? 'expanded' : 'collapsed'" id="panel-{{category.id}}">
-                <li class="shelves-browse-nav-list-item" *ngFor="let group of category.groups">
+                <li class="browse-nav-list-item" *ngFor="let group of category.groups">
                     <a [routerLink]="'/library/' + category.id + '/' + group.id"
-                        routerLinkActive="shelves-browse-sidenav-item-selected">
+                        routerLinkActive="browse-sidenav-item-selected">
                         {{ group.name | titlecase }}
                     </a>
                 </li>

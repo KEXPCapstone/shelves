@@ -6,17 +6,17 @@ app-release-detail {
     padding: 20px 50px 50px 20px;
 }
 
-.shelves-release-container {
+.release-container {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.shelves-release-overview {
+.release-overview {
     display: flex;
 }
 
-.shelves-release-album-cover {
+.release-album-cover {
     position: relative;
     width: 500px;
     height: 500px;
@@ -32,7 +32,7 @@ app-release-detail {
     background: rgba(0, 0, 0, 0.9);
 }
 
-.shelves-release-info {
+.release-info {
     flex: 1;
     margin-left: 24px;
 }

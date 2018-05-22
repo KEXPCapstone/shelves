@@ -1,4 +1,4 @@
-<div class="shelves-browse-category-header">
+<div class="category-header">
   <div class="category-header-title">
     <h1 class="mat-display-2">{{group == 'mine' ? 'My' : group | titlecase}} shelves</h1>
     <mat-divider class="category-divider"></mat-divider>
@@ -10,7 +10,7 @@
       </button>
   </div>
 </div>
-<div class="shelves-browse-content">
+<div class="browse-content">
   <div *ngIf="shelves.length === 0">
     <div [ngSwitch]="group" class="empty-shelves-message">
       <div *ngSwitchCase="'mine'">
