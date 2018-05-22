@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
 import { NoteService } from '../../note.service';
 import { FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
@@ -27,7 +27,8 @@ export class ReleaseNotesComponent implements OnInit {
     private noteService: NoteService,
     public authService: AuthService,
     public dialogRef: MatDialogRef<ReleaseNotesComponent>,
-    public http: HttpClient
+    public http: HttpClient,
+    private snackbar: MatSnackBar
   ) {
     this.release = release;
    }
@@ -63,22 +64,24 @@ export class ReleaseNotesComponent implements OnInit {
         this.numNotes = this.notes.length;
         this.setNumberPosters();
       }, (error) => {
-        console.log(error);
+        this.snackbar.open('Error getting notes. Please try again later.', '', {
+          duration: 2000
+        });
       }
     );
   }
 
   postNote(form: NgForm) {
-    console.log(form.value.note);
     this.noteService.postNote(form.value.note, this.release)
       .subscribe((resp) => {
-        console.log(resp);
         this.notes.push(resp);
         this.numNotes = this.notes.length;
         this.setNumberPosters();
         form.reset();
       }, (error) => {
-        console.log(error);
+        this.snackbar.open(error.error, '', {
+          duration: 2000
+        });
       }
     );
   }

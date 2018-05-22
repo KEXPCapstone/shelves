@@ -1,16 +1,17 @@
-<div *ngIf="noResults" class="no-results">
-  <h2 class="mat-headline">No releases matched '{{query}}'</h2>
+<div class="search-results-container">
+  <div *ngIf="noResults" class="no-results">
+    <h2 class="mat-headline">No releases matched '{{query}}'</h2>
+  </div>
+  <div *ngIf="titleMatches && titleMatches.length > 0">
+    <app-result-group-list [results]=titleMatches header="Album Matches" type="Album"></app-result-group-list>    
+  </div>
+
+  <div *ngIf="artistMatches && artistMatches.length > 0">
+    <app-result-group-list [results]=artistMatches header="Artist Matches" type="Artist"></app-result-group-list>       
+  </div>  
+
+  <div *ngIf="trackMatches && trackMatches.length > 0">
+    <app-result-group-list [results]=trackMatches header="Track Matches" type="Track"></app-result-group-list>    
+  </div>  
 </div>
-<div *ngIf="titleMatches && titleMatches.length > 0">
-  <app-result-group-list [results]=titleMatches header="Title Matches"></app-result-group-list>    
-</div>
-
-<div *ngIf="artistMatches && artistMatches.length > 0">
-  <app-result-group-list [results]=artistMatches header="Artist Matches"></app-result-group-list>       
-</div>  
-
-<div *ngIf="trackMatches && trackMatches.length > 0">
-  <app-result-group-list [results]=trackMatches header="Track Matches"></app-result-group-list>    
-</div>  
-
   

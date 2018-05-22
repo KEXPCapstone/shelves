@@ -57,7 +57,6 @@ export class BrowseListComponent implements OnInit, OnDestroy {
   }
 
   fetchNextChunk(start: string) {
-    console.log('Fetching next chunk');
     switch (this.section) {
       case 'artists': {
         this.libraryService.getArtists(this.group, start, MAX_BROWSE_ITEMS).subscribe(
@@ -174,8 +173,7 @@ export class LabelComponent implements OnInit {
 
 @Component({
   selector: 'app-list-item', // do not change to app-list-item
-  templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.scss']
+  templateUrl: './list-item.component.html'
 })
 export class ListItemComponent {
   @Input() item: any;
@@ -185,8 +183,7 @@ export class ListItemComponent {
 
 @Component({
   selector: 'app-artist-item',
-  templateUrl: './artist-item.component.html',
-  styleUrls: ['./artist-item.component.scss']
+  templateUrl: './artist-item.component.html'
 })
 export class ArtistItemComponent implements OnInit {
   @Input() artist: Artist;
@@ -221,8 +218,7 @@ export class ArtistItemComponent implements OnInit {
 
 @Component({
   selector: 'app-release-item',
-  templateUrl: './release-item.component.html',
-  styleUrls: ['./release-item.component.scss']
+  templateUrl: './release-item.component.html'
 })
 export class ReleaseItemComponent implements OnInit {
   @Input() release: Release;
@@ -243,8 +239,7 @@ export class ReleaseItemComponent implements OnInit {
 
 @Component({
   selector: 'app-label-item',
-  templateUrl: './label-item.component.html',
-  styleUrls: ['./label-item.component.scss']
+  templateUrl: './label-item.component.html'
 })
 export class LabelItemComponent implements OnInit {
   @Input() label: Label;

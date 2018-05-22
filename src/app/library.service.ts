@@ -31,7 +31,6 @@ export class LibraryService {
   // Get a single artist summary from it's 'id'
   getArtistById(id: string): Observable<any> {
     const url = `${environment.apiUrl}/library/artists/${id}`;
-    console.log(`called getArtistById with: ${id}`);
     return this.http.get<any>(url).pipe(
       catchError(this.handleError<any>(`getArtist id=${id}`))
     );
@@ -61,7 +60,6 @@ export class LibraryService {
   // Get a single label summary from it's 'id'
   getLabelById(id: string): Observable<any> {
     const url = `${environment.apiUrl}/library/labels/${id}`;
-    console.log(`called getLabelById with: ${id}`);
     return this.http.get<any>(url).pipe(
       catchError(this.handleError<any>(`getLabel id=${id}`))
     );
@@ -96,7 +94,6 @@ export class LibraryService {
       .append('start', start)
       .append('limit', limit.toString())
     };
-    console.log(url);
     return this.http.get<Release[]>(url, options).pipe(
       tap(releases => this.log(`fetched related releases`)),
       catchError(this.handleError('getRelatedReleases', []))

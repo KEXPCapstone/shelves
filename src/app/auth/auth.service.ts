@@ -40,7 +40,6 @@ export class AuthService {
         const url = `${environment.apiUrl}/users/me`;
         return this.http.get<User>(url).pipe(
             tap((resp) => {
-                console.log(resp);
                 // this.setToken(resp.headers.get('Authorization'));
             }),
             catchError(this.handleError())
@@ -53,7 +52,6 @@ export class AuthService {
         this.removeToken();
         const creds: Credentials = {email: email, password: password};
         const url = `${environment.apiUrl}/sessions`;
-        console.log(url);
         return this.http.post<HttpResponse<User>>(url, creds, {observe: 'response'}).pipe(
             tap((resp) => {
                 this.successfulSignIn(resp);
@@ -63,16 +61,14 @@ export class AuthService {
         );
     }
 
+    // will pass authorization header in http interceptor
     public logout() {
-        // will pass authorization header in http interceptor
         const url = `${environment.apiUrl}/sessions/mine`;
-        console.log(url);
         return this.http.delete(url, {responseType: 'text'})
         .pipe(
             tap(_ => {
                 this.removeToken();
                 this.router.navigate(['/login']);
-                console.log('signed out!');
             }),
             catchError(this.handleError())
         );

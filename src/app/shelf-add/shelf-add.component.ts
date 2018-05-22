@@ -50,9 +50,7 @@ export class ShelfAddComponent implements OnInit {
   getUserShelves() {
     this.shelfService.getMyShelves()
       .subscribe((shelves) => {
-        console.log(shelves);
         this.userShelves = shelves;
-        console.log(this.userShelves);
       }, (error) => {
         if (this.authService.isAuthenticated) {
           this.snackbar.open('Error loading your shelves; please try again later.', '', {
@@ -69,7 +67,6 @@ export class ShelfAddComponent implements OnInit {
 
 
   newShelf(form: NgForm) {
-    console.log(form.value.shelfName);
     const newShelf: NewShelf = {
       name: form.value.shelfName,
       description: '',
@@ -77,7 +74,6 @@ export class ShelfAddComponent implements OnInit {
     };
     this.shelfService.addShelf(newShelf)
       .subscribe((resp) => {
-        console.log(resp);
         this.getUserShelves();
         form.reset();
         this.snackbar.open('Added a shelf!', '', {
