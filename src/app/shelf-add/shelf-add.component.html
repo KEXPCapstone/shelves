@@ -29,8 +29,9 @@
       <form #addShelf="ngForm">
         <mat-form-field>
           <input matInput name="shelfName" ngModel placeholder="Add new shelf">
+          <button mat-button matSuffix mat-icon-button class="mat-raised-button dialog-btn" (click)="newShelf(addShelf)"><mat-icon svgIcon="plus-icon"></mat-icon></button>
         </mat-form-field>
-          <button mat-button class="mat-raised-button dialog-btn" (click)="newShelf(addShelf)"><mat-icon svgIcon="plus-icon"></mat-icon></button>
+          
       </form>
     </div>    
   </div>
