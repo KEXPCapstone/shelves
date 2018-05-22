@@ -10,7 +10,7 @@
   <mat-grid-list cols="5" gutterSize="16px">
     
       <div *ngFor="let release of shelf.releases" class="tile-container">
-        <mat-grid-tile class="browse-grid-list">
+        <mat-grid-tile class="browse-grid-list tile-background">
           <a routerLink="/library/releases/{{release.id}}">
             <img class="artist-image"
               width="100%"

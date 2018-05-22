@@ -10,4 +10,8 @@
         color: mat-color($primary, default-contrast);
     }
 
+    .release-album-cover {
+        background: radial-gradient(mat-color($primary, darker), mat-color($primary));
+    }
+
 }
