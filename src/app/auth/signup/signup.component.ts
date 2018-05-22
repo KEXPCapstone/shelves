@@ -27,7 +27,6 @@ export class SignupComponent implements OnInit {
       form.value.firstName,
       form.value.lastName)
       .subscribe((resp) => {
-        console.log('created new user');
       }, (error) => {
         if (error.status === 400) {
           this.snackbar.open(error.error.slice(24), 'OK');

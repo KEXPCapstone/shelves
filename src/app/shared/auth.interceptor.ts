@@ -18,9 +18,6 @@ export class AuthInterceptor implements HttpInterceptor {
         return next.handle(copiedReq)
         .pipe(
             tap((resp) => {
-                if (resp instanceof HttpResponse) {
-                    // console.log(resp);
-                }
             }, (err) => {
                 if (err.status === 401) {
                     this.authService.removeToken();

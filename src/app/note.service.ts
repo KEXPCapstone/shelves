@@ -15,7 +15,6 @@ export class NoteService {
         const url = `${environment.apiUrl}/library/notes/releases/${release.id}`;
         return this.http.get<Note[]>(url).pipe(
             tap((resp) => {
-                console.log(resp);
             }),
             catchError(this.handleError('getNotes', []))
         );
@@ -26,7 +25,6 @@ export class NoteService {
         const noteObj: NewNote = {comment: note};
         return this.http.post<Note>(url, noteObj).pipe(
             tap((resp) => {
-                console.log(resp);
             }),
             catchError(this.handleError())
         );

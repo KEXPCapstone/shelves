@@ -57,7 +57,6 @@ export class BrowseListComponent implements OnInit, OnDestroy {
   }
 
   fetchNextChunk(start: string) {
-    console.log('Fetching next chunk');
     switch (this.section) {
       case 'artists': {
         this.libraryService.getArtists(this.group, start, MAX_BROWSE_ITEMS).subscribe(

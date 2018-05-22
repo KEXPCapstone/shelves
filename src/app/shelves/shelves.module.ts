@@ -27,7 +27,8 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
     private _route: ActivatedRoute,
     private _dialog: MatDialog,
     private _router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private snackbar: MatSnackBar
   ) {
   combineLatest(_route.params, _route.parent.params).pipe(
     takeUntil(this._destroyed)
@@ -76,7 +77,9 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
       .subscribe((shelves) => {
         this.shelves = shelves;
       }, (error) => {
-        console.log(error);
+        this.snackbar.open('Error getting shelves. Please try again later.', '', {
+          duration: 2000
+        });
       }
     );
   }
@@ -86,7 +89,9 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
       .subscribe((shelves) => {
         this.shelves = shelves;
       }, (error) => {
-        console.log(error);
+        this.snackbar.open('Error getting shelves. Please try again later.', '', {
+          duration: 2000
+        });
       }
     );
   }
@@ -125,7 +130,6 @@ export class CreateShelfComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('New shelf submitted');
     this.shelfService.addShelf(this.newShelf).subscribe(
       (resp) => {
         this.snackbar.open(
