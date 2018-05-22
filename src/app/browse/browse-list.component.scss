@@ -90,26 +90,9 @@ app-list-item {
     }
 }
 
-@media (min-height: 1000px) {
-    virtual-scroll {
-        height: 900px;
-    }
-}
-
-@media (max-height: 1000px){
-    virtual-scroll {
-        height: 720px;
-    }
-}
-
-@media (max-height: $small_breakpoint_width) {
-    virtual-scroll {
-        height: 600px;
-    }
-}
-
 virtual-scroll {
     width: 100%;
+    height: 100vh;
 }
 
 // TODO: target this without relying on encapsulation selector
