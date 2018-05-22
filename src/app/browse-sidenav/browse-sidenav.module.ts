@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BROWSE_NAV_ITEMS } from './browse-nav-items';
 
 const SMALL_WIDTH_BREAKPOINT = 720;
+const MEDIUM_WIDTH_BREAKPOINT = 899;
 
 @Component({
     selector: 'app-browse-sidenav',
@@ -17,7 +18,7 @@ const SMALL_WIDTH_BREAKPOINT = 720;
     encapsulation: ViewEncapsulation.None,
 })
 export class BrowseSidenavComponent implements OnInit {
-    private mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px`);
+    private mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${MEDIUM_WIDTH_BREAKPOINT}px`);
 
     constructor(private _route: ActivatedRoute,
                 private _router: Router,
