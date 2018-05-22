@@ -55,10 +55,13 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getRelease();
+  }
+
+  getArt() {
     if (this.release.coverArtArchive.artwork) {
-      this.artURL = `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
+      return `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
     } else {
-      this.artURL = `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
+      return `${environment.coverArtUrl}/release-group/${this.release.KEXPReleaseGroupMBID}/front-500.jpg`;
     }
   }
 
