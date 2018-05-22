@@ -1,5 +1,5 @@
 <div class="row dialog-header">
-  <img class="notes-album-image" [src]="artURL" onerror="this.hidden='true'">
+  <img class="notes-album-image" [src]="getArt()" onerror="this.hidden='true'">
   <div class="column">
     <h1 mat-dialog-title class="release-title">{{release.title}}</h1>
     <h5 class="release-artist">{{release.KEXPReleaseArtistCredit}}</h5>
