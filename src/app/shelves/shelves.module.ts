@@ -10,6 +10,8 @@ import { BROWSE_NAV_ITEMS } from '../browse-sidenav/browse-nav-items';
 import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
 import { MatDialog, MatDialogConfig, MatDialogRef, MatSnackBar, MatDialogModule, MatCheckboxModule } from '@angular/material';
 import { AuthService } from '../auth/auth.service';
+import { environment } from '../../environments/environment';
+import { Release } from '../models/release';
 
 @Component({
   selector: 'app-shelves-list',
@@ -59,6 +61,17 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
          break;
       }
    }
+  }
+
+  getArt(releases: Release[]) {
+    console.log(releases);
+    const randomIndex = Math.floor(Math.random() * releases.length);
+    const release = releases[randomIndex];
+    if (release.coverArtArchive.artwork) {
+      return `${environment.coverArtUrl}/release/${release.id}/front-500.jpg`;
+    } else {
+      return `${environment.coverArtUrl}/release-group/${release.KEXPReleaseGroupMBID}/front-500.jpg`;
+    }
   }
 
   getMyShelves() {
