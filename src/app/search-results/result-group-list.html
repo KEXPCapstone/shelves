@@ -10,7 +10,7 @@
                 <img class="album-image"
                     width="100%"
                     alt="{{result.release.title}}"
-                    src="//coverartarchive.org/release-group/{{result.release.KEXPReleaseGroupMBID}}/front-500.jpg"
+                    [src]="getArt(result.release)"
                     onerror="this.style.display='none'"
                     >
                 <mat-grid-tile-footer class="tile-footer">

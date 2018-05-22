@@ -1,5 +1,7 @@
 import { OnInit, Component, Input } from '@angular/core';
 import { SearchResultsComponent } from './search-results.component';
+import { Release } from '../models/release';
+import { environment } from '../../environments/environment';
 
 @Component({
     selector: 'app-result-group-list',
@@ -13,4 +15,12 @@ export class ResultGroupListComponent implements OnInit {
 
     constructor() {}
     ngOnInit() {}
+
+    getArt(release: Release) {
+        if (release.coverArtArchive.artwork) {
+          return `${environment.coverArtUrl}/release/${release.id}/front-500.jpg`;
+        } else {
+          return `${environment.coverArtUrl}/release-group/${release.KEXPReleaseGroupMBID}/front-500.jpg`;
+        }
+      }
 }
