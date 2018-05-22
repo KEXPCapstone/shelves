@@ -27,7 +27,6 @@ export class ShelfPreviewComponent implements OnInit {
   }
 
   getBackupArt(mbid: string) {
-    console.log(mbid);
     this.libraryService.getReleaseById(mbid)
       .subscribe((release) => {
         this.imgUrls.set(release.id, `//coverartarchive.org/release-group/${release.KEXPReleaseGroupMBID}/front-500.jpg`);
