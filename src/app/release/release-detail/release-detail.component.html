@@ -47,13 +47,13 @@
             </h3>
             <h3 class="mat-body-1" *ngIf="release.labelInfo.length > 0" mat-line>
                 on
-                <a class="kexp-orange"
-                    *ngFor="let label of release.labelInfo"
+                <a  *ngFor="let label of release.labelInfo; let last = last; let first = first"
                     routerLink="/library/labels/{{label.label.name.charAt(0) | lowercase}}/{{label.label.id}}"
                     matTooltip="See more from this label"
                     matTooltipHideDelay="250"
                     matTooltipPosition="below">
-                    {{ label.label.name }}
+                    <span class="kexp-orange">{{ label.label.name }}</span>
+                    {{ last ? '' : ', '}}
                 </a>
             </h3>
             <mat-divider></mat-divider>
