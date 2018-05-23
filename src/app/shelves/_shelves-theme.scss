@@ -17,13 +17,4 @@
     .empty-icon {
         color: mat-color($foreground, disabled-text);
     }
-
-    .artist-image {
-
-        &:after {
-            background: linear-gradient(mat-color($primary), mat-color($primary, darker));
-            // background: mat-color($background, card);
-            color: mat-color($foreground, text);
-        }
-    }
 }
