@@ -137,7 +137,6 @@ export class ArtistComponent implements OnInit {
       if (releaseGroup.releases[0].coverArtArchive.artwork) {
         return `${environment.coverArtUrl}/release/${releaseGroup.releases[0].id}/front-500.jpg`;
       } else {
-        console.log(releaseGroup);
         return `${environment.coverArtUrl}/release-group/${releaseGroup.releaseGroupId}/front-500.jpg`;
       }
     }

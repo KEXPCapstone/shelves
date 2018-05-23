@@ -23,4 +23,8 @@
     .tile-background {
         background: radial-gradient(mat-color($primary, darker), mat-color($primary));
     }
+
+    .category-header {
+        background: mat-color($background, background)
+    }
 }
