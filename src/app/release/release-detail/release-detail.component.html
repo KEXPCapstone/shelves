@@ -58,7 +58,7 @@
                 <div class="track-group" *ngFor="let disc of release.media; let i = index">
                     <h3 *ngIf="release.media.length > 1" matSubheader>{{release.media[i].title}} - {{release.media[i].format}}</h3>
                     <mat-list-item *ngFor="let track of release.media[i].tracks; last as last">
-                        <div class="track-title"><span>{{track.number}}</span> {{track.title}}</div>
+                        <div class="track-title"><span class="track-number kexp-orange">{{track.number}}</span> {{track.title}}</div>
                         <div class="track-spacer"></div>
                         <div class="track-length">{{track.length | date:'mm:ss'}}</div>
                         <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
