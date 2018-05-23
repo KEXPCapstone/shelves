@@ -76,15 +76,14 @@ app-release-detail {
 }
 
 @media screen and (min-width: $large_breakpoint_width) {
+}
+
+@media screen and (min-width: $xlarge_breakpoint_width) {
     .release-album-cover {
         position: relative;
         width: 500px;
         height: 500px;
     }
-}
-
-@media screen and (min-width: $xlarge_breakpoint_width) {
- 
 }
 
 @media screen and (min-width: $xxl_breakpoint_width) {
