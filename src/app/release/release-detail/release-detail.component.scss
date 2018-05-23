@@ -60,10 +60,6 @@ app-release-detail {
     flex: 1;
 }
 
-.flex-spacer {
-    flex-grow: 1;
-}
-
 @media screen and (min-width: $small_breakpoint_width) {
     .release-album-cover {
         position: relative;
