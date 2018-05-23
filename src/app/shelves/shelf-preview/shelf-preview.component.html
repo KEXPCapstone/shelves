@@ -4,12 +4,15 @@
     <div *ngFor="let release of shelf.releases | slice:0:5">
       <div class="">
         <a  routerLink="/library/releases/{{release.id}}">
-          <img class="shelf-preview-img" [src]="getArt(release)" name="{{release.title}}"> 
+          <img class="shelf-preview-img"
+          [src]="getArt(release)"
+          name="{{release.title}}"
+          onerror="this.style.display='none'">
         </a>
       </div>
     </div>
     <div *ngIf="shelf.releases.length > 5">
-        <div class="more-releases">          
+        <div class="more-releases">
             <div class="album-dialog-ctrl">
                <a routerLink="/browse/shelf/{{shelf.id}}"> +{{shelf.releases.length - 5}} more </a>
             </div>

@@ -4,7 +4,7 @@
     width="100%"
     alt="{{artist.name}}"
     src="{{artSrc}}"
-    (error)="onImageError()"
+    onerror="this.style.display='none'"
     >
     <!-- <div class="initials">{{artist.name}}</div> -->
     <div class="mat-grid-tile-footer mat-2-line tile-footer">

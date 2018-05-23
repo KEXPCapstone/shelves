@@ -16,8 +16,7 @@
               width="100%"
               alt="{{release.title}}"
               [src]="getArt(release)"
-              onerror="this.hidden='true'"
-            >
+              onerror="this.style.display='none'">
             <mat-grid-tile-footer class="tile-footer">
               <h4 mat-line>{{release.title}}</h4>
               <h4 mat-line>{{release.KEXPReleaseArtistCredit}}</h4>
