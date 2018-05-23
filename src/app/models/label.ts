@@ -8,10 +8,10 @@ export class Label {
 
 export class LabelRelease {
     catalogNumber: string;
-    releaseGroupId: string;
-    releaseId: string;
+    releaseGroupID: string;
+    releaseID: string;
     title: string;
-    artistId: string;
+    artistID: string;
     artistName: string;
     asin: string;
     coverArtArchive: any;
