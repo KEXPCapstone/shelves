@@ -8,7 +8,7 @@ import { combineLatest, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BROWSE_NAV_ITEMS } from '../browse-sidenav/browse-nav-items';
 import { ShelfDetailComponent } from './shelf-detail/shelf-detail.component';
-import { MatDialog, MatDialogConfig, MatDialogRef, MatSnackBar, MatDialogModule, MatCheckboxModule } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatDialogRef, MatSnackBar, MatDialogModule, MatCheckboxModule} from '@angular/material';
 import { AuthService } from '../auth/auth.service';
 import { environment } from '../../environments/environment';
 import { Release } from '../models/release';

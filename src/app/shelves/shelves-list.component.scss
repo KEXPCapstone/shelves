@@ -7,9 +7,16 @@ app-shelves-list {
 
 .category-header {
 
+    padding-right: 250px;
+
     .new-shelf-button {
         margin: 0 0 0 24px; 
     }
+}
+
+.create-shelf-button {
+    display: flex;
+    align-items: center;
 }
 
 .browse-content {
