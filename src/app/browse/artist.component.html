@@ -17,6 +17,16 @@
                     onerror="this.style.display='none'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>{{releaseGroup.title}}</h4>
+                    <h4 mat-line>
+                        <span *ngIf="releaseGroup.releases[0].date.length == 4"><span class="kexp-orange">{{releaseGroup.releases[0].date}}</span></span>
+                        <span *ngIf="releaseGroup.releases[0].date.length > 4"><span class="kexp-orange">{{releaseGroup.releases[0].date | date:'yyyy'}}</span></span>
+                    </h4>
+                    <h4 mat-line *ngIf="releaseGroup.releases[0].labelInfo.length > 0">
+                        {{releaseGroup.releases[0].labelInfo[0].label.name}}
+                    </h4>
+                    <h4 mat-line>
+                        {{(releaseGroup.releases[0].status == 'Promotion') ? 'Promotional release' : ''}}
+                    </h4>
                 </mat-grid-tile-footer>
                 </a>
                 </mat-grid-tile>

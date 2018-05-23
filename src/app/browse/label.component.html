@@ -17,7 +17,14 @@
                     onerror="this.style.display='none'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>{{release.title}}</h4>
-                    <h4 mat-line>{{release.artistName}}</h4>
+                    <h4 mat-line>by {{release.artistName}}</h4>
+                    <h4 mat-line>
+                            <span *ngIf="release.date.length == 4"><span class="kexp-orange">{{release.date}}</span></span>
+                            <span *ngIf="release.date.length > 4"><span class="kexp-orange">{{release.date | date: 'yyyy'}}</span></span>
+                    </h4>
+                    <h4 mat-line>
+                        {{(release.status == 'Promotion') ? 'Promotional release' : ''}}
+                    </h4>
                 </mat-grid-tile-footer>
                 </a>
                 </mat-grid-tile>
