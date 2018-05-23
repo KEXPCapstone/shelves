@@ -7,9 +7,12 @@ app-release-detail {
 }
 
 .release-detail-container {
-    padding: 20px 20px 0px 20px;
+    padding: 40px 20px 0px 20px;
 }
 
+.tracklist-container {
+    padding-top: 16px;
+}
 
 .release-container {
     flex: 1;
@@ -19,12 +22,13 @@ app-release-detail {
 
 .release-overview {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .release-album-cover {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 150px;
+    height: 150px;
 }
 
 .album-dialog-ctrl {
@@ -60,12 +64,23 @@ app-release-detail {
     flex-grow: 1;
 }
 
-@media screen and (min-width: $medium_breakpoint_width) {
+@media screen and (min-width: $small_breakpoint_width) {
+    .release-album-cover {
+        position: relative;
+        width: 300px;
+        height: 300px;
+    }
+}
 
+@media screen and (min-width: $medium_breakpoint_width) {
 }
 
 @media screen and (min-width: $large_breakpoint_width) {
-
+    .release-album-cover {
+        position: relative;
+        width: 500px;
+        height: 500px;
+    }
 }
 
 @media screen and (min-width: $xlarge_breakpoint_width) {

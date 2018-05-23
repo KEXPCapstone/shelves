@@ -15,7 +15,8 @@ import {
   MatDialogModule,
   MatChipsModule,
   MatSnackBarModule,
-  MatIconModule
+  MatIconModule,
+  MatTooltipModule
 } from '@angular/material';
 import { ReleaseNotesComponent } from '../../release/release-notes/release-notes.component';
 import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
@@ -35,7 +36,8 @@ import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
     MatDividerModule,
     MatChipsModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   exports: [
     MatSidenavModule,
@@ -50,7 +52,8 @@ import { ShelfAddComponent } from '../../shelf-add/shelf-add.component';
     MatDividerModule,
     MatSnackBarModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   entryComponents: [ReleaseNotesComponent, ShelfAddComponent] // Tells Angular to provide a factory for the notes modal component
 })

@@ -6,9 +6,25 @@
             alt={{release.title}}
             onerror="this.style.display='none'">
             <div class="album-dialog-ctrl">
-                <button class="dialog-ctrl-btn" mat-button (click)="openNotesDialog()"><mat-icon>comment</mat-icon></button>
+                <button class="dialog-ctrl-btn"
+                        mat-button
+                        (click)="openNotesDialog()">
+                    <mat-icon
+                        matTooltip="View notes for this release"
+                        matTooltipPosition="right">
+                        comment
+                    </mat-icon>
+                </button>
                 <div class="flex-spacer"></div>
-                <button class="dialog-ctrl-btn" mat-button (click)="openShelfAddDialog()"><mat-icon>add_circle</mat-icon></button>
+                <button class="dialog-ctrl-btn"
+                        mat-button
+                        (click)="openShelfAddDialog()">
+                    <mat-icon
+                        matTooltip="Add this release to a shelf"
+                        matTooltipPosition="right">
+                        add_circle
+                    </mat-icon>
+                </button>
             </div>        
         </div>
         <div class="release-info">
