@@ -12,6 +12,8 @@ a {
 app-browse-list, app-label, app-artist {
     display: flex;
     flex-direction: column;
+    height: 90vh; // to allow for scrolling independent of mat-sidenav-content
+    overflow: auto; // scrolling
     padding: 0px 200px 0px 20px;
 }
 
@@ -31,4 +33,10 @@ app-browse-list, app-label, app-artist {
     .category-divider {
         width: 100%;
     }
+}
+
+// keep the sidenav content from scrolling
+// (temporary hack to allow virtual-scroll to work correctly)
+mat-sidenav-content.mat-drawer-content {
+    overflow: hidden;
 }
