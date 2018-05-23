@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: "Roboto","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
   
 /* links */
@@ -11,6 +12,19 @@ a {
 
 .flex-spacer {
     flex-grow: 1;
+}
+
+.fallback {
+    color: #8e8e8e;
+    opacity: .1;
+    font-size: 1rem;
+    line-height: 1.4;
+    width: 40%;
+    position: relative;
+    top: 25%;
+    display: block;
+    margin: 0 auto;
+    font-weight: 400;
 }
 
 app-browse-list,

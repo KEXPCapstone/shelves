@@ -11,7 +11,7 @@
                     width="100%"
                     alt="{{result.release.title}}"
                     [src]="getArt(result.release)"
-                    onerror="this.style.display='none'">
+                    onerror="this.src='../../assets/bars-white.svg'; this.className='album-image fallback'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>
                         {{result.release.title}}

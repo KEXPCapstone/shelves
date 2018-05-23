@@ -14,11 +14,11 @@
                     width="100%"
                     alt="{{release.title}}"
                     src="//coverartarchive.org/release-group/{{release.releaseGroupID}}/front-500.jpg"
-                    onerror="this.style.display='none'">
+                    onerror="this.src='../../assets/bars-white.svg'; this.className='release-preview fallback'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>{{release.title}}</h4>
                     <h4 mat-line>by {{release.artistName}}</h4>
-                    <h4 mat-line>
+                    <h4 mat-line *ngIf="release.date">
                             <span *ngIf="release.date.length == 4"><span class="kexp-orange">{{release.date}}</span></span>
                             <span *ngIf="release.date.length > 4"><span class="kexp-orange">{{release.date | date: 'yyyy'}}</span></span>
                     </h4>
