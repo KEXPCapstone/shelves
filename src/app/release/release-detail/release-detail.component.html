@@ -15,13 +15,19 @@
             <div class="release-title">
                 <h1>{{release.title}}</h1>
                 <h3 mat-line>by
-                    <a routerLink="/library/artists/{{release.KEXPReleaseArtistCredit.charAt(0) | lowercase}}/{{release.artistCredit[0].artist.id}}">
-                        <span class="kexp-orange">{{release.KEXPReleaseArtistCredit}}</span>
+                    <a class="kexp-orange" routerLink="/library/artists/{{release.KEXPReleaseArtistCredit.charAt(0) | lowercase}}/{{release.artistCredit[0].artist.id}}">
+                        {{release.KEXPReleaseArtistCredit}}
                     </a>
                 </h3>
                 <h3 mat-line>
                     <span *ngIf="release.date.length == 4">released in <span class="kexp-orange">{{release.date}}</span></span>
                     <span *ngIf="release.date.length > 4">released <span class="kexp-orange">{{release.date | date:'longDate'}}</span></span>
+                </h3>
+                <h3 *ngIf="release.labelInfo.length > 0" mat-line>
+                    on
+                    <a class="kexp-orange" *ngFor="let label of release.labelInfo" routerLink="/library/labels/{{label.label.name.charAt(0) | lowercase}}/{{label.label.id}}">
+                        {{ label.label.name }}
+                    </a>
                 </h3>
             </div>
             <mat-divider></mat-divider>

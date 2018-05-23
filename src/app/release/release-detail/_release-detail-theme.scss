@@ -14,4 +14,7 @@
         background: radial-gradient(mat-color($primary, darker), mat-color($primary));
     }
 
+    .dialog-ctrl-btn:hover {
+        color: mat-color($accent);
+    }
 }
