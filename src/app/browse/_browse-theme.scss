@@ -11,13 +11,21 @@
     }
 
     .mat-grid-tile .mat-grid-tile-footer.tile-footer {
-        background: rgba(0, 0, 0, .90);
+        background: rgba(0, 0, 0, .90);        
+    }
+
+    .mat-grid-tile {
+        transition: transform 1s;
+        -webkit-transition: transform 1s;
+        transition-duration: 480ms, 480ms;
+        transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
     .mat-grid-tile:hover {
         -webkit-box-shadow: 0 0 5px rgba(mat-color($accent), 0.87);
         -moz-box-shadow: 0 0 5px rgba(mat-color($accent), 0.87);
         box-shadow: 0 0 5px rgba(mat-color($accent), 0.87);
+        transform: scale(1.03, 1.03);
     }
 
     .tile-background {
