@@ -3,22 +3,18 @@
     <a mat-button routerLink="/library" aria-label="KEXP Shelves">
       <img class="kexp-logo"
         src="../../assets/orangebars.png"
-        alt="shelves"
-      >
+        alt="shelves">
       <span>KEXP</span>
     </a>
     <div class="flex-spacer"></div>
 
-    <form #searchForm="ngForm">
+    <form #searchForm="ngForm" class="search-form">
       <mat-form-field class="search-bar">
-        <input class="mat-input library-search-input" matInput type="search" name="search" ngModel placeholder="Search the library (by artist, title, etc...)">
+        <input class="mat-input library-search-input" matInput type="search" name="search" ngModel>
         <button mat-button matSuffix mat-icon-button (click)="search(searchForm)"><mat-icon aria-label="Search" svgIcon="search"></mat-icon></button>
       </mat-form-field>
     </form>
-    
-    <div class="flex-spacer"></div>
 
-  
     <a *ngIf="authService.isAuthenticated" mat-button (click)="logout()">Logout</a>
     <a *ngIf="!authService.isAuthenticated" mat-button routerLink="/login">Login</a>
     <a *ngIf="!authService.isAuthenticated" mat-button routerLink="/signup">Signup</a>

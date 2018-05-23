@@ -6,20 +6,27 @@ app-release-detail {
     padding: 20px 50px 50px 20px;
 }
 
-.release-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+.release-detail-container {
+    padding: 40px 20px 0px 20px;
+}
+
+.tracklist-container {
+    padding-top: 24px;
 }
 
 .release-overview {
     display: flex;
+    flex-wrap: wrap;
+}
+
+.release-title {
+    margin-bottom: 24px;
 }
 
 .release-album-cover {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 150px;
+    height: 150px;
 }
 
 .album-dialog-ctrl {
@@ -42,25 +49,9 @@ app-release-detail {
     height: 100%;
 }
 
-img.album-image:after {
-    content: attr(alt);
-    font-size: 16px;
-    
-    display: block;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-
 .track-title span {
+    display: inline-block;
+    width: 24px;
     margin-right: 24px;
 }
 
@@ -73,6 +64,28 @@ img.album-image:after {
     flex-grow: 1;
 }
 
-.dialog-ctrl-btn:hover {
-    color: #F4A400;
+@media screen and (min-width: $small_breakpoint_width) {
+    .release-album-cover {
+        position: relative;
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media screen and (min-width: $medium_breakpoint_width) {
+}
+
+@media screen and (min-width: $large_breakpoint_width) {
+}
+
+@media screen and (min-width: $xlarge_breakpoint_width) {
+    .release-album-cover {
+        position: relative;
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@media screen and (min-width: $xxl_breakpoint_width) {
+
 }
