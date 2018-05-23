@@ -11,18 +11,16 @@ app-release-detail {
 }
 
 .tracklist-container {
-    padding-top: 16px;
-}
-
-.release-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    padding-top: 24px;
 }
 
 .release-overview {
     display: flex;
     flex-wrap: wrap;
+}
+
+.release-title {
+    margin-bottom: 24px;
 }
 
 .release-album-cover {
