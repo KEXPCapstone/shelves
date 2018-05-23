@@ -4,10 +4,13 @@
       <h1 class="mat-display-2">{{shelf.name}}</h1>
       <mat-divider class="category-divider"></mat-divider>
     </div>
+    <mat-chip-list class="tag-chip">
+        <mat-chip disabled>Shelf</mat-chip>
+    </mat-chip-list>
   </div>
 
   <div class="browse-content">
-  <mat-grid-list cols="5" gutterSize="16px">
+  <mat-grid-list cols="3" gutterSize="24px">
     
       <div *ngFor="let release of shelf.releases" class="tile-container">
         <mat-grid-tile class="browse-grid-list tile-background">

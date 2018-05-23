@@ -1,9 +1,9 @@
 <div>
     <div class="search-result-header">
-        <h1>{{header}}</h1>
+        <h1 class="mat-headline">{{header}}</h1>
         <mat-divider class="category-divider"></mat-divider>        
     </div>
-    <mat-grid-list class="browse-grid-list" cols="5" gutterSize="16px">
+    <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
         <div class="tile-container" *ngFor="let result of results">
             <mat-grid-tile class="release-tile">
                 <a routerLink="/library/releases/{{result.release.id}}">
@@ -16,6 +16,7 @@
                     <h4 mat-line>
                         {{result.release.title}}
                     </h4>
+                    <h4 mat-line>{{result.release.KEXPReleaseArtistCredit}}</h4>
                     <h4 mat-line *ngIf="type != 'Album'">
                         <span>
                             {{type}}: {{result.indexInfo.matchValue}}

@@ -15,17 +15,21 @@ export class AppComponent {
     router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((data: NavigationEnd) => {
-        // We want to reset the scroll position on navigation except
-          resetScrollPosition();
+        // We want to reset the scroll position on navigation
+          resetAllScrollPositions();
       });
   }
 }
 
-function resetScrollPosition() {
+function resetAllScrollPositions() {
   if (typeof document === 'object' && document) {
-    const sidenavContent = document.querySelector('virtual-scroll');
-    if (sidenavContent) {
-      sidenavContent.scrollTop = 0;
+    const virtualScroll = document.querySelector('virtual-scroll');
+    const searchScroll = document.querySelector('app-search-results');
+    if (virtualScroll) {
+      virtualScroll.scrollTop = 0;
+    }
+    if (searchScroll) {
+      searchScroll.scrollTop = 0;
     }
   }
 }
