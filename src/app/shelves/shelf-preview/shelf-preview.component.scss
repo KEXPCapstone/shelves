@@ -12,3 +12,24 @@
 h3 {
     color: white;
 }
+
+.failed-image-content {
+    content: attr(name);
+}
+
+.shelf-preview-img, .more-releases {
+    // content: attr(name);
+    font-size: 16px;
+    
+    display: block;
+    position: relative;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 128px;
+    height: 128px;
+}
