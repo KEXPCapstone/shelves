@@ -32,17 +32,27 @@
         <div class="release-info">
             <h2 class="mat-display-2 release-title">{{release.title}}</h2>
             <h3 class="mat-body-1" mat-line>by
-                <a class="kexp-orange" routerLink="/library/artists/{{release.KEXPReleaseArtistCredit.charAt(0) | lowercase}}/{{release.artistCredit[0].artist.id}}">
+                <a class="kexp-orange"
+                    routerLink="/library/artists/{{release.KEXPReleaseArtistCredit.charAt(0) | lowercase}}/{{release.artistCredit[0].artist.id}}"
+                    matTooltip="See more from this artist"
+                    matTooltipHideDelay="250"
+                    matTooltipPosition="below">
                     {{release.KEXPReleaseArtistCredit}}
                 </a>
             </h3>
-            <h3 class="mat-body-1" mat-line>
+            <h3 class="mat-body-1"
+                mat-line>
                 <span *ngIf="release.date.length == 4">released in <span class="kexp-orange">{{release.date}}</span></span>
                 <span *ngIf="release.date.length > 4">released <span class="kexp-orange">{{release.date | date:'longDate'}}</span></span>
             </h3>
             <h3 class="mat-body-1" *ngIf="release.labelInfo.length > 0" mat-line>
                 on
-                <a class="kexp-orange" *ngFor="let label of release.labelInfo" routerLink="/library/labels/{{label.label.name.charAt(0) | lowercase}}/{{label.label.id}}">
+                <a class="kexp-orange"
+                    *ngFor="let label of release.labelInfo"
+                    routerLink="/library/labels/{{label.label.name.charAt(0) | lowercase}}/{{label.label.id}}"
+                    matTooltip="See more from this label"
+                    matTooltipHideDelay="250"
+                    matTooltipPosition="below">
                     {{ label.label.name }}
                 </a>
             </h3>
