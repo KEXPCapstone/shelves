@@ -7,7 +7,7 @@
           <img class="shelf-preview-img"
           [src]="getArt(release)"
           name="{{release.title}}"
-          onerror="this.style.display='none'">
+          onerror="this.src='../../assets/bars-white.svg'; this.className='shelf-preview-img fallback'">
         </a>
       </div>
     </div>

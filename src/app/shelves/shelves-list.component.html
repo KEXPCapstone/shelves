@@ -48,7 +48,7 @@
             width="100%"
             alt="{{shelf.title}}"
             [src]="getArt(shelf.releases)"
-            onerror="this.style.display='none'">
+            onerror="this.src='../../assets/bars-white.svg'; this.className='artist-image fallback'">
             <mat-grid-tile-footer class="tile-footer">
               <h4 mat-line>{{shelf.name}}</h4>
               <h4 mat-line>{{shelf.description}}</h4>

@@ -19,7 +19,7 @@
               width="100%"
               alt="{{release.title}}"
               [src]="getArt(release)"
-              onerror="this.style.display='none'">
+              onerror="this.src='../../assets/bars-white.svg'; this.className='artist-image fallback'">
             <mat-grid-tile-footer class="tile-footer">
               <h4 mat-line>{{release.title}}</h4>
               <h4 mat-line>{{release.KEXPReleaseArtistCredit}}</h4>
