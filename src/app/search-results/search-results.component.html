@@ -8,7 +8,7 @@
 </div>
 <div class="search-results-container">
   <div *ngIf="noResults" class="no-results">
-    <h2 class="mat-headline">No releases matched '{{query}}'</h2>
+    <h2 class="mat-headline">No results found for <span class="kexp-orange">'{{query}}'</span></h2>
   </div>
   <div *ngIf="titleMatches && titleMatches.length > 0">
     <app-result-group-list [results]=titleMatches header="Album Matches" type="Album"></app-result-group-list>    
