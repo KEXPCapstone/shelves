@@ -211,7 +211,6 @@ export class ArtistItemComponent implements OnInit {
   }
 
   onImageError() {
-    this.artSrc = `${environment.amazonURL}/${this.artist.releaseGroups[0].releases[0].asin}`;
   }
 }
 

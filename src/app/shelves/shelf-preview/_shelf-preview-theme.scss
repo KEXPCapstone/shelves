@@ -11,15 +11,6 @@
         background: rgba(0, 0, 0, .90);
     }
 
-    .shelf-preview-img {
-
-        &:after {
-            background: linear-gradient(mat-color($primary), mat-color($primary, darker));
-            // background: mat-color($background, card);
-            color: mat-color($foreground, text);
-        }
-    }
-
     .more-releases {
         margin: 5px;
         background: linear-gradient(mat-color($primary), mat-color($primary, darker));
