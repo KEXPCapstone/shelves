@@ -1,3 +1,11 @@
+<div class="category-header">
+    <div class="category-header-title">
+      <div>
+        <h1 class="mat-display-2">Search results</h1>
+        <mat-divider class="category-divider"></mat-divider>
+      </div>
+    </div>
+</div>
 <div class="search-results-container">
   <div *ngIf="noResults" class="no-results">
     <h2 class="mat-headline">No releases matched '{{query}}'</h2>
@@ -14,4 +22,3 @@
     <app-result-group-list [results]=trackMatches header="Track Matches" type="Track"></app-result-group-list>    
   </div>  
 </div>
-  

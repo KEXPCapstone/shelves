@@ -137,7 +137,6 @@ export class ArtistComponent implements OnInit {
       if (releaseGroup.releases[0].coverArtArchive.artwork) {
         return `${environment.coverArtUrl}/release/${releaseGroup.releases[0].id}/front-500.jpg`;
       } else {
-        console.log(releaseGroup);
         return `${environment.coverArtUrl}/release-group/${releaseGroup.releaseGroupId}/front-500.jpg`;
       }
     }
@@ -187,7 +186,7 @@ export class ListItemComponent {
 export class ArtistItemComponent implements OnInit {
   @Input() artist: Artist;
   @Input() group: string;
-  artReleases = []; // ids of releases by this artist which have cover art
+  artReleases = [];
   artSrc: string;
 
   ngOnInit() {
@@ -204,13 +203,10 @@ export class ArtistItemComponent implements OnInit {
   setArtSrc() {
     if (this.artReleases.length > 0) {
       const randomIndex = Math.floor(Math.random() * this.artReleases.length);
-      this.artSrc = `${environment.coverArtUrl}/release/${this.artReleases[randomIndex]}/front-500.jpg`;
+      this.artSrc = `${environment.coverArtUrl}/release/${this.artReleases[0]}/front-500.jpg`;
     } else {
       this.artSrc = `${environment.coverArtUrl}/release-group/${this.artist.releaseGroups[0].releaseGroupId}/front-500.jpg`;
     }
-  }
-
-  onImageError() {
   }
 }
 
@@ -246,7 +242,7 @@ export class LabelItemComponent implements OnInit {
   ngOnInit() {
     this.label.releases.forEach(r => {
         if (r.coverArtArchive.front) {
-          this.artReleases.push(r.releaseId);
+          this.artReleases.push(r.releaseID);
         }
     });
     this.setArtSrc();
@@ -255,14 +251,10 @@ export class LabelItemComponent implements OnInit {
   setArtSrc() {
     if (this.artReleases.length > 0) {
       const randomIndex = Math.floor(Math.random() * this.artReleases.length);
-      this.artSrc = `${environment.coverArtUrl}/release/${this.artReleases[randomIndex]}/front-500.jpg`;
+      this.artSrc = `${environment.coverArtUrl}/release/${this.artReleases[0]}/front-500.jpg`;
     } else {
-      this.artSrc = `${environment.coverArtUrl}/release-group/${this.label.releases[0].releaseGroupId}/front-500.jpg`;
+      this.artSrc = `${environment.coverArtUrl}/release-group/${this.label.releases[0].releaseGroupID}/front-500.jpg`;
     }
-  }
-
-  onImageError() {
-    this.artSrc = `${environment.amazonURL}/${this.label.releases[0].asin}`;
   }
 }
 

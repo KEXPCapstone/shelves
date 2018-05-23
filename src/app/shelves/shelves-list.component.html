@@ -5,8 +5,11 @@
   </div>
   <div class="flex-spacer"></div>
   <div class="create-shelf-button" *ngIf="authService.isAuthenticated">
-      <button (click)="openCreateShelf()" mat-raised-button color="primary" class="new-shelf-button">
-        Create a new shelf
+      <button (click)="openCreateShelf()"
+              mat-raised-button
+              color="accent"
+              class="new-shelf-button">
+              Create a new shelf
       </button>
   </div>
 </div>
@@ -41,7 +44,7 @@
     <mat-grid-list cols="5" gutterSize="16px">
         <mat-grid-tile *ngFor="let shelf of shelves" class="browse-grid-list tile-background">
           <a routerLink="/library/shelf/{{shelf.id}}">
-            <img class="artist-image"
+            <img *ngIf="shelf.releases.length > 0" class="artist-image"
             width="100%"
             alt="{{shelf.title}}"
             [src]="getArt(shelf.releases)"

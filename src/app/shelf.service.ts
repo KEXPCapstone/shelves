@@ -35,22 +35,12 @@ export class ShelfService {
   // GET the current users's shelves.
   getMyShelves(): Observable<Shelf[]> {
     const url = `${environment.apiUrl}/shelves/mine`;
-    return this.http.get<Shelf[]>(url)
-      .pipe(
-        tap((shelves) => {
-          console.log('Fetched current users shelves');
-        })
-      );
+    return this.http.get<Shelf[]>(url);
   }
 
   getFeaturedShelves(): Observable<Shelf[]> {
     const url = `${environment.apiUrl}/shelves/featured`;
-    return this.http.get<Shelf[]>(url)
-      .pipe(
-        tap((shelves) => {
-          console.log('fetched featured shelves');
-        })
-      );
+    return this.http.get<Shelf[]>(url);
   }
 
   /** GET shelf by id. Will 404 if id not found */
