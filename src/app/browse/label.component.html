@@ -15,7 +15,7 @@
                     alt="{{release.title}}"
                     onload="this.className+=' image-loaded'"
                     src="//coverartarchive.org/release-group/{{release.releaseGroupID}}/front-500.jpg"
-                    onerror="this.src='../../assets/bars-white.svg'; this.className='release-preview fallback'">
+                    onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>{{release.title}}</h4>
                     <h4 mat-line>by {{release.artistName}}</h4>
