@@ -19,7 +19,7 @@ import { Release } from '../models/release';
   styleUrls: ['./shelves-list.component.scss']
 })
 export class ShelvesListComponent implements OnInit, OnDestroy {
-  shelves: Shelf[] = [];
+  shelves: Shelf[];
   group: string;
   isAuthenticated = true; // set to true until proven otherwise
   private _destroyed = new Subject();
@@ -45,7 +45,6 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
 
   getShelves() {
     const groupId = this._route.snapshot.paramMap.get('groupId');
-    this.shelves = [];
     this.group = groupId;
     switch (groupId) {
       case 'mine': {
@@ -79,7 +78,7 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
       .subscribe((shelves) => {
         this.shelves = shelves;
       }, (error) => {
-        this.isAuthenticated = false;
+        this.shelves = [];
         console.log(error);
       }
     );

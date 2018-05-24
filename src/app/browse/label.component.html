@@ -1,9 +1,12 @@
 <div *ngIf="label">
     <div class="category-header">
             <div class="category-header-title">
-            <h1 class="mat-display-2">Albums released on {{label.name}}</h1>
-            <mat-divider class="category-divider"></mat-divider>
+                <h1 class="mat-display-2">Albums released on {{label.name}}</h1>
+                <mat-divider class="category-divider"></mat-divider>
             </div>
+            <mat-chip-list selectable="false" class="tag-chip">
+                <mat-chip disabled>Label</mat-chip>
+            </mat-chip-list>
         </div>
     <div class="browse-content">
         <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
