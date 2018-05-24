@@ -7,14 +7,15 @@
         </div>
     <div class="browse-content">
         <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
-            <div class="tile-background" *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">
+            <div *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">
                 <mat-grid-tile class="tile-background">
-                <a routerLink="/library/releases/{{releaseGroup.releases[0].id}}">
-                    <img class="release-preview"
+                <a class="tile-link" routerLink="/library/releases/{{releaseGroup.releases[0].id}}">
+                    <img class="release-preview fade-in"
                     width="100%"
                     alt="{{releaseGroup.title}}"
                     [src]="getArt(releaseGroup)"
-                    onerror="this.style.display='none'">
+                    onload="this.className+=' image-loaded'"
+                    onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>{{releaseGroup.title}}</h4>
                     <h4 mat-line>

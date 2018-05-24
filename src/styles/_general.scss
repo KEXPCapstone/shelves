@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: "Roboto","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
   
 /* links */
@@ -11,6 +12,34 @@ a {
 
 .flex-spacer {
     flex-grow: 1;
+}
+
+.fade-in {
+    opacity: 0;
+    -moz-transition: opacity 1.5s;
+    -webkit-transition: opacity 1.5s;
+    -o-transition: opacity 1.5s;
+    transition: opacity 1.5s;
+}
+
+.image-loaded {
+    opacity: 1;
+}
+
+.fallback {
+    color: #8e8e8e;
+    font-size: 1rem;
+    line-height: 1.4;
+    width: 40%;
+    position: relative;
+    top: 25%;
+    display: block;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+.fallback.image-loaded {
+    opacity: 0.1;
 }
 
 app-browse-list,
@@ -29,6 +58,13 @@ app-shelves-list {
 // expand height for 3+ line tile footers
 .mat-grid-tile .mat-grid-tile-footer.mat-multi-line, .mat-grid-tile .mat-grid-tile-footer.mat-3-line {
     height: 68px;
+}
+
+.tile-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
 }
 
 .category-header {

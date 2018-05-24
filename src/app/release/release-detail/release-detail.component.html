@@ -1,9 +1,10 @@
 <div class="release-detail-container">
     <div class="release-overview" *ngIf="release">
         <div class="release-album-cover">
-            <img class="album-image"
+            <img class="album-image fade-in"
             [src]="getArt()"
             alt={{release.title}}
+            onload="this.className+=' image-loaded'"
             onerror="this.style.display='none'">
             <div class="album-dialog-ctrl">
                 <button class="dialog-ctrl-btn"

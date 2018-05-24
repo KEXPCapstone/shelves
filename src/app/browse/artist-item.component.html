@@ -1,10 +1,11 @@
 <div class="mat-grid-tile tile tile-background">
   <a class="tile-link" routerLink="/library/artists/{{group}}/{{artist.id}}">
-    <img class="artist-image"
+    <img class="artist-image fade-in"
     width="100%"
     alt="{{artist.name}}"
     src="{{artSrc}}"
-    onerror="this.style.display='none'"
+    onload="this.className+=' image-loaded'"
+    onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'"
     >
     <!-- <div class="initials">{{artist.name}}</div> -->
     <div class="mat-grid-tile-footer mat-2-line tile-footer">

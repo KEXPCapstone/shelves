@@ -29,7 +29,7 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
     private _route: ActivatedRoute,
     private _dialog: MatDialog,
     private _router: Router,
-    private authService: AuthService,
+    public authService: AuthService,
     private snackbar: MatSnackBar
   ) {
   combineLatest(_route.params, _route.parent.params).pipe(

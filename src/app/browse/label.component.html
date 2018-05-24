@@ -9,16 +9,17 @@
         <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
             <div class="tile-background" *ngFor="let release of label.releases; let i = index;">
                 <mat-grid-tile class="tile-background">
-                <a routerLink="/library/releases/{{release.releaseID}}">
-                    <img class="release-preview"
+                <a class="tile-link" routerLink="/library/releases/{{release.releaseID}}">
+                    <img class="release-preview fade-in"
                     width="100%"
                     alt="{{release.title}}"
+                    onload="this.className+=' image-loaded'"
                     src="//coverartarchive.org/release-group/{{release.releaseGroupID}}/front-500.jpg"
-                    onerror="this.style.display='none'">
+                    onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>{{release.title}}</h4>
                     <h4 mat-line>by {{release.artistName}}</h4>
-                    <h4 mat-line>
+                    <h4 mat-line *ngIf="release.date">
                             <span *ngIf="release.date.length == 4"><span class="kexp-orange">{{release.date}}</span></span>
                             <span *ngIf="release.date.length > 4"><span class="kexp-orange">{{release.date | date: 'yyyy'}}</span></span>
                     </h4>

@@ -6,12 +6,13 @@
     <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
         <div class="tile-container" *ngFor="let result of results">
             <mat-grid-tile class="release-tile">
-                <a routerLink="/library/releases/{{result.release.id}}">
-                <img class="album-image"
+                <a class="tile-link" routerLink="/library/releases/{{result.release.id}}">
+                <img class="album-image fade-in"
                     width="100%"
                     alt="{{result.release.title}}"
                     [src]="getArt(result.release)"
-                    onerror="this.style.display='none'">
+                    onload="this.className+=' image-loaded'"
+                    onerror="this.src='../../assets/bars-white.svg'; this.className=' fallback image-loaded'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>
                         {{result.release.title}}

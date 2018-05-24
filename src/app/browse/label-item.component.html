@@ -1,10 +1,11 @@
 <div class="mat-grid-tile tile tile-background">
-  <a routerLink="/library/labels/{{group}}/{{label.id}}">
-    <img class="label-image"
+  <a class="tile-link" routerLink="/library/labels/{{group}}/{{label.id}}">
+    <img class="label-image fade-in"
     width="100%"
     alt="{{label.name}}"
     src="{{artSrc}}"
-    onerror="this.style.display='none'">
+    onload="this.className+=' image-loaded'"
+    onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
     <div class="mat-grid-tile-footer mat-2-line tile-footer">
       <div class="mat-grid-list-text">
         <h4 class="mat-caption" mat-line>{{label.name}}</h4>
