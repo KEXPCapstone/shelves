@@ -13,7 +13,7 @@
       </button>
   </div>
 </div>
-<div class="browse-content shelf-list-container">
+<div *ngIf="shelves" class="browse-content shelf-list-container">
   <div *ngIf="shelves.length === 0">
     <div [ngSwitch]="group" class="empty-shelves-message">
       <div *ngSwitchCase="'mine'">
