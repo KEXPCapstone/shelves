@@ -1,21 +1,22 @@
 <div>
   <h3>{{shelf.name}}</h3>
   <div class="container">
-    <div *ngFor="let release of shelf.releases | slice:0:5">
-      <div class="">
+    <div *ngFor="let release of shelf.releases | slice:0:4">
+      <div class="tile tile-background shelf-preview-img">
         <a  routerLink="/library/releases/{{release.id}}">
           <img class="shelf-preview-img fade-in"
           [src]="getArt(release)"
+          width="100%"
           name="{{release.title}}"
           onload="this.className+=' image-loaded'"
           onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
         </a>
       </div>
     </div>
-    <div *ngIf="shelf.releases.length > 5">
-        <div class="more-releases">
+    <div *ngIf="shelf.releases.length > 4">
+        <div class="more-releases tile tile-background">
             <div class="album-dialog-ctrl">
-               <a routerLink="/browse/shelf/{{shelf.id}}"> +{{shelf.releases.length - 5}} more </a>
+               <a routerLink="/browse/shelf/{{shelf.id}}"> +{{shelf.releases.length - 4}} more </a>
             </div>
         </div>
     </div>
