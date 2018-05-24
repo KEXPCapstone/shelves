@@ -95,12 +95,12 @@ export class ShelfAddComponent implements OnInit {
 
   addToShelf(form: NgForm) {
     const shelf = form.value.shelfPicker;
-    shelf.releases.push(this.release);
+    shelf.releases.unshift(this.release);
     shelf.dateLastEdit = new Date().toJSON();
     this.shelfService.updateShelf(shelf)
       .subscribe((resp) => {
         this.snackbar.open(`Added ${this.release.title} to "${shelf.name}"`, '', {
-          duration: 2000,
+          duration: 3500,
           panelClass: ['custom-snackbar']
         });
       }, (error) => {
