@@ -3,8 +3,11 @@
         <div class="category-header-title">
             <h1 class="mat-display-2">Albums by {{artist.name}}</h1>
             <mat-divider class="category-divider"></mat-divider>
-            </div>
         </div>
+        <mat-chip-list selectable="false" class="tag-chip">
+            <mat-chip disabled>Artist</mat-chip>
+        </mat-chip-list>
+    </div>
     <div class="browse-content">
         <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
             <div *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">

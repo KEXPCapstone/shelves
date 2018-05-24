@@ -10,6 +10,19 @@ a {
     text-decoration: none;
 }
 
+
+.mat-chip-list {
+    outline: none !important;
+    border: 0;
+}
+
+.tag-chip {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    margin-left: 16px;
+}
+
 .flex-spacer {
     flex-grow: 1;
 }
