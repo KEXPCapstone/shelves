@@ -1,9 +1,10 @@
 <div class="mat-grid-tile tile tile-background">
   <a routerLink="/library/releases/{{release.id}}">
-    <img class="release-image"
+    <img class="release-image fade-in"
     width="100%"
     alt="{{release.title}}"
     [src]="artSrc"
+    onload="this.className+=' image-loaded'"
     onerror="this.src='../../assets/bars-white.svg'; this.className='release-image fallback'">
     <div class="mat-grid-tile-footer mat-2-line tile-footer">
       <div class="mat-grid-list-text">

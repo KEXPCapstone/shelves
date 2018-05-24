@@ -10,10 +10,11 @@
             <div class="tile-background" *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">
                 <mat-grid-tile class="tile-background">
                 <a routerLink="/library/releases/{{releaseGroup.releases[0].id}}">
-                    <img class="release-preview"
+                    <img class="release-preview fade-in"
                     width="100%"
                     alt="{{releaseGroup.title}}"
                     [src]="getArt(releaseGroup)"
+                    onload="this.className+=' image-loaded'"
                     onerror="this.src='../../assets/bars-white.svg'; this.className='release-preview fallback'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>{{releaseGroup.title}}</h4>
