@@ -4,7 +4,8 @@
   onload="this.className+=' image-loaded'"
   onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
   <div class="column">
-    <h1 mat-dialog-title class="release-title">{{release.title}}</h1>
+    <h1 mat-dialog-title class="release-title">Add this release to a shelf</h1>
+    <h5 class="release-artist">{{release.title}}</h5>
     <h5 class="release-artist">{{release.KEXPReleaseArtistCredit}}</h5>
     <h5 class="release-genre">{{release.KEXPPrimaryGenre}}</h5>
   </div>
@@ -16,12 +17,12 @@
 <mat-dialog-content>
 <div *ngIf="authService.isAuthenticated">
   <div class="row">
-    <div class = "shelf-ctrl-section">
+    <div class="shelf-ctrl-section">
       <form #pickShelf="ngForm"> 
         <mat-form-field>
-          <mat-select placeholder="Pick a shelf" [(ngModel)]="selectedShelf" name="shelfPicker" (selectionChange)="updateShelfPreview(pickShelf)">
+          <mat-select placeholder="Select a shelf" [(ngModel)]="selectedShelf" name="shelfPicker" (selectionChange)="updateShelfPreview(pickShelf)">
             <mat-option *ngFor="let shelf of userShelves"  [value]="shelf">
-              {{shelf.name}}
+              {{shelf.name}} <span class="kexp-orange">({{shelf.releases.length > 0 ? shelf.releases.length + ' releases' : 'Empty'}})</span>
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -31,8 +32,8 @@
     <div class="shelf-ctrl-section">
       <form #addShelf="ngForm">
         <mat-form-field>
-          <input matInput name="shelfName" ngModel placeholder="Add new shelf">
-          <button mat-button matSuffix mat-icon-button class="mat-raised-button dialog-btn" (click)="newShelf(addShelf)"><mat-icon svgIcon="plus-icon"></mat-icon></button>
+          <input required matInput name="shelfName" ngModel placeholder="Create a new shelf">
+          <button [disabled]="!addShelf.form.valid" color="accent" mat-button matSuffix mat-icon-button class="mat-raised-button dialog-btn" (click)="newShelf(addShelf)"><mat-icon svgIcon="plus-icon"></mat-icon></button>
         </mat-form-field>
           
       </form>

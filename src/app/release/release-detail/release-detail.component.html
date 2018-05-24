@@ -42,7 +42,8 @@
                 </a>
             </h3>
             <h3 class="mat-body-1"
-                mat-line>
+                mat-line
+                *ngIf="release.date">
                 <span *ngIf="release.date.length == 4">released in <span class="kexp-orange">{{release.date}}</span></span>
                 <span *ngIf="release.date.length > 4">released <span class="kexp-orange">{{release.date | date:'longDate'}}</span></span>
             </h3>

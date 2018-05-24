@@ -89,8 +89,9 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
       .subscribe((shelves) => {
         this.shelves = shelves;
       }, (error) => {
-        this.snackbar.open('Error getting shelves. Please try again later.', '', {
-          duration: 2000
+        this.snackbar.open('Error retrieving shelves. Please try again later.', '', {
+          duration: 3500,
+          panelClass: ['warn-snackbar']
         });
       }
     );
@@ -101,8 +102,9 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
       .subscribe((shelves) => {
         this.shelves = shelves;
       }, (error) => {
-        this.snackbar.open('Error getting shelves. Please try again later.', '', {
-          duration: 2000
+        this.snackbar.open('Error retrieving shelves. Please try again later.', '', {
+          duration: 3500,
+          panelClass: ['warn-snackbar']
         });
       }
     );
@@ -145,8 +147,9 @@ export class CreateShelfComponent implements OnInit {
     this.shelfService.addShelf(this.newShelf).subscribe(
       (resp) => {
         this.snackbar.open(
-          '"' + this.newShelf.name + '"' + ' created', '', {
-          duration: 2000
+          `"${this.newShelf.name}" created`, '', {
+          duration: 3500,
+          panelClass: ['custom-snackbar']
         });
         this.close();
       }
