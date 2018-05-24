@@ -77,8 +77,8 @@ export class ShelfAddComponent implements OnInit {
       .subscribe((resp) => {
         this.getUserShelves();
         form.reset();
-        this.snackbar.open('Added a shelf!', '', {
-          duration: 2000,
+        this.snackbar.open(`Created a new shelf named "${newShelf.name}"`, '', {
+          duration: 3500,
           panelClass: ['custom-snackbar']
         });
       }, (error) => {
