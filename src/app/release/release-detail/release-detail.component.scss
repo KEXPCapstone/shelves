@@ -49,6 +49,11 @@ app-release-detail {
     height: 100%;
 }
 
+img.fallback {
+    width: 40% !important;
+    top: 0;
+}
+
 .track-title span {
     display: inline-block;
     width: 24px;
