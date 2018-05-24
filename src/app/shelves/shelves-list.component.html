@@ -43,7 +43,7 @@
   <div *ngIf="shelves">
     <mat-grid-list cols="3" gutterSize="24px">
         <mat-grid-tile *ngFor="let shelf of shelves" class="browse-grid-list tile-background">
-          <a routerLink="/library/shelf/{{shelf.id}}">
+          <a class="tile-link" routerLink="/library/shelf/{{shelf.id}}">
             <img *ngIf="shelf.releases.length > 0" class="artist-image fade-in"
             width="100%"
             alt="{{shelf.title}}"

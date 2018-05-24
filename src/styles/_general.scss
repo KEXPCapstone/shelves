@@ -60,6 +60,13 @@ app-shelves-list {
     height: 68px;
 }
 
+.tile-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
 .category-header {
     flex: 1;
     display: flex;

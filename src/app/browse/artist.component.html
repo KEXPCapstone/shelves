@@ -7,9 +7,9 @@
         </div>
     <div class="browse-content">
         <mat-grid-list class="browse-grid-list" cols="3" gutterSize="24px">
-            <div class="tile-background" *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">
+            <div *ngFor="let releaseGroup of artist.releaseGroups; let i = index;">
                 <mat-grid-tile class="tile-background">
-                <a routerLink="/library/releases/{{releaseGroup.releases[0].id}}">
+                <a class="tile-link" routerLink="/library/releases/{{releaseGroup.releases[0].id}}">
                     <img class="release-preview fade-in"
                     width="100%"
                     alt="{{releaseGroup.title}}"
