@@ -60,7 +60,8 @@ app-label,
 app-artist,
 app-search-results,
 app-release-detail,
-app-shelves-list {
+app-shelves-list,
+app-shelf-detail {
     display: flex;
     flex-direction: column;
     height: 90vh; // to allow for scrolling independent of mat-sidenav-content
