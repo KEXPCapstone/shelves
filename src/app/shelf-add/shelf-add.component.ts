@@ -54,8 +54,8 @@ export class ShelfAddComponent implements OnInit {
       }, (error) => {
         if (this.authService.isAuthenticated) {
           this.snackbar.open('Error loading your shelves; please try again later.', '', {
-            duration: 2000,
-            panelClass: ['custom-snackbar']
+            duration: 3500,
+            panelClass: ['warn-snackbar']
           });
         }
       }
@@ -83,8 +83,8 @@ export class ShelfAddComponent implements OnInit {
         });
       }, (error) => {
         this.snackbar.open('Error adding shelf; please try again later.', '', {
-          duration: 2000,
-          panelClass: ['custom-snackbar']
+          duration: 3500,
+          panelClass: ['warn-snackbar']
         });
       });
   }
@@ -105,9 +105,9 @@ export class ShelfAddComponent implements OnInit {
         });
       }, (error) => {
         shelf.releases.pop();
-        this.snackbar.open('Error adding release; please try again later.', '', {
-          duration: 2000,
-          panelClass: ['custom-snackbar']
+        this.snackbar.open('Error adding release to shelf; please try again later.', '', {
+          duration: 3500,
+          panelClass: ['warn-snackbar']
         });
       });
   }
