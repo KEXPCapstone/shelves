@@ -66,7 +66,8 @@ export class ReleaseNotesComponent implements OnInit {
         this.setNumberPosters();
       }, (error) => {
         this.snackbar.open('Error getting notes. Please try again later.', '', {
-          duration: 2000
+          duration: 3500,
+          panelClass: ['warn-snackbar']
         });
       }
     );
@@ -81,7 +82,8 @@ export class ReleaseNotesComponent implements OnInit {
         form.reset();
       }, (error) => {
         this.snackbar.open(error.error, '', {
-          duration: 2000
+          duration: 3500,
+          panelClass: ['custom-snackbar']
         });
       }
     );

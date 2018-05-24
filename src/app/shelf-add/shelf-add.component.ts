@@ -54,7 +54,8 @@ export class ShelfAddComponent implements OnInit {
       }, (error) => {
         if (this.authService.isAuthenticated) {
           this.snackbar.open('Error loading your shelves; please try again later.', '', {
-            duration: 2000
+            duration: 3500,
+            panelClass: ['warn-snackbar']
           });
         }
       }
@@ -76,12 +77,14 @@ export class ShelfAddComponent implements OnInit {
       .subscribe((resp) => {
         this.getUserShelves();
         form.reset();
-        this.snackbar.open('Added a shelf!', '', {
-          duration: 2000
+        this.snackbar.open(`Created a new shelf named "${newShelf.name}"`, '', {
+          duration: 3500,
+          panelClass: ['custom-snackbar']
         });
       }, (error) => {
         this.snackbar.open('Error adding shelf; please try again later.', '', {
-          duration: 2000
+          duration: 3500,
+          panelClass: ['warn-snackbar']
         });
       });
   }
@@ -92,17 +95,19 @@ export class ShelfAddComponent implements OnInit {
 
   addToShelf(form: NgForm) {
     const shelf = form.value.shelfPicker;
-    shelf.releases.push(this.release);
+    shelf.releases.unshift(this.release);
     shelf.dateLastEdit = new Date().toJSON();
     this.shelfService.updateShelf(shelf)
       .subscribe((resp) => {
-        this.snackbar.open('Added ' + this.release.title, '', {
-          duration: 2000
+        this.snackbar.open(`Added ${this.release.title} to "${shelf.name}"`, '', {
+          duration: 3500,
+          panelClass: ['custom-snackbar']
         });
       }, (error) => {
         shelf.releases.pop();
-        this.snackbar.open('Error adding release; please try again later.', '', {
-          duration: 2000
+        this.snackbar.open('Error adding release to shelf; please try again later.', '', {
+          duration: 3500,
+          panelClass: ['warn-snackbar']
         });
       });
   }

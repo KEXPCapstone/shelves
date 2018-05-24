@@ -27,6 +27,16 @@
         color: mat-color($accent, 500)
     }
 
+    .custom-snackbar {
+        background-color: mat-color($accent);
+        width: 100vw;
+        text-align: center;
+    }
+
+    .warn-snackbar {
+        background: mat-color($warn);
+    }
+
     // individual component theming setup
     @include nav-bar-theme($theme);
     @include browse-sidenav-theme($theme);
