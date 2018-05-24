@@ -4,9 +4,10 @@
     <div *ngFor="let release of shelf.releases | slice:0:5">
       <div class="">
         <a  routerLink="/library/releases/{{release.id}}">
-          <img class="shelf-preview-img"
+          <img class="shelf-preview-img fade-in"
           [src]="getArt(release)"
           name="{{release.title}}"
+          onload="this.className+=' image-loaded'"
           onerror="this.src='../../assets/bars-white.svg'; this.className='shelf-preview-img fallback'">
         </a>
       </div>
