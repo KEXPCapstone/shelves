@@ -15,7 +15,7 @@
                     alt="{{releaseGroup.title}}"
                     [src]="getArt(releaseGroup)"
                     onload="this.className+=' image-loaded'"
-                    onerror="this.src='../../assets/bars-white.svg'; this.className='release-preview fallback'">
+                    onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
                 <mat-grid-tile-footer class="tile-footer">
                     <h4 mat-line>{{releaseGroup.title}}</h4>
                     <h4 mat-line>

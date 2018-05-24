@@ -8,7 +8,7 @@
           [src]="getArt(release)"
           name="{{release.title}}"
           onload="this.className+=' image-loaded'"
-          onerror="this.src='../../assets/bars-white.svg'; this.className='shelf-preview-img fallback'">
+          onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
         </a>
       </div>
     </div>

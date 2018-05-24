@@ -28,7 +28,6 @@ a {
 
 .fallback {
     color: #8e8e8e;
-    opacity: .1;
     font-size: 1rem;
     line-height: 1.4;
     width: 40%;
@@ -37,6 +36,10 @@ a {
     display: block;
     margin: 0 auto;
     font-weight: 400;
+}
+
+.fallback.image-loaded {
+    opacity: 0.1;
 }
 
 app-browse-list,

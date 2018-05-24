@@ -49,7 +49,7 @@
             alt="{{shelf.title}}"
             [src]="getArt(shelf.releases)"
             onload="this.className+=' image-loaded'"
-            onerror="this.src='../../assets/bars-white.svg'; this.className='artist-image fallback'">
+            onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
             <mat-grid-tile-footer class="tile-footer">
               <h4 mat-line>{{shelf.name}}</h4>
               <h4 mat-line>{{shelf.description}}</h4>
