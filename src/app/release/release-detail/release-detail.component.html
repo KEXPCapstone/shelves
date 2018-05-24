@@ -5,7 +5,7 @@
             [src]="getArt()"
             alt={{release.title}}
             onload="this.className+=' image-loaded'"
-            onerror="this.style.display='none'">
+            onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
             <div class="album-dialog-ctrl">
                 <button class="dialog-ctrl-btn"
                         mat-button
