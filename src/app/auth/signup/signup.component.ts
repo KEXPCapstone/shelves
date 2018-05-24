@@ -29,9 +29,13 @@ export class SignupComponent implements OnInit {
       .subscribe((resp) => {
       }, (error) => {
         if (error.status === 400) {
-          this.snackbar.open(error.error.slice(24), 'OK');
+          this.snackbar.open(error.error.slice(24), 'OK', {
+            panelClass: ['custom-snackbar']
+          });
         } else {
-          this.snackbar.open('Something went wrong, please try again.', 'OK');
+          this.snackbar.open('Something went wrong, please try again.', 'OK', {
+            panelClass: ['custom-snackbar']
+          });
         }
       }
     );

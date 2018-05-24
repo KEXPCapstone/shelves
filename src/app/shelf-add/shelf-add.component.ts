@@ -54,7 +54,8 @@ export class ShelfAddComponent implements OnInit {
       }, (error) => {
         if (this.authService.isAuthenticated) {
           this.snackbar.open('Error loading your shelves; please try again later.', '', {
-            duration: 2000
+            duration: 2000,
+            panelClass: ['custom-snackbar']
           });
         }
       }
@@ -77,11 +78,13 @@ export class ShelfAddComponent implements OnInit {
         this.getUserShelves();
         form.reset();
         this.snackbar.open('Added a shelf!', '', {
-          duration: 2000
+          duration: 2000,
+          panelClass: ['custom-snackbar']
         });
       }, (error) => {
         this.snackbar.open('Error adding shelf; please try again later.', '', {
-          duration: 2000
+          duration: 2000,
+          panelClass: ['custom-snackbar']
         });
       });
   }
@@ -96,13 +99,15 @@ export class ShelfAddComponent implements OnInit {
     shelf.dateLastEdit = new Date().toJSON();
     this.shelfService.updateShelf(shelf)
       .subscribe((resp) => {
-        this.snackbar.open('Added ' + this.release.title, '', {
-          duration: 2000
+        this.snackbar.open(`Added ${this.release.title} to "${shelf.name}"`, '', {
+          duration: 2000,
+          panelClass: ['custom-snackbar']
         });
       }, (error) => {
         shelf.releases.pop();
         this.snackbar.open('Error adding release; please try again later.', '', {
-          duration: 2000
+          duration: 2000,
+          panelClass: ['custom-snackbar']
         });
       });
   }

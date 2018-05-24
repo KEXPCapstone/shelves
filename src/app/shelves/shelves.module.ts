@@ -90,7 +90,8 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
         this.shelves = shelves;
       }, (error) => {
         this.snackbar.open('Error getting shelves. Please try again later.', '', {
-          duration: 2000
+          duration: 2000,
+          panelClass: ['custom-snackbar']
         });
       }
     );
@@ -102,7 +103,8 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
         this.shelves = shelves;
       }, (error) => {
         this.snackbar.open('Error getting shelves. Please try again later.', '', {
-          duration: 2000
+          duration: 2000,
+          panelClass: ['custom-snackbar']
         });
       }
     );
@@ -146,7 +148,8 @@ export class CreateShelfComponent implements OnInit {
       (resp) => {
         this.snackbar.open(
           '"' + this.newShelf.name + '"' + ' created', '', {
-          duration: 2000
+          duration: 2000,
+          panelClass: ['custom-snackbar']
         });
         this.close();
       }

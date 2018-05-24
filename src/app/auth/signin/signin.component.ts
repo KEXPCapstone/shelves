@@ -23,9 +23,13 @@ export class SigninComponent implements OnInit {
       .subscribe((resp) => {
       }, (error) => {
         if (error.status === 401) {
-          this.snackbar.open('Email or password is incorrect', 'OK');
+          this.snackbar.open('Email or password is incorrect', 'OK', {
+            panelClass: ['custom-snackbar']
+          });
         } else {
-          this.snackbar.open('Something went wrong. Please try again.', 'OK');
+          this.snackbar.open('Something went wrong. Please try again.', 'OK', {
+            panelClass: ['custom-snackbar']
+          });
         }
       }
     );
