@@ -58,7 +58,8 @@
             onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
             <mat-grid-tile-footer class="tile-footer">
               <h4 mat-line>{{shelf.name}}</h4>
-              <h4 mat-line>{{shelf.description}}</h4>
+              <h4 *ngIf="!(group === 'mine')" mat-line>created by <span class="kexp-orange">{{shelf.ownerName}}</span></h4>
+              <!-- <h4 mat-line>{{shelf.description}}</h4> -->
             </mat-grid-tile-footer>
 
 
