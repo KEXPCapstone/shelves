@@ -110,9 +110,6 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
     );
   }
 
-  createShelf() {
-  }
-
   ngOnDestroy(): void {
     this._destroyed.next();
   }
@@ -121,7 +118,9 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.width = '60rem';
-    this._dialog.open(CreateShelfComponent, dialogConfig);
+    this._dialog.open(CreateShelfComponent, dialogConfig).afterClosed().subscribe(
+      result => { this.getShelves(); }
+    );
   }
 }
 
