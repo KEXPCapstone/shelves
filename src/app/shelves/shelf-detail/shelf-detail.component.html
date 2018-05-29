@@ -10,8 +10,11 @@
   </div>
 
   <div class="browse-content">
+    <div *ngIf="shelf.releases.length === 0" class="empty-shelf">
+      <h2 class="mat-headline">This shelf is currently empty</h2>
+      <h3 class="mat-title kexp-orange">Search the library for albums to add to this shelf</h3>
+    </div>
   <mat-grid-list cols="3" gutterSize="24px">
-    
       <div *ngFor="let release of shelf.releases" class="tile-container">
         <mat-grid-tile class="browse-grid-list tile-background">
           <a class="tile-link" routerLink="/library/releases/{{release.id}}">
