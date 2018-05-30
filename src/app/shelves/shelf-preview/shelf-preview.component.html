@@ -1,7 +1,7 @@
 <div>
   <h3>{{shelf.name}}</h3>
   <div class="container">
-    <div *ngFor="let release of shelf.releases | slice:0:4">
+    <div *ngFor="let release of shelf.releases | slice:0:4" class="shelf-preview-img-margin">
       <div class="tile tile-background shelf-preview-img">
         <a  routerLink="/library/releases/{{release.id}}">
           <img class="shelf-preview-img fade-in"
