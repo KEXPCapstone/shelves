@@ -103,7 +103,9 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
     dialogConfig.autoFocus = false;
     dialogConfig.data = this.release;
     dialogConfig.width = '60rem';
-    this.dialog.open(ShelfAddComponent, dialogConfig);
+    this.dialog.open(ShelfAddComponent, dialogConfig).afterClosed().subscribe(
+      result => { this.getReleaseShelves(); }
+    );
   }
 
   ngOnDestroy(): void {
