@@ -63,9 +63,8 @@ export class ShelvesListComponent implements OnInit, OnDestroy {
   }
 
   getArt(releases: Release[]) {
-    console.log(releases);
-    const randomIndex = Math.floor(Math.random() * releases.length);
-    const release = releases[randomIndex];
+    // for now we are just displaying the first release's artwork
+    const release = releases[0];
     if (release.coverArtArchive.artwork) {
       return `${environment.coverArtUrl}/release/${release.id}/front-500.jpg`;
     } else {
