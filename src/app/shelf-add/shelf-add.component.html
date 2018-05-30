@@ -1,8 +1,10 @@
 <div class="dialog-header">
-  <img class="shelf-add-album-image fade-in"
-  [src]="artURL"
-  onload="this.className+=' image-loaded'"
-  onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
+  <div class="dialog-artwork-container">
+    <img class="artist-image fade-in"
+    [src]="artURL"
+    onload="this.className+=' image-loaded'"
+    onerror="this.src='../../assets/bars-white.svg'; this.className+=' fallback image-loaded'">
+  </div>
   <div class="column">
     <h1 mat-dialog-title class="release-title">Add this release to a shelf</h1>
     <h5 class="release-artist">{{release.title}}</h5>
