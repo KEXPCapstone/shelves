@@ -11,6 +11,8 @@ import { Subject } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Release } from '../../models/release';
 import { environment } from '../../../environments/environment.prod';
+import { Shelf } from '../../models/shelf';
+import { ShelfService } from '../../shelf.service';
 
 @Component({
   selector: 'app-release-detail',
@@ -19,12 +21,14 @@ import { environment } from '../../../environments/environment.prod';
 })
 export class ReleaseDetailComponent implements OnInit, OnDestroy {
   @Input() release: Release;
+  releaseShelves: Shelf[];
   private _destroyed = new Subject();
   artURL: string;
 
   constructor(
     private route: ActivatedRoute,
     private libraryService: LibraryService,
+    private shelfService: ShelfService,
     private location: Location,
     private dialog: MatDialog,
     private _router: Router,
@@ -57,6 +61,13 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
     this.getRelease();
   }
 
+  getReleaseShelves() {
+    const id = this.release.id;
+    this.shelfService.getShelvesForRelease(id).subscribe(
+      shelves => this.releaseShelves = shelves
+    );
+  }
+
   getArt() {
     if (this.release.coverArtArchive.artwork) {
       return `${environment.coverArtUrl}/release/${this.release.id}/front-500.jpg`;
@@ -68,7 +79,10 @@ export class ReleaseDetailComponent implements OnInit, OnDestroy {
   getRelease(): void {
     const id = this.route.snapshot.paramMap.get('releaseId');
     this.libraryService.getReleaseById(id)
-      .subscribe(release => this.release = release);
+      .subscribe(release => {
+        this.release = release;
+        this.getReleaseShelves();
+      });
   }
 
   // useful to implement 'back' button

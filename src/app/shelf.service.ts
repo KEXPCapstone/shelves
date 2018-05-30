@@ -71,6 +71,16 @@ export class ShelfService {
     );
   }
 
+  getShelvesForRelease(id: string) {
+    const url = `${environment.apiUrl}/shelves/search/${id}`;
+
+    return this.http.get<Shelf[]>(url).pipe(
+      tap(shelves => this.log(`fetched shelves for this release`)),
+      catchError(this.handleError('getShelvesForRelease', []))
+    );
+
+  }
+
   // Post: add a new shelf to the server
   // api/shelves
   addShelf(newShelf: NewShelf): Observable<Shelf> {
