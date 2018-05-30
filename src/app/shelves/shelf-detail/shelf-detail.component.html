@@ -6,7 +6,19 @@
     </div>
     <mat-chip-list selectable="false" class="tag-chip">
         <mat-chip disabled>Shelf</mat-chip>
+        <mat-chip *ngIf="shelf.featured" disabled>
+          Featured
+        </mat-chip>
     </mat-chip-list>
+    <div class="flex-spacer"></div>
+    <div class="feature-shelf-button" *ngIf="(authService.isAuthenticated && !shelf.featured)">
+        <button (click)="setFeaturedShelf()"
+                mat-raised-button
+                color="accent"
+                class="feature-shelf-button">
+                Make this a featured shelf
+        </button>
+    </div>
   </div>
 
   <div class="browse-content">
