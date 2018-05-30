@@ -4,6 +4,8 @@ import { ShelfService } from '../../shelf.service';
 import { Shelf } from '../../models/shelf';
 import { environment } from '../../../environments/environment';
 import { Release } from '../../models/release';
+import { AuthService } from '../../auth/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-shelf-detail',
@@ -15,11 +17,31 @@ export class ShelfDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private shelfService: ShelfService
+    private shelfService: ShelfService,
+    public authService: AuthService,
+    private snackbar: MatSnackBar,
   ) { }
 
   ngOnInit() {
     this.getShelf();
+  }
+
+  setFeaturedShelf() {
+    // this should probably end up as a copy instead of a pointer
+    const updatedShelf = this.shelf;
+    updatedShelf.featured = true;
+    this.shelfService.updateShelf(updatedShelf)
+      .subscribe((resp) => {
+        this.snackbar.open(`"${this.shelf.name}" is now a featured shelf"`, '', {
+          duration: 3500,
+          panelClass: ['custom-snackbar']
+        });
+      }, (error) => {
+        this.snackbar.open('Error updating shelf; please try again later.', '', {
+          duration: 3500,
+          panelClass: ['warn-snackbar']
+        });
+      });
   }
 
   getShelf() {
