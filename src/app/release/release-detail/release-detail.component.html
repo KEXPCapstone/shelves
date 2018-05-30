@@ -59,7 +59,16 @@
                 </a>
             </h3>
             <mat-divider></mat-divider>
-            <app-related-releases *ngIf="release" [release]="release"></app-related-releases>
+            <div class="release-shelves">
+            <h3 class="mat-headline">Shelves containing this release</h3>
+            <mat-chip-list selectable="false" class="tag-chip">
+                    <mat-chip color="accent" *ngFor="let shelf of releaseShelves">
+                        <a routerLink="/library/shelf/{{shelf.id}}">
+                        {{shelf.name}}
+                        </a>
+                    </mat-chip>
+            </mat-chip-list>
+            </div>
         </div>
     </div>
     <section *ngIf="release" class="tracklist-container">
