@@ -202,7 +202,6 @@ export class ArtistItemComponent implements OnInit {
 
   setArtSrc() {
     if (this.artReleases.length > 0) {
-      const randomIndex = Math.floor(Math.random() * this.artReleases.length);
       this.artSrc = `${environment.coverArtUrl}/release/${this.artReleases[0]}/front-500.jpg`;
     } else {
       this.artSrc = `${environment.coverArtUrl}/release-group/${this.artist.releaseGroups[0].releaseGroupId}/front-500.jpg`;
@@ -250,7 +249,6 @@ export class LabelItemComponent implements OnInit {
 
   setArtSrc() {
     if (this.artReleases.length > 0) {
-      const randomIndex = Math.floor(Math.random() * this.artReleases.length);
       this.artSrc = `${environment.coverArtUrl}/release/${this.artReleases[0]}/front-500.jpg`;
     } else {
       this.artSrc = `${environment.coverArtUrl}/release-group/${this.label.releases[0].releaseGroupID}/front-500.jpg`;
