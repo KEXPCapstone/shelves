@@ -58,8 +58,8 @@
                     {{ last ? '' : ', '}}
                 </a>
             </h3>
-            <mat-divider></mat-divider>
-            <div class="release-shelves">
+            <mat-divider *ngIf="releaseShelves"></mat-divider>
+            <div *ngIf="releaseShelves" class="release-shelves">
             <h3 class="mat-headline">Shelves containing this release</h3>
             <mat-chip-list selectable="false" class="tag-chip">
                     <mat-chip color="accent" *ngFor="let shelf of releaseShelves">
