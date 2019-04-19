@@ -10,7 +10,7 @@ import { ShelvesListComponent } from './shelves/shelves.module';
 import { ShelfDetailComponent } from './shelves/shelf-detail/shelf-detail.component';
 
 export const SHELVES_ROUTES: Routes = [
-    {path: '', redirectTo: '/library/artists/a', pathMatch: 'full'}, // default route redirect
+    {path: '', redirectTo: '/library/shelves/all', pathMatch: 'full'}, // default route redirect
     {
         path: 'library',
         component: BrowseSidenavComponent,
